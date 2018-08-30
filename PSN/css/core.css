@@ -1,0 +1,149 @@
+body{
+    margin:0px;
+    background-color:#e6ecf0;
+}
+::placeholder{
+    color:rgba(0,0,0,.4);
+}
+
+input{
+    margin-bottom:10px;
+    width:70%;
+    height:35px;
+    border-color:rgb(0,0,0,.15);
+    border-radius:5px;
+    text-indent: 5px;
+}
+
+
+.error{
+    color:#b31b1b;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+ul{
+    padding:0px;
+}
+
+li{
+    list-style-type:none;
+}
+
+/************** LOGIN PAGE **************/
+    .login-header{
+        height:50px;
+        width:100%;
+        border-bottom-style:solid;
+        border-bottom-width:1px;
+        border-bottom-color:rgba(0,0,0,.5);
+        background-color:#ffffff;
+    }
+
+    .login-header-box{
+        width:50%;
+        margin:auto;
+        height:calc(100% - 2px);
+    }
+
+    .login-header-link>a{
+        color:rgba(0,0,0,.65);
+        text-decoration:none;
+        font-size:18px;
+        text-align: center;
+        display:inline-block;
+        height:100%;
+        width:100%;
+    }
+
+    .login-header-link{
+        height:100%;
+        width:100px;
+        border-bottom-style:solid;
+        border-bottom-color: #1da1f2;
+        border-bottom-width: 2px;
+    }
+
+    .login-header-link:hover{
+        height:calc(100% - 2px);
+        border-bottom-width:4px;
+    }
+
+    .login-header-link:hover a{
+       color:#1da1f2;
+    }
+
+    .login-body{
+        /* height:600px; */
+        width:50%;
+        margin: auto;
+        padding-top:10px;
+    }
+    .login-footer{
+
+    }
+    .login-form-box{
+        /* margin:auto; */
+        width:auto;
+        height:330px;
+        max-width:835px;
+        border-style: solid;
+        border-width:1px;
+        border-color:rgba(0,0,0,.2);
+        background-color:#f5f8fa
+    }
+
+    .login-form-box-body{
+        width:100%;
+        background-color: #ffffff;
+        padding-bottom:10px;
+    }
+
+    #login-form-inputs{
+        margin:auto;
+        width:50%;
+        margin-top:10px;
+    }
+
+    .submit-button{
+        width:auto;
+        color:#ffffff;
+        font-size: 1rem;
+        margin-right:10px;
+        background-color: #1da1f2;
+        border-style:solid;
+        border-width:2px 3px 2px 3px;
+        border-left-color:rgba(0,0,0,.3);
+        border-right-color:rgba(0,0,0,.3);
+        border-top-color:rgba(0,0,0,.5);
+        border-bottom-color:rgba(0,0,0,.5);
+        border-radius: 10px;
+    }
+
+    .submit-button:hover{
+        background-color:#006dbf;
+        border-color:#006dbf;
+        cursor:pointer;
+    }
+/*************** NEW ACCOUNT *************/
+    .newaccount-body{
+        width:50%;
+        margin: auto;
+        padding-top:10px;
+    }
+
+    .newaccount-form-box{
+        width:auto;
+        height:700px;
+        max-width:835px;
+        border-style: solid;
+        border-width:1px;
+        border-color:rgba(0,0,0,.2);
+        background-color:#ffffff;
+    }
