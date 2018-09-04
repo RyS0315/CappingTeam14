@@ -52,8 +52,8 @@
                           WHERE userid = $id";
             $userresult = $db->FetchQuery($userquery);
             $SETTINGS['username'] = $userresult[0]['username'];
-            $SETTINGS['firstname'] = $userresult[0]['first_name'];
-            $SETTINGS['lastname'] = $userresult[0]['last_name'];
+            $SETTINGS['firstname'] = $userresult[0]['fname'];
+            $SETTINGS['lastname'] = $userresult[0]['lname'];
             $SETTINGS['password'] = $userresult[0]['user_password'];
             return $SETTINGS;
         }
