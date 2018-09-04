@@ -6,9 +6,12 @@
 
     $inputUsername = isset($_POST['username']) ? $_POST['username'] : '';
     $inputPassword = isset($_POST['password']) ? $_POST['password'] : '';
-    $check = '';
+    $error = '';
+    $attempts = isset($_POST['attempts']) ? $_POST['attempts'] : 0;
     if($inputUsername!='' || $inputPassword !=''){
-        $check = checkUser($inputUsername, $inputPassword, $db);
+        $check = checkUser($inputUsername, $inputPassword, $db, $attempts);
+        $error = $check['error'];
+        $attempts = $check['attempts'];
     }
 ?>
 
@@ -21,7 +24,7 @@
     <section class='login-header'>
         <div class='login-header-box'>
             <ul>
-                <li class='login-header-link'>
+                <li class='login-header-link active'>
                 <a href='login.php'>Home</a></li>
             </ul>
         </div>
@@ -31,10 +34,11 @@
         <div class='login-form-box'>
         <div class='login-form-box-body'>
             <h1 style='width:50%; margin:auto; padding-top:50px; font-family:"Palatino"; font-size:28px'>Log in to PSN</h1>
-            <p class='error' style='width:50%; margin:auto; margin-top:5px'><?php echo $check ?></p>
+            <p class='error' style='width:50%; margin:auto; margin-top:5px'><?php echo $error ?></p>
             <form method='post' action='login.php' id='login-form-inputs'>    
                 <input type='text' name='username' value='<?php echo $inputUsername ?>' placeholder='Username or Email'>
                 <input type='password' name='password' placeholder='Password'></br>
+                <input type='hidden' name='attempts' value='<?php echo $attempts ?>'>
                 <button class='submit-button' name='submit' type='submit'>Login</button>
             </form>
             </div>
