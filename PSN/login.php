@@ -19,7 +19,7 @@
     <head>
         <title>PSN-Login</title>
 </head>
-<link rel='stylesheet' href='css/core.css'>
+<link rel='stylesheet' type='text/css' href='css/core.php'>
 <body>
     <section class='login-header'>
         <div class='login-header-box'>

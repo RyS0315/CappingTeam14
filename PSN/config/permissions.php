@@ -3,7 +3,6 @@
 
     session_start();
     $_SESSION['userId'] = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
-    $username = '';
     $id =  $_SESSION['userId'];
     $usersettings = isLoggedIn($id, $db);
     // print_r($usersettings);

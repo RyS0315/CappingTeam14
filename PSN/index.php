@@ -2,16 +2,16 @@
     include 'config/dbconfig.php';
     include 'config/permissions.php';
     include 'config/functions.php';
-    // $testary = ['1'=>'sdfsf', '2'=>'sadsada','3'=>['3a'=>'dasda','3b'=>'sadasda','3c'=>['3ca'=>'sadasda']]];
     // print_ary($testary);
-    
+    // print_ary($_SESSION);
+
 ?>
 
 <html>
     <head>
         <title>PSN</title>
     </head>
-<link rel='stylesheet' href='css/core.css'>
+<link rel='stylesheet' type='text/css' href='css/core.php'>
 <body>
     <section class='main-header'>
         <div class='main-header-box'>
@@ -41,7 +41,7 @@
                 <img src='images/Users/<?php echo $id?>/Banner/<?php echo $id?>.jpg' width='100%'>
                 <div style='display:inline-flex; margin-left:15px'>
                     <div>
-                        <img class='index-profile-pic'src='images/Users/<?php echo $id?>/Profile/<?php echo $id?>.jpg'>
+                        <img class='index-profile-pic' src='images/Users/<?php echo $id?>/Profile/<?php echo $id?>.jpg'>
                     </div>
                     <div style='padding-left:10px'>
                         <p class='index-name'><?php echo $firstname .' '. $lastname ?></p>

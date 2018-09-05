@@ -4,7 +4,7 @@ Create Table Users(
     fname VARCHAR(20),
     lname VARCHAR(20),
     username VARCHAR(12),
-    user_password encrypted VARCHAR(15),
+    user_password VARCHAR(15),
     zipCode int(10),
     primary_religion Int(10),
     default_view VARCHAR(20),
@@ -49,7 +49,8 @@ Create table Religion(
     religion_name VARCHAR(30)
 );
 
-Drop table if exists User_Religion(
+Drop table if exists User_Religion;
+Create table User_Religion(
     userid INT(10),
     relid INT(10),
     repuation Int(10),
