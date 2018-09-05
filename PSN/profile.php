@@ -30,10 +30,10 @@
             </ul>
         </div>
     </section>
-    <img src='images/Banner/<?php echo $id .'/'.$id?>.jpg' width='100%'></img>
+    <img src='images/Users/<?php echo $id?>/Banner/<?php echo $id?>.jpg' width='100%'></img>
 
     <section class='profile-body'>
-        <img class='profile-profile-pic'src='images/Profile/<?php echo $id.'/'.$id ?>.jpg'>
+        <img class='profile-profile-pic'src='images/Users/<?php echo $id?>/Profile/<?php echo $id?>.jpg'>
     </section>
 </body>
 

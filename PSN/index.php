@@ -38,7 +38,7 @@
     <section class='index-body'>
         <div class='index-left-box'>
             <div class='index-left-stats'>
-                <img src='images/Banner/<?php echo $id.'/'.$id ?>.jpg' width='100%'>
+                <img src='images/Users/<?php echo $id?>/Banner/<?php echo $id?>.jpg' width='100%'>
                 <div style='display:inline-flex; margin-left:15px'>
                     <div>
                         <img class='index-profile-pic'src='images/Users/<?php echo $id?>/Profile/<?php echo $id?>.jpg'>

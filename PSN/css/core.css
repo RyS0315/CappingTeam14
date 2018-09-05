@@ -194,6 +194,7 @@ li{
         border-color:#006dbf;
         cursor:pointer;
     }
+
 /*************** NEW ACCOUNT *************/
     .newaccount-body{
         width:50%;
@@ -285,6 +286,7 @@ li{
         display:block;
         padding-bottom:10px;
     }
+
 /*************** PROFILE **************/
     .profile-body{
         width:80%;
