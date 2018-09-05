@@ -1,4 +1,4 @@
-<link rel='stylesheet' href='css/core.css'>
+<link rel='stylesheet' type='text/css' href='css/core.php'>
 
 <body style='background-color:#e8f5fd; height:auto'>
     <form method='post' action='ComposePrayer.php'>

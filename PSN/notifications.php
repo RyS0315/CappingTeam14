@@ -7,7 +7,8 @@
     <head>
         <title>PSN</title>
     </head>
-<link rel='stylesheet' href='css/core.css'>
+    <link rel='stylesheet' type='text/css' href='css/core.php'>
+
 <body>
     <section class='main-header'>
         <div class='main-header-box'>
