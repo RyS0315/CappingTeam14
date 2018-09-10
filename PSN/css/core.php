@@ -1,14 +1,19 @@
 <?php
     header("Content-type: text/css; charset: UTF-8");
     $theme = [
-        'Light'=>['background'=>'#e6ecf0','text'=>'rgba(0,0,0,.65)','boxcolor'=>'#ffffff'],
-        'Dark' =>['background'=>'#141d26', 'text'=>'rgba(255,255,255,.65)','boxcolor'=>'#1b2836']
+        'Light'=>['background'=>'#eeeeee',
+                  'text'=>'rgba(0,0,0,.65)',
+                  'boxcolor'=>'#feeefe',
+                  'link'=>'rgba(200,0,200,.65)'],
+        'Dark' =>['background'=>'#141d26', 
+                  'text'=>'rgba(255,255,255,.65)',
+                  'boxcolor'=>'#1b2836']
     ];
     $chosen='Light';
-
     $backgroundcolor = $theme[$chosen]['background'];
     $boxcolor = $theme[$chosen]['boxcolor'];
     $textcolor = $theme[$chosen]['text'];
+    $linkcolor = $theme[$chosen]['link'];
 ?>
 /*************** COMMON ******************/
     body{
@@ -74,56 +79,38 @@
         display: flex;
     }
 
+    #header-profile-menu-list{
+        display:block;
+    }
+
     li{
         list-style-type:none;
         padding-right:5px;
         padding-left:5px;
     }
 
-    .main-header{
+    .hidden{
+        display:none;
+    }
+/*************** HEADER ******************/
+    .header{
         height:50px;
         width:100%;
         border-bottom-style:solid;
         border-bottom-width:1px;
         border-bottom-color:rgba(0,0,0,.5);
         background-color:<?php echo $boxcolor ?>;
-        /* margin-bottom:10px; */
+        position:fixed;
     }
-
-    .main-header-box{
+    
+    .header-box{
         width:85%;
         margin:auto;
+        display:flex;
         height:calc(100% - 16px);
-        transform: translateY(15px);
     }
-
-    .index-profile-pic{
-        border-radius: 50%;
-        height: 60px;
-        width: 60px;
-        border: 3px solid <?php echo $boxcolor?>;
-        color: #fff;
-        transform: translateY(-40%);
-    }
-
-/*************** LOGIN PAGE **************/
-    .login-header{
-        height:50px;
-        width:100%;
-        border-bottom-style:solid;
-        border-bottom-width:1px;
-        border-bottom-color:rgba(0,0,0,.5);
-        background-color:#ffffff;
-    }
-
-    .login-header-box{
-        width:50%;
-        margin:auto;
-        height:calc(100% - 16px);
-        transform: translateY(15px);
-    }
-
-    .login-header-link>a{
+    
+    .header-link>a{
         color:<?php echo $textcolor ?>;
         text-decoration:none;
         font-size:18px;
@@ -132,40 +119,71 @@
         height:100%;
         width:100%;
     }
-
-    .login-header-link{
+    
+    .header-link{
         height:100%;
         width:100px;
         border-bottom-style:solid;
-        border-bottom-color: #006dbf;
+        border-bottom-color: <?php echo $linkcolor ?>;
         border-bottom-width: 1px;
     }
-
-    .login-header-link:hover{
+    
+    .header-link:hover{
         height:calc(100% - 1px);
         border-bottom-width:3px;
-        border-bottom-color: #1da1f2;
+        border-bottom-color: <?php echo $linkcolor ?>;
     }
-
+    
     .active{
         height:calc(100% - 1px);
         border-bottom-width:3px;
-        border-bottom-color: #1da1f2;
+        border-bottom-color: <?php echo $linkcolor?>;
     }
-
+    
     .active a{
-        color:#1da1f2;
+        color:<?php echo $linkcolor ?>;
+    }
+    
+    .header-link:hover a{
+        color:<?php echo $linkcolor?>;
     }
 
-    .login-header-link:hover a{
-       color:#1da1f2;
+    .header-profile-pic{
+        padding-left:40%;
     }
 
+    #header-profile-pic-link:hover{
+        cursor:pointer;
+    }
+
+    .index-profile-pic{
+        border-radius: 50%;
+        height: 45px;
+        width: 45px;
+        border: 3px solid <?php echo $boxcolor?>;
+        color: #fff;
+        transform: translateY(-40%);
+    }
+
+    .index-profile-pic:hover{
+        border-color:<?php echo $linkcolor ?>;
+    }
+
+    #header-profile-menu{
+        height:250px;
+        width:200px;
+        position:fixed;
+        margin-top:50px;
+        margin-left:71%;
+        background-color:#ffffff;
+    }
+    
+/*************** LOGIN PAGE **************/
     .login-body{
         /* height:600px; */
         width:50%;
         margin: auto;
-        padding-top:10px;
+        padding-top:60px;
     }
 
     .login-form-box{
@@ -215,7 +233,7 @@
     .newaccount-body{
         width:50%;
         margin: auto;
-        padding-top:10px;
+        padding-top:60px;
     }
 
     .newaccount-form-box{
@@ -236,7 +254,8 @@
         margin:auto;
         height:auto;
         padding-bottom:25px;
-        margin-top:10px;
+        padding-top:60px;
+        
     }
 
     .index-left-box{
@@ -244,28 +263,31 @@
         display:block;
     }
 
-    .index-left-stats{
+    .index-profile-stats{
+        margin-top:10px;
         height:auto;
         background-color: <?php echo $boxcolor ?>;
+        width:85%;
+        margin:auto;
     }
 
     .index-left-trends{
         height:600px;
         background-color: <?php echo $boxcolor ?>;
-        margin-top:10px;
     }
 
     .index-center-box{
         width:52%;
         margin-left:10px;
-        background-color: <?php echo $boxcolor ?>;
+        background-color: #ffffff;
         margin-right:10px;
+        height:2000px;
     }
 
     .index-right-box{
         width:25%;
         background-color: <?php echo $boxcolor ?>;
-
+        height:auto;
     }
 
     .compose-prayer{

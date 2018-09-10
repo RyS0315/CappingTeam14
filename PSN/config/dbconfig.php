@@ -1,5 +1,5 @@
 <?php
-    include '/../Database/mydb.php';
+    include '/../Classes/mydb.php';
 
     $servername = '127.0.0.1';
     $username = "root";

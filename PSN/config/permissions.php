@@ -1,22 +1,18 @@
 <?php
-    // include 'functions.php';
-
     session_start();
     $_SESSION['userId'] = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
     $id =  $_SESSION['userId'];
     $usersettings = isLoggedIn($id, $db);
-    // print_r($usersettings);
-    // print_ary($usersettings);
     $username = $usersettings['username'];
     $firstname = $usersettings['firstname'];
     $lastname = $usersettings['lastname'];
-    $password = $usersettings['password'];
+    // $password = $usersettings['password'];
 
-    function checkUser($username, $pass,$db, $attempts){
+    function checkUser($username, $pass, $db, $attempts){
         $validuserquery = "SELECT userid
                            FROM USERS
-                            WHERE username = '$username'
-                            AND user_password = '$pass'";
+                           WHERE username = '$username'
+                           AND user_password = '$pass'";
         $checkResult = $db->FetchQuery($validuserquery);
         if($checkResult){
             setUser($checkResult[0]['userid']);
@@ -57,7 +53,7 @@
             return $SETTINGS;
         }
         else{
-            if ($_SERVER['REQUEST_URI'] === 'login.php') {
+            if ($_SERVER['REQUEST_URI'] === 'login.php') {//This if statement is broken!!!! 
                 header('Location:login.php');
             }else{
                 return false;

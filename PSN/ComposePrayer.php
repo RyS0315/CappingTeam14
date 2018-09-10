@@ -1,6 +1,6 @@
 <link rel='stylesheet' type='text/css' href='css/core.php'>
 
-<body style='background-color:#e8f5fd; height:auto'>
+<body style='background-color:rgba(200,0,200,.1); height:auto'>
     <form method='post' action='ComposePrayer.php'>
         <textarea name='prayer' onkeyup='auto_grow(this)' placeholder='Compose Prayer'></textarea>
     </form>
