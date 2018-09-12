@@ -1,11 +1,12 @@
 <?php
     session_start();
     $_SESSION['userId'] = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
-    $id =  $_SESSION['userId'];
+    $id =  isset($id) ? $id : $_SESSION['userId'];
     $usersettings = isLoggedIn($id, $db);
     $username = $usersettings['username'];
     $firstname = $usersettings['firstname'];
     $lastname = $usersettings['lastname'];
+    // print_ary($usersettings);
     // $password = $usersettings['password'];
 
     function checkUser($username, $pass, $db, $attempts){
@@ -53,7 +54,8 @@
             return $SETTINGS;
         }
         else{
-            if ($_SERVER['REQUEST_URI'] === 'login.php') {//This if statement is broken!!!! 
+            $page = basename($_SERVER['REQUEST_URI']);
+            if (require_login($page)) {//This if statement is broken!!!! 
                 header('Location:login.php');
             }else{
                 return false;
@@ -64,5 +66,17 @@
     function signOut(){
         session_destroy();
         header('Location:login.php');
+    }
+
+    function require_login($page){
+        $nologin = ['login.php','newAccount.php'];
+        foreach($nologin as $i){
+            if($i == $page){
+                return false;
+            }else{
+                continue;
+            }
+        }
+        return true;
     }
 ?>

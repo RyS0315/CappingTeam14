@@ -26,14 +26,14 @@
     }
 
     /**
-    * Function to determine if a page is valid based
-    * on the get vars being passed
-    *
-    * $test => An array of all the valid values for a get var
-    * $vars => An array of all GET vars allowed for a page
-    *
-    * If no get vars are on a page set $test[] = [0] and $vars = ['']
-    *
+     * Function to determine if a page is valid based
+     * on the get vars being passed
+     *
+     * $test => An array of all the valid values for a get var
+     * $vars => An array of all GET vars allowed for a page
+     *
+     * If no get vars are on a page set $test[] = [0] and $vars = ['']
+     *
     */
     function checkValid($test,$vars){
         $isvalid = array_filter(
@@ -66,7 +66,6 @@
                 }
             }
         }
-    
         if(!empty($isvalid) || !$varsvalid){
             header('location:index.php');
             exit;

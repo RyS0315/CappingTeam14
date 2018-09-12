@@ -1,8 +1,27 @@
 <?php 
     include 'config/dbconfig.php';
     include 'config/permissions.php';
-?>
 
+    $relarray = [
+        [
+            'religion'=>'Christianity', 
+            'followers'=>'123223'
+        ],
+        [
+            'religion'=>'Islam', 
+            'followers'=>'31412'
+        ],
+        [
+            'religion'=>'Judaism', 
+            'followers'=>'23123'
+        ],
+        [
+            'religion'=>'Buddhism', 
+            'followers'=>'9828'
+        ]
+    ]
+
+?>
 <html>
     <head>
         <title>PSN</title>
@@ -15,14 +34,14 @@
                 <li class='header-link'>
                     <a href='index.php'>Home</a>
                 </li>
-                <li class='header-link active'>
-                    <a href='profile.php'> Profile </a>
+                <li class='header-link'>
+                    <a href='profile.php'>Profile</a>
                 </li>
                 <li class='header-link'>
-                    <a href='notifications.php'> Notifications </a>
+                    <a href='notifications.php'>Notifications</a>
                 </li>
                 <li class='header-link'>
-                    <a href='messages.php'> Messages </a>
+                    <a href='messages.php'>Messages</a>
                 </li>
             </ul>
             <ul class='header-profile-pic'>
@@ -45,10 +64,19 @@
             </li>
         </ul>
     </div>
-    <img src='images/Users/<?php echo $id?>/Banner/<?php echo $id?>.jpg' width='100%'></img>
 
-    <section class='profile-body'>
-        <img class='profile-profile-pic' src='images/Users/<?php echo $id?>/Profile/<?php echo $id?>.jpg'>
+    <section class='index-body'>
+        <div style='width:100%'>
+        <h2> Add a Religion </h2>
+        <div class='religions-body' style='display:flex; width:100%; flex-wrap:wrap'><?php
+            foreach($relarray as $i){?>
+                <div class='religion-box' style='min-width:33%'>
+                    <p>Religion:<?php echo $i['religion']?></p>
+                    <p>Followers:<?php echo $i['followers']?></p>
+                </div><?php
+            }?>
+        <div>
+        
     </section>
 </body>
 
@@ -60,7 +88,6 @@
         button.removeAttribute('onclick');
         $(menu).fadeIn();
         button.setAttribute('onclick','CloseMenu()');
-        // menu.classList.remove('hidden');
     }
 
     function CloseMenu(){
@@ -71,4 +98,3 @@
         button.setAttribute('onclick','ShowMenu()');
     }
 </script> 
-

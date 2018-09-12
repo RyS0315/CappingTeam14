@@ -49,9 +49,7 @@
 
     <section class='index-body'>
         <div class='index-left-box'>
-            <div class='index-left-trends'>
-                Trends
-            </div>
+            Trends
         </div>
 
         <div class='index-center-box'>

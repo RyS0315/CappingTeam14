@@ -261,6 +261,8 @@
     .index-left-box{
         width:25%;
         display:block;
+        height:600px;
+        background-color: <?php echo $boxcolor ?>;
     }
 
     .index-profile-stats{
@@ -269,11 +271,6 @@
         background-color: <?php echo $boxcolor ?>;
         width:85%;
         margin:auto;
-    }
-
-    .index-left-trends{
-        height:600px;
-        background-color: <?php echo $boxcolor ?>;
     }
 
     .index-center-box{

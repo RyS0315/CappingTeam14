@@ -1,66 +1,66 @@
-DROP TABLE IF EXISTS Users;
-CREATE TABLE Users(
-    userid INT(10) PRIMARY KEY AUTO_INCREMENT,
+DROP TABLE if exists USERS;
+Create Table Users(
+    userid Int(10) Primary KEY AUTO_INCREMENT,
     fname VARCHAR(20),
     lname VARCHAR(20),
     username VARCHAR(12),
     user_password VARCHAR(15),
-    zipCode INT(10),
-    primary_religion INT(10),
+    zipCode int(10),
+    primary_religion Int(10),
     default_view VARCHAR(20),
     email VARCHAR(30),
     phone_number VARCHAR(15)
 );
 
-DROP TABLE IF EXISTS Prayer;
-CREATE TABLE Prayer(
-    prayid INT(10) PRIMARY KEY AUTO_INCREMENT,
-    userid INT(10),
+DROP TABLE if exists Prayer;
+Create Table Prayer(
+    prayid INT(10) Primary KEY AUTO_INCREMENT,
+    userid Int(10),
     content VARCHAR(140),
-    descript TEXT,
-    pray_status INT(1),
-    exclusive INT(1),
-    post_date DATETIME
+    descript text,
+    pray_status Int(1),
+    exclusive Int(1),
+    post_date datetime
 );
 
-DROP TABLE IF EXISTS Prayer_Tag;
-CREATE TABLE Prayer_Tag(
+Drop table if exists Prayer_Tag;
+Create table Prayer_Tag(
     prayid INT(10),
     tagid INT(10),
-    PRIMARY KEY(prayid, tagid)
+    Primary KEY(prayid, tagid)
 );
 
-DROP TABLE IF EXISTS Tag;
-CREATE TABLE Tag(
-    tagid INT(10) PRIMARY KEY AUTO_INCREMENT,
-    tag_name VARCHAR(14)
+Drop table if exists Tag;
+Create table Tag(
+    tagid Int(10) Primary KEY AUTO_INCREMENT,
+    tag_name Varchar(14)
 );
 
-DROP TABLE IF EXISTS Prayer_Religion;
-CREATE TABLE Prayer_Religion(
+Drop table if exists Prayer_Religion;
+Create Table Prayer_Religion(
     prayid INT(10),
-    relid INT(10),
-    PRIMARY KEY(prayid, relid)
+    relid Int(10),
+    Primary Key(prayid, relid)
 );
 
-DROP TABLE IF EXISTS Religion;
-CREATE TABLE Religion(
-    relid INT(10) PRIMARY KEY AUTO_INCREMENT,
+Drop table if exists Religion;
+Create table Religion(
+    relid Int(10) Primary key AUTO_INCREMENT,
     religion_name VARCHAR(30)
 );
 
-DROP TABLE IF EXISTS User_Religion;
-CREATE TABLE User_Religion(
+Drop table if exists User_Religion;
+Create table User_Religion(
     userid INT(10),
     relid INT(10),
-    repuation INT(10),
-    PRIMARY KEY(userid, relid)
+    repuation Int(10),
+    Primary Key(userid, relid)
 );
 
-INSERT INTO Religion(religion_name) VALUES
+Insert into Religion(religion_name) VALUES
 ('Christianity'),
 ('Judaism'),
 ('Islam');
 
-INSERT INTO USERS (fname,lname,username,user_password,zipCode,primary_religion, email,phone_number)VALUES
+INSERT into USERS (fname,lname,username,user_password,zipCode,primary_religion, email,phone_number)VALUES
 ('Team', '14','Admin','Marist', 12601, 1, 'Admin@psn.com', '888-888-8888');

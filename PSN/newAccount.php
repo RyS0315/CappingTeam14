@@ -1,4 +1,4 @@
-<?php 
+<?php
     include 'config/dbconfig.php';
     include 'config/permissions.php';
     include 'config/functions.php';
@@ -109,7 +109,7 @@
                         VALUES('$firstname', '$lastname','$username','$password')";
         $insertresult = $db->InsertQuery($insertquery);
         setUser($insertresult);
-        header('Location:index.php');
+        header('Location:addReligion.php');
     }
 ?>
 

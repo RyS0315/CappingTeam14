@@ -50,7 +50,6 @@ Class mydb {
         }
     }
 
-
     function CreateTableQuery($query){
         //return table name or false
        $queryresult = mysqli_query($conn, $query);
