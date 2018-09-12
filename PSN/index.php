@@ -2,6 +2,34 @@
     include 'config/dbconfig.php';
     include 'config/permissions.php';
     include 'config/functions.php';
+    include 'Classes/createheader.php';
+
+    $menus = [
+        [
+            'name'=>'Home',
+            'link'=>'index.php',
+            'active'=>'active'
+        ],
+        [
+            'name'=>'Profile',
+            'link'=>'profile.php',
+            'active'=>''
+        ],
+        [
+            'name'=>'Notifications',
+            'link'=>'notifications.php',
+            'active'=>''
+        ],
+        [
+            'name'=>'Messages',
+            'link'=>'messages.php',
+            'active'=>''
+        ]
+    ];
+
+    $header = new Header($db, $menus);
+    $header->ShowUserMenu($id);
+    $header->displayHeader();
 ?>
 
 <html>
@@ -10,29 +38,6 @@
     </head>
 <link rel='stylesheet' type='text/css' href='css/core.php'>
 <body>
-    <section class='header'>
-        <div class='header-box'>
-            <ul>
-                <li class='header-link active'>
-                    <a href='index.php'>Home</a>
-                </li>
-                <li class='header-link'>
-                    <a href='profile.php'> Profile </a>
-                </li>
-                <li class='header-link'>
-                    <a href='notifications.php'> Notifications </a>
-                </li>
-                <li class='header-link'>
-                    <a href='messages.php'> Messages </a>
-                </li>
-            </ul>
-            <ul class='header-profile-pic'>
-                <li id='header-profile-pic-link' onclick='ShowMenu()'>
-                    <img class='index-profile-pic' src='images/Users/<?php echo $id?>/Profile/<?php echo $id?>.jpg'>
-                </li>
-            </ul>
-        </div>
-    </section>
     <div id='header-profile-menu' class='hidden'>
         <ul id='header-profile-menu-list'>
             <li>

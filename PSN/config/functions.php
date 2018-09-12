@@ -47,7 +47,6 @@
         $varsvalid = true;
         $keys = array_keys($_GET);
         if(isset($_GET)){
-    
             foreach($keys as $i){
                 $validvar = false;
                 foreach($vars as $check){

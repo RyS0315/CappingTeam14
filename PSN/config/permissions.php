@@ -40,8 +40,7 @@
         $SETTINGS['username'] = '';
         $SETTINGS['firstname'] = ''; 
         $SETTINGS['lastname'] = ''; 
-        $SETTINGS['password'] = ''; 
-        
+        $SETTINGS['password'] = '';    
         if($_SESSION['userId'] != ''){
             $userquery = "SELECT * 
                           FROM USERS 
