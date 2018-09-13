@@ -2,6 +2,7 @@
     include 'config/dbconfig.php';
     include 'config/permissions.php';
     include 'Classes/createheader.php';
+    include 'Classes/createFooter.php';
 
     $menus = [
         [
@@ -25,17 +26,18 @@
             'active'=>'active'
         ]
     ];
+    $src[] = ["src"=>"js/userMenu.js", "type"=>"js"];
+    $src[] = ["src"=>"js/jqueryinit.php","type"=>"php"];
+    $css[] = ["src"=>"css/core.php","type"=>"css"];
+    $title = "P.R.A.Y";
 
-    $header = new Header($db, $menus);
+    $header = new Header($db, $menus,$title,$css);
     $header->ShowUserMenu($id);
     $header->displayHeader();
 ?>
-<html>
-    <head>
-        <title>PSN</title>
-    </head>
-    <link rel='stylesheet' type='text/css' href='css/core.php'>
-<body>
+
+
+    <!-- Add this to header class -->
     <div id='header-profile-menu' class='hidden'>
         <ul id='header-profile-menu-list'>
             <li>
@@ -50,27 +52,15 @@
         </ul>
     </div>
 
+
+
+
+
+
     <section class='profile-body'>
 
     </section>
-</body>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-    function ShowMenu(){
-        var menu = document.getElementById('header-profile-menu');
-        var button = document.getElementById('header-profile-pic-link');
-        button.removeAttribute('onclick');
-        $(menu).fadeIn();
-        button.setAttribute('onclick','CloseMenu()');
-        // menu.classList.remove('hidden');
-    }
-
-    function CloseMenu(){
-        var menu = document.getElementById('header-profile-menu');
-        var button = document.getElementById('header-profile-pic-link');
-        button.removeAttribute('onclick');
-        $(menu).fadeOut();
-        button.setAttribute('onclick','ShowMenu()');
-    }
-</script> 
+<?php 
+    $footer = new Footer($db,$src);
+    $footer->buildFooter();
+?>

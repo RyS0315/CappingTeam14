@@ -58,6 +58,10 @@ Class mydb {
     function AlterTableQuery(){
         //Return True of False
     }
+
+    function CountFollowers($relid){
+        
+    }
 }
 
 ?>

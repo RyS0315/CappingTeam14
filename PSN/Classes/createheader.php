@@ -8,9 +8,15 @@
 
         protected $userid;//Id of the user uploading the image
 
-        Public function __construct($db,$menus){
+        protected $title;
+
+        protected $css;
+
+        Public function __construct($db,$menus,$title,$css){
             $this->db = $db;
             $this->menus = $menus;
+            $this->title = $title;
+            $this->css = $css;
         }
 
         function showUserMenu($id, $bool = 1){
@@ -19,23 +25,40 @@
         }
 
         function displayHeader(){
+            $this->createTitle();
             echo "<section class='header'>
-            <div class='header-box'>
-            <ul>";
+                  <div class='header-box'>
+                  <ul>";
             foreach($this->menus as $i){
                 echo "<li class='header-link ".$i['active']."'>
-                    <a href='".$i['link']."'>".$i['name']."</a>
-                </li>";
+                        <a href='".$i['link']."'>".$i['name']."</a>
+                      </li>";
             }
             echo "</ul>";
-            if($this->loggedIn){
+            if($this->loggedIn == 1){
                 echo "<ul class='header-profile-pic'>
-                <li id='header-profile-pic-link' onclick='ShowMenu()'>
-                    <img class='index-profile-pic' src='images/Users/".$this->userid."/Profile/".$this->userid.".jpg'>
-                </li>
-                </ul>";
+                        <li id='header-profile-pic-link' onclick='ShowMenu()'>
+                            <img class='index-profile-pic' src='images/Users/".$this->userid."/Profile/".$this->userid.".jpg'>
+                        </li>
+                    </ul>";
             }
             echo "</div></section>";
+        }
+
+        function createTitle(){
+           echo "<html>
+                    <head>
+                        <title>".$this->title."</title>
+                    </head>
+                    <body>";
+            $this->addcss();
+        }
+
+        function addcss(){
+            foreach($this->css as $i){
+                echo "<link rel='stylesheet' type='text/css' href='".$i["src"]."'>";
+                continue;
+            }
         }
     }
 ?>
