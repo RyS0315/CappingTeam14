@@ -43,6 +43,7 @@
                             <img class='index-profile-pic' src='images/Users/".$this->userid."/Profile/".$this->userid.".jpg'>
                         </li>
                     </ul>";
+                $this->createUserMenu($this->userid);
             }
             echo "</div></section>";
         }
@@ -61,6 +62,40 @@
                 echo "<link rel='stylesheet' type='text/css' href='".$i["src"]."'>";
                 continue;
             }
+        }
+
+        function createUserMenu($id){
+            $query = "SELECT fname, lname, username
+                      FROM Users
+                      WHERE userid = '$id'";
+            $result = $this->db->fetchQuery($query);
+            $firstname = $result[0]['fname'];
+            $lastname = $result[0]['lname'];
+            $username = $result[0]['username'];
+
+            echo "<div id='header-profile-menu' class='hidden'>
+                <ul class='header-profile-menu-name'>
+                    <li class='header-profile-menu-name-name'>
+                        <a href='profile.php'>".$firstname." ".$lastname ."</a>
+                    </li>
+                    <li class='header-profile-menu-name-username'>
+                        <a href='profile.php'>@".$username."</a>
+                    </li>
+                </ul>
+                <ul class='header-profile-menu-settings'>
+                    <li class='header-profile-menu-list-item'>
+                        <a href='settings.php'> Settings </a>
+                    </li>
+                    <li class='header-profile-menu-list-item'>
+                        <a href='settings.php'>Theme</a>
+                    </li>
+                </ul>
+                <ul class='header-profile-menu-logout'>
+                    <li class='header-profile-menu-list-item'>
+                        <a href='signOut.php'> Log Out </a>
+                    </li>
+                </ul>
+            </div>";
         }
     }
 ?>

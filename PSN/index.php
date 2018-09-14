@@ -35,20 +35,6 @@
     $header->ShowUserMenu($id);
     $header->displayHeader();
 ?>
-    <div id='header-profile-menu' class='hidden'>
-        <ul id='header-profile-menu-list'>
-            <li>
-                <a href='profile.php'><?php echo $firstname.' '.$lastname .'@'.$username?> </a>
-            </li>
-            <li>
-                <a href='settings.php'> Settings </a>
-            </li>
-            <li>
-                <a href='signOut.php'> Log Out </a>
-            </li>
-        </ul>
-    </div>
-
     <section class='index-body'>
         <div class='index-left-box'>
             Trends

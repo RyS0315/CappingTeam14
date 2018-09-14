@@ -69,6 +69,7 @@
 <section class='index-body'>
 
     <?php $usersettings->displaySettings();?>
+
 <section>
 
 

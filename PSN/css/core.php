@@ -196,13 +196,98 @@
     }
 
     #header-profile-menu{
-        height:250px;
+        height:auto;
         width:200px;
         position:fixed;
         margin-top:50px;
-        margin-left:71%;
+        margin-left:66%;
         background-color:#ffffff;
+        border-radius:5px;
     }
+
+    .header-profile-menu-name{
+        display:block;
+        height:calc(25% - 10px);
+        width:100%;
+        padding-top:10px;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        border-bottom-color:#eeeeee;
+        border-bottom-width:1px;
+        border-bottom-style:solid;
+    }
+    
+    .header-profile-menu-name:hover{
+        background-color:#eeeeee;
+    }
+    
+    .header-profile-menu-name-name>a{
+        color:#000000;
+        font-weight:bold;
+        text-decoration:none;
+        font-size:22px;
+        display:inline-block;
+        height:100%;
+        width:100%;
+        padding-left:10px;
+        width:calc(100% - 10px);
+    }
+    
+    .header-profile-menu-name-name{
+        height:40%;
+    }
+    
+    .header-profile-menu-name-username{
+        height:60%;
+    }
+    
+    .header-profile-menu-name-username>a{
+        padding-bottom:10px;
+        color:<?php echo $textcolor ?>;
+        text-decoration:none;
+        font-size:18px;
+        padding-left:20px;
+        width:calc(100% - 20px);
+        display:inline-block;
+        height:100%;
+    }
+
+    .header-profile-menu-settings{
+        display:block;
+        height:auto;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        border-bottom-color:#eeeeee;
+        border-bottom-width:1px;
+        border-bottom-style:solid;
+    }
+
+    .header-profile-menu-list-item:hover{
+        background-color:#eeeeee;
+    }
+
+    .header-profile-menu-list-item>a{
+        color:<?php echo $textcolor ?>;
+        text-decoration:none;
+        font-size:18px;
+        padding-left:10px;
+        width:calc(100% - 10px);
+        display:inline-block;
+        padding-top:10px;
+        height:calc(100%-10px);
+    }
+
+    .header-profile-menu-list-item{
+        height:40px;
+    }
+
+    .header-profile-menu-logout{
+        display:block;
+        height:auto;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+    }
+
     
 /*************** LOGIN PAGE **************/
     .login-body{
