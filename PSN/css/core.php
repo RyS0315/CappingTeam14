@@ -85,12 +85,14 @@
 
     li{
         list-style-type:none;
-        padding-right:5px;
-        padding-left:5px;
     }
 
     .hidden{
         display:none;
+    }
+
+    .logo-box{
+        width:20%;
     }
 
     .logo{
@@ -98,7 +100,11 @@
         width:46px;
         border-radius:50%;
         border-color:<?php echo $boxcolor ?>;
-        margin-left:10%;
+    }
+
+    .logo-li{
+        transform: translateY(-29%);
+        margin:auto;
     }
 /*************** HEADER ******************/
     .header{
@@ -117,6 +123,10 @@
         display:flex;
         height:calc(100% - 16px);
     }
+
+    .header-link-box{
+        width:40%;
+    }
     
     .header-link>a{
         color:<?php echo $textcolor ?>;
@@ -134,16 +144,18 @@
         border-bottom-style:solid;
         border-bottom-color: <?php echo $linkcolor ?>;
         border-bottom-width: 1px;
+        padding-right:5px;
+        padding-left:5px;
     }
     
     .header-link:hover{
-        height:calc(100% - 1px);
+        height:calc(100% - 2px);
         border-bottom-width:3px;
         border-bottom-color: <?php echo $linkcolor ?>;
     }
     
     .active{
-        height:calc(100% - 1px);
+        height:calc(100% - 2px);
         border-bottom-width:3px;
         border-bottom-color: <?php echo $linkcolor?>;
     }
@@ -157,24 +169,30 @@
     }
 
     .header-profile-pic{
-        padding-left:40%;
+        width:40%;
     }
 
     #header-profile-pic-link:hover{
         cursor:pointer;
+        border-width:3px;
+        border-color:<?php echo $linkcolor ?>;
+    }
+
+    #header-profile-pic-link{
+        margin:auto;
+        transform: translateY(-29%);
     }
 
     .index-profile-pic{
         border-radius: 50%;
         height: 45px;
         width: 45px;
-        border: 3px solid <?php echo $boxcolor?>;
+        border-color: <?php echo $boxcolor?>;
         color: #fff;
-        transform: translateY(-40%);
+        margin:auto;
     }
 
     .index-profile-pic:hover{
-        border-color:<?php echo $linkcolor ?>;
     }
 
     #header-profile-menu{
@@ -342,4 +360,33 @@
         border: 2px solid #fff;
         color: #fff;
         transform: translateY(-100px);
+    }
+/*************** USERSETTINGS ************/
+    .usersettings-box{
+        display:block;
+    }
+
+    .settings-link{
+        border-color:#cccccc;
+        border-style:solid;
+        border-width:1px;
+        height:60px;
+        background-color: #fefefe;
+        width:250px;
+    }
+
+    .settings-link>a{
+        position:relative;
+        color:<?php echo $textcolor ?>;
+        text-decoration:none;
+        font-size:20px;
+        text-align: center;
+        display:block;
+        height: calc(100% - 21px);
+        padding-top: 21px;
+        width:100%;
+    }
+
+    .settings-link:hover{
+        background-color:<?php echo $backgroundcolor ?>;
     }

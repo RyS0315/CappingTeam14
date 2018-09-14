@@ -4,6 +4,7 @@
     include 'config/functions.php';
     include 'Classes/createheader.php';
     include 'Classes/createFooter.php';
+    include 'Classes/createUserSettings.php';
 
     $menus = [
         [
@@ -34,7 +35,41 @@
     $header = new Header($db, $menus, $title, $css);
     $header->ShowUserMenu($id);
     $header->displayHeader();
-?>
+
+    $settings = [
+        [
+            'name'=> 'Account',
+            'link'=>'index.php',
+            'active'=>''
+        ],
+        [
+            'name'=>'Password',
+            'link'=>'profile.php',
+            'active'=>''
+        ],
+        [
+            'name'=>'Email',
+            'link'=>'notifications.php',
+            'active'=>''
+        ],
+        [
+            'name'=>'Blocked Accounts',
+            'link'=>'messages.php',
+            'active'=>''
+        ],
+        [
+            'name'=>'Religions',
+            'link'=>'messages.php',
+            'active'=>''
+        ]
+    ];
+    $usersettings = new UserSettings($db,$settings,$id);
+    ?>
+
+<section class='index-body'>
+
+    <?php $usersettings->displaySettings();?>
+<section>
 
 
 

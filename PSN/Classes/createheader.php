@@ -28,14 +28,15 @@
             $this->createTitle();
             echo "<section class='header'>
                   <div class='header-box'>
-                  <ul>";
+                  <ul class='header-link-box'>";
             foreach($this->menus as $i){
                 echo "<li class='header-link ".$i['active']."'>
                         <a href='".$i['link']."'>".$i['name']."</a>
                       </li>";
             }
             echo "</ul>";
-            echo "<img class='logo' src='images/icons/logo.jpg'>";
+
+            echo "<ul class='logo-box'><li class='logo-li'><a href='index.php'><img class='logo' src='images/icons/logo.jpg'></a></li></ul>";
             if($this->loggedIn == 1){
                 echo "<ul class='header-profile-pic'>
                         <li id='header-profile-pic-link' onclick='ShowMenu()'>
