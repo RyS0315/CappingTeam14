@@ -35,6 +35,7 @@
                       </li>";
             }
             echo "</ul>";
+            echo "<img class='logo' src='images/icons/logo.jpg'>";
             if($this->loggedIn == 1){
                 echo "<ul class='header-profile-pic'>
                         <li id='header-profile-pic-link' onclick='ShowMenu()'>

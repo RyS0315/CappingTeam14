@@ -92,6 +92,14 @@
     .hidden{
         display:none;
     }
+
+    .logo{
+        height:46px;
+        width:46px;
+        border-radius:50%;
+        border-color:<?php echo $boxcolor ?>;
+        margin-left:10%;
+    }
 /*************** HEADER ******************/
     .header{
         height:50px;
