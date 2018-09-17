@@ -16,6 +16,10 @@
     $linkcolor = $theme[$chosen]['link'];
 ?>
 /*************** COMMON ******************/
+    html{
+        
+    }
+
     body{
         margin:0px;
         background-color:<?php echo $backgroundcolor ?>;
@@ -26,6 +30,10 @@
 
     p{
         color:<?php echo $textcolor?>;
+        margin-block-start: 0px;
+        margin-block-end: 0em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
     }
 
     input{
@@ -49,10 +57,8 @@
     textarea {
         resize: none;
         overflow: hidden;
-        min-height: 40px;
-        max-height: 100px;
+        min-height: 35px;
         width:95%;
-        margin:2.5%;
         border-color:#1DA1F2;
         font-size:16px;
         border-radius:7px;
@@ -140,12 +146,12 @@
     
     .header-link{
         height:100%;
-        width:100px;
+        width:auto;
         border-bottom-style:solid;
         border-bottom-color: <?php echo $linkcolor ?>;
         border-bottom-width: 1px;
-        padding-right:5px;
-        padding-left:5px;
+        padding-right:20px;
+        padding-left:20px;
     }
     
     .header-link:hover{
@@ -203,6 +209,9 @@
         margin-left:66%;
         background-color:#ffffff;
         border-radius:5px;
+        border-color:#cccccc;
+        border-width:1px;
+        border-style:solid;
     }
 
     .header-profile-menu-name{
@@ -212,7 +221,7 @@
         padding-top:10px;
         margin-block-start: 0em;
         margin-block-end: 0em;
-        border-bottom-color:#eeeeee;
+        border-bottom-color:#cccccc;
         border-bottom-width:1px;
         border-bottom-style:solid;
     }
@@ -257,7 +266,7 @@
         height:auto;
         margin-block-start: 0em;
         margin-block-end: 0em;
-        border-bottom-color:#eeeeee;
+        border-bottom-color:#cccccc;
         border-bottom-width:1px;
         border-bottom-style:solid;
     }
@@ -274,7 +283,7 @@
         width:calc(100% - 10px);
         display:inline-block;
         padding-top:10px;
-        height:calc(100%-10px);
+        height:calc(100% - 10px);
     }
 
     .header-profile-menu-list-item{
@@ -288,7 +297,6 @@
         margin-block-end: 0em;
     }
 
-    
 /*************** LOGIN PAGE **************/
     .login-body{
         /* height:600px; */
@@ -474,4 +482,121 @@
 
     .settings-link:hover{
         background-color:<?php echo $backgroundcolor ?>;
+    }
+/*************** PRAYER FEED *************/
+    .feed-box{
+        width:calc(100% - 40px);
+        height:auto;
+        display:flex;
+        padding:20px;
+        border-bottom-style:solid;
+        border-bottom-color:<?php echo $backgroundcolor ?>;
+        border-bottom-width:1px;
+    }
+    
+    .feed-img-box{
+        width:10%;
+    }
+    
+    .feed-img{
+        height:46px;
+        width:46px;
+        border-radius:50%;
+    }
+
+    .feed-content-box{
+        width:90%;
+    }
+
+    .feed-profile-link:hover{
+        text-decoration:none;
+    }
+
+    .feed-profile-name{
+        color:#000;
+        font-weight:bold;
+        display:inline-block;
+        font-size:22px;
+        padding-bottom:5px;
+    }
+
+    .feed-profile-username{
+        color:<?php echo $textcolor ?>;
+        display:inline-block;
+    }
+
+    .feed-content{
+        padding-top:5px;
+    }
+
+    .feed-interact-menu{
+        margin-block-end: 0em;
+    }
+
+    .feed-like{
+        width:20%;
+        display:inline-flex;
+    }
+
+    .like-button{
+        width:20px;
+        height:20px;
+        border-radius:50%;
+
+    }
+
+    .feed-num-likes{
+        color:<?php echo $textcolor ?>;
+        padding-left:5px;
+        font-size:18px;
+    }
+
+    .feed-comment{
+        width:80%;
+        padding-top:10px;
+    }
+/*************** RELIGION MENU ***********/
+    .sort-menu{
+        font-size:24px;
+        padding-left:20px;
+        border-bottom-style:solid;
+        border-bottom-color:<?php echo $backgroundcolor ?>;
+        border-bottom-width:1px;
+        padding-bottom:20px;
+    }
+
+    .religion-menu-header{
+        display:block;
+        color:<?php echo $textcolor?>;
+    }
+
+    .religion-menu-items{
+        height:auto;
+        width:200px;
+        position:fixed;
+        background-color:#ffffff;
+        border-radius:5px;
+        border-color:#cccccc;
+        border-width:1px;
+        border-style:solid;
+        display:none;
+    }
+
+    .religion-menu-header:hover ul{
+        display:block;
+    }
+
+    .religion-menu-header:hover{
+        cursor:pointer;
+        color:<?php echo $linkcolor ?>;
+    }
+
+    .religion-menu-item{
+        padding:10px;
+        color:<?php echo $textcolor ?>;
+    }
+
+    .religion-menu-item:hover{
+        background-color:#eeeeee;
+        cursor:pointer;
     }

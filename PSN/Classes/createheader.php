@@ -84,10 +84,10 @@
                 </ul>
                 <ul class='header-profile-menu-settings'>
                     <li class='header-profile-menu-list-item'>
-                        <a href='settings.php'> Settings </a>
+                        <a href='settings.php?setting=account'> Settings </a>
                     </li>
                     <li class='header-profile-menu-list-item'>
-                        <a href='settings.php'>Theme</a>
+                        <a href='settings.php?setting=theme'>Themes</a>
                     </li>
                 </ul>
                 <ul class='header-profile-menu-logout'>

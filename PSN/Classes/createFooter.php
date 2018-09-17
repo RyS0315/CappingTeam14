@@ -17,8 +17,7 @@
                     continue;
                 }
                 if($i["type"] == "css"){
-                    echo "<link rel='stylesheet' type='text/css' href='".$i["src"]."'>";
-                    continue;
+                    return "Add CSS to the Header";
                 }
                 if($i["type"] == "js"){
                     echo "<script type='text/javascript' src='".$i["src"]."'></script>";

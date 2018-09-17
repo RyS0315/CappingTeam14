@@ -39,27 +39,32 @@
     $settings = [
         [
             'name'=> 'Account',
-            'link'=>'index.php',
+            'link'=>'settings.php?page=account',
             'active'=>''
         ],
         [
             'name'=>'Password',
-            'link'=>'profile.php',
+            'link'=>'settings.php?page=password',
             'active'=>''
         ],
         [
             'name'=>'Email',
-            'link'=>'notifications.php',
+            'link'=>'settings.php?page=email',
             'active'=>''
         ],
         [
             'name'=>'Blocked Accounts',
-            'link'=>'messages.php',
+            'link'=>'settings.php?page=blocked',
+            'active'=>''
+        ],
+        [
+            'name'=>'Themes',
+            'link'=>'settings.php?page=themes',
             'active'=>''
         ],
         [
             'name'=>'Religions',
-            'link'=>'messages.php',
+            'link'=>'settings.php?page=religions',
             'active'=>''
         ]
     ];
@@ -71,8 +76,6 @@
     <?php $usersettings->displaySettings();?>
 
 <section>
-
-
 
 <?php 
     $footer = new Footer($db,$src);

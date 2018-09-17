@@ -1,7 +1,9 @@
 <?php 
     include 'config/dbconfig.php';
     include 'config/permissions.php';
-
+    include 'Classes/createheader.php';
+    include 'Classes/createFooter.php';
+    
     $root = '';
     $inputUsername = isset($_POST['username']) ? $_POST['username'] : '';
     $inputPassword = isset($_POST['password']) ? $_POST['password'] : '';
@@ -12,21 +14,21 @@
         $error = $check['error'];
         $attempts = $check['attempts'];
     }
+    
+$menus = [
+    [
+        'name'=>'Home',
+            'link'=>'index.php',
+            'active'=>'active'
+        ],
+    ];
+    $src[] = ["src"=>"js/userMenu.js", "type"=>"js"];
+    $src[] = ["src"=>"js/jqueryinit.php","type"=>"php"];
+    $css[] = ["src"=>"css/core.php","type"=>"css"];
+    $title = "P.R.A.Y";
+    $header = new Header($db, $menus, $title, $css);
+    $header->displayHeader();
 ?>
-
-<html>
-    <head>
-        <title>PSN-Login</title>
-    </head>
-<link rel='stylesheet' type='text/css' href='css/core.php'>
-<body>
-    <section class='header'>
-        <div class='header-box'>
-            <ul>
-                <li class='header-link active'>
-                <a href='login.php'>Home</a></li>
-            </ul>
-        </div>
     </section>
     <section class='login-body'>
         <div class='login-form-box'>
