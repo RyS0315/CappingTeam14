@@ -3,7 +3,7 @@
     include 'config/permissions.php';
     include 'Classes/createheader.php';
     include 'Classes/createFooter.php';
-    
+
     $root = '';
     $inputUsername = isset($_POST['username']) ? $_POST['username'] : '';
     $inputPassword = isset($_POST['password']) ? $_POST['password'] : '';
@@ -33,7 +33,7 @@ $menus = [
     <section class='login-body'>
         <div class='login-form-box'>
             <div class='login-form-box-body'>
-                <h1 style='width:50%; margin:auto; padding-top:50px; font-family:"Palatino"; font-size:28px'>Log in to PSN</h1>
+                <h1 style='width:50%; margin:auto; padding-top:50px; font-family:"Palatino"; font-size:28px'>Log in to P.R.A.Y</h1>
                 <p class='error' style='width:50%; margin:auto; margin-top:5px'><?php echo $error ?></p>
                 <form method='post' action='login.php' id='login-form-inputs'>    
                     <input type='text' name='username' value='<?php echo $inputUsername ?>' placeholder='Username or Email'>

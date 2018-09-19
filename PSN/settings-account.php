@@ -75,6 +75,27 @@
 
     <?php $usersettings->displaySettings();?>
 
+    <div class='account-settings-box'>
+        <h1>Account Settings</h1>
+        <form method='post' action=''>
+            <input type='text' name='username' placeholder='Update Username'>
+            <input type='text' name='First' placeholder='Update First Name'>
+            <input type='text' name='Last' placeholder='Update Last Name'>
+        </form>
+
+        <h1>Update Profile Picture</h1>
+        <form method='POST' action='' enctype="multipart/form-data">
+            <input type='file' name='profile' id='profile' class='inputfile'>
+            <label for="profile">Choose a file</label>
+        </form>
+
+        <h1>Update Banner Picture</h1>
+        <form method='POST' action='' enctype="multipart/form-data">
+            <input type='file' name='banner' id='banner' class='inputfile'>
+            <label for="banner">Choose a file</label>
+        </form>
+    </div>
+
 <section>
 
 <?php 

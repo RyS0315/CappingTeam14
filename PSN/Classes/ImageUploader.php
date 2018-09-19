@@ -8,27 +8,105 @@
 
         Public function __construct($db,$type,$userid){
             $this->db = $db;
-            $this->type = $type
-            $this->userid = $userid
+            $this->type = $type;
+            $this->userid = $userid;
         }
         /**
          * The Upload Function
          * 
          */
         function uploadFile ($file) {
-            checkExtension($file);
-            checkFile($file);//Make sure the file is safe
-            $name = setName($file);//Set a random name to the file
-            $path = setPath($name);//Create the path for the file to be place -- The folder
-            doUpload($file, $path);
+            $filename = $file['name'];
+            $filetmp = $file['tmp_name'];
+            $ext = $this->checkExtension($file);
+            $this->checkFile($file);//Make sure the file is safe
+            $name = $this->setName($filename, $ext);//Set a random name to the file
+            $path = $this->setPath($name);//Create the path for the file to be place -- The folder
+            $this->doUpload($filetmp, $path, $name);
         }
 
         /**
-         * 
+         * Function that checks if the extension is acceptable
          * 
          */
-        function checkFile(){
-
+        function checkExtension($file){
+            return '.jpg';
         }
 
+        /**
+         * Function that checks for XSS
+         * 
+         */
+        function checkFile($file){
+            return true;
+        }
+
+        /**
+         * Function that randomly creates a name for the file
+         * 
+         */
+        function setName($file, $ext){
+            $newname = $this->generateRandomString();
+            $name = $newname .''.$ext;
+            // echo $name;
+            return $name;
+        }
+
+        /**
+         * Function that sets the path for the file to be placed
+         * 
+         */
+        function setPath($name){
+            $dir = "images/Users/".$this->userid."/".$this->type."/";
+            $path = $dir."".$name;
+            // echo $path;
+            return $path;
+        }
+
+        /**
+         * Function that uploads the file to the directory and the database
+         * 
+         */
+        function doUpload($file, $path, $name){
+            $didupload = move_uploaded_file($file,$path);
+            if($this->type == 'Banner'){
+                $var = 'bPicture';
+                $this->doQuery($var, $name);
+            }
+            if($this->type == 'Profile'){
+                $var = 'pPicture';
+                $this->doQuery($var, $name);
+            }
+        }
+
+        /**
+         * Uploads the file name to the database
+         * 
+         */
+        function doQuery($var, $name){
+            $query = "UPDATE USERS
+                     SET $var = '$name'
+                     WHERE userid = $this->userid";
+            echo $query .'</br>';
+            $result = $this->db->updateQuery($query);
+            echo $result;
+        }
+
+        /**
+         * Creates a random string
+         * 
+         * Code Credit -> Stephen Watkins @ Stack Overflow
+         * link -> https://stackoverflow.com/questions/4356289/php-random-string-generator
+         * 
+         */
+        function generateRandomString($length = 10) {
+            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $charactersLength = strlen($characters);
+            $randomString = '';
+            for ($i = 0; $i < $length; $i++) {
+                $randomString .= $characters[rand(0, $charactersLength - 1)];
+            }
+            return $randomString;
+        }
+    }
 ?>

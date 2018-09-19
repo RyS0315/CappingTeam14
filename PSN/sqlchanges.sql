@@ -9,7 +9,9 @@ Create Table Users(
     primary_religion Int(10),
     default_view VARCHAR(20),
     email VARCHAR(30),
-    phone_number VARCHAR(15)
+    phone_number VARCHAR(15),
+    pPicture VARCHAR(20),
+    bPicture VARCHAR(20)
 );
 
 DROP TABLE if exists Prayer;

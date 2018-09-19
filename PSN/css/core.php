@@ -7,7 +7,9 @@
                   'link'=>'rgba(200,0,200,.65)',
                   'feed'=>'#ffffff',
                   'menuborder'=>'#cccccc',
-                  'boldcolor'=>'#000000'],
+                  'boldcolor'=>'#000000',
+                  'buttoncolor'=>'#ff00ff',
+                  'buttonhover'=>'#bb00bb'],
         'Dark' =>['background'=>'#140026', 
                   'text'=>'rgba(255,255,255,.65)',
                   'boxcolor'=>'#1b0036',
@@ -25,6 +27,8 @@
     $feedcolor = $theme[$chosen]['feed'];
     $menuborder = $theme[$chosen]['menuborder'];
     $boldcolor = $theme[$chosen]['boldcolor'];
+    $buttoncolor = $theme[$chosen]['buttoncolor'];
+    $buttonhover = $theme[$chosen]['buttonhover'];
 ?>
 /*************** COMMON ******************/
     html{
@@ -123,6 +127,31 @@
         transform: translateY(-29%);
         margin:auto;
     }
+
+    .inputfile {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+
+    label{
+        width:auto:
+        height:auto;
+        padding:7px;
+        border-radius:5px;
+        border-style:solid;
+        border-width:1px;
+        border-color:<?php echo $boldcolor?>;
+        background-color:<?php echo $buttoncolor?>;
+    }
+
+    label:hover{
+        cursor:pointer;
+        background-color:<?php echo $buttonhover ?>;
+    }
 /*************** HEADER ******************/
     .header{
         height:50px;
@@ -132,6 +161,7 @@
         border-bottom-color:rgba(0,0,0,.5);
         background-color:<?php echo $boxcolor ?>;
         position:fixed;
+        z-index:10000;
     }
     
     .header-box{
@@ -465,10 +495,11 @@
         color: #fff;
         transform: translateY(-100px);
     }
-/*************** USERSETTINGS ************/
-    
+/*************** USERSETTINGS ************/ 
     .usersettings-box{
         display:block;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
     }
 
     .settings-link{
@@ -616,4 +647,12 @@
     .religion-menu-item:hover{
         background-color:<?php echo $backgroundcolor ?>;
         cursor:pointer;
+    }
+/*************** ACCOUNT SETTINGS ********/
+    .account-settings-box{
+        height:1000px;
+        width:70%;
+        background-color:<?php echo $feedcolor ?>;
+        margin:auto;
+        padding:20px;
     }
