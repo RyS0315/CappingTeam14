@@ -16,7 +16,7 @@
         function displaySettings(){
             echo "<ul class='usersettings-box'>";
             foreach($this->menus as $i){
-                echo "<li class='settings-link".$i['active']."'>
+                echo "<li class='settings-link ".$i['active']."'>
                     <a href='".$i['link']."'>".$i['name']."</a>
                 </li>";
             }

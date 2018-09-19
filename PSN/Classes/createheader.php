@@ -52,6 +52,7 @@
            echo "<html>
                     <head>
                         <title>".$this->title."</title>
+                        <link rel='shortcut icon' href='images/icons/logo.jpg'>
                     </head>
                     <body>";
             $this->addcss();
@@ -84,10 +85,10 @@
                 </ul>
                 <ul class='header-profile-menu-settings'>
                     <li class='header-profile-menu-list-item'>
-                        <a href='settings.php?setting=account'> Settings </a>
+                        <a href='settings-account.php'> Settings </a>
                     </li>
                     <li class='header-profile-menu-list-item'>
-                        <a href='settings.php?setting=theme'>Themes</a>
+                        <a href='settings-themes.php'>Themes</a>
                     </li>
                 </ul>
                 <ul class='header-profile-menu-logout'>

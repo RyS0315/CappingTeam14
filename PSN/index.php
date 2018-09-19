@@ -42,6 +42,15 @@
 
     $samplePrayer = [
         [   
+            'prayeeid'=>'2',
+            'fname'=>'Riley',
+            'lname'=>'Stadel',
+            'username'=>'RySu',
+            'content'=>'Praise the almighty Pablo and he shall give us a passing grade on this project so we can become Billionaires',
+            'relid'=>'1',
+            'favs'=>'1234'
+        ],
+        [   
             'prayeeid'=>'1',
             'fname'=>'Team',
             'lname'=>'14',
@@ -49,17 +58,27 @@
             'content'=>'First Prayer Ever',
             'relid'=>'1',
             'favs'=>'420'
-        ],
-        [   
-            'prayeeid'=>'2',
-            'fname'=>'Riley',
-            'lname'=>'Stadel',
-            'username'=>'RySu',
-            'content'=>'Praise the almighty Pablo for he is just',
-            'relid'=>'1',
-            'favs'=>'420'
         ]
     ];
+
+    $userreligions = [
+        [
+            'id'=>'1',
+            'name'=>'Church of Marist'
+        ],
+        [
+            'id'=>'2',
+            'name'=>'Rel1'
+        ],
+        [
+            'id'=>'3',
+            'name'=>'Rel2'
+        ],
+        [
+            'id'=>'4',
+            'name'=>'Rel3'
+        ]
+    ]
 
 ?>
     <section class='index-body'>
@@ -68,20 +87,22 @@
         </div>
 
         <div class='index-center-box'>
+        <form method='post' action='index.php'>
         <ul class='sort-menu'>
             <li class='religion-menu-header'>
                 Church Of Marist
                 <ul class='religion-menu-items'>
                     <li class='religion-menu-item'>
-                        Rel1
+                        Po-Town Popes
                     </li>
                     <li class='religion-menu-item'>
-                        Rel2
+                        Really Long Religion to Test the Dimensions Of This Menu
                     </li>
                     <li class='religion-menu-item'>
-                        Rel3
+                        Buddha
                     </li>
                 </ul>
+        </form>
             </li>
         </ul>
         <?php

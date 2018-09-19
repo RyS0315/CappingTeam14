@@ -3,17 +3,28 @@
     $theme = [
         'Light'=>['background'=>'#eeeeee',
                   'text'=>'rgba(0,0,0,.65)',
-                  'boxcolor'=>'#feeefe',
-                  'link'=>'rgba(200,0,200,.65)'],
-        'Dark' =>['background'=>'#141d26', 
+                  'boxcolor'=>'#efe1fe',
+                  'link'=>'rgba(200,0,200,.65)',
+                  'feed'=>'#ffffff',
+                  'menuborder'=>'#cccccc',
+                  'boldcolor'=>'#000000'],
+        'Dark' =>['background'=>'#140026', 
                   'text'=>'rgba(255,255,255,.65)',
-                  'boxcolor'=>'#1b2836']
+                  'boxcolor'=>'#1b0036',
+                  'link'=>'rgba(200,0,200,.65)',
+                  'feed'=>'#7116ee',
+                  'menuborder'=>'#111111',
+                  'boldcolor'=>'#ffffff']
+
     ];
     $chosen='Light';
     $backgroundcolor = $theme[$chosen]['background'];
     $boxcolor = $theme[$chosen]['boxcolor'];
     $textcolor = $theme[$chosen]['text'];
     $linkcolor = $theme[$chosen]['link'];
+    $feedcolor = $theme[$chosen]['feed'];
+    $menuborder = $theme[$chosen]['menuborder'];
+    $boldcolor = $theme[$chosen]['boldcolor'];
 ?>
 /*************** COMMON ******************/
     html{
@@ -207,9 +218,9 @@
         position:fixed;
         margin-top:50px;
         margin-left:66%;
-        background-color:#ffffff;
+        background-color:<?php echo $feedcolor?>;
         border-radius:5px;
-        border-color:#cccccc;
+        border-color:<?php echo $menuborder ?>;
         border-width:1px;
         border-style:solid;
     }
@@ -221,17 +232,17 @@
         padding-top:10px;
         margin-block-start: 0em;
         margin-block-end: 0em;
-        border-bottom-color:#cccccc;
+        border-bottom-color:<?php echo $menuborder ?>;
         border-bottom-width:1px;
         border-bottom-style:solid;
     }
     
     .header-profile-menu-name:hover{
-        background-color:#eeeeee;
+        background-color:<?php echo $backgroundcolor ?>;
     }
     
     .header-profile-menu-name-name>a{
-        color:#000000;
+        color:<?php echo $boldcolor ?>;
         font-weight:bold;
         text-decoration:none;
         font-size:22px;
@@ -266,13 +277,13 @@
         height:auto;
         margin-block-start: 0em;
         margin-block-end: 0em;
-        border-bottom-color:#cccccc;
+        border-bottom-color:<?php echo $menuborder ?>;
         border-bottom-width:1px;
         border-bottom-style:solid;
     }
 
     .header-profile-menu-list-item:hover{
-        background-color:#eeeeee;
+        background-color:<?php echo $backgroundcolor?>;
     }
 
     .header-profile-menu-list-item>a{
@@ -395,7 +406,7 @@
     .index-center-box{
         width:52%;
         margin-left:10px;
-        background-color: #ffffff;
+        background-color:<?php echo $feedcolor ?>;
         margin-right:10px;
         height:2000px;
     }
@@ -455,12 +466,13 @@
         transform: translateY(-100px);
     }
 /*************** USERSETTINGS ************/
+    
     .usersettings-box{
         display:block;
     }
 
     .settings-link{
-        border-color:#cccccc;
+        border-color:<?php echo $menuborder ?>;
         border-style:solid;
         border-width:1px;
         height:60px;
@@ -481,7 +493,11 @@
     }
 
     .settings-link:hover{
-        background-color:<?php echo $backgroundcolor ?>;
+        background-color:<?php echo $linkcolor ?>;
+    }
+    
+    .current{
+        background-color:<?php echo $linkcolor ?>;
     }
 /*************** PRAYER FEED *************/
     .feed-box{
@@ -509,11 +525,11 @@
     }
 
     .feed-profile-link:hover{
-        text-decoration:none;
+        text-decoration:underline;
     }
 
     .feed-profile-name{
-        color:#000;
+        color:<?php echo $boldcolor?>;
         font-weight:bold;
         display:inline-block;
         font-size:22px;
@@ -558,11 +574,12 @@
 /*************** RELIGION MENU ***********/
     .sort-menu{
         font-size:24px;
-        padding-left:20px;
+        padding:20px;
         border-bottom-style:solid;
         border-bottom-color:<?php echo $backgroundcolor ?>;
         border-bottom-width:1px;
-        padding-bottom:20px;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
     }
 
     .religion-menu-header{
@@ -574,9 +591,9 @@
         height:auto;
         width:200px;
         position:fixed;
-        background-color:#ffffff;
+        background-color:<?php echo $feedcolor ?>;
         border-radius:5px;
-        border-color:#cccccc;
+        border-color:<?php echo $menuborder ?>;
         border-width:1px;
         border-style:solid;
         display:none;
@@ -597,6 +614,6 @@
     }
 
     .religion-menu-item:hover{
-        background-color:#eeeeee;
+        background-color:<?php echo $backgroundcolor ?>;
         cursor:pointer;
     }

@@ -63,4 +63,4 @@ Insert into Religion(religion_name) VALUES
 ('Islam');
 
 INSERT into USERS (fname,lname,username,user_password,zipCode,primary_religion, email,phone_number)VALUES
-('Team', '14','Admin','Marist', 12601, 1, 'Admin@psn.com', '888-888-8888');
+('Team', '14','Admin','Marist', 12601, 1, 'Admin@pray.com', '888-888-8888');
