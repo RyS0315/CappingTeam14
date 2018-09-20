@@ -52,7 +52,7 @@
            echo "<html>
                     <head>
                         <title>".$this->title."</title>
-                        <link rel='shortcut icon' href='images/icons/favicon.jpg'>
+                        <link rel='shortcut icon' href='images/icons/favicon.png'>
                     </head>
                     <body>";
             $this->addcss();
