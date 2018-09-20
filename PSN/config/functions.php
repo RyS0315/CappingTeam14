@@ -3,7 +3,7 @@
         $loop = 1;
         echo '<p style="margin:0px">Array=>[ </p>';
         RecursiveArray($array, $loop);
-        echo ']';
+        echo ']</br>';
     }
 
     function RecursiveArray($array, $loop){
