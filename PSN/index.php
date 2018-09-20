@@ -31,6 +31,7 @@
     $src[] = ["src"=>"js/userMenu.js", "type"=>"js"];
     $src[] = ["src"=>"js/jqueryinit.php","type"=>"php"];
     $src[] = ["src"=>"js/autoGrow.js","type"=>"js"];
+    $src[] = ["src"=>"js/composePrayer.js","type"=>"js"];
     $css[] = ["src"=>"css/core.php","type"=>"css"];
     $title = "P.R.A.Y";
     $header = new Header($db, $menus, $title, $css);
@@ -81,6 +82,16 @@
     ]
 
 ?>
+<div id='compose-prayer' class='hidden'>
+    <div class='prayer-box'>
+    <ul>
+        <li class='compose-header'>
+            <h1>Compose Prayer</h1>
+        </li>
+    </ul>
+        <textarea name='newprayer' placeholder='compose' onkeyup='auto_grow(this)' style='height:35px'></textarea>
+    </div>
+</div>
     <section class='index-body'>
         <div class='index-left-box'>
             Trends
@@ -102,6 +113,9 @@
                         Buddha
                     </li>
                 </ul>
+                <li id='sort-compose'>
+                    <div id='startprayer' onclick='ShowCompose()'>Compose Prayer</div>
+                </li>
         </form>
             </li>
         </ul>
@@ -115,7 +129,7 @@
             People Near you
         </div>
     </section>
-<?php 
+ <?php 
     $footer = new Footer($db,$src);
     $footer->buildFooter();
 ?>

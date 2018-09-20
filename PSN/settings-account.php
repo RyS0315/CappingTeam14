@@ -78,9 +78,8 @@
     <div class='account-settings-box'>
         <h1>Account Settings</h1>
         <form method='post' action=''>
-            <input type='text' name='username' placeholder='Update Username'>
-            <input type='text' name='First' placeholder='Update First Name'>
-            <input type='text' name='Last' placeholder='Update Last Name'>
+            <p>Username <input type='text' name='username' value='<?php echo $username ?>'></p>
+            <p>Bio <input type='textarea' name='bio' value=''></p>
         </form>
 
         <h1>Update Profile Picture</h1>

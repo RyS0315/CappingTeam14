@@ -2,7 +2,7 @@
     class Header{
         protected $db;//Sets the Database -- Allows for queries in this class
 
-        protected $menus;
+        protected $menus; 
 
         protected $loggedIn;//Specifies if the user header should be added
 

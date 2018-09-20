@@ -8,7 +8,7 @@
                   'feed'=>'#ffffff',
                   'menuborder'=>'#cccccc',
                   'boldcolor'=>'#000000',
-                  'buttoncolor'=>'#ff00ff',
+                  'buttoncolor'=>'#ef6eff',
                   'buttonhover'=>'#bb00bb'],
         'Dark' =>['background'=>'#140026', 
                   'text'=>'rgba(255,255,255,.65)',
@@ -32,7 +32,7 @@
 ?>
 /*************** COMMON ******************/
     html{
-        
+        font-size:16px;
     }
 
     body{
@@ -53,11 +53,12 @@
 
     input{
         margin-bottom:10px;
-        width:70%;
+        width:50%;
         height:35px;
         border-color:rgb(0,0,0,.15);
         border-radius:5px;
         text-indent: 5px;
+        font-size:16px;
     }
 
     select{
@@ -226,8 +227,8 @@
     }
 
     #header-profile-pic-link{
-        margin:auto;
         transform: translateY(-29%);
+        margin:auto;
     }
 
     .index-profile-pic{
@@ -254,6 +255,7 @@
         border-width:1px;
         border-style:solid;
     }
+
 
     .header-profile-menu-name{
         display:block;
@@ -337,6 +339,7 @@
         margin-block-start: 0em;
         margin-block-end: 0em;
     }
+
 
 /*************** LOGIN PAGE **************/
     .login-body{
@@ -481,6 +484,43 @@
         display:block;
         padding-bottom:10px;
     }
+/*************** COMPOSE *****************/
+    .compose-header{
+        width:auto;
+        margin:auto;
+    }
+
+    #startprayer{
+        height:auto;
+        background-color:<?php echo $buttoncolor ?>;
+        padding:5px;
+        border-radius:5px;
+        border-style:solid;
+        border-color:<?php echo $boldcolor?>;
+        border-width:1px;
+        font-size:18px;
+    }
+
+    #startprayer:hover{
+        cursor:pointer;
+        background-color:<?php echo $buttonhover ?>;
+    }
+
+    #compose-prayer{
+        position:fixed;
+        height:100%;
+        width:100%;
+        background-color:rgba(0,0,0,.6);
+    }
+
+    .prayer-box{
+        height:700px;
+        width:50%;
+        margin:auto;
+        background-color:<?php echo $feedcolor?>;
+        margin-top:60px;
+        border-radius:5px;
+    }
 /*************** PROFILE *****************/
     .profile-body{
         width:80%;
@@ -616,6 +656,7 @@
     .religion-menu-header{
         display:block;
         color:<?php echo $textcolor?>;
+        width:72%;
     }
 
     .religion-menu-items{
