@@ -12,10 +12,10 @@
         function showPrayer($i){
             echo "<div class='feed-box'> 
                     <div class='feed-img-box'>
-                        <img class='feed-img 'src='images/Users/".$i['prayeeid']."/Profile/".$i['prayeeid'].".jpg'>
+                        <img class='feed-img 'src='images/Users/".$i['userid']."/Profile/".$i['userid'].".jpg'>
                     </div>
                     <div class='feed-content-box'>
-                        <a class='feed-profile-link' href='profile.php?id=".$i['prayeeid']."'>
+                        <a class='feed-profile-link' href='profile.php?id=".$i['userid']."'>
                         <p class='feed-profile-name'>".$i['fname']." ".$i['lname']."</p>
                         <p class='feed-profile-username'>@".$i['username']."</p>
                         </a>
@@ -25,11 +25,11 @@
                         </div>
                         <ul class='feed-interact-menu'>
                             <li class='feed-like'>
-                                <img class='like-button' src='images/icons/Like.png'><p class='feed-num-likes'>".$i['favs']."</p>
                             </li>
-                        </ul>
-                    </div>
-                </div>";
-        }
+                            </ul>
+                            </div>
+                            </div>";
+                        }
+                        // <img class='like-button' src='images/icons/Like.png'><p class='feed-num-likes'>".$i['favs']."</p>
     }
 ?>

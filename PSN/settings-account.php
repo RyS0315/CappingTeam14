@@ -30,6 +30,7 @@
     ];
     $src[] = ["src"=>"js/userMenu.js", "type"=>"js"];
     $src[] = ["src"=>"js/jqueryinit.php","type"=>"php"];
+    $src[] =["src"=>"js/autoGrow.js", "type"=>"js"];
     $css[] = ["src"=>"css/core.php","type"=>"css"];
     $title = "P.R.A.Y";
     $header = new Header($db, $menus, $title, $css);
@@ -78,8 +79,8 @@
     <div class='account-settings-box'>
         <h1>Account Settings</h1>
         <form method='post' action=''>
-            <p>Username <input type='text' name='username' value='<?php echo $username ?>'></p>
-            <p>Bio <input type='textarea' name='bio' value=''></p>
+            <p>Username </p><input type='text' name='username' value='<?php echo $username ?>'>
+            <p>Bio </p><textarea name='bio' onkeyup='auto_grow(this)' value=''></textarea>
         </form>
 
         <h1>Update Profile Picture</h1>

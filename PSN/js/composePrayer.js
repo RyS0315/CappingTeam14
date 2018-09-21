@@ -1,15 +1,17 @@
 function ShowCompose(){
     var box = document.getElementById('compose-prayer');
     var button = document.getElementById('startprayer');
+    var close = document.getElementById('closebutton');
     button.removeAttribute('onclick');
     $(box).fadeIn();
-    button.setAttribute('onclick','CloseCompose()');
+    close.setAttribute('onclick','CloseCompose()');
 }
 
 function CloseCompose(){
     var box = document.getElementById('compose-prayer');
     var button = document.getElementById('startprayer');
-    button.removeAttribute('onclick');
+    var close = document.getElementById('closebutton');
+    close.removeAttribute('onclick');
     $(box).fadeOut();
     button.setAttribute('onclick','ShowCompose()');
 }

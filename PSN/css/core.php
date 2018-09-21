@@ -78,6 +78,7 @@
         border-color:#1DA1F2;
         font-size:16px;
         border-radius:7px;
+        text-indent: 5px;
     }
 
     textarea:focus{
@@ -139,14 +140,15 @@
     }
 
     label{
-        width:auto:
+        width:auto;
         height:auto;
         padding:7px;
-        border-radius:5px;
+        border-radius:100px;
         border-style:solid;
         border-width:1px;
         border-color:<?php echo $boldcolor?>;
         background-color:<?php echo $buttoncolor?>;
+        display:inline-block;
     }
 
     label:hover{
@@ -162,7 +164,7 @@
         border-bottom-color:rgba(0,0,0,.5);
         background-color:<?php echo $boxcolor ?>;
         position:fixed;
-        z-index:10000;
+        z-index:50;
     }
     
     .header-box{
@@ -218,6 +220,7 @@
 
     .header-profile-pic{
         width:40%;
+        transform: translateY(-35%);
     }
 
     #header-profile-pic-link:hover{
@@ -227,8 +230,8 @@
     }
 
     #header-profile-pic-link{
-        transform: translateY(-29%);
-        margin:auto;
+        margin-left:50%;
+        margin-top:-13px;
     }
 
     .index-profile-pic{
@@ -340,6 +343,10 @@
         margin-block-end: 0em;
     }
 
+    #sort-compose{
+        margin-left:3%;
+        margin-top:-6px;
+    }
 
 /*************** LOGIN PAGE **************/
     .login-body{
@@ -494,9 +501,9 @@
         height:auto;
         background-color:<?php echo $buttoncolor ?>;
         padding:5px;
-        border-radius:5px;
+        border-radius:100px;
         border-style:solid;
-        border-color:<?php echo $boldcolor?>;
+        border-color:<?php echo $textcolor?>;
         border-width:1px;
         font-size:18px;
     }
@@ -511,16 +518,80 @@
         height:100%;
         width:100%;
         background-color:rgba(0,0,0,.6);
+        z-index:100;
     }
 
     .prayer-box{
-        height:700px;
+        height:auto;
         width:50%;
         margin:auto;
         background-color:<?php echo $feedcolor?>;
         margin-top:60px;
         border-radius:5px;
     }
+
+    #closebutton{
+        height:30px;
+        width:30px;
+    }
+
+    #closebutton:hover{
+        cursor:pointer;
+    }
+
+    .close-button{
+        transform:translate(-20px, 20px);
+    }
+
+    .compose-content-bottom{
+        display:inline-flex;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        margin-top:25px;
+        width:100%;
+    }
+
+    .compose-content{
+        background-color:<?php echo $boxcolor?>;
+        padding:50px;
+        border-top-style:solid;
+        border-top-color:#cccccc;
+        border-top-width:1px;
+        border-bottom-left-radius:5px;
+        border-bottom-right-radius:5px;
+    }
+
+    #compose-area{
+        min-height:100px;
+        width:100%;
+    }
+
+    #submit-prayer{
+        width:auto;
+        height:auto;
+        padding:7px;
+        border-radius:100px;
+        border-style:solid;
+        border-width:1px;
+        border-color:<?php echo $boldcolor?>;
+        background-color:<?php echo $buttoncolor?>;
+        font-size:16px;
+    }
+
+    #submit-prayer:hover{
+        cursor:pointer;
+        background-color:<?php echo $buttonhover ?>;
+    }
+
+    .compose-img-upload{
+       width:auto;
+       margin-right:auto;
+    }
+
+    .compose-submit{
+        width:auto;
+    }
+
 /*************** PROFILE *****************/
     .profile-body{
         width:80%;
@@ -656,7 +727,6 @@
     .religion-menu-header{
         display:block;
         color:<?php echo $textcolor?>;
-        width:72%;
     }
 
     .religion-menu-items{

@@ -6,6 +6,10 @@
     include 'Classes/createFooter.php';
     include 'Classes/prayers.php';
 
+    if(isset($_POST['submit-prayer'])){
+        include 'php/submitprayer.php';
+    }
+
     $menus = [
         [
             'name'=>'Home',
@@ -31,6 +35,7 @@
     $src[] = ["src"=>"js/userMenu.js", "type"=>"js"];
     $src[] = ["src"=>"js/jqueryinit.php","type"=>"php"];
     $src[] = ["src"=>"js/autoGrow.js","type"=>"js"];
+
     $src[] = ["src"=>"js/composePrayer.js","type"=>"js"];
     $css[] = ["src"=>"css/core.php","type"=>"css"];
     $title = "P.R.A.Y";
@@ -39,29 +44,16 @@
     $header->displayHeader();
 
     $feed = new PrayerCreator($db,$id);
+    $chosenreligion = 1;
 
-
-    $samplePrayer = [
-        [   
-            'prayeeid'=>'2',
-            'fname'=>'Riley',
-            'lname'=>'Stadel',
-            'username'=>'RySu',
-            'content'=>'Praise the almighty Pablo and he shall give us a passing grade on this project so we can become Billionaires',
-            'relid'=>'1',
-            'favs'=>'1234'
-        ],
-        [   
-            'prayeeid'=>'1',
-            'fname'=>'Team',
-            'lname'=>'14',
-            'username'=>'Admin',
-            'content'=>'First Prayer Ever',
-            'relid'=>'1',
-            'favs'=>'420'
-        ]
-    ];
-
+    $prayerquery = "SELECT p.userid, u.fname, u.lname, u.username, p.content, pr.relid, p.prayid
+                    FROM Prayer p, Users u, Prayer_Religion pr
+                    WHERE p.userid = u.userid
+                    AND pr.prayid = p.prayid
+                    AND pr.relid = $chosenreligion
+                    ORDER BY p.prayid desc";
+    $prayers = $db->FetchQuery($prayerquery);
+    
     $userreligions = [
         [
             'id'=>'1',
@@ -80,18 +72,8 @@
             'name'=>'Rel3'
         ]
     ]
-
 ?>
-<div id='compose-prayer' class='hidden'>
-    <div class='prayer-box'>
-    <ul>
-        <li class='compose-header'>
-            <h1>Compose Prayer</h1>
-        </li>
-    </ul>
-        <textarea name='newprayer' placeholder='compose' onkeyup='auto_grow(this)' style='height:35px'></textarea>
-    </div>
-</div>
+
     <section class='index-body'>
         <div class='index-left-box'>
             Trends
@@ -113,14 +95,11 @@
                         Buddha
                     </li>
                 </ul>
-                <li id='sort-compose'>
-                    <div id='startprayer' onclick='ShowCompose()'>Compose Prayer</div>
-                </li>
         </form>
             </li>
         </ul>
         <?php
-            foreach($samplePrayer as $i){
+            foreach($prayers as $i){
                 $feed->showPrayer($i);
             }?>
         </div>

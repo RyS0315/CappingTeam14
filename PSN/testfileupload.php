@@ -15,13 +15,11 @@ print_ary($_FILES);
 $upload = isset($_FILES['upload']) ? $_FILES['upload'] : '';
 $uploadtype = 'Banner';
 
-
 if($upload != ''){
     $uploader = new fileUploader($db,$uploadtype,$id);
     $uploader->uploadFile($upload);
     header('location:testfileupload.php');
 }
-
 
 ?>
 

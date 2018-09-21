@@ -26,6 +26,8 @@
 
         function displayHeader(){
             $this->createTitle();
+            $this->createCompose();
+            //Header
             echo "<section class='header'>
                   <div class='header-box'>
                   <ul class='header-link-box'>";
@@ -36,11 +38,18 @@
             }
             echo "</ul>";
 
-            echo "<ul class='logo-box'><li class='logo-li'><a href='index.php'><img class='logo' src='images/icons/logo.jpg'></a></li></ul>";
+            echo "<ul class='logo-box'>
+                    <li class='logo-li'>
+                        <a href='index.php'><img class='logo' src='images/icons/favicon.png'></a>
+                    </li>
+                  </ul>";
             if($this->loggedIn == 1){
                 echo "<ul class='header-profile-pic'>
                         <li id='header-profile-pic-link' onclick='ShowMenu()'>
                             <img class='index-profile-pic' src='images/Users/".$this->userid."/Profile/".$this->userid.".jpg'>
+                        </li>
+                        <li id='sort-compose'>
+                            <div id='startprayer' onclick='ShowCompose()'>Compose Prayer</div>
                         </li>
                     </ul>";
                 $this->createUserMenu($this->userid);
@@ -96,6 +105,34 @@
                         <a href='signOut.php'> Log Out </a>
                     </li>
                 </ul>
+            </div>";
+        }
+
+        function createCompose(){
+            echo "<div id='compose-prayer' class='hidden'>
+                <div class='prayer-box'>
+                <ul class='compose-header-background'>
+                    <li class='compose-header'>
+                        <h1>Compose Prayer</h1>
+                    </li>
+                    <li class='close-button'>
+                        <img id='closebutton' src='images/icons/close.png'>
+                    </li>
+                </ul>
+                    <form method='post' class='compose-content' action='' enctype='multipart/form-data'>
+                        <textarea id='compose-area' name='newprayer' placeholder='Compose Your Prayer' 
+                                  onkeyup='auto_grow(this)'></textarea>
+                        <ul class='compose-content-bottom'>
+                        <li class='compose-img-upload'>
+                            <input type='file' name='upload' id='upload' class='inputfile'>
+                            <label for='upload'>Upload Picture</label> 
+                        </li>
+                        <li class='compose-submit'>
+                            <button type='submit' name='submit-prayer' id='submit-prayer'>Send Prayer</button>
+                        </li>
+                        </ul>
+                    </form>
+                </div>
             </div>";
         }
     }

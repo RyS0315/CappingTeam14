@@ -106,7 +106,7 @@
             for ($i = 0; $i < $length; $i++) {
                 $randomString .= $characters[rand(0, $charactersLength - 1)];
             }
-            // $this->checkUnique($newname);
+            // $this->checkUnique($randomString);
             return $randomString;
         }
     }
