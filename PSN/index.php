@@ -44,16 +44,17 @@
     $header->displayHeader();
 
     $feed = new PrayerCreator($db,$id);
-    $chosenreligion = 1;
+    $chosenreligion = 2;
 
-    $prayerquery = "SELECT p.userid, u.fname, u.lname, u.username, p.content, pr.relid, p.prayid
+    $prayerquery = "SELECT p.userid, u.fname, u.lname, u.username, p.content, pr.relid, p.prayid, p.img
                     FROM Prayer p, Users u, Prayer_Religion pr
                     WHERE p.userid = u.userid
                     AND pr.prayid = p.prayid
-                    AND pr.relid = $chosenreligion
+                    AND (pr.relid = $chosenreligion
+                    OR pr.relid = 1)
                     ORDER BY p.prayid desc";
     $prayers = $db->FetchQuery($prayerquery);
-    
+    // print_ary($prayers);
     $userreligions = [
         [
             'id'=>'1',
@@ -73,7 +74,6 @@
         ]
     ]
 ?>
-
     <section class='index-body'>
         <div class='index-left-box'>
             Trends
@@ -81,15 +81,15 @@
 
         <div class='index-center-box'>
         <form method='post' action='index.php'>
-        <ul class='sort-menu'>
-            <li class='religion-menu-header'>
+            <ul class='sort-menu'>
+                <li class='religion-menu-header'>
                 Church Of Marist
                 <ul class='religion-menu-items'>
                     <li class='religion-menu-item'>
-                        Po-Town Popes
+                        Really Long Religion to Test the Dimensions Of This Menu
                     </li>
                     <li class='religion-menu-item'>
-                        Really Long Religion to Test the Dimensions Of This Menu
+                        Po-Town Popes
                     </li>
                     <li class='religion-menu-item'>
                         Buddha

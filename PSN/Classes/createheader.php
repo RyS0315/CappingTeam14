@@ -49,7 +49,7 @@
                             <img class='index-profile-pic' src='images/Users/".$this->userid."/Profile/".$this->userid.".jpg'>
                         </li>
                         <li id='sort-compose'>
-                            <div id='startprayer' onclick='ShowCompose()'>Compose Prayer</div>
+                            <div id='startprayer' onclick='ShowCompose()'>PRAY</div>
                         </li>
                     </ul>";
                 $this->createUserMenu($this->userid);
@@ -122,6 +122,7 @@
                     <form method='post' class='compose-content' action='' enctype='multipart/form-data'>
                         <textarea id='compose-area' name='newprayer' placeholder='Compose Your Prayer' 
                                   onkeyup='auto_grow(this)'></textarea>
+                        **Add Picture Functionality Here**
                         <ul class='compose-content-bottom'>
                         <li class='compose-img-upload'>
                             <input type='file' name='upload' id='upload' class='inputfile'>

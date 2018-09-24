@@ -23,6 +23,7 @@
             $name = $this->setName($filename, $ext);//Set a random name to the file
             $path = $this->setPath($name);//Create the path for the file to be place -- The folder
             $this->doUpload($filetmp, $path, $name);
+            return $name;
         }
 
         /**

@@ -17,7 +17,6 @@
                   'feed'=>'#7116ee',
                   'menuborder'=>'#111111',
                   'boldcolor'=>'#ffffff']
-
     ];
     $chosen='Light';
     $backgroundcolor = $theme[$chosen]['background'];
@@ -506,6 +505,8 @@
         border-color:<?php echo $textcolor?>;
         border-width:1px;
         font-size:18px;
+        padding-right:15px;
+        padding-left:15px;
     }
 
     #startprayer:hover{
@@ -642,6 +643,24 @@
         background-color:<?php echo $linkcolor ?>;
     }
 /*************** PRAYER FEED *************/
+    .feed-content-header{
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+    }
+
+    #deleteprayer{
+        height:15px;
+        width:15px;
+    }
+
+    #deleteprayer:hover{
+        cursor:pointer;
+    }
+
+    .feed-content-name{
+        width:90%;
+    }
+
     .feed-box{
         width:calc(100% - 40px);
         height:auto;
@@ -652,11 +671,11 @@
         border-bottom-width:1px;
     }
     
-    .feed-img-box{
+    .feed-profile-img-box{
         width:10%;
     }
     
-    .feed-img{
+    .feed-profile-img{
         height:46px;
         width:46px;
         border-radius:50%;
@@ -712,6 +731,22 @@
     .feed-comment{
         width:80%;
         padding-top:10px;
+    }
+
+    .feed-img-box{
+        width:100%;
+        max-height:300px;
+        margin-top:10px;
+        margin-bottom:5px;
+    }
+
+    .feed-img{
+        border-radius:3px;
+        height:100%;
+        max-width:100%;
+        border-style:solid;
+        border-color:<?php echo $boldcolor ?>;
+        border-width:1px;
     }
 /*************** RELIGION MENU ***********/
     .sort-menu{
