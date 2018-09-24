@@ -734,19 +734,26 @@
     }
 
     .feed-img-box{
-        width:100%;
-        max-height:300px;
+        width:90%;
         margin-top:10px;
         margin-bottom:5px;
-    }
-
-    .feed-img{
-        border-radius:3px;
-        height:100%;
-        max-width:100%;
         border-style:solid;
         border-color:<?php echo $boldcolor ?>;
         border-width:1px;
+        border-radius:3px;
+        vertical-align: middle;
+    }
+
+    .feed-img{
+        margin:auto;
+        width:100%;
+        position:relative;
+    }
+
+    .feed-img-container{
+        max-height:450px;
+        margin:auto;
+        overflow:hidden;
     }
 /*************** RELIGION MENU ***********/
     .sort-menu{
@@ -774,6 +781,7 @@
         border-width:1px;
         border-style:solid;
         display:none;
+        z-index:20;
     }
 
     .religion-menu-header:hover ul{

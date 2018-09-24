@@ -110,27 +110,20 @@ CREATE TABLE Message(
     CONSTRAINT FK_User2_Message FOREIGN KEY (userid2) REFERENCES Users (userid)
 );
 
-<<<<<<< HEAD
 Insert into Religion(religion_name) VALUES
 ('Admin Updates'),
-=======
-INSERT INTO Religion(religion_name) VALUES
->>>>>>> 2bed7cdcc45260c4f006e03793cc143c47dbedf5
 ('Christianity'),
 ('Judaism'),
 ('Islam'),
 ('Buddhism'),
 ('Hinduism');
 
-<<<<<<< HEAD
 INSERT into USERS (fname,lname,username,user_password,zipCode,primary_religion, email,phone_number)VALUES
-('P.R.A.Y', 'Admin','Admin','Marist', 12601, 1, 'Admin@pray.com', '888-888-8888');
+('P.R.A.Y', 'Admin','Admin','Marist', 12601, 1, 'Admin@pray.com', '888-888-8888'),
+('Test', 'User', 'TestUser', 'Marist', 12601, 1, 'TestUser@pray.com', '888-777-66666');
 
 INSERT into Prayer(userid, content)VALUES
 (1,'Welcome to P.R.A.Y');
 
-Insert into Prayer_Religion(prayid, relid) VALUES(1,1);
-=======
-INSERT INTO USERS (fname,lname,username,user_password,zipCode,Primary_religion, email,phone_number)VALUES
-('Team', '14','Admin','Marist', 12601, 1, 'Admin@pray.com', '888-888-8888');
->>>>>>> 2bed7cdcc45260c4f006e03793cc143c47dbedf5
+Insert into Prayer_Religion(prayid, relid) 
+VALUES(1,1);

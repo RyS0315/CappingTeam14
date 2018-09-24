@@ -5,6 +5,7 @@
     include 'Classes/createheader.php';
     include 'Classes/createFooter.php';
     include 'Classes/prayers.php';
+    include 'php/onloadscripts.php';
 
     if(isset($_POST['submit-prayer'])){
         include 'php/submitprayer.php';

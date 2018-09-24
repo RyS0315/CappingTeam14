@@ -34,7 +34,9 @@
                         if($i['img'] != ''){
                             echo "
                             <div class='feed-img-box'>
-                            <img class='feed-img' src=images/Users/".$i['userid']."/Uploads/".$i['img']."></img>
+                            <div class='feed-img-container'>
+                                <img class='feed-img' src='images/Users/".$i['userid']."/Uploads/".$i['img']."' onload='center_img(this)'>
+                            </div>
                             </div>";
                         }
                         echo "
