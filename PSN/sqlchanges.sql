@@ -36,7 +36,7 @@ CREATE TABLE Prayer(
     pray_status INT(1),
     exclusive INT(1),
     post_date DATETIME,
-    img varchar(15),
+    img VARCHAR(15),
     CONSTRAINT FK_Users_Prayer FOREIGN KEY (userid) REFERENCES Users (userid)
 );
 
@@ -118,12 +118,12 @@ Insert into Religion(religion_name) VALUES
 ('Buddhism'),
 ('Hinduism');
 
-INSERT into USERS (fname,lname,username,user_password,zipCode,primary_religion, email,phone_number)VALUES
+INSERT INTO USERS (fname,lname,username,user_password,zipCode,primary_religion, email,phone_number)VALUES
 ('P.R.A.Y', 'Admin','Admin','Marist', 12601, 1, 'Admin@pray.com', '888-888-8888'),
 ('Test', 'User', 'TestUser', 'Marist', 12601, 1, 'TestUser@pray.com', '888-777-66666');
 
-INSERT into Prayer(userid, content)VALUES
+INSERT INTO Prayer(userid, content)VALUES
 (1,'Welcome to P.R.A.Y');
 
-Insert into Prayer_Religion(prayid, relid) 
+INSERT INTO Prayer_Religion(prayid, relid)
 VALUES(1,1);

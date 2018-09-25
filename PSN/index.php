@@ -1,4 +1,4 @@
-<?php 
+<?php
     include 'config/dbconfig.php';
     include 'config/permissions.php';
     include 'config/functions.php';
@@ -109,7 +109,7 @@
             People Near you
         </div>
     </section>
- <?php 
+ <?php
     $footer = new Footer($db,$src);
     $footer->buildFooter();
 ?>
