@@ -27,6 +27,9 @@
          * A prayer can be deleted by the user of the prayer, or by an admin.
          * Check for those conditions
          * 
+         * $this->userid => current user
+         * $uid => user of the prayer
+         * 
          */
         function checkpermission($uid){
 
