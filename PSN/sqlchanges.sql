@@ -1,7 +1,9 @@
 DROP TABLE IF EXISTS Religion;
 CREATE TABLE Religion(
     relid INT(10) PRIMARY KEY AUTO_INCREMENT,
-    religion_name VARCHAR(30)
+    religion_name VARCHAR(30),
+    dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
+    dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 DROP TABLE IF EXISTS Users;
@@ -18,13 +20,17 @@ CREATE TABLE Users(
     phone_number VARCHAR(15),
     pPicture VARCHAR(20),
     bPicture VARCHAR(20),
+    dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
+    dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT FK_Users_Religion FOREIGN KEY (Primary_religion) REFERENCES Religion (relid)
 );
 
 DROP TABLE IF EXISTS Tag;
 CREATE TABLE Tag(
     tagid INT(10) PRIMARY KEY AUTO_INCREMENT,
-    tag_name VARCHAR(14)
+    tag_name VARCHAR(14),
+    dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
+    dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 DROP TABLE IF EXISTS Prayer;
@@ -37,6 +43,8 @@ CREATE TABLE Prayer(
     exclusive INT(1),
     post_date DATETIME,
     img VARCHAR(15),
+    dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
+    dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT FK_Users_Prayer FOREIGN KEY (userid) REFERENCES Users (userid)
 );
 
@@ -45,6 +53,8 @@ CREATE TABLE Prayer_Tag(
     prayid INT(10),
     tagid INT(10),
     PRIMARY KEY(prayid, tagid),
+    dateLastMaint DATETIME,
+    dateAdded DATETIME,
     CONSTRAINT FK_Prayer_PrayerTag FOREIGN KEY (prayid) REFERENCES Prayer (prayid),
     CONSTRAINT FK_Tag_PrayerTag FOREIGN KEY (tagid) REFERENCES Tag (tagid)
 );
@@ -54,6 +64,8 @@ CREATE TABLE Prayer_Religion(
     prayid INT(10),
     relid INT(10),
     PRIMARY KEY(prayid, relid),
+    dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
+    dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT FK_Prayer_PrayerReligion FOREIGN KEY (prayid) REFERENCES Prayer (prayid),
     CONSTRAINT FK_Religion_PrayerReligion FOREIGN KEY (relid) REFERENCES Religion (relid)
 );
@@ -65,6 +77,8 @@ CREATE TABLE User_Religion(
     relid INT(10),
     repuation INT(10),
     PRIMARY KEY(userid, relid),
+    dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
+    dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT FK_User_UserReligion FOREIGN KEY (userid) REFERENCES Users (userid),
     CONSTRAINT FK_Religion_UserReligion FOREIGN KEY (relid) REFERENCES Religion (relid)
 );
@@ -76,6 +90,8 @@ CREATE TABLE Notifications(
     userid2 INT(10),
     type VARCHAR(10),
     isChecked INT(1),
+    dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
+    dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT FK_User1_Notifications FOREIGN KEY (userid1) REFERENCES Users (userid),
     CONSTRAINT FK_User2_Notifications FOREIGN KEY (userid2) REFERENCES Users (userid)
 );
@@ -85,6 +101,8 @@ CREATE TABLE Likes(
     userid INT(10),
     prayid INT(10),
     PRIMARY KEY(userid, prayid),
+    dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
+    dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT FK_User_Likes FOREIGN KEY (userid) REFERENCES Users (userid),
     CONSTRAINT FK_Prayer_Likes FOREIGN KEY (prayid) REFERENCES Prayer (prayid)
 );
@@ -95,6 +113,8 @@ CREATE TABLE Comment(
     userid INT(10),
     prayid INT(10),
     comment VARCHAR(5000),
+    dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
+    dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT FK_User_Comment FOREIGN KEY (userid) REFERENCES Users (userid),
     CONSTRAINT FK_Prayer_Comment FOREIGN KEY (prayid) REFERENCES Prayer (prayid)
 );
@@ -106,6 +126,8 @@ CREATE TABLE Message(
     userid2 INT(10),
     message VARCHAR(5000),
     image VARCHAR(5000),
+    dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
+    dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT FK_User1_Message FOREIGN KEY (userid1) REFERENCES Users (userid),
     CONSTRAINT FK_User2_Message FOREIGN KEY (userid2) REFERENCES Users (userid)
 );

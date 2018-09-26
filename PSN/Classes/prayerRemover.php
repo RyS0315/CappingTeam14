@@ -32,7 +32,7 @@
          *
          */
         function checkpermission($uid){
-            if(!($this->userid == $uid) || !($this->userid == 1)) {
+            if($this->userid != $uid || $this->userid != 1) {
 
             }
         }
@@ -67,7 +67,7 @@
         function removeimg($img){
             if($img != null) {
                 $path = "images/Users/".$this->userid."/Uploads/".$img;
-                
+
             }
         }
 
