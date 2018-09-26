@@ -11,6 +11,11 @@
         include 'php/submitprayer.php';
     }
 
+    $file = isset($_FILES['upload']) ? $_FILES['upload'] : '';
+    if($file != null){
+        $tmp = $file['tmp_name'];
+    }
+
     $menus = [
         [
             'name'=>'Home',
@@ -33,9 +38,11 @@
             'active'=>''
         ]
     ];
+    
     $src[] = ["src"=>"js/userMenu.js", "type"=>"js"];
     $src[] = ["src"=>"js/jqueryinit.php","type"=>"php"];
     $src[] = ["src"=>"js/autoGrow.js","type"=>"js"];
+    $src[] = ["src"=>"http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js","type"=>"js"];
 
     $src[] = ["src"=>"js/composePrayer.js","type"=>"js"];
     $css[] = ["src"=>"css/core.php","type"=>"css"];
@@ -73,11 +80,11 @@
             'id'=>'4',
             'name'=>'Rel3'
         ]
-    ]
+        ];
 ?>
     <section class='index-body'>
         <div class='index-left-box'>
-            Trends
+            <p class='trends-header'>Featured Tags</p>
         </div>
 
         <div class='index-center-box'>
@@ -106,7 +113,7 @@
         </div>
 
         <div class='index-right-box'>
-            People Near you
+            <p class='trends-header'>Featured Prayers</p>
         </div>
     </section>
  <?php 

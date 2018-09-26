@@ -16,6 +16,14 @@
          * 
          */
         function uploadFile ($file) {
+            $result["error"] = 0;
+            $result["str"] = '';
+            $error = $this->checkError($file['error']);
+            if(!$error){
+                $result["error"] = 1;
+                $result["str"] = "Image Upload Failed";
+                return $result;
+            }
             $filename = $file['name'];
             $filetmp = $file['tmp_name'];
             $ext = $this->checkExtension($file);
@@ -23,7 +31,16 @@
             $name = $this->setName($filename, $ext);//Set a random name to the file
             $path = $this->setPath($name);//Create the path for the file to be place -- The folder
             $this->doUpload($filetmp, $path, $name);
-            return $name;
+            $result["str"] = $name;
+            return $result;
+        }
+
+        function checkError($check){
+            if($check == 1){
+                return false;
+            }else{
+                return true;
+            }
         }
 
         /**

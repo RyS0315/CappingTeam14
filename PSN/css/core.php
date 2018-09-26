@@ -250,7 +250,7 @@
         width:200px;
         position:fixed;
         margin-top:50px;
-        margin-left:66%;
+        margin-left:68%;
         background-color:<?php echo $feedcolor?>;
         border-radius:5px;
         border-color:<?php echo $menuborder ?>;
@@ -419,7 +419,7 @@
 /*************** INDEX *******************/
     .index-body{
         display:flex;
-        width:85%;
+        width:93%;
         margin:auto;
         height:auto;
         padding-bottom:25px;
@@ -434,26 +434,18 @@
         background-color: <?php echo $boxcolor ?>;
     }
 
-    .index-profile-stats{
-        margin-top:10px;
-        height:auto;
-        background-color: <?php echo $boxcolor ?>;
-        width:85%;
-        margin:auto;
-    }
-
     .index-center-box{
         width:52%;
-        margin-left:10px;
+        margin-left:15px;
         background-color:<?php echo $feedcolor ?>;
-        margin-right:10px;
-        height:2000px;
+        margin-right:15px;
+        height:auto;
     }
 
     .index-right-box{
         width:25%;
         background-color: <?php echo $boxcolor ?>;
-        height:auto;
+        height:600px;
     }
 
     .compose-prayer{
@@ -490,6 +482,12 @@
         display:block;
         padding-bottom:10px;
     }
+
+    .trends-header{
+        margin:10px 0px 0px 10px;
+        font-size:22px;
+        color:<?php echo $textcolor ?>;
+    }
 /*************** COMPOSE *****************/
     .compose-header{
         width:auto;
@@ -515,6 +513,13 @@
     }
 
     #compose-prayer{
+        position:absolute;
+        height:100%;
+        width:100%;
+        z-index:100;
+    }
+
+    #overlay{
         position:fixed;
         height:100%;
         width:100%;
@@ -593,6 +598,20 @@
         width:auto;
     }
 
+    #preview{
+        margin-top:20px;
+        width:100%;
+        height:auto;
+        margin-bottom:10px;
+    }
+
+    #uploadpreview{
+        width:100%;
+        border-radius:5px;
+        border-style:solid;
+        border-color:#000;
+        border-width:1px;
+    }
 /*************** PROFILE *****************/
     .profile-body{
         width:80%;
@@ -740,7 +759,7 @@
         border-style:solid;
         border-color:<?php echo $boldcolor ?>;
         border-width:1px;
-        border-radius:3px;
+        border-radius:5px;
         vertical-align: middle;
     }
 

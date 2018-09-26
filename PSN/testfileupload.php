@@ -13,12 +13,16 @@ print_ary($_FILES);
 // print_ary($_POST);
 
 $upload = isset($_FILES['upload']) ? $_FILES['upload'] : '';
-$uploadtype = 'Banner';
+$uploadtype = '';
 
 if($upload != ''){
     $uploader = new fileUploader($db,$uploadtype,$id);
-    $uploader->uploadFile($upload);
-    header('location:testfileupload.php');
+    $res = $uploader->uploadFile($upload);
+        if($res['error']){
+            echo $res['str'];
+        }
+        // header('location:testfileupload.php');
+
 }
 
 ?>
