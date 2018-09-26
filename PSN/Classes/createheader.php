@@ -28,7 +28,14 @@
             $this->createTitle();
             $this->createCompose();
             //Header
-            echo "<section class='header'>
+            echo "<div id='overlay' class='overlay hidden'></div>
+                    <div id='imglarge-body' class=''hidden>
+                    <div class='imglarge-box'>
+                    <img id='closelargeimg' class='close' src='images/icons/close.png'>
+                        <img id='imglarge' src='#'>
+                    </div>
+                    </div>
+                  <section class='header'>
                   <div class='header-box'>
                   <ul class='header-link-box'>";
             foreach($this->menus as $i){
@@ -109,7 +116,8 @@
         }
 
         function createCompose(){
-            echo "<div id='compose-prayer' class='hidden'>
+            echo "
+                <div id='compose-prayer' class='hidden'>
                 <div class='prayer-box'>
                 <ul class='compose-header-background'>
                     <li class='compose-header'>
@@ -122,11 +130,13 @@
                     <form method='post' class='compose-content' action='' enctype='multipart/form-data'>
                         <textarea id='compose-area' name='newprayer' placeholder='Compose Your Prayer' 
                                   onkeyup='auto_grow(this)'></textarea>
-                        **Add Picture Functionality Here**
+                        <div id='preview'>
+                            <img src='' id='uploadpreview' style='display:none'>
+                        </div>
                         <ul class='compose-content-bottom'>
                         <li class='compose-img-upload'>
-                            <input type='file' name='upload' id='upload' class='inputfile'>
-                            <label for='upload'>Upload Picture</label> 
+                            <input type='file' name='upload' id='upload' class='inputfile' onchange='readURL(this)'>
+                            <label id='uploadbutton' for='upload'>Upload Picture</label> 
                         </li>
                         <li class='compose-submit'>
                             <button type='submit' name='submit-prayer' id='submit-prayer'>Send Prayer</button>

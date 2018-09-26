@@ -5,4 +5,4 @@
     Include all onload files in this file
 -->
 
-<script type='text/javascript' src='js/centerPrayImg.js'></script>
+<script type='text/javascript' src='js/PrayImg.js'></script>

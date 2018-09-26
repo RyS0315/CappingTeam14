@@ -35,7 +35,8 @@
                             echo "
                             <div class='feed-img-box'>
                             <div class='feed-img-container'>
-                                <img class='feed-img' src='images/Users/".$i['userid']."/Uploads/".$i['img']."' onload='center_img(this)'>
+                                <img class='feed-img' src='images/Users/".$i['userid']."/Uploads/".$i['img']."' 
+                                     onload='center_img(this)' onclick='showLargeImg(this)'>
                             </div>
                             </div>";
                         }
@@ -49,7 +50,7 @@
                         </ul>
                     </div>
                 </div>";
-                        }
+            }
                         // <img class='like-button' src='images/icons/Like.png'><p class='feed-num-likes'>".$i['favs']."</p>
     }
 ?>
