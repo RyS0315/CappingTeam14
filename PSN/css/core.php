@@ -1,15 +1,15 @@
 <?php
     header("Content-type: text/css; charset: UTF-8");
     $theme = [
-        'Light'=>['background'=>'#eeeeee',
+        'Light'=>['background'=>'#efe9ef',
                   'text'=>'rgba(0,0,0,.65)',
-                  'boxcolor'=>'#efe1fe',
+                  'boxcolor'=>'#f3e1ff',
                   'link'=>'rgba(200,0,200,.65)',
                   'feed'=>'#ffffff',
                   'menuborder'=>'#cccccc',
                   'boldcolor'=>'#000000',
-                  'buttoncolor'=>'#ef6eff',
-                  'buttonhover'=>'#bb00bb'],
+                  'buttoncolor'=>'#e132ef',
+                  'buttonhover'=>'#b100bb'],
         'Dark' =>['background'=>'#140026', 
                   'text'=>'rgba(255,255,255,.65)',
                   'boxcolor'=>'#1b0036',
@@ -154,6 +154,26 @@
         cursor:pointer;
         background-color:<?php echo $buttonhover ?>;
     }
+
+    .overlay{
+        position:fixed;
+        height:100%;
+        width:100%;
+        background-color:rgba(0,0,0,.6);
+        z-index:99;
+    }
+
+    .close{
+        height:30px;
+        width:30px;
+        position:absolute;
+        right:25px;
+        top:10px;
+    }
+
+    .close:hover{
+        cursor:pointer;
+    }
 /*************** HEADER ******************/
     .header{
         height:50px;
@@ -167,7 +187,7 @@
     }
     
     .header-box{
-        width:85%;
+        width:93%;
         margin:auto;
         display:flex;
         height:calc(100% - 16px);
@@ -250,7 +270,7 @@
         width:200px;
         position:fixed;
         margin-top:50px;
-        margin-left:68%;
+        margin-left:73%;
         background-color:<?php echo $feedcolor?>;
         border-radius:5px;
         border-color:<?php echo $menuborder ?>;
@@ -497,7 +517,7 @@
     #startprayer{
         height:auto;
         background-color:<?php echo $buttoncolor ?>;
-        padding:5px;
+        padding:6px;
         border-radius:100px;
         border-style:solid;
         border-color:<?php echo $textcolor?>;
@@ -516,14 +536,6 @@
         position:absolute;
         height:100%;
         width:100%;
-        z-index:100;
-    }
-
-    #overlay{
-        position:fixed;
-        height:100%;
-        width:100%;
-        background-color:rgba(0,0,0,.6);
         z-index:100;
     }
 
@@ -769,10 +781,31 @@
         position:relative;
     }
 
+    .feed-img:hover{
+        cursor:pointer;
+    }
+
     .feed-img-container{
         max-height:450px;
         margin:auto;
         overflow:hidden;
+    }
+
+    .imglarge-box{
+        width:50%;
+        margin:auto;
+        margin-top:100px;
+    }
+
+    #imglarge{
+        width:100%;
+    }
+
+    #imglarge-body{
+        position:absolute;
+        height:100%;
+        width:100%;
+        z-index:100;
     }
 /*************** RELIGION MENU ***********/
     .sort-menu{

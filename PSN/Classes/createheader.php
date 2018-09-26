@@ -28,7 +28,14 @@
             $this->createTitle();
             $this->createCompose();
             //Header
-            echo "<section class='header'>
+            echo "<div id='overlay' class='overlay hidden'></div>
+                    <div id='imglarge-body' class=''hidden>
+                    <div class='imglarge-box'>
+                    <img id='closelargeimg' class='close' src='images/icons/close.png'>
+                        <img id='imglarge' src='#'>
+                    </div>
+                    </div>
+                  <section class='header'>
                   <div class='header-box'>
                   <ul class='header-link-box'>";
             foreach($this->menus as $i){
@@ -109,7 +116,7 @@
         }
 
         function createCompose(){
-            echo "<div id='overlay' class=''hidden></div>
+            echo "
                 <div id='compose-prayer' class='hidden'>
                 <div class='prayer-box'>
                 <ul class='compose-header-background'>

@@ -8,9 +8,10 @@
         $imgname = $uploader->uploadFile($img);
         if($imgname['error']){
             $error = $imgname['str'];
-        }else{ 
+        }else{
+            $name = $imgname['str'];
             $prayerquery = "INSERT into PRAYER(userid, content, img) 
-                        VALUES ($id , '$content', '$imgname')";
+                        VALUES ($id , '$content', '$name')";
             $prayid = $db->InsertQuery($prayerquery);
             
             $prayerrelquery = "INSERT into Prayer_Religion(prayid, relid)

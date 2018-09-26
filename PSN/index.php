@@ -11,11 +11,6 @@
         include 'php/submitprayer.php';
     }
 
-    $file = isset($_FILES['upload']) ? $_FILES['upload'] : '';
-    if($file != null){
-        $tmp = $file['tmp_name'];
-    }
-
     $menus = [
         [
             'name'=>'Home',
@@ -82,6 +77,7 @@
         ]
         ];
 ?>
+
     <section class='index-body'>
         <div class='index-left-box'>
             <p class='trends-header'>Featured Tags</p>
@@ -94,18 +90,22 @@
                 Church Of Marist
                 <ul class='religion-menu-items'>
                     <li class='religion-menu-item'>
-                        Really Long Religion to Test the Dimensions Of This Menu
+                        This 
                     </li>
                     <li class='religion-menu-item'>
-                        Po-Town Popes
+                        Is
                     </li>
                     <li class='religion-menu-item'>
-                        Buddha
+                        Not
+                    </li>
+                    <li class='religion-menu-item'>
+                        Done
                     </li>
                 </ul>
         </form>
             </li>
         </ul>
+        
         <?php
             foreach($prayers as $i){
                 $feed->showPrayer($i);
