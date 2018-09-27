@@ -1,4 +1,4 @@
-<?php 
+<?php
     include 'config/dbconfig.php';
     include 'config/permissions.php';
     include 'config/functions.php';
@@ -116,7 +116,7 @@
             <p class='trends-header'>Featured Prayers</p>
         </div>
     </section>
- <?php 
+ <?php
     $footer = new Footer($db,$src);
     $footer->buildFooter();
 ?>
