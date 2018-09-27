@@ -28,7 +28,7 @@
             $this->createTitle();
             $this->createCompose();
             //Header
-            echo "<div id='overlay' class='overlay hidden'></div>
+            echo "
                     <div id='imglarge-body' class=''hidden>
                     <div class='imglarge-box'>
                     <img id='closelargeimg' class='close' src='images/icons/close.png'>
@@ -72,6 +72,7 @@
                     </head>
                     <body>";
             $this->addcss();
+            echo "<div id='overlay' class='overlay hidden'></div>";
         }
 
         function addcss(){

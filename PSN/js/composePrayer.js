@@ -3,6 +3,8 @@ function ShowCompose(){
     var overlay = document.getElementById('overlay');
     var button = document.getElementById('startprayer');
     var close = document.getElementById('closebutton');
+    var body = document.body;
+    // body.setAttribute('style', 'overflow:hidden');
     button.removeAttribute('onclick');
     $(box).fadeIn();
     $(overlay).fadeIn();
@@ -14,6 +16,8 @@ function CloseCompose(){
     var overlay = document.getElementById('overlay');
     var button = document.getElementById('startprayer');
     var close = document.getElementById('closebutton');
+    var body = document.body;
+    // body.setAttribute('style', 'overflow:scroll');
     close.removeAttribute('onclick');
     $(box).fadeOut();
     $(overlay).fadeOut()
@@ -30,7 +34,6 @@ function readURL(input) {
                 .attr('style','display:block');
             $('#uploadbutton').html('Change Picture');
         };
-
         reader.readAsDataURL(input.files[0]);
     }
 }

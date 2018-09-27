@@ -161,6 +161,7 @@
         width:100%;
         background-color:rgba(0,0,0,.6);
         z-index:99;
+        overflow-y:scroll;
     }
 
     .close{
@@ -383,7 +384,7 @@
         border-style: solid;
         border-width:1px;
         border-color:rgba(0,0,0,.2);
-        background-color:#f5f8fa
+        background-color:<?php echo $boxcolor?>;
     }
 
     .login-form-box-body{
@@ -400,23 +401,21 @@
 
     .submit-button{
         width:auto;
-        color:#ffffff;
-        font-size: 1rem;
-        margin-right:10px;
-        background-color: #1da1f2;
+        height:auto;
+        padding:7px;
+        border-radius:100px;
         border-style:solid;
-        border-width:2px 3px 2px 3px;
-        border-left-color:rgba(0,0,0,.3);
-        border-right-color:rgba(0,0,0,.3);
-        border-top-color:rgba(0,0,0,.5);
-        border-bottom-color:rgba(0,0,0,.5);
-        border-radius: 10px;
+        border-width:1px;
+        border-color:<?php echo $boldcolor?>;
+        background-color:<?php echo $buttoncolor?>;
+        padding-right:15px;
+        padding-left:15px;
+        display:inline-block;
     }
 
     .submit-button:hover{
-        background-color:#006dbf;
-        border-color:#006dbf;
         cursor:pointer;
+        background-color:<?php echo $buttonhover ?>;
     }
 /*************** NEW ACCOUNT *************/
     .newaccount-body{
@@ -689,7 +688,7 @@
     }
 
     .feed-content-name{
-        width:90%;
+        width:87%;
     }
 
     .feed-box{
@@ -786,13 +785,13 @@
     }
 
     .feed-img-container{
-        max-height:450px;
+        max-height:400px;
         margin:auto;
         overflow:hidden;
     }
 
     .imglarge-box{
-        width:50%;
+        width:40%;
         margin:auto;
         margin-top:100px;
     }
