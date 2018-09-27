@@ -17,10 +17,14 @@
          *
          */
         function removePrayer($prayer){
-            checkpermission($prayer['userid']);//Check if the current user is allow to remove the prayer
-            removeRelation($prayer['prayid']);//Remove all field where the prayer is a foreign key
-            removeimg($prayer['img']);//Remove the image from the directory
-            remove($prayer['prayid']);//Remove prayer from prayer table
+            if (checkpermission($prayer['userid'])) {   //Check if the current user is allow to remove the prayer
+                removeRelation($prayer['prayid']);//Remove all field where the prayer is a foreign key
+                removeimg($prayer['img']);//Remove the image from the directory
+                remove($prayer['prayid']);//Remove prayer from prayer table
+            }
+            else {
+
+            }
         }
 
         /**
@@ -32,9 +36,11 @@
          *
          */
         function checkpermission($uid){
-            if($this->userid != $uid || $this->userid != 1) {
-
+            var allowed = 0;
+            if($this->userid == $uid || $this->userid == 1) {
+                allowed = 1;
             }
+            return allowed;
         }
 
         /**
@@ -67,7 +73,7 @@
         function removeimg($img){
             if($img != null) {
                 $path = "images/Users/".$this->userid."/Uploads/".$img;
-
+                delete($path);
             }
         }
 

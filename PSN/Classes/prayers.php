@@ -10,7 +10,7 @@
         }
 
         function showPrayer($i){
-            echo "<div class='feed-box'> 
+            echo "<div class='feed-box'>
                     <div class='feed-profile-img-box'>
                         <img class='feed-profile-img 'src='images/Users/".$i['userid']."/Profile/".$i['userid'].".jpg'>
                     </div>
@@ -24,7 +24,8 @@
                         </li>";
                         if($i['userid'] == $this->userid){
                             echo "<li class='feed-content-delete'>
-                            <img id='deleteprayer' src='images/icons/close.png'>
+                            <img id='deleteprayer' src='images/icons/close.png' onclick='removePrayer()'>
+                            <form method='post' action='php/removePrayer.php'><button id='removePrayer' name='delete' type='submit' class='hidden' value='".$i['prayid']."'></form>
                             </li>";
                         }
                         echo
@@ -35,7 +36,7 @@
                             echo "
                             <div class='feed-img-box'>
                             <div class='feed-img-container'>
-                                <img class='feed-img' src='images/Users/".$i['userid']."/Uploads/".$i['img']."' 
+                                <img class='feed-img' src='images/Users/".$i['userid']."/Uploads/".$i['img']."'
                                      onload='center_img(this)' onclick='showLargeImg(this)'>
                             </div>
                             </div>";

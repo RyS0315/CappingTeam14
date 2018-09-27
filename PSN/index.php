@@ -33,8 +33,9 @@
             'active'=>''
         ]
     ];
-    
+
     $src[] = ["src"=>"js/userMenu.js", "type"=>"js"];
+    $src[] = ["src"=>"js/removePrayer.js", "type"=>"js"];
     $src[] = ["src"=>"js/jqueryinit.php","type"=>"php"];
     $src[] = ["src"=>"js/autoGrow.js","type"=>"js"];
     $src[] = ["src"=>"http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js","type"=>"js"];
@@ -90,7 +91,7 @@
                 Church Of Marist
                 <ul class='religion-menu-items'>
                     <li class='religion-menu-item'>
-                        This 
+                        This
                     </li>
                     <li class='religion-menu-item'>
                         Is
@@ -105,7 +106,7 @@
         </form>
             </li>
         </ul>
-        
+
         <?php
             foreach($prayers as $i){
                 $feed->showPrayer($i);
