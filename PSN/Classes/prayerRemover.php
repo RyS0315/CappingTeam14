@@ -1,4 +1,4 @@
-<?
+<?php
     class prayerRemover{
 
         protected $db;//Sets the Database -- Allows for queries in this class
@@ -17,10 +17,11 @@
          *
          */
         function removePrayer($prayer){
-            if (checkpermission($prayer['userid'])) {   //Check if the current user is allow to remove the prayer
-                removeRelation($prayer['prayid']);//Remove all field where the prayer is a foreign key
-                removeimg($prayer['img']);//Remove the image from the directory
-                remove($prayer['prayid']);//Remove prayer from prayer table
+            print_ary($prayer);
+            if($this->checkpermission($prayer['userid'])) {   //Check if the current user is allow to remove the prayer
+                $this->removeRelation($prayer['prayid']);//Remove all field where the prayer is a foreign key
+                $this->removeimg($prayer['img']);//Remove the image from the directory
+                $this->remove($prayer['prayid']);//Remove prayer from prayer table
             }
             else {
 
@@ -36,11 +37,10 @@
          *
          */
         function checkpermission($uid){
-            var allowed = 0;
             if($this->userid == $uid || $this->userid == 1) {
-                allowed = 1;
+                return true;
             }
-            return allowed;
+            return false;
         }
 
         /**
@@ -60,8 +60,8 @@
                             "DELETE FROM Prayer_Religion WHERE prayid = $pid",
                             "DELETE FROM Comment WHERE prayid = $pid",
                             "DELETE FROM Likes WHERE prayid = $pid"];
-            for ($i = 0; $i < $queryArray.length; $i++) {
-                $this->db->deleteQuery($queryArray[$i]);
+            foreach($queryArray as $i) {
+                $this->db->deleteQuery($i);
             }
         }
 
@@ -73,7 +73,7 @@
         function removeimg($img){
             if($img != null) {
                 $path = "images/Users/".$this->userid."/Uploads/".$img;
-                delete($path);
+                unlink($path);
             }
         }
 

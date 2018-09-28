@@ -25,7 +25,9 @@
                         if($i['userid'] == $this->userid){
                             echo "<li class='feed-content-delete'>
                             <img id='deleteprayer' src='images/icons/close.png' onclick='removePrayer()'>
-                            <form method='post' action='php/removePrayer.php'><button id='removePrayer' name='delete' type='submit' class='hidden' value='".$i['prayid']."'></form>
+                            <form method='post' action='php/removePrayer.php'>
+                            <button id='removePrayer' name='delete' type='submit' class='hidden' value='".$i['prayid']."'>
+                            </form>
                             </li>";
                         }
                         echo
