@@ -22,7 +22,7 @@
                                 <p class='feed-profile-username'>@".$i['username']."</p>
                             </a>
                         </li>";
-                        if($i['userid'] == $this->userid){
+                        if($i['userid'] == $this->userid || $this->userid == 1){
                             echo "<li class='feed-content-delete'>
                             <img id='deleteprayer' src='images/icons/close.png' onclick='removePrayer()'>
                             <form method='post' action='php/removePrayer.php'>
