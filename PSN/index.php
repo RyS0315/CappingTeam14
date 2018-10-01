@@ -5,7 +5,7 @@
     include 'Classes/createheader.php';
     include 'Classes/createFooter.php';
     include 'Classes/prayers.php';
-    include 'Classes/prayerCommenter.php';
+    include 'Classes/prayerCommentDisplayer.php';
     include 'php/onloadscripts.php';
 
     if(isset($_POST['submit-prayer'])){
@@ -48,7 +48,7 @@
     $header->ShowUserMenu($id);
     $header->displayHeader();
 
-    $comments = new PrayerCommenter($db, $id);
+    $comments = new PrayerCommentDisplayer($db, $id);
     $feed = new PrayerCreator($db,$id,$comments);
     $chosenreligion = 2;
 

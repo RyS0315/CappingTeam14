@@ -9,7 +9,8 @@
                   'menuborder'=>'#cccccc',
                   'boldcolor'=>'#000000',
                   'buttoncolor'=>'#e132ef',
-                  'buttonhover'=>'#b100bb'],
+                  'buttonhover'=>'#b100bb',
+                  'commentbox'=>'#fbfbfb'],
         'Dark' =>['background'=>'#140026', 
                   'text'=>'rgba(255,255,255,.65)',
                   'boxcolor'=>'#1b0036',
@@ -30,6 +31,7 @@
     $boldcolor = $theme[$chosen]['boldcolor'];
     $buttoncolor = $theme[$chosen]['buttoncolor'];
     $buttonhover = $theme[$chosen]['buttonhover'];
+    $commentcolor = $theme[$chosen]['commentbox'];
 ?>
 /*************** COMMON ******************/
     html{
@@ -697,7 +699,7 @@
     .feed-container{
         border-bottom-style:solid;
         border-bottom-color:<?php echo $backgroundcolor ?>;
-        border-bottom-width:1px;
+        border-bottom-width:2px;
         width:100%;
         height:auto;
     }
@@ -813,19 +815,32 @@
         z-index:100;
     }
 
+/*************** COMMENTS ****************/
     .feed-comment-box{
         width:80%;
         padding-left:10%;
         padding-right:10%;
-        padding-top:20px;
         padding-bottom:20px;
+        background-color:<?php echo $commentcolor ?>;
+    }
+    
+    .post-comment{
+        padding-top:20px;
+        padding-bottom:20px
     }
 
-    .feed-comment{
+    .comment-feed{
+        display:flex;
+        padding-bottom:20px;
+        padding-top:20px;
+        border-bottom-style:solid;
+        border-bottom-color:<?php echo $backgroundcolor ?>;
+        border-bottom-width:1px;
     }
     
     .comment{
         width:100%;
+        margin-bottom:10px;
     }
     
     #submit-comment{
@@ -840,14 +855,28 @@
         display:inline-block;
         
     }
-
+    
     #submit-comment:hover{
         cursor:pointer;
         background-color:<?php echo $buttonhover ?>;
     }
+    
+    .comment-profile-name{
+        color:<?php echo $boldcolor?>;
+        font-weight:bold;
+        display:inline-block;
+        font-size:16px;
+        padding-bottom:5px;
+    }
 
-    #submit-comment-box{
-        
+    .comment-profile-username{
+        color:<?php echo $textcolor ?>;
+        display:inline-block;
+        font-size:14px;
+    }
+
+    .comment-feed-content{
+        padding-left:10px;
     }
 /*************** RELIGION MENU ***********/
     .sort-menu{

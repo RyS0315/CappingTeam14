@@ -161,4 +161,5 @@ INSERT INTO Prayer_Religions(prayid, relid)
 VALUES(1,1);
 
 INSERT INTO Comments(userid,prayid,comment)VALUES
-(1,1,'Choose a Religion to Start');
+(1,1,'Choose a Religion to Start')
+(2,1,'Great Prayer!!!');
