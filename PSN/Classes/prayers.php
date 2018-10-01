@@ -24,9 +24,9 @@
                         </li>";
                         if($i['userid'] == $this->userid || $this->userid == 1){
                             echo "<li class='feed-content-delete'>
-                            <img id='deleteprayer' src='images/icons/close.png' onclick='removePrayer()'>
+                            <img id='deleteprayer' src='images/icons/close.png' onclick='removePrayer(".$i['prayid'].")'>
                             <form method='post' action='php/removePrayer.php'>
-                            <button id='removePrayer' name='delete' type='submit' class='hidden' value='".$i['prayid']."'>
+                            <button id='removePrayer--".$i['prayid']."' name='delete' type='submit' class='hidden' value='".$i['prayid']."'>
                             </form>
                             </li>";
                         }
@@ -45,8 +45,8 @@
                         }
                         echo "
                             <div class='feed-comment'>
-                            <textarea name='comment' style='height:35px' onkeyup='auto_grow(this)' placeholder='Comment'></textarea>
-                        </div>
+                            <textarea class='comment' name='comment' style='height:35px' onkeyup='auto_grow(this)' placeholder='Comment'></textarea>
+                            </div>
                         <ul class='feed-interact-menu'>
                             <li class='feed-like'>
                             </li>

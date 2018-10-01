@@ -18,7 +18,7 @@
                             Values ($prayid, 1)";
             $prayerrelresult = $db->Insertquery($prayerrelquery);
             
-            // header('location:index.php');
+            header('location:index.php');
         }
     }else{
         $prayerquery = "INSERT into PRAYER(userid, content, img) 
@@ -28,6 +28,7 @@
         $prayerrelquery = "INSERT into Prayer_Religion(prayid, relid)
                             Values ($prayid, 1)";
         $prayerrelresult = $db->Insertquery($prayerrelquery);
+        header('location:index.php');
     }
 
 ?>

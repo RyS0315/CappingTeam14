@@ -12,6 +12,8 @@ $prayerquery = "SELECT p.userid, p.prayid, p.img
                 FROM Prayer p
                 WHERE p.prayid = '$prayid'";
 $prayer = $db->FetchQuery($prayerquery);
+echo $prayerquery;
+print_ary($prayer);
 
 if($prayer){
     $deleter = new prayerRemover($db, $id);

@@ -69,11 +69,28 @@
         ]
     ];
     $usersettings = new UserSettings($db,$settings,$id);
+
+    $allreligionsquery = "SELECT * 
+                          FROM RELIGION
+                          WHERE relid <> 1";
+    $religions = $db->FetchQuery($allreligionsquery);
     ?>
 
 <section class='index-body'>
 
     <?php $usersettings->displaySettings();?>
+
+    <div class='settings-religions-body'>
+    <form method='post' action='php/addReligion.php'>
+        <?php
+            foreach($religions as $i){?>
+                <div class='religion-box'>
+                        <button type='submit' value='<?php echo $i['relid'] ?>'><?php echo $i['religion_name'] ?></button>
+                </div>
+                <?php
+            }?>
+            </form>
+    </div>
 
 <section>
 

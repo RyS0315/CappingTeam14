@@ -105,6 +105,9 @@
                         <a href='settings-account.php'> Settings </a>
                     </li>
                     <li class='header-profile-menu-list-item'>
+                        <a href='settings-religions.php'>Religions</a>
+                    </li>
+                    <li class='header-profile-menu-list-item'>
                         <a href='settings-themes.php'>Themes</a>
                     </li>
                 </ul>

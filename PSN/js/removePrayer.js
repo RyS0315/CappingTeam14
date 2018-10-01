@@ -1,4 +1,4 @@
-function removePrayer() {
-    var button = document.getElementById('removePrayer')
+function removePrayer(id) {
+    var button = document.getElementById('removePrayer--'+id)
     button.click();
 }

@@ -17,7 +17,6 @@
          *
          */
         function removePrayer($prayer){
-            print_ary($prayer);
             if($this->checkpermission($prayer['userid'])) {   //Check if the current user is allow to remove the prayer
                 $this->removeRelation($prayer['prayid']);//Remove all field where the prayer is a foreign key
                 $this->removeimg($prayer['img']);//Remove the image from the directory
@@ -72,7 +71,7 @@
          */
         function removeimg($img){
             if($img != null) {
-                $path = "images/Users/".$this->userid."/Uploads/".$img;
+                $path = "../images/Users/".$this->userid."/Uploads/".$img;
                 unlink($path);
             }
         }

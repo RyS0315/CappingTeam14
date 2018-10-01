@@ -14,9 +14,11 @@
                   'text'=>'rgba(255,255,255,.65)',
                   'boxcolor'=>'#1b0036',
                   'link'=>'rgba(200,0,200,.65)',
-                  'feed'=>'#7116ee',
+                  'feed'=>'#550689',
                   'menuborder'=>'#111111',
-                  'boldcolor'=>'#ffffff']
+                  'boldcolor'=>'#ffffff',
+                  'buttoncolor'=>'#e132ef',
+                  'buttonhover'=>'#b100bb']
     ];
     $chosen='Light';
     $backgroundcolor = $theme[$chosen]['background'];
@@ -201,11 +203,12 @@
     .header-link>a{
         color:<?php echo $textcolor ?>;
         text-decoration:none;
-        font-size:18px;
+        font-size:16px;
         text-align: center;
         display:inline-block;
         height:100%;
-        width:100%;
+        width: calc(100% + 40px);
+        transform: translateX(-20px);
     }
     
     .header-link{
@@ -320,7 +323,7 @@
         padding-bottom:10px;
         color:<?php echo $textcolor ?>;
         text-decoration:none;
-        font-size:18px;
+        font-size:16px;
         padding-left:20px;
         width:calc(100% - 20px);
         display:inline-block;
@@ -344,7 +347,7 @@
     .header-profile-menu-list-item>a{
         color:<?php echo $textcolor ?>;
         text-decoration:none;
-        font-size:18px;
+        font-size:16px;
         padding-left:10px;
         width:calc(100% - 10px);
         display:inline-block;
@@ -521,7 +524,7 @@
         border-style:solid;
         border-color:<?php echo $textcolor?>;
         border-width:1px;
-        font-size:18px;
+        font-size:16px;
         padding-right:15px;
         padding-left:15px;
     }
@@ -734,6 +737,7 @@
 
     .feed-content{
         padding-top:5px;
+        padding-bottom: 5px;
     }
 
     .feed-interact-menu{
@@ -755,22 +759,22 @@
     .feed-num-likes{
         color:<?php echo $textcolor ?>;
         padding-left:5px;
-        font-size:18px;
+        font-size:16px;
     }
 
     .feed-comment{
-        width:80%;
+        width:90%;
         padding-top:10px;
+    }
+
+    .comment{
+        width:100%;
     }
 
     .feed-img-box{
         width:90%;
         margin-top:10px;
         margin-bottom:5px;
-        border-style:solid;
-        border-color:<?php echo $boldcolor ?>;
-        border-width:1px;
-        border-radius:5px;
         vertical-align: middle;
     }
 
@@ -788,6 +792,10 @@
         max-height:400px;
         margin:auto;
         overflow:hidden;
+        border-style:solid;
+        border-color:<?php echo $boldcolor ?>;
+        border-width:1px;
+        border-radius:5px;
     }
 
     .imglarge-box{
@@ -858,6 +866,14 @@
         height:1000px;
         width:70%;
         background-color:<?php echo $feedcolor ?>;
-        margin:auto;
+        margin-left:25px;
         padding:20px;
+    }
+/*************** RELIGIONS ***************/
+    .settings-religions-body{
+        height:1000px;
+        width:75%;
+        background-color:<?php echo $feedcolor ?>;
+        padding:20px;
+        margin-left:25px;
     }

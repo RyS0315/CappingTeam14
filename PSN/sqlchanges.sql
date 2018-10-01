@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS Religion;
-CREATE TABLE Religion(
+DROP TABLE IF EXISTS Religions;
+CREATE TABLE Religions(
     relid INT(10) PRIMARY KEY AUTO_INCREMENT,
     religion_name VARCHAR(30),
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -22,19 +22,19 @@ CREATE TABLE Users(
     bPicture VARCHAR(20),
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT FK_Users_Religion FOREIGN KEY (Primary_religion) REFERENCES Religion (relid)
+    CONSTRAINT FK_Users_Religions FOREIGN KEY (Primary_religion) REFERENCES Religions (relid)
 );
 
-DROP TABLE IF EXISTS Tag;
-CREATE TABLE Tag(
+DROP TABLE IF EXISTS Tags;
+CREATE TABLE Tags(
     tagid INT(10) PRIMARY KEY AUTO_INCREMENT,
     tag_name VARCHAR(14),
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-DROP TABLE IF EXISTS Prayer;
-CREATE TABLE Prayer(
+DROP TABLE IF EXISTS Prayers;
+CREATE TABLE Prayers(
     prayid INT(10) PRIMARY KEY AUTO_INCREMENT,
     userid INT(10),
     content VARCHAR(140),
@@ -48,31 +48,31 @@ CREATE TABLE Prayer(
     CONSTRAINT FK_Users_Prayer FOREIGN KEY (userid) REFERENCES Users (userid)
 );
 
-DROP TABLE IF EXISTS Prayer_Tag;
-CREATE TABLE Prayer_Tag(
+DROP TABLE IF EXISTS Prayer_Tags;
+CREATE TABLE Prayer_Tags(
     prayid INT(10),
     tagid INT(10),
     PRIMARY KEY(prayid, tagid),
     dateLastMaint DATETIME,
     dateAdded DATETIME,
-    CONSTRAINT FK_Prayer_PrayerTag FOREIGN KEY (prayid) REFERENCES Prayer (prayid),
-    CONSTRAINT FK_Tag_PrayerTag FOREIGN KEY (tagid) REFERENCES Tag (tagid)
+    CONSTRAINT FK_Prayer_PrayerTags FOREIGN KEY (prayid) REFERENCES Prayers (prayid),
+    CONSTRAINT FK_Tag_PrayerTags FOREIGN KEY (tagid) REFERENCES Tags (tagid)
 );
 
-DROP TABLE IF EXISTS Prayer_Religion;
-CREATE TABLE Prayer_Religion(
+DROP TABLE IF EXISTS Prayer_Religions;
+CREATE TABLE Prayer_Religions(
     prayid INT(10),
     relid INT(10),
     PRIMARY KEY(prayid, relid),
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT FK_Prayer_PrayerReligion FOREIGN KEY (prayid) REFERENCES Prayer (prayid),
-    CONSTRAINT FK_Religion_PrayerReligion FOREIGN KEY (relid) REFERENCES Religion (relid)
+    CONSTRAINT FK_Prayer_PrayerReligions FOREIGN KEY (prayid) REFERENCES Prayers (prayid),
+    CONSTRAINT FK_Religion_PrayerReligions FOREIGN KEY (relid) REFERENCES Religions (relid)
 );
 
 
-DROP TABLE IF EXISTS User_Religion;
-CREATE TABLE User_Religion(
+DROP TABLE IF EXISTS User_Religions;
+CREATE TABLE User_Religions(
     userid INT(10),
     relid INT(10),
     repuation INT(10),
@@ -80,7 +80,7 @@ CREATE TABLE User_Religion(
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT FK_User_UserReligion FOREIGN KEY (userid) REFERENCES Users (userid),
-    CONSTRAINT FK_Religion_UserReligion FOREIGN KEY (relid) REFERENCES Religion (relid)
+    CONSTRAINT FK_Religion_UserReligion FOREIGN KEY (relid) REFERENCES Religions (relid)
 );
 
 DROP TABLE IF EXISTS Notifications;
@@ -115,11 +115,11 @@ CREATE TABLE Comment(
     comment VARCHAR(5000),
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT FK_User_Comment FOREIGN KEY (userid) REFERENCES Users (userid),
-    CONSTRAINT FK_Prayer_Comment FOREIGN KEY (prayid) REFERENCES Prayer (prayid)
+    CONSTRAINT FK_User_Comments FOREIGN KEY (userid) REFERENCES Users (userid),
+    CONSTRAINT FK_Prayer_Comments FOREIGN KEY (prayid) REFERENCES Prayers (prayid)
 );
 
-DROP TABLE IF EXISTS Message;
+DROP TABLE IF EXISTS Messages;
 CREATE TABLE Message(
     messageid INT(10) PRIMARY KEY AUTO_INCREMENT,
     userid1 INT(10),
@@ -128,11 +128,11 @@ CREATE TABLE Message(
     image VARCHAR(5000),
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT FK_User1_Message FOREIGN KEY (userid1) REFERENCES Users (userid),
-    CONSTRAINT FK_User2_Message FOREIGN KEY (userid2) REFERENCES Users (userid)
+    CONSTRAINT FK_User1_Messages FOREIGN KEY (userid1) REFERENCES Users (userid),
+    CONSTRAINT FK_User2_Messages FOREIGN KEY (userid2) REFERENCES Users (userid)
 );
 
-Insert into Religion(religion_name) VALUES
+Insert into Religions(religion_name) VALUES
 ('Admin Updates'),
 ('Christianity'),
 ('Judaism'),
@@ -144,8 +144,8 @@ INSERT INTO USERS (fname,lname,username,user_password,zipCode,primary_religion, 
 ('P.R.A.Y', 'Admin','Admin','Marist', 12601, 1, 'Admin@pray.com', '888-888-8888'),
 ('Test', 'User', 'TestUser', 'Marist', 12601, 1, 'TestUser@pray.com', '888-777-66666');
 
-INSERT INTO Prayer(userid, content)VALUES
+INSERT INTO Prayers(userid, content)VALUES
 (1,'Welcome to P.R.A.Y');
 
-INSERT INTO Prayer_Religion(prayid, relid)
+INSERT INTO Prayer_Religions(prayid, relid)
 VALUES(1,1);

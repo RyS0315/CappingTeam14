@@ -109,7 +109,7 @@
                         VALUES('$firstname', '$lastname','$username','$password')";
         $insertresult = $db->InsertQuery($insertquery);
         setUser($insertresult);
-        header('Location:addReligion.php');
+        header('Location:settings-religions.php');
     }
 ?>
 
