@@ -5,6 +5,7 @@
     include 'Classes/createheader.php';
     include 'Classes/createFooter.php';
     include 'Classes/prayers.php';
+    include 'Classes/prayerCommenter.php';
     include 'php/onloadscripts.php';
 
     if(isset($_POST['submit-prayer'])){
@@ -47,11 +48,12 @@
     $header->ShowUserMenu($id);
     $header->displayHeader();
 
-    $feed = new PrayerCreator($db,$id);
+    $comments = new PrayerCommenter($db, $id);
+    $feed = new PrayerCreator($db,$id,$comments);
     $chosenreligion = 2;
 
     $prayerquery = "SELECT p.userid, u.fname, u.lname, u.username, p.content, pr.relid, p.prayid, p.img
-                    FROM Prayer p, Users u, Prayer_Religion pr
+                    FROM Prayers p, Users u, Prayer_Religions pr
                     WHERE p.userid = u.userid
                     AND pr.prayid = p.prayid
                     AND (pr.relid = $chosenreligion

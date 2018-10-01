@@ -9,7 +9,7 @@ print_ary($_POST);
 $prayid = isset($_POST['delete']) ? $_POST['delete'] : '';
 
 $prayerquery = "SELECT p.userid, p.prayid, p.img
-                FROM Prayer p
+                FROM Prayers p
                 WHERE p.prayid = '$prayid'";
 $prayer = $db->FetchQuery($prayerquery);
 echo $prayerquery;

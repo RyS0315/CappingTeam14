@@ -694,11 +694,17 @@
         width:87%;
     }
 
-    .feed-box{
-        width:calc(100% - 40px);
+    .feed-container{
+        border-bottom-style:solid;
+        border-bottom-color:<?php echo $backgroundcolor ?>;
+        border-bottom-width:1px;
+        width:100%;
         height:auto;
-        display:flex;
+    }
+    
+    .feed-box{
         padding:20px;
+        display:flex;
         border-bottom-style:solid;
         border-bottom-color:<?php echo $backgroundcolor ?>;
         border-bottom-width:1px;
@@ -719,7 +725,7 @@
     }
 
     .feed-profile-link:hover{
-        text-decoration:underline;
+        text-decoration:none;
     }
 
     .feed-profile-name{
@@ -762,14 +768,6 @@
         font-size:16px;
     }
 
-    .feed-comment{
-        width:90%;
-        padding-top:10px;
-    }
-
-    .comment{
-        width:100%;
-    }
 
     .feed-img-box{
         width:90%;
@@ -777,17 +775,17 @@
         margin-bottom:5px;
         vertical-align: middle;
     }
-
+    
     .feed-img{
         margin:auto;
         width:100%;
         position:relative;
     }
-
+    
     .feed-img:hover{
         cursor:pointer;
     }
-
+    
     .feed-img-container{
         max-height:400px;
         margin:auto;
@@ -797,22 +795,59 @@
         border-width:1px;
         border-radius:5px;
     }
-
+    
     .imglarge-box{
         width:40%;
         margin:auto;
         margin-top:100px;
     }
-
+    
     #imglarge{
         width:100%;
     }
-
+    
     #imglarge-body{
         position:absolute;
         height:100%;
         width:100%;
         z-index:100;
+    }
+
+    .feed-comment-box{
+        width:80%;
+        padding-left:10%;
+        padding-right:10%;
+        padding-top:20px;
+        padding-bottom:20px;
+    }
+
+    .feed-comment{
+    }
+    
+    .comment{
+        width:100%;
+    }
+    
+    #submit-comment{
+        width:auto;
+        height:auto;
+        padding:7px;
+        border-radius:100px;
+        border-style:solid;
+        border-width:1px;
+        border-color:<?php echo $boldcolor?>;
+        background-color:<?php echo $buttoncolor?>;
+        display:inline-block;
+        
+    }
+
+    #submit-comment:hover{
+        cursor:pointer;
+        background-color:<?php echo $buttonhover ?>;
+    }
+
+    #submit-comment-box{
+        
     }
 /*************** RELIGION MENU ***********/
     .sort-menu{

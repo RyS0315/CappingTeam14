@@ -55,9 +55,9 @@
          *
          */
         function removeRelation($pid){
-            $queryArray = ["DELETE FROM Prayer_Tag WHERE prayid = $pid",
-                            "DELETE FROM Prayer_Religion WHERE prayid = $pid",
-                            "DELETE FROM Comment WHERE prayid = $pid",
+            $queryArray = ["DELETE FROM Prayer_Tags WHERE prayid = $pid",
+                            "DELETE FROM Prayer_Religions WHERE prayid = $pid",
+                            "DELETE FROM Comments WHERE prayid = $pid",
                             "DELETE FROM Likes WHERE prayid = $pid"];
             foreach($queryArray as $i) {
                 $this->db->deleteQuery($i);
@@ -82,7 +82,7 @@
          *
          */
         function remove($pid){
-            $query = "DELETE FROM Prayer WHERE prayid = $pid";
+            $query = "DELETE FROM Prayers WHERE prayid = $pid";
             $this->db->deleteQuery($query);
         }
 

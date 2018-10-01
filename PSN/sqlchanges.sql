@@ -1,3 +1,13 @@
+DROP TABLE IF EXISTS Religion;
+DROP TABLE IF EXISTS Tag;
+DROP TABLE IF EXISTS Prayer;
+DROP TABLE IF EXISTS Message;
+DROP TABLE IF EXISTS Prayer_Tag;
+DROP TABLE IF EXISTS User_religion;
+DROP TABLE IF EXISTS Prayer_Religion;
+DROP TABLE IF EXISTS Comment;
+
+
 DROP TABLE IF EXISTS Religions;
 CREATE TABLE Religions(
     relid INT(10) PRIMARY KEY AUTO_INCREMENT,
@@ -107,8 +117,8 @@ CREATE TABLE Likes(
     CONSTRAINT FK_Prayer_Likes FOREIGN KEY (prayid) REFERENCES Prayer (prayid)
 );
 
-DROP TABLE IF EXISTS Comment;
-CREATE TABLE Comment(
+DROP TABLE IF EXISTS Comments;
+CREATE TABLE Comments(
     commid INT(10) PRIMARY KEY AUTO_INCREMENT,
     userid INT(10),
     prayid INT(10),
@@ -120,7 +130,7 @@ CREATE TABLE Comment(
 );
 
 DROP TABLE IF EXISTS Messages;
-CREATE TABLE Message(
+CREATE TABLE Messages(
     messageid INT(10) PRIMARY KEY AUTO_INCREMENT,
     userid1 INT(10),
     userid2 INT(10),
@@ -140,12 +150,15 @@ Insert into Religions(religion_name) VALUES
 ('Buddhism'),
 ('Hinduism');
 
-INSERT INTO USERS (fname,lname,username,user_password,zipCode,primary_religion, email,phone_number)VALUES
-('P.R.A.Y', 'Admin','Admin','Marist', 12601, 1, 'Admin@pray.com', '888-888-8888'),
-('Test', 'User', 'TestUser', 'Marist', 12601, 1, 'TestUser@pray.com', '888-777-66666');
+INSERT INTO USERS (fname,lname,username,user_password,zipCode,primary_religion, email,phone_number, pPicture, bPicture)VALUES
+('P.R.A.Y', 'Admin','Admin','Marist', 12601, 1, 'Admin@pray.com', '888-888-8888', '1.jpg', '1.jpg'),
+('Test', 'User', 'TestUser', 'Marist', 12601, 1, 'TestUser@pray.com', '888-777-66666','2.jpg', '2.jpg');
 
 INSERT INTO Prayers(userid, content)VALUES
 (1,'Welcome to P.R.A.Y');
 
 INSERT INTO Prayer_Religions(prayid, relid)
 VALUES(1,1);
+
+INSERT INTO Comments(userid,prayid,comment)VALUES
+(1,1,'Choose a Religion to Start');

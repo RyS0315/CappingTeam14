@@ -10,22 +10,22 @@
             $error = $imgname['str'];
         }else{
             $name = $imgname['str'];
-            $prayerquery = "INSERT into PRAYER(userid, content, img) 
+            $prayerquery = "INSERT into PRAYERS(userid, content, img) 
                         VALUES ($id , '$content', '$name')";
             $prayid = $db->InsertQuery($prayerquery);
             
-            $prayerrelquery = "INSERT into Prayer_Religion(prayid, relid)
+            $prayerrelquery = "INSERT into Prayer_Religions(prayid, relid)
                             Values ($prayid, 1)";
             $prayerrelresult = $db->Insertquery($prayerrelquery);
             
             header('location:index.php');
         }
     }else{
-        $prayerquery = "INSERT into PRAYER(userid, content, img) 
+        $prayerquery = "INSERT into PRAYERS(userid, content, img) 
                         VALUES ($id , '$content', null)";
         $prayid = $db->InsertQuery($prayerquery);
 
-        $prayerrelquery = "INSERT into Prayer_Religion(prayid, relid)
+        $prayerrelquery = "INSERT into Prayer_Religions(prayid, relid)
                             Values ($prayid, 1)";
         $prayerrelresult = $db->Insertquery($prayerrelquery);
         header('location:index.php');

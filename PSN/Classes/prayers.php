@@ -4,13 +4,17 @@
 
         protected $userid;//The User Id of the current session
 
-        Public function __construct($db,$userid){
+        protected $comments;//The class that creates all the comments for a prayer
+
+        Public function __construct($db,$userid,$comments){
             $this->db = $db;
             $this->userid = $userid;
+            $this->comments = $comments;
         }
 
         function showPrayer($i){
-            echo "<div class='feed-box'>
+            echo "<div class='feed-container'>
+                <div class='feed-box'>
                     <div class='feed-profile-img-box'>
                         <img class='feed-profile-img 'src='images/Users/".$i['userid']."/Profile/".$i['userid'].".jpg'>
                     </div>
@@ -43,16 +47,25 @@
                             </div>
                             </div>";
                         }
-                        echo "
-                            <div class='feed-comment'>
+                        echo"
+                    </div>
+                </div>
+                <div class='feed-comment-box'>";
+                    $this->comments->showComments($i);
+                    echo "<div class='feed-comment'>
+                        <form method='post' action='prayercomment.php'>
                             <textarea class='comment' name='comment' style='height:35px' onkeyup='auto_grow(this)' placeholder='Comment'></textarea>
+                            <div id='submit-comment-box'>
+                                <button type='submit' id='submit-comment'>Submit</button>
                             </div>
+                        </form>
                         <ul class='feed-interact-menu'>
                             <li class='feed-like'>
                             </li>
                         </ul>
                     </div>
-                </div>";
+                </div>
+            </div>";
             }
                         // <img class='like-button' src='images/icons/Like.png'><p class='feed-num-likes'>".$i['favs']."</p>
     }
