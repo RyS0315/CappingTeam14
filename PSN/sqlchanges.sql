@@ -6,6 +6,7 @@ DROP TABLE IF EXISTS Prayer_Tag;
 DROP TABLE IF EXISTS User_religion;
 DROP TABLE IF EXISTS Prayer_Religion;
 DROP TABLE IF EXISTS Comment;
+DROP TABLE IF EXISTS Notifications;
 
 
 DROP TABLE IF EXISTS Religions;
@@ -86,24 +87,12 @@ CREATE TABLE User_Religions(
     userid INT(10),
     relid INT(10),
     repuation INT(10),
-    PRIMARY KEY(userid, relid),
+    isMod BOOLEAN DEFAULT 0,
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(userid, relid),
     CONSTRAINT FK_User_UserReligion FOREIGN KEY (userid) REFERENCES Users (userid),
     CONSTRAINT FK_Religion_UserReligion FOREIGN KEY (relid) REFERENCES Religions (relid)
-);
-
-DROP TABLE IF EXISTS Notifications;
-CREATE TABLE Notifications(
-    nid INT(10) PRIMARY KEY AUTO_INCREMENT,
-    userid1 INT(10),
-    userid2 INT(10),
-    type VARCHAR(10),
-    isChecked INT(1),
-    dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
-    dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT FK_User1_Notifications FOREIGN KEY (userid1) REFERENCES Users (userid),
-    CONSTRAINT FK_User2_Notifications FOREIGN KEY (userid2) REFERENCES Users (userid)
 );
 
 DROP TABLE IF EXISTS Likes;
@@ -111,6 +100,8 @@ CREATE TABLE Likes(
     userid INT(10),
     prayid INT(10),
     PRIMARY KEY(userid, prayid),
+    isChecked BOOLEAN DEFAULT 0,
+    isLike BOOLEAN,
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT FK_User_Likes FOREIGN KEY (userid) REFERENCES Users (userid),
@@ -123,6 +114,7 @@ CREATE TABLE Comments(
     userid INT(10),
     prayid INT(10),
     comment VARCHAR(5000),
+    isChecked BOOLEAN DEFAULT 0,
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT FK_User_Comments FOREIGN KEY (userid) REFERENCES Users (userid),
@@ -132,14 +124,22 @@ CREATE TABLE Comments(
 DROP TABLE IF EXISTS Messages;
 CREATE TABLE Messages(
     messageid INT(10) PRIMARY KEY AUTO_INCREMENT,
-    userid1 INT(10),
-    userid2 INT(10),
     message VARCHAR(5000),
     image VARCHAR(5000),
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
+    dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+DROP TABLE IF EXISTS User_Messages;
+CREATE TABLE User_Messages(
+    messageid INT(10),
+    userid INT(10),
+    isChecked BOOLEAN DEFAULT 0,
+    dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT FK_User1_Messages FOREIGN KEY (userid1) REFERENCES Users (userid),
-    CONSTRAINT FK_User2_Messages FOREIGN KEY (userid2) REFERENCES Users (userid)
+    PRIMARY KEY (messageid, userid),
+    CONSTRAINT FK_User_Messages FOREIGN KEY (userid) REFERENCES Users (userid),
+    CONSTRAINT FK_Messages_UserMessages FOREIGN KEY (messageid) REFERENCES Messages (messageid)
 );
 
 Insert into Religions(religion_name) VALUES
@@ -161,5 +161,5 @@ INSERT INTO Prayer_Religions(prayid, relid)
 VALUES(1,1);
 
 INSERT INTO Comments(userid,prayid,comment)VALUES
-(1,1,'Choose a Religion to Start')
+(1,1,'Choose a Religion to Start'),
 (2,1,'Great Prayer!!!');

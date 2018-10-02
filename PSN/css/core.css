@@ -21,7 +21,7 @@ select{
     height:35px;
     border-color:rgb(0,0,0,.15);
     border-radius:5px;
-    text-indent: 5px; 
+    text-indent: 5px;
 }
 
 textarea {
@@ -258,7 +258,7 @@ li{
       position: relative;
       height:75px;
     }
-    
+
     .compose-prayer iframe {
        border: 0;
        height: 100%;
