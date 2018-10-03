@@ -125,6 +125,7 @@ DROP TABLE IF EXISTS Messages;
 CREATE TABLE Messages(
     messageid INT(10) PRIMARY KEY AUTO_INCREMENT,
     message VARCHAR(5000),
+    userid INT(10),
     image VARCHAR(5000),
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP
@@ -164,7 +165,6 @@ INSERT INTO Comments(userid,prayid,comment)VALUES
 (1,1,'Choose a Religion to Start'),
 (2,1,'Great Prayer!!!');
 
-<<<<<<< HEAD
 
 INSERT INTO User_Religions (userid, relid, reputation, isMod)VALUES
 (2, 2, 200, 0),
@@ -178,19 +178,18 @@ INSERT INTO TAGS(tag_name)VALUES
 ('Faith'),
 ('Believe');
 
-INSERT INTO PRAYER_TAG(prayid, tagid) VALUES
+INSERT INTO PRAYER_TAGS(prayid, tagid) VALUES
 (1, 3),
 (1, 5);
-=======
-INSERT INTO Messages(messageid,message)VALUES
-(1,'This is a test message right here'),
-(2,'Another test message. Thets make it saucy');
+
+INSERT INTO Messages(userid, message)VALUES
+(2,'This is a test message right here'),
+(1,'Another test message. Lets make it saucy');
 
 INSERT INTO User_Messages(messageid,userid,isChecked)VALUES
 (1,1,0),
-(1,2,1);
+(2,2,1),
 
 INSERT INTO Likes(userid,prayid,isChecked,isLike)VALUES
 (1,1,0,1),
 (2,1,0,1);
->>>>>>> 13218af273f54dc0e58ca2ccc539e8c3353e223c
