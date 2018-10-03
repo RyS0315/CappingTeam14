@@ -99,11 +99,11 @@ DROP TABLE IF EXISTS Likes;
 CREATE TABLE Likes(
     userid INT(10),
     prayid INT(10),
-    PRIMARY KEY(userid, prayid),
     isChecked BOOLEAN DEFAULT 0,
     isLike BOOLEAN,
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(userid, prayid),
     CONSTRAINT FK_User_Likes FOREIGN KEY (userid) REFERENCES Users (userid),
     CONSTRAINT FK_Prayer_Likes FOREIGN KEY (prayid) REFERENCES Prayer (prayid)
 );
@@ -164,6 +164,7 @@ INSERT INTO Comments(userid,prayid,comment)VALUES
 (1,1,'Choose a Religion to Start'),
 (2,1,'Great Prayer!!!');
 
+<<<<<<< HEAD
 
 INSERT INTO User_Religions (userid, relid, reputation, isMod)VALUES
 (2, 2, 200, 0),
@@ -180,3 +181,16 @@ INSERT INTO TAGS(tag_name)VALUES
 INSERT INTO PRAYER_TAG(prayid, tagid) VALUES
 (1, 3),
 (1, 5);
+=======
+INSERT INTO Messages(messageid,message)VALUES
+(1,'This is a test message right here'),
+(2,'Another test message. Thets make it saucy');
+
+INSERT INTO User_Messages(messageid,userid,isChecked)VALUES
+(1,1,0),
+(1,2,1);
+
+INSERT INTO Likes(userid,prayid,isChecked,isLike)VALUES
+(1,1,0,1),
+(2,1,0,1);
+>>>>>>> 13218af273f54dc0e58ca2ccc539e8c3353e223c
