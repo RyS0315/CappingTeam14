@@ -129,7 +129,7 @@ CREATE TABLE Messages(
     image VARCHAR(5000),
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT FK_User_Messages FOREIGN KEY (userid) REFERENCES Users (userid),
+    CONSTRAINT FK_User_Messages FOREIGN KEY (userid) REFERENCES Users (userid)
 );
 
 DROP TABLE IF EXISTS User_Messages;
