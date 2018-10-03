@@ -4,12 +4,13 @@
         'Light'=>['background'=>'#efe9ef',
                   'text'=>'rgba(0,0,0,.65)',
                   'boxcolor'=>'#f3e1ff',
-                  'link'=>'rgba(200,0,200,.65)',
+                  'link'=>'#a415df',
                   'feed'=>'#ffffff',
                   'menuborder'=>'#cccccc',
                   'boldcolor'=>'#000000',
-                  'buttoncolor'=>'#e132ef',
-                  'buttonhover'=>'#b100bb',
+                  'buttoncolor'=>'#a415df',
+                  'buttonhover'=>'#8405af',
+                  'buttontext'=>'#f3e1ff',
                   'commentbox'=>'#fbfbfb'],
         'Dark' =>['background'=>'#140026', 
                   'text'=>'rgba(255,255,255,.65)',
@@ -19,7 +20,9 @@
                   'menuborder'=>'#111111',
                   'boldcolor'=>'#ffffff',
                   'buttoncolor'=>'#e132ef',
-                  'buttonhover'=>'#b100bb']
+                  'buttonhover'=>'#b100bb',
+                  'buttontext'=>'#ffffff',
+                  'commentbox'=>'#320942']
     ];
     $chosen='Light';
     $backgroundcolor = $theme[$chosen]['background'];
@@ -32,6 +35,7 @@
     $buttoncolor = $theme[$chosen]['buttoncolor'];
     $buttonhover = $theme[$chosen]['buttonhover'];
     $commentcolor = $theme[$chosen]['commentbox'];
+    $buttontext = $theme[$chosen]['buttontext'];
 ?>
 /*************** COMMON ******************/
     html{
@@ -82,6 +86,10 @@
         font-size:16px;
         border-radius:7px;
         text-indent: 5px;
+    }
+
+    form {
+        margin-bottom: 0em;
     }
 
     textarea:focus{
@@ -151,7 +159,9 @@
         border-width:1px;
         border-color:<?php echo $boldcolor?>;
         background-color:<?php echo $buttoncolor?>;
+        color:<?php echo $buttontext?>;
         display:inline-block;
+        font-weight:bold;
     }
 
     label:hover{
@@ -413,8 +423,10 @@
         border-width:1px;
         border-color:<?php echo $boldcolor?>;
         background-color:<?php echo $buttoncolor?>;
+        color:<?php echo $buttontext?>;
         padding-right:15px;
         padding-left:15px;
+        font-weight:bold;
         display:inline-block;
     }
 
@@ -521,6 +533,7 @@
     #startprayer{
         height:auto;
         background-color:<?php echo $buttoncolor ?>;
+        color:<?php echo $buttontext?>;
         padding:6px;
         border-radius:100px;
         border-style:solid;
@@ -529,6 +542,7 @@
         font-size:16px;
         padding-right:15px;
         padding-left:15px;
+        font-weight:bold;
     }
 
     #startprayer:hover{
@@ -597,7 +611,9 @@
         border-width:1px;
         border-color:<?php echo $boldcolor?>;
         background-color:<?php echo $buttoncolor?>;
+        color:<?php echo $buttontext?>;
         font-size:16px;
+        font-weight:bold;
     }
 
     #submit-prayer:hover{
@@ -705,7 +721,7 @@
     }
     
     .feed-box{
-        padding:20px;
+        padding:30px 20px 30px 20px;
         display:flex;
         border-bottom-style:solid;
         border-bottom-color:<?php echo $backgroundcolor ?>;
@@ -844,15 +860,18 @@
     }
     
     #submit-comment{
-        width:auto;
         height:auto;
-        padding:7px;
+        background-color:<?php echo $buttoncolor ?>;
+        color:<?php echo $buttontext?>;
+        padding:6px;
         border-radius:100px;
         border-style:solid;
+        border-color:<?php echo $textcolor?>;
         border-width:1px;
-        border-color:<?php echo $boldcolor?>;
-        background-color:<?php echo $buttoncolor?>;
-        display:inline-block;
+        font-size:16px;
+        padding-right:15px;
+        padding-left:15px;
+        font-weight:bold;
         
     }
     
@@ -877,6 +896,21 @@
 
     .comment-feed-content{
         padding-left:10px;
+        width:85%;
+    }
+
+    .show-more{
+        width:100%;
+        height:50px;
+    }
+
+    .delete-comment-button{
+        width:10px;
+        height:10px;
+    }
+
+    .delete-comment-button:hover{
+        cursor:pointer;
     }
 /*************** RELIGION MENU ***********/
     .sort-menu{
@@ -940,4 +974,10 @@
         background-color:<?php echo $feedcolor ?>;
         padding:20px;
         margin-left:25px;
+    }
+/*************** MEDIA QUERIES ***********/
+    @media screen and (max-width:600px){
+        .header{
+            display:none;
+        }
     }

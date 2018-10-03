@@ -71,7 +71,7 @@
     $usersettings = new UserSettings($db,$settings,$id);
 
     $allreligionsquery = "SELECT * 
-                          FROM RELIGION
+                          FROM RELIGIONS
                           WHERE relid <> 1";
     $religions = $db->FetchQuery($allreligionsquery);
     ?>

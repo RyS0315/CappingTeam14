@@ -53,10 +53,10 @@
                 <div class='feed-comment-box'>";
                     $this->comments->showComments($i);
                     echo "<div class='post-comment'>
-                        <form method='post' action='prayercomment.php'>
+                        <form method='post' action='php/prayercomment.php'>
                             <textarea class='comment' name='comment' style='height:35px' onkeyup='auto_grow(this)' placeholder='Comment'></textarea>
                             <div id='submit-comment-box'>
-                                <button type='submit'name='comment' id='submit-comment' value='".$i['prayid']."'>Submit</button>
+                                <button type='submit' name='prayid' id='submit-comment' value='".$i['prayid']."'>Submit</button>
                             </div>
                         </form>
                         <ul class='feed-interact-menu'>

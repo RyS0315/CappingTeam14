@@ -40,7 +40,6 @@
     $src[] = ["src"=>"js/jqueryinit.php","type"=>"php"];
     $src[] = ["src"=>"js/autoGrow.js","type"=>"js"];
     $src[] = ["src"=>"http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js","type"=>"js"];
-
     $src[] = ["src"=>"js/composePrayer.js","type"=>"js"];
     $css[] = ["src"=>"css/core.php","type"=>"css"];
     $title = "P.R.A.Y";
@@ -83,40 +82,40 @@
 
     <section class='index-body'>
         <div class='index-left-box'>
-            <p class='trends-header'>Featured Tags</p>
+            <p class='trends-header'>My '%Religion_name%' Stats</p>
         </div>
 
         <div class='index-center-box'>
-        <form method='post' action='index.php'>
-            <ul class='sort-menu'>
-                <li class='religion-menu-header'>
-                Church Of Marist
-                <ul class='religion-menu-items'>
-                    <li class='religion-menu-item'>
-                        This
-                    </li>
-                    <li class='religion-menu-item'>
-                        Is
-                    </li>
-                    <li class='religion-menu-item'>
-                        Not
-                    </li>
-                    <li class='religion-menu-item'>
-                        Done
-                    </li>
-                </ul>
-        </form>
-            </li>
-        </ul>
+            <form method='post' action='index.php'>
+                <ul class='sort-menu'>
+                    <li class='religion-menu-header'>
+                    Church Of Marist
+                    <ul class='religion-menu-items'>
+                        <li class='religion-menu-item'>
+                            This
+                        </li>
+                        <li class='religion-menu-item'>
+                            Is
+                        </li>
+                        <li class='religion-menu-item'>
+                            Not
+                        </li>
+                        <li class='religion-menu-item'>
+                            Done
+                        </li>
+                    </ul>
+            </form>
+                </li>
+            </ul>
 
-        <?php
+            <?php
             foreach($prayers as $i){
                 $feed->showPrayer($i);
             }?>
         </div>
 
         <div class='index-right-box'>
-            <p class='trends-header'>Featured Prayers</p>
+            <p class='trends-header'>Featured Tags</p>
         </div>
     </section>
  <?php
