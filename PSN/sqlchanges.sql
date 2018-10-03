@@ -188,7 +188,7 @@ INSERT INTO Messages(userid, message)VALUES
 
 INSERT INTO User_Messages(messageid,userid,isChecked)VALUES
 (1,1,0),
-(2,2,1),
+(2,2,1);
 
 INSERT INTO Likes(userid,prayid,isChecked,isLike)VALUES
 (1,1,0,1),
