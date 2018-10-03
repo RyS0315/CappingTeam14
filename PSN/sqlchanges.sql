@@ -86,7 +86,7 @@ DROP TABLE IF EXISTS User_Religions;
 CREATE TABLE User_Religions(
     userid INT(10),
     relid INT(10),
-    repuation INT(10),
+    reputation INT(10),
     isMod BOOLEAN DEFAULT 0,
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -163,3 +163,20 @@ VALUES(1,1);
 INSERT INTO Comments(userid,prayid,comment)VALUES
 (1,1,'Choose a Religion to Start'),
 (2,1,'Great Prayer!!!');
+
+
+INSERT INTO User_Religions (userid, relid, reputation, isMod)VALUES
+(2, 2, 200, 0),
+(2, 3, 50, 0),
+(2, 4, 0, 0);
+
+INSERT INTO TAGS(tag_name)VALUES
+('God'),
+('Relgion'),
+('Pray'),
+('Faith'),
+('Believe');
+
+INSERT INTO PRAYER_TAG(prayid, tagid) VALUES
+(1, 3),
+(1, 5);
