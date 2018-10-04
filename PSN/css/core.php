@@ -644,6 +644,10 @@
         border-color:#000;
         border-width:1px;
     }
+
+    #upload-size-error{
+        color:#ff0000;
+    }
 /*************** PROFILE *****************/
     .profile-body{
         width:80%;
