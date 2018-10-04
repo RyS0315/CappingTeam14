@@ -6,7 +6,7 @@
                   'boxcolor'=>'#f3e1ff',
                   'link'=>'#a415df',
                   'feed'=>'#ffffff',
-                  'menuborder'=>'#cccccc',
+                  'menuborder'=>'rgba(0,0,0,.3)',
                   'boldcolor'=>'#000000',
                   'buttoncolor'=>'#a415df',
                   'buttonhover'=>'#8405af',
@@ -16,13 +16,24 @@
                   'text'=>'rgba(255,255,255,.65)',
                   'boxcolor'=>'#1b0036',
                   'link'=>'rgba(200,0,200,.65)',
-                  'feed'=>'#550689',
+                  'feed'=>'#550600',
                   'menuborder'=>'#111111',
                   'boldcolor'=>'#ffffff',
                   'buttoncolor'=>'#e132ef',
                   'buttonhover'=>'#b100bb',
                   'buttontext'=>'#ffffff',
-                  'commentbox'=>'#320942']
+                  'commentbox'=>'#320942'],
+        'Gold'=>['background'=>'#f3c812',
+                  'text'=>'rgba(0,0,0,.65)',
+                  'boxcolor'=>'#ffff00',
+                  'link'=>'#a415df',
+                  'feed'=>'#ffff00',
+                  'menuborder'=>'rgba(0,0,0,.3)',
+                  'boldcolor'=>'#000000',
+                  'buttoncolor'=>'#a415df',
+                  'buttonhover'=>'#8405af',
+                  'buttontext'=>'#f3e1ff',
+                  'commentbox'=>'#fbfb90'],
     ];
     $chosen='Light';
     $backgroundcolor = $theme[$chosen]['background'];
@@ -171,7 +182,7 @@
 
     .overlay{
         position:fixed;
-        height:100%;
+        height:calc(100% + 20px);
         width:100%;
         background-color:rgba(0,0,0,.6);
         z-index:99;
@@ -195,7 +206,7 @@
         width:100%;
         border-bottom-style:solid;
         border-bottom-width:1px;
-        border-bottom-color:rgba(0,0,0,.5);
+        border-bottom-color:<?php echo $menuborder?>;
         background-color:<?php echo $boxcolor ?>;
         position:fixed;
         z-index:50;
@@ -459,14 +470,13 @@
         margin:auto;
         height:auto;
         padding-bottom:25px;
-        padding-top:60px;
-        
+        padding-top:60px;  
     }
 
     .index-left-box{
         width:25%;
         display:block;
-        height:600px;
+        max-height:600px;
         background-color: <?php echo $boxcolor ?>;
     }
 
@@ -481,7 +491,7 @@
     .index-right-box{
         width:25%;
         background-color: <?php echo $boxcolor ?>;
-        height:600px;
+        max-height:600px;
     }
 
     .compose-prayer{
@@ -978,6 +988,56 @@
         background-color:<?php echo $feedcolor ?>;
         padding:20px;
         margin-left:25px;
+    }
+/*************** MESSAGES ****************/
+    .messages-users{
+        width:25%;
+        background-color:<?php echo $feedcolor ?>;
+        min-height:600px;
+    }
+
+    .messages-feed{
+        width:50%;
+        background-color:<?php echo $feedcolor?>;
+        margin-left:50px;
+        padding-top:25px;
+        display:grid;
+    }
+
+    .message-preview{
+        display:flex;
+    }
+
+    .msg-container{
+        min-height:50px;
+        width:100%;
+    }
+
+    .msg-from-me{
+        background-color:<?php echo $buttoncolor ?>;
+        border-bottom-left-radius:20px;
+        border-top-right-radius:20px;
+        border-top-left-radius:20px;
+        margin-bottom:10px;
+        padding:10px;
+        color:#ffffff;
+        float:right;
+        margin-right:10px;
+    }
+
+    .msg-to-me{
+        background-color:#cccccc;
+        margin-bottom:10px;
+        padding:10px;
+        margin-left:10px;
+        border-bottom-right-radius:20px;
+        border-top-right-radius:20px;
+        border-top-left-radius:20px;
+        float:left;
+    }
+
+    .msg-content{
+        max-width:200px;
     }
 /*************** MEDIA QUERIES ***********/
     @media screen and (max-width:600px){
