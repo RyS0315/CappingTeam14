@@ -27,14 +27,9 @@
         function displayHeader(){
             $this->createTitle();
             $this->createCompose();
+            $this->createLargeImageContainer();
             //Header
             echo "
-                    <div id='imglarge-body' class=''hidden>
-                    <div class='imglarge-box'>
-                    <img id='closelargeimg' class='close' src='images/icons/close.png'>
-                        <img id='imglarge' src='#'>
-                    </div>
-                    </div>
                   <section class='header'>
                   <div class='header-box'>
                   <ul class='header-link-box'>";
@@ -150,6 +145,15 @@
                     </form>
                 </div>
             </div>";
+        }
+
+        function createLargeImageContainer(){
+            echo"<div id='imglarge-body' class=''hidden>
+                    <div class='imglarge-box'>
+                    <img id='closelargeimg' class='close' src='images/icons/close.png'>
+                        <img id='imglarge' src='#'>
+                    </div>
+                </div>";
         }
     }
 ?>
