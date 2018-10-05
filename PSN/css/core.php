@@ -200,6 +200,24 @@
     .close:hover{
         cursor:pointer;
     }
+
+    ::-webkit-scrollbar {
+        width: 15px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        transform:translateX(-5px);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: #cccccc; 
+        border-radius: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #999999;
+        cursor:pointer;
+    }
 /*************** HEADER ******************/
     .header{
         height:50px;
@@ -993,19 +1011,72 @@
     .messages-users{
         width:25%;
         background-color:<?php echo $feedcolor ?>;
-        min-height:600px;
+        max-height:500px;
+        border-color: rgba(0,0,0,.3);
+        border-style: solid;
+        border-width: 1px;
     }
 
     .messages-feed{
         width:50%;
         background-color:<?php echo $feedcolor?>;
         margin-left:50px;
-        padding-top:25px;
+        border-color: rgba(0,0,0,.3);
+        border-style: solid;
+        border-width: 1px;
+    }
+
+    .msg-user-name-box{
+        padding-top:10px;
+        padding-bottom:10px;
+        border-bottom-color: rgba(0,0,0,.3);
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+    }
+
+    .msg-name{
+        color:#000000;
+        font-weight:bold;
+        font-size:30px;
+        margin:auto;
+        display:table;
+    }
+    
+    .msg-convo{
+        overflow-y:scroll;
         display:grid;
+        padding:10px;
+        max-height:500px;
+    }
+
+    .compose-message{
+        border-top-color: rgba(0,0,0,.3);
+        border-top-style: solid;
+        border-top-width: 1px;
+        height:auto;
+        padding:10px;
+    }
+    
+    .compose-message>form{
+        display:flex;
+    }
+
+    #msg{
+        width:80%;
+        margin-right:auto;
     }
 
     .message-preview{
         display:flex;
+        padding:10px;
+        border-bottom-color: rgba(0,0,0,.3);
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+    }
+
+    .message-preview:hover{
+        background-color:<?php echo $backgroundcolor ?>;
+        cursor:pointer;
     }
 
     .msg-container{
@@ -1021,15 +1092,13 @@
         margin-bottom:10px;
         padding:10px;
         color:#ffffff;
-        float:right;
-        margin-right:10px;
+        float:right;    
     }
 
     .msg-to-me{
         background-color:#cccccc;
         margin-bottom:10px;
         padding:10px;
-        margin-left:10px;
         border-bottom-right-radius:20px;
         border-top-right-radius:20px;
         border-top-left-radius:20px;

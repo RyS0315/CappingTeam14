@@ -36,12 +36,13 @@
          * 
          */
         function getMessages($id){
-            $query = "SELECT DISTINCT m.msg, m.userid
-                      FROM User_messages um, Messages m 
+            $query = "SELECT DISTINCT m.msg, m.userid, u.fname
+                      FROM User_messages um, Messages m, Users u
                       WHERE um.messageid = m.messageid
+                      AND u.userid = '$id'
                       AND(um.userid = '$id'
                       OR m.userid = '$id')
-                      ORDER BY m.dateAdded desc, m.messageid";
+                      ORDER BY m.dateAdded, m.messageid";
             $result = $this->db->fetchQuery($query);
             return $result;
         }
@@ -65,7 +66,11 @@
                   </div>";
         }
 
-        function displayConvo($msgs){
+        function displayConvo($msgs, $recid){
+            echo"<div class='msg-user-name-box'>
+                    <p class='msg-name'>".$msgs[0]['fname']."</p>
+                 </div>
+                 <div class='msg-convo'>";
             foreach($msgs as $i){
                 echo"<div class='msg-container'>";
                     if($i['userid'] == $this->userid){
@@ -79,6 +84,13 @@
                     }
                     echo "</div>";
             }
+            echo "</div>
+                <div class='compose-message'>
+                    <form method='post' action='php/submitMessage.php'>
+                    <textarea name='msg' id='msg' placeholder='Compose Message'></textarea>
+                    <button class='submit-button'type='submit' name='id' value='".$recid."'> Submit</button>
+                    </form>
+                 </div>";
         }
     }
 

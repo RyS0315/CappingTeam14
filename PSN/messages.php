@@ -62,7 +62,7 @@
         </div>
 
         <div class='messages-feed'>
-            <?php $messager->displayConvo($messages[$curconvo])?>
+            <?php $messager->displayConvo($messages[$curconvo], $curconvo)?>
         </div>
     </section>
 <?php 
