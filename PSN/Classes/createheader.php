@@ -2,7 +2,7 @@
     class Header{
         protected $db;//Sets the Database -- Allows for queries in this class
 
-        protected $menus; 
+        protected $menus;
 
         protected $loggedIn;//Specifies if the user header should be added
 
@@ -64,6 +64,7 @@
                     <head>
                         <title>".$this->title."</title>
                         <link rel='shortcut icon' href='images/icons/favicon.png'>
+                        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
                     </head>
                     <body>";
             $this->addcss();
@@ -127,7 +128,7 @@
                     </li>
                 </ul>
                     <form method='post' class='compose-content' action='' enctype='multipart/form-data'>
-                        <textarea id='compose-area' name='newprayer' placeholder='Compose Your Prayer' 
+                        <textarea id='compose-area' name='newprayer' placeholder='Compose Your Prayer'
                                   onkeyup='auto_grow(this)'></textarea>
                         <div id='preview'>
                             <p id='upload-size-error' style='display:none; color:#ff0000'>Image too Large. Must be less than 500KB</p>
@@ -136,7 +137,7 @@
                         <ul class='compose-content-bottom'>
                         <li class='compose-img-upload'>
                             <input type='file' name='upload' id='upload' class='inputfile' onchange='readURL(this)'>
-                            <label id='uploadbutton' for='upload'>Upload Picture</label> 
+                            <label id='uploadbutton' for='upload'>Upload Picture</label>
                         </li>
                         <li class='compose-submit'>
                             <button type='submit' name='submit-prayer' id='submit-prayer'>Send Prayer</button>
