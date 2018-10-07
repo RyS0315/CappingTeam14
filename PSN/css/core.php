@@ -6,7 +6,7 @@
                   'boxcolor'=>'#f3e1ff',
                   'link'=>'#a415df',
                   'feed'=>'#ffffff',
-                  'menuborder'=>'#cccccc',
+                  'menuborder'=>'rgba(0,0,0,.3)',
                   'boldcolor'=>'#000000',
                   'buttoncolor'=>'#a415df',
                   'buttonhover'=>'#8405af',
@@ -16,13 +16,24 @@
                   'text'=>'rgba(255,255,255,.65)',
                   'boxcolor'=>'#1b0036',
                   'link'=>'rgba(200,0,200,.65)',
-                  'feed'=>'#550689',
+                  'feed'=>'#550006',
                   'menuborder'=>'#111111',
                   'boldcolor'=>'#ffffff',
                   'buttoncolor'=>'#e132ef',
                   'buttonhover'=>'#b100bb',
                   'buttontext'=>'#ffffff',
-                  'commentbox'=>'#320942']
+                  'commentbox'=>'#320942'],
+        'Gold'=>['background'=>'#f3c812',
+                  'text'=>'rgba(0,0,0,.65)',
+                  'boxcolor'=>'#ffff00',
+                  'link'=>'#a415df',
+                  'feed'=>'#ffff00',
+                  'menuborder'=>'rgba(0,0,0,.3)',
+                  'boldcolor'=>'#000000',
+                  'buttoncolor'=>'#a415df',
+                  'buttonhover'=>'#8405af',
+                  'buttontext'=>'#f3e1ff',
+                  'commentbox'=>'#fbfb90'],
     ];
     $chosen='Light';
     $backgroundcolor = $theme[$chosen]['background'];
@@ -53,6 +64,13 @@
     p{
         color:<?php echo $textcolor?>;
         margin-block-start: 0px;
+        margin-block-end: 0em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+    }
+
+    h3{
+        margin-block-start: 0em;
         margin-block-end: 0em;
         margin-inline-start: 0px;
         margin-inline-end: 0px;
@@ -171,7 +189,7 @@
 
     .overlay{
         position:fixed;
-        height:100%;
+        height:calc(100% + 20px);
         width:100%;
         background-color:rgba(0,0,0,.6);
         z-index:99;
@@ -189,13 +207,31 @@
     .close:hover{
         cursor:pointer;
     }
+
+    ::-webkit-scrollbar {
+        width: 15px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        transform:translateX(-5px);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: #cccccc; 
+        border-radius: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #999999;
+        cursor:pointer;
+    }
 /*************** HEADER ******************/
     .header{
         height:50px;
         width:100%;
         border-bottom-style:solid;
         border-bottom-width:1px;
-        border-bottom-color:rgba(0,0,0,.5);
+        border-bottom-color:<?php echo $menuborder?>;
         background-color:<?php echo $boxcolor ?>;
         position:fixed;
         z-index:50;
@@ -459,14 +495,13 @@
         margin:auto;
         height:auto;
         padding-bottom:25px;
-        padding-top:60px;
-        
+        padding-top:60px;  
     }
 
     .index-left-box{
         width:25%;
         display:block;
-        height:600px;
+        max-height:600px;
         background-color: <?php echo $boxcolor ?>;
     }
 
@@ -481,7 +516,7 @@
     .index-right-box{
         width:25%;
         background-color: <?php echo $boxcolor ?>;
-        height:600px;
+        max-height:600px;
     }
 
     .compose-prayer{
@@ -643,6 +678,10 @@
         border-style:solid;
         border-color:#000;
         border-width:1px;
+    }
+
+    #upload-size-error{
+        color:#ff0000;
     }
 /*************** PROFILE *****************/
     .profile-body{
@@ -974,6 +1013,124 @@
         background-color:<?php echo $feedcolor ?>;
         padding:20px;
         margin-left:25px;
+    }
+/*************** MESSAGES ****************/
+    .messages-users{
+        width:21%;
+        background-color:<?php echo $feedcolor ?>;
+        max-height:500px;
+        border-color: rgba(0,0,0,.3);
+        border-style: solid;
+        border-width: 1px;
+    }
+
+    .messages-feed{
+        width:50%;
+        background-color:<?php echo $feedcolor?>;
+        margin-left:50px;
+        border-color: rgba(0,0,0,.3);
+        border-style: solid;
+        border-width: 1px;
+    }
+
+    .msg-user-name-box{
+        padding-top:10px;
+        padding-bottom:10px;
+        border-bottom-color: rgba(0,0,0,.3);
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+    }
+
+    .msg-name{
+        color:#000000;
+        font-weight:bold;
+        font-size:30px;
+        margin:auto;
+        display:table;
+    }
+    
+    .msg-convo{
+        overflow-y:scroll;
+        display:grid;
+        padding:10px;
+        max-height:500px;
+    }
+
+    .compose-message{
+        border-top-color: rgba(0,0,0,.3);
+        border-top-style: solid;
+        border-top-width: 1px;
+        height:auto;
+        padding:10px;
+    }
+    
+    .compose-message>form{
+        display:flex;
+    }
+
+    #msg{
+        width:80%;
+        margin-right:auto;
+    }
+
+    .message-preview{
+        display:flex;
+        padding:10px;
+        border-bottom-color: rgba(0,0,0,.3);
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+    }
+
+    .message-preview:hover{
+        background-color:<?php echo $backgroundcolor ?>;
+        cursor:pointer;
+    }
+
+    .message-preview-content{
+        margin-left:10px;
+        width:75%;
+    }
+
+    .message-preview-msg{
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 100%;
+        display: block;
+        overflow: hidden;
+    }
+
+    .msg-container{
+        min-height:50px;
+        width:100%;
+    }
+
+    .msg-from-me{
+        background-color:<?php echo $buttoncolor ?>;
+        border-bottom-left-radius:20px;
+        border-top-right-radius:20px;
+        border-top-left-radius:20px;
+        margin-bottom:10px;
+        padding:10px;
+        color:#ffffff;
+        float:right;    
+    }
+
+    .msg-to-me{
+        background-color:#cccccc;
+        margin-bottom:10px;
+        padding:10px;
+        border-bottom-right-radius:20px;
+        border-top-right-radius:20px;
+        border-top-left-radius:20px;
+        float:left;
+    }
+
+    .msg-content{
+        max-width:200px;
+    }
+
+    .messages-default{
+        height:600px;
     }
 /*************** MEDIA QUERIES ***********/
     @media screen and (max-width:600px){

@@ -6,3 +6,4 @@
 -->
 
 <script type='text/javascript' src='js/PrayImg.js'></script>
+<script type='text/javascript' src='js/updatemessages.js'></script>

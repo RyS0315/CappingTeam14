@@ -27,14 +27,9 @@
         function displayHeader(){
             $this->createTitle();
             $this->createCompose();
+            $this->createLargeImageContainer();
             //Header
             echo "
-                    <div id='imglarge-body' class=''hidden>
-                    <div class='imglarge-box'>
-                    <img id='closelargeimg' class='close' src='images/icons/close.png'>
-                        <img id='imglarge' src='#'>
-                    </div>
-                    </div>
                   <section class='header'>
                   <div class='header-box'>
                   <ul class='header-link-box'>";
@@ -135,6 +130,7 @@
                         <textarea id='compose-area' name='newprayer' placeholder='Compose Your Prayer' 
                                   onkeyup='auto_grow(this)'></textarea>
                         <div id='preview'>
+                            <p id='upload-size-error' style='display:none; color:#ff0000'>Image too Large. Must be less than 500KB</p>
                             <img src='' id='uploadpreview' style='display:none'>
                         </div>
                         <ul class='compose-content-bottom'>
@@ -149,6 +145,15 @@
                     </form>
                 </div>
             </div>";
+        }
+
+        function createLargeImageContainer(){
+            echo"<div id='imglarge-body' class=''hidden>
+                    <div class='imglarge-box'>
+                    <img id='closelargeimg' class='close' src='images/icons/close.png'>
+                        <img id='imglarge' src='#'>
+                    </div>
+                </div>";
         }
     }
 ?>

@@ -91,8 +91,8 @@ CREATE TABLE User_Religions(
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(userid, relid),
-    CONSTRAINT FK_User_UserReligion FOREIGN KEY (userid) REFERENCES Users (userid),
-    CONSTRAINT FK_Religion_UserReligion FOREIGN KEY (relid) REFERENCES Religions (relid)
+    CONSTRAINT FK_User_UserReligion FOREIGN KEY (userid) REFERENCES Users (userid) ON DELETE RESTRICT,
+    CONSTRAINT FK_Religion_UserReligion FOREIGN KEY (relid) REFERENCES Religions (relid) ON DELETE RESTRICT
 );
 
 DROP TABLE IF EXISTS Likes;
@@ -124,9 +124,9 @@ CREATE TABLE Comments(
 DROP TABLE IF EXISTS Messages;
 CREATE TABLE Messages(
     messageid INT(10) PRIMARY KEY AUTO_INCREMENT,
-    message VARCHAR(5000),
+    msg VARCHAR(5000),
     userid INT(10),
-    image VARCHAR(5000),
+    img VARCHAR(5000),
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT FK_User_Messages FOREIGN KEY (userid) REFERENCES Users (userid)
@@ -140,7 +140,7 @@ CREATE TABLE User_Messages(
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (messageid, userid),
-    CONSTRAINT FK_User_Messages FOREIGN KEY (userid) REFERENCES Users (userid),
+    CONSTRAINT FK_User_Messages_Users FOREIGN KEY (userid) REFERENCES Users (userid),
     CONSTRAINT FK_Messages_UserMessages FOREIGN KEY (messageid) REFERENCES Messages (messageid)
 );
 
@@ -154,7 +154,7 @@ Insert into Religions(religion_name) VALUES
 
 INSERT INTO USERS (fname,lname,username,user_password,zipCode,primary_religion, email,phone_number, pPicture, bPicture)VALUES
 ('P.R.A.Y', 'Admin','Admin','Marist', 12601, 1, 'Admin@pray.com', '888-888-8888', '1.jpg', '1.jpg'),
-('Test', 'User', 'TestUser', 'Marist', 12601, 1, 'TestUser@pray.com', '888-777-66666','2.jpg', '2.jpg');
+('Test', 'User', 'TestUser', 'Marist', 12601, 2, 'TestUser@pray.com', '888-777-66666','2.jpg', '2.jpg');
 
 INSERT INTO Prayers(userid, content)VALUES
 (1,'Welcome to P.R.A.Y');
@@ -183,13 +183,23 @@ INSERT INTO PRAYER_TAGS(prayid, tagid) VALUES
 (1, 3),
 (1, 5);
 
-INSERT INTO Messages(userid, message)VALUES
+INSERT INTO Messages(userid, msg)VALUES
 (2,'This is a test message right here'),
-(1,'Another test message. Lets make it saucy');
+(1,'I will be making'),
+(2,'Many test messages'),
+(2,'Just to test how'),
+(1,'This messaging system will work.'),
+(1,'This message will be really long because I need to make sure that really long messages still look nice in the message feed. In contrast the next message will be'),
+(2,'Short');
 
 INSERT INTO User_Messages(messageid,userid,isChecked)VALUES
 (1,1,0),
-(2,2,1);
+(2,2,1),
+(3,1,1),
+(4,1,1),
+(5,2,1),
+(6,2,1),
+(7,1,1);
 
 INSERT INTO Likes(userid,prayid,isChecked,isLike)VALUES
 (1,1,0,1),

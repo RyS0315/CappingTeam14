@@ -27,13 +27,21 @@ function CloseCompose(){
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
-
         reader.onload = function (e) {
-            $('#uploadpreview')
+            if(input.files[0].size >= 500000){
+                $('#upload-size-error')
+                .attr('style','display:block');
+                $('#uploadpreview')
+                .attr('style','display:none');
+            }else{
+                $('#uploadpreview')
                 .attr('src', e.target.result)
                 .attr('style','display:block');
-            $('#uploadbutton').html('Change Picture');
-        };
+                $('#uploadbutton').html('Change Picture');
+                $('#upload-size-error')
+                .attr('style','display:none');
+            };
+        }
         reader.readAsDataURL(input.files[0]);
     }
 }
