@@ -39,10 +39,11 @@
     $src[] = ["src"=>"js/removePrayer.js", "type"=>"js"];
     $src[] = ["src"=>"js/jqueryinit.php","type"=>"php"];
     $src[] = ["src"=>"js/autoGrow.js","type"=>"js"];
+    $src[] = ["src"=>"js/filterRel.js","type"=>"js"];
     $src[] = ["src"=>"http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js","type"=>"js"];
     $src[] = ["src"=>"js/composePrayer.js","type"=>"js"];
     $css[] = ["src"=>"css/core.php","type"=>"css"];
-    $title = "P.R.A.Y.";
+    $title = "P.R.A.Y";
     $header = new Header($db, $menus, $title, $css);
     $header->ShowUserMenu($id);
     $header->displayHeader();
@@ -55,7 +56,7 @@
                    WHERE u.userid = $id";
     $primaryrelres = $db->fetchquery($primaryrelquery);
     $prel = $primaryrelres[0]['primary_religion'];
-
+    
     $chosenreligion = isset($_SESSION['currel']) ? $_SESSION['currel'] : $prel;
 
     $curreligionquery = "SELECT r.religion_name, r.relid
@@ -85,18 +86,19 @@
 
     <section class='index-body'>
         <div class='index-left-box'>
-            <p class='trends-header'>My '%Religion_name%' Stats</p>
+            <p class='trends-header'>My <?php echo $curreligion[0]['religion_name']?> Stats</p>
         </div>
 
         <div class='index-center-box'>
-            <form method='post' action='index.php'>
-                <ul class='sort-menu'>
-                    <li class='religion-menu-header'>
+            <ul class='sort-menu'>
+                <li class='religion-menu-header'>
                     <?php echo $curreligion[0]['religion_name']?>
                     <ul class='religion-menu-items'>
+                    <form method='post' action='php/filterReligion.php'>
                         <?php foreach($searchrels as $i){
-                           echo" <li class='religion-menu-item'>
+                           echo" <li class='religion-menu-item' onclick='filterRel(".$i['relid'].")'>
                                 ".$i['religion_name']."
+                                <button id='filter-rel--".$i['relid']."' class='hidden' type='submit' name='religion' value=".$i['relid'].">
                             </li>";
                         }?>
                     </ul>
