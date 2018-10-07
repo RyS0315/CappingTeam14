@@ -42,7 +42,7 @@
     $src[] = ["src"=>"http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js","type"=>"js"];
     $src[] = ["src"=>"js/composePrayer.js","type"=>"js"];
     $css[] = ["src"=>"css/core.php","type"=>"css"];
-    $title = "P.R.A.Y";
+    $title = "P.R.A.Y.";
     $header = new Header($db, $menus, $title, $css);
     $header->ShowUserMenu($id);
     $header->displayHeader();
