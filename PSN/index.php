@@ -49,7 +49,29 @@
 
     $comments = new PrayerCommentDisplayer($db, $id);
     $feed = new PrayerCreator($db,$id,$comments);
-    $chosenreligion = 2;
+
+    $primaryrelquery = "SELECT u.primary_religion
+                   FROM users u
+                   WHERE u.userid = $id";
+    $primaryrelres = $db->fetchquery($primaryrelquery);
+    $prel = $primaryrelres[0]['primary_religion'];
+
+    $chosenreligion = isset($_SESSION['currel']) ? $_SESSION['currel'] : $prel;
+
+    $curreligionquery = "SELECT r.religion_name, r.relid
+                         FROM Religions r
+                         WHERE r.relid = $chosenreligion";
+    $curreligion = $db->fetchQuery($curreligionquery);
+
+    $searchrelquery = "SELECT DISTINCT r.religion_name, r.relid
+                       FROM Religions r, Users u, User_religions ur
+                       WHERE r.relid <> $chosenreligion
+                       AND ( (u.userid = $id 
+                       AND r.relid = u.primary_religion) 
+                       OR (ur.userid = $id 
+                       AND r.relid = ur.relid) )";
+    $searchrels = $db->fetchQuery($searchrelquery);
+
 
     $prayerquery = "SELECT p.userid, u.fname, u.lname, u.username, p.content, pr.relid, p.prayid, p.img
                     FROM Prayers p, Users u, Prayer_Religions pr
@@ -59,25 +81,6 @@
                     OR pr.relid = 1)
                     ORDER BY p.prayid desc";
     $prayers = $db->FetchQuery($prayerquery);
-    // print_ary($prayers);
-    $userreligions = [
-        [
-            'id'=>'1',
-            'name'=>'Church of Marist'
-        ],
-        [
-            'id'=>'2',
-            'name'=>'Rel1'
-        ],
-        [
-            'id'=>'3',
-            'name'=>'Rel2'
-        ],
-        [
-            'id'=>'4',
-            'name'=>'Rel3'
-        ]
-        ];
 ?>
 
     <section class='index-body'>
@@ -89,20 +92,13 @@
             <form method='post' action='index.php'>
                 <ul class='sort-menu'>
                     <li class='religion-menu-header'>
-                    Church Of Marist
+                    <?php echo $curreligion[0]['religion_name']?>
                     <ul class='religion-menu-items'>
-                        <li class='religion-menu-item'>
-                            This
-                        </li>
-                        <li class='religion-menu-item'>
-                            Is
-                        </li>
-                        <li class='religion-menu-item'>
-                            Not
-                        </li>
-                        <li class='religion-menu-item'>
-                            Done
-                        </li>
+                        <?php foreach($searchrels as $i){
+                           echo" <li class='religion-menu-item'>
+                                ".$i['religion_name']."
+                            </li>";
+                        }?>
                     </ul>
             </form>
                 </li>

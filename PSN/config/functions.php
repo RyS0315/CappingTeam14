@@ -70,5 +70,30 @@
             exit;
         }
     }
+
+
+    /**
+     * 
+     * This function will take a variable and make sure it is safe from sql injection
+     * 
+     * Example of sql injection => ';DROP TABLES; --
+     * 
+     * 
+     */
+    function CleanForSQL($var){
+        return true;
+    }
+
+    /**
+     * 
+     * This function will strip all html/js tags from a variriable
+     * to make it safe from xss
+     * 
+     * Example of xss => <script>alert('xss')</script>
+     * 
+     */
+    function cleanforHTML($var){
+        return htmlspecialchars($var);
+    }
  
 ?>

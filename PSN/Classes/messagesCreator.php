@@ -36,7 +36,7 @@
          * 
          */
         function getMessages($id){
-            $query = "SELECT DISTINCT m.msg, m.userid, u.fname
+            $query = "SELECT DISTINCT m.userid, m.msg, u.fname, m.messageid
                       FROM User_messages um, Messages m, Users u
                       WHERE um.messageid = m.messageid
                       AND u.userid = '$id'
@@ -57,10 +57,10 @@
                     </div>
                     <div class='message-preview-content'>
                         <div class='message-preview-name'>
-                            ".$user['fname']."".$user['lname']."@".$user['username']."
+                            <h3>".$user['fname']." ".$user['lname']."</h3>
                         </div>
                         <div class='message-preview-msg'>
-                            ". $msg ."
+                            <p>". $msg ."</p>
                         </div>
                     </div>
                   </div>";
@@ -70,7 +70,8 @@
             echo"<div class='msg-user-name-box'>
                     <p class='msg-name'>".$msgs[0]['fname']."</p>
                  </div>
-                 <div class='msg-convo'>";
+                 <div id='msg-convo' class='msg-convo'>
+                 <script>scrollBottom()</script>";
             foreach($msgs as $i){
                 echo"<div class='msg-container'>";
                     if($i['userid'] == $this->userid){
@@ -93,8 +94,4 @@
                  </div>";
         }
     }
-
-
-
-
 ?>

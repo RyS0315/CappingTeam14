@@ -16,7 +16,7 @@
                   'text'=>'rgba(255,255,255,.65)',
                   'boxcolor'=>'#1b0036',
                   'link'=>'rgba(200,0,200,.65)',
-                  'feed'=>'#550600',
+                  'feed'=>'#550006',
                   'menuborder'=>'#111111',
                   'boldcolor'=>'#ffffff',
                   'buttoncolor'=>'#e132ef',
@@ -64,6 +64,13 @@
     p{
         color:<?php echo $textcolor?>;
         margin-block-start: 0px;
+        margin-block-end: 0em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+    }
+
+    h3{
+        margin-block-start: 0em;
         margin-block-end: 0em;
         margin-inline-start: 0px;
         margin-inline-end: 0px;
@@ -1009,7 +1016,7 @@
     }
 /*************** MESSAGES ****************/
     .messages-users{
-        width:25%;
+        width:21%;
         background-color:<?php echo $feedcolor ?>;
         max-height:500px;
         border-color: rgba(0,0,0,.3);
@@ -1079,6 +1086,19 @@
         cursor:pointer;
     }
 
+    .message-preview-content{
+        margin-left:10px;
+        width:75%;
+    }
+
+    .message-preview-msg{
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 100%;
+        display: block;
+        overflow: hidden;
+    }
+
     .msg-container{
         min-height:50px;
         width:100%;
@@ -1107,6 +1127,10 @@
 
     .msg-content{
         max-width:200px;
+    }
+
+    .messages-default{
+        height:600px;
     }
 /*************** MEDIA QUERIES ***********/
     @media screen and (max-width:600px){

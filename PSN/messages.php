@@ -5,6 +5,7 @@
     include 'Classes/createheader.php';
     include 'Classes/createFooter.php';
     include 'Classes/messagesCreator.php';
+    include 'php/onloadscripts.php';
 
     $curconvo = isset($_SESSION['curconvo']) ? $_SESSION['curconvo'] : 'Not Set';
 
@@ -62,7 +63,14 @@
         </div>
 
         <div class='messages-feed'>
-            <?php $messager->displayConvo($messages[$curconvo], $curconvo)?>
+            <?php 
+            if($curconvo != ''){
+                $messager->displayConvo($messages[$curconvo], $curconvo);
+            }else{?>
+                <div class='messages-default'>
+                <p>No Conversation Selected</p> 
+                </div>
+            <?php } ?>
         </div>
     </section>
 <?php 
