@@ -1,5 +1,10 @@
 <?php 
     include 'Classes/imageUploader.php';
+    include '../config/dbconfig.php';
+    include '../config/permissions.php';
+    include '../config/functions.php';
+
+    $relid = isset($_SESSION['currel']) ? $_SESSION['currel'] : '';
     $content = isset($_POST['newprayer']) ? $_POST['newprayer'] : '';
     $img = isset($_FILES['upload'])?$_FILES['upload'] : '' ;
     if($img['error'] != 4){
@@ -26,7 +31,7 @@
         $prayid = $db->InsertQuery($prayerquery);
 
         $prayerrelquery = "INSERT into Prayer_Religions(prayid, relid)
-                            Values ($prayid, 1)";
+                            Values ($prayid, $relid)";
         $prayerrelresult = $db->Insertquery($prayerrelquery);
         header('location:index.php');
     }

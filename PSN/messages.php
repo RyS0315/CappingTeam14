@@ -7,7 +7,7 @@
     include 'Classes/messagesCreator.php';
     include 'php/onloadscripts.php';
 
-    $curconvo = isset($_SESSION['curconvo']) ? $_SESSION['curconvo'] : 'Not Set';
+    $curconvo = isset($_SESSION['curconvo']) ? $_SESSION['curconvo'] : '';
 
     $menus = [
         [
@@ -34,7 +34,6 @@
     $src[] = ["src"=>"js/userMenu.js", "type"=>"js"];
     $src[] = ["src"=>"js/messagePreview.js", "type"=>"js"];
     $src[] = ["src"=>"js/jqueryinit.php","type"=>"php"];
-
     $css[] = ["src"=>"css/core.php","type"=>"css"];
     $title = "P.R.A.Y";
 
