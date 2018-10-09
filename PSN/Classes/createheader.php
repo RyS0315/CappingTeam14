@@ -115,18 +115,34 @@
         }
 
         function createCompose(){
+            $primaryrelquery = "SELECT u.primary_religion
+                   FROM users u
+                   WHERE u.userid = $this->userid";
+            $primaryrelres = $this->db->fetchquery($primaryrelquery);
+            $prel = $primaryrelres[0]['primary_religion'];
+            
+            $chosenreligion = isset($_SESSION['currel']) ? $_SESSION['currel'] : $prel;
+
+            $curreligionquery = "SELECT r.religion_name, r.relid
+                                FROM Religions r
+                                WHERE r.relid = $chosenreligion";
+            $curreligion = $this->db->fetchQuery($curreligionquery);
+
+            $relid = $chosenreligion;
+            $relname = $curreligion[0]['religion_name'];
+
             echo "
                 <div id='compose-prayer' class='hidden'>
                 <div class='prayer-box'>
                 <ul class='compose-header-background'>
                     <li class='compose-header'>
-                        <h1>Compose Prayer</h1>
+                        <h1>Pray to ".$relname."</h1>
                     </li>
                     <li class='close-button'>
                         <img id='closebutton' src='images/icons/close.png'>
                     </li>
                 </ul>
-                    <form method='post' class='compose-content' action='' enctype='multipart/form-data'>
+                    <form method='post' class='compose-content' action='php/submitprayer.php' enctype='multipart/form-data'>
                         <textarea id='compose-area' name='newprayer' placeholder='Compose Your Prayer' 
                                   onkeyup='auto_grow(this)'></textarea>
                         <div id='preview'>
@@ -139,7 +155,7 @@
                             <label id='uploadbutton' for='upload'>Upload Picture</label> 
                         </li>
                         <li class='compose-submit'>
-                            <button type='submit' name='submit-prayer' id='submit-prayer'>Send Prayer</button>
+                            <button type='submit' name='religion' id='submit-prayer' value='".$relid."'>Send Prayer</button>
                         </li>
                         </ul>
                     </form>

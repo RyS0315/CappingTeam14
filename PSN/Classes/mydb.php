@@ -18,7 +18,8 @@ Class mydb {
             return $arrayresult;
         }else{
             //find the error and return it
-            return false;
+            echo"</br></br></br>";
+            die(mysqli_error($this->conn) ."</br>".$query);
         }
     }
 
@@ -28,7 +29,8 @@ Class mydb {
             return 'Update Worked';
         } else {
             //Find the error and return it
-            return 'Update Failed';
+            echo"</br></br></br>";
+            die(mysqli_error($this->conn) ."</br>".$query);
         }
     }
 
@@ -37,7 +39,8 @@ Class mydb {
             return 'Delete Worked';
         } else {
             //Find the error and return it
-            return 'Delete Failed';
+            echo"</br></br></br>";
+            die(mysqli_error($this->conn) ."</br>".$query);
         }
     }
 
@@ -46,7 +49,8 @@ Class mydb {
             return mysqli_insert_id($this->conn);
         } else {
             //Find the error and return it
-            return 'Insert Failed';
+            echo"</br></br></br>";
+            die(mysqli_error($this->conn) ."</br>".$query);
         }
     }
 

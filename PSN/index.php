@@ -7,11 +7,6 @@
     include 'Classes/prayers.php';
     include 'Classes/prayerCommentDisplayer.php';
     include 'php/onloadscripts.php';
-
-    if(isset($_POST['submit-prayer'])){
-        include 'php/submitprayer.php';
-    }
-
     $menus = [
         [
             'name'=>'Home',

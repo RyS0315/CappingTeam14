@@ -1015,10 +1015,44 @@
         margin-left:25px;
     }
 /*************** MESSAGES ****************/
-    .messages-users{
+
+    .messages-users-settings-box{
+        display:inline-block;
         width:21%;
+    }
+
+    .messages-users-heading-box{
+        padding-top:10px;
+        padding-bottom:10px;
+        width:100%;
         background-color:<?php echo $feedcolor ?>;
-        max-height:500px;
+        border-color: rgba(0,0,0,.3);
+        border-style: solid;
+        border-width: 1px;
+    }
+
+    .messages-users-heading{
+        color:#000000;
+        font-weight:bold;
+        font-size:30px;
+        margin:auto;
+        display:table;
+    }
+
+    .messages-users{
+        width:100%;
+        background-color:<?php echo $feedcolor ?>;
+        height:500px;
+        border-color: rgba(0,0,0,.3);
+        border-style: solid;
+        border-width: 1px;
+        overflow-y:auto;
+    }
+
+    .messages-settings{
+        width:100%;
+        height:50px;
+        background-color:<?php echo $feedcolor ?>;
         border-color: rgba(0,0,0,.3);
         border-style: solid;
         border-width: 1px;
@@ -1050,7 +1084,7 @@
     }
     
     .msg-convo{
-        overflow-y:scroll;
+        overflow-y:auto;
         display:grid;
         padding:10px;
         max-height:500px;

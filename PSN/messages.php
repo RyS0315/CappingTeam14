@@ -48,19 +48,24 @@
 ?>
 
     <section class='index-body'>
-        <div class='messages-users'>
-            <?php
-                foreach($users as $i){
-                    $messages[$i['userid']] = $messager->getMessages($i['userid']);
-                    end($messages[$i['userid']]);
-                    $key = key($messages[$i['userid']]);
-                    $recentmsg = $messages[$i['userid']][$key]['msg'];
-                    $messager->previewConvo($i,$recentmsg);
-                }
-            
-            ?>
+        <div class='messages-users-settings-box'>
+            <div class='messages-users-heading-box'>
+                <p class='messages-users-heading'>Conversations</p>
+            </div>
+            <div class='messages-users'>
+                <?php
+                    foreach($users as $i){
+                        $messages[$i['userid']] = $messager->getMessages($i['userid']);
+                        end($messages[$i['userid']]);
+                        $key = key($messages[$i['userid']]);
+                        $recentmsg = $messages[$i['userid']][$key]['msg'];
+                        $messager->previewConvo($i,$recentmsg);
+                    }
+                ?>
+            </div>
+            <div class='messages-settings'>
+            </div>
         </div>
-
         <div class='messages-feed'>
             <?php 
             if($curconvo != ''){
