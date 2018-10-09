@@ -35,7 +35,7 @@
      * If no get vars are on a page set $test[] = [0] and $vars = ['']
      *
     */
-    function checkValid($test,$vars){
+    function checkValidPage($test,$vars){
         $isvalid = array_filter(
             $test,
             function($value,$key){

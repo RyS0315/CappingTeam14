@@ -26,7 +26,9 @@
 
         function displayHeader(){
             $this->createTitle();
-            $this->createCompose();
+            if($this->loggedIn == 1){
+                $this->createCompose();
+            }
             $this->createLargeImageContainer();
             //Header
             echo "
@@ -46,7 +48,8 @@
                     </li>
                   </ul>";
             if($this->loggedIn == 1){
-                echo "<ul class='header-profile-pic'>
+                echo "
+                <ul class='header-profile-pic'>
                         <li id='header-profile-pic-link' onclick='ShowMenu()'>
                             <img class='index-profile-pic' src='images/Users/".$this->userid."/Profile/".$this->userid.".jpg'>
                         </li>
