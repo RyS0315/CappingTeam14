@@ -1,5 +1,6 @@
 <?php
-    include '/../Classes/mydb.php';
+    include '/../Database/mydb.php';
+    include '/../Database/pgdb.php';
 
     $databaseServer = 'MYSQL';
 

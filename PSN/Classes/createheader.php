@@ -107,7 +107,14 @@
                     </li>
                     <li class='header-profile-menu-list-item'>
                         <a href='settings-themes.php'>Themes</a>
-                    </li>
+                    </li>";
+                    if($id == 1){
+                        echo"
+                        <li class='header-profile-menu-list-item'>
+                            <a href='displaydatabse.php'>System Database</a>
+                        </li>";
+                    }
+                echo"
                 </ul>
                 <ul class='header-profile-menu-logout'>
                     <li class='header-profile-menu-list-item'>

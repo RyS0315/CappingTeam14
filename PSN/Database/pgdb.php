@@ -1,6 +1,11 @@
 <?php
 
-Class mydb {
+
+/**
+ * Database functions with Postgres Commands
+ * 
+ */
+Class pgdb {
     // Create connection
     protected $conn;
 
@@ -11,52 +16,52 @@ Class mydb {
     function FetchQuery($query){
         $result_array=[];
         $arrayresult = [];
-        if($queryresult = mysqli_query($this->conn, $query)){
-            while ($row = mysqli_fetch_assoc($queryresult)){
+        if($queryresult = pg_query($this->conn, $query)){
+            while ($row = pg_fetch_assoc($queryresult)){
                 $arrayresult[] = $row;
             }
             return $arrayresult;
         }else{
             //find the error and return it
             echo"</br></br></br>";
-            die(mysqli_error($this->conn) ."</br>".$query);
+            die(pg_last_error($this->conn) ."</br>".$query);
         }
     }
 
     function UpdateQuery($query){
         //return boolean value
-        if(mysqli_query($this->conn, $query)) {
+        if(pg_query($this->conn, $query)) {
             return 'Update Worked';
         } else {
             //Find the error and return it
             echo"</br></br></br>";
-            die(mysqli_error($this->conn) ."</br>".$query);
+            die(pg_last_error($this->conn) ."</br>".$query);
         }
     }
 
     function DeleteQuery($query){
-        if(mysqli_query($this->conn, $query)) {
+        if(pg_query($this->conn, $query)) {
             return 'Delete Worked';
         } else {
             //Find the error and return it
             echo"</br></br></br>";
-            die(mysqli_error($this->conn) ."</br>".$query);
+            die(pg_last_error($this->conn) ."</br>".$query);
         }
     }
 
     function InsertQuery($query){
-        if(mysqli_query($this->conn, $query)) {
-            return mysqli_insert_id($this->conn);
+        if(pg_query($this->conn, $query)) {
+            return pg_last_oid($this->conn);
         } else {
             //Find the error and return it
             echo"</br></br></br>";
-            die(mysqli_error($this->conn) ."</br>".$query);
+            die(pg_last_error($this->conn) ."</br>".$query);
         }
     }
 
     function CreateTableQuery($query){
         //return table name or false
-       $queryresult = mysqli_query($conn, $query);
+       $queryresult = pg_query($conn, $query);
     }
 
     function AlterTableQuery(){
@@ -71,8 +76,8 @@ Class mydb {
         $script = file_get_contents($file);
         $statements = parseScript($script);
         foreach($statements as $statement) {
-            if(!mysqli_query($this->conn, $statement)){
-                die(mysqli_error($this->conn) ."</br>".$statement);
+            if(!pg_query($this->conn, $statement)){
+                die(pg_last_error($this->conn) ."</br>".$statement);
             }   
         }
         return true;

@@ -80,7 +80,7 @@
      * 
      * 
      */
-    function CleanForSQL($var){
+    function cleanForSQL($var){
         return true;
     }
 
