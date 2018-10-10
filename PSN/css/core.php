@@ -12,7 +12,7 @@
                   'buttonhover'=>'#8405af',
                   'buttontext'=>'#f3e1ff',
                   'commentbox'=>'#fbfbfb'],
-        'Dark' =>['background'=>'#140026', 
+        'Dark' =>['background'=>'#140026',
                   'text'=>'rgba(255,255,255,.65)',
                   'boxcolor'=>'#1b0036',
                   'link'=>'rgba(200,0,200,.65)',
@@ -92,7 +92,7 @@
         height:35px;
         border-color:rgb(0,0,0,.15);
         border-radius:5px;
-        text-indent: 5px; 
+        text-indent: 5px;
     }
 
     textarea {
@@ -211,13 +211,13 @@
     ::-webkit-scrollbar {
         width: 15px;
     }
-    
+
     ::-webkit-scrollbar-track {
         transform:translateX(-5px);
     }
-    
+
     ::-webkit-scrollbar-thumb {
-        background: #cccccc; 
+        background: #cccccc;
         border-radius: 8px;
     }
 
@@ -236,7 +236,7 @@
         position:fixed;
         z-index:50;
     }
-    
+
     .header-box{
         width:93%;
         margin:auto;
@@ -247,7 +247,7 @@
     .header-link-box{
         width:40%;
     }
-    
+
     .header-link>a{
         color:<?php echo $textcolor ?>;
         text-decoration:none;
@@ -258,7 +258,7 @@
         width: calc(100% + 40px);
         transform: translateX(-20px);
     }
-    
+
     .header-link{
         height:100%;
         width:auto;
@@ -268,23 +268,23 @@
         padding-right:20px;
         padding-left:20px;
     }
-    
+
     .header-link:hover{
         height:calc(100% - 2px);
         border-bottom-width:3px;
         border-bottom-color: <?php echo $linkcolor ?>;
     }
-    
+
     .active{
         height:calc(100% - 2px);
         border-bottom-width:3px;
         border-bottom-color: <?php echo $linkcolor?>;
     }
-    
+
     .active a{
         color:<?php echo $linkcolor ?>;
     }
-    
+
     .header-link:hover a{
         color:<?php echo $linkcolor?>;
     }
@@ -342,11 +342,11 @@
         border-bottom-width:1px;
         border-bottom-style:solid;
     }
-    
+
     .header-profile-menu-name:hover{
         background-color:<?php echo $backgroundcolor ?>;
     }
-    
+
     .header-profile-menu-name-name>a{
         color:<?php echo $boldcolor ?>;
         font-weight:bold;
@@ -358,15 +358,15 @@
         padding-left:10px;
         width:calc(100% - 10px);
     }
-    
+
     .header-profile-menu-name-name{
         height:40%;
     }
-    
+
     .header-profile-menu-name-username{
         height:60%;
     }
-    
+
     .header-profile-menu-name-username>a{
         padding-bottom:10px;
         color:<?php echo $textcolor ?>;
@@ -495,7 +495,7 @@
         margin:auto;
         height:auto;
         padding-bottom:25px;
-        padding-top:60px;  
+        padding-top:60px;
     }
 
     .index-left-box{
@@ -525,7 +525,7 @@
       position: relative;
       height:75px;
     }
-    
+
     .compose-prayer iframe {
        border: 0;
        height: 100%;
@@ -697,7 +697,7 @@
         color: #fff;
         transform: translateY(-100px);
     }
-/*************** USERSETTINGS ************/ 
+/*************** USERSETTINGS ************/
     .usersettings-box{
         display:block;
         margin-block-start: 0em;
@@ -728,7 +728,7 @@
     .settings-link:hover{
         background-color:<?php echo $linkcolor ?>;
     }
-    
+
     .current{
         background-color:<?php echo $linkcolor ?>;
     }
@@ -758,7 +758,7 @@
         width:100%;
         height:auto;
     }
-    
+
     .feed-box{
         padding:30px 20px 30px 20px;
         display:flex;
@@ -766,11 +766,11 @@
         border-bottom-color:<?php echo $backgroundcolor ?>;
         border-bottom-width:1px;
     }
-    
+
     .feed-profile-img-box{
         width:10%;
     }
-    
+
     .feed-profile-img{
         height:46px;
         width:46px;
@@ -832,17 +832,17 @@
         margin-bottom:5px;
         vertical-align: middle;
     }
-    
+
     .feed-img{
         margin:auto;
         width:100%;
         position:relative;
     }
-    
+
     .feed-img:hover{
         cursor:pointer;
     }
-    
+
     .feed-img-container{
         max-height:400px;
         margin:auto;
@@ -852,17 +852,17 @@
         border-width:1px;
         border-radius:5px;
     }
-    
+
     .imglarge-box{
         width:40%;
         margin:auto;
         margin-top:100px;
     }
-    
+
     #imglarge{
         width:100%;
     }
-    
+
     #imglarge-body{
         position:absolute;
         height:100%;
@@ -878,7 +878,7 @@
         padding-bottom:20px;
         background-color:<?php echo $commentcolor ?>;
     }
-    
+
     .post-comment{
         padding-top:20px;
         padding-bottom:20px
@@ -892,12 +892,12 @@
         border-bottom-color:<?php echo $backgroundcolor ?>;
         border-bottom-width:1px;
     }
-    
+
     .comment{
         width:100%;
         margin-bottom:10px;
     }
-    
+
     #submit-comment{
         height:auto;
         background-color:<?php echo $buttoncolor ?>;
@@ -911,14 +911,14 @@
         padding-right:15px;
         padding-left:15px;
         font-weight:bold;
-        
+
     }
-    
+
     #submit-comment:hover{
         cursor:pointer;
         background-color:<?php echo $buttonhover ?>;
     }
-    
+
     .comment-profile-name{
         color:<?php echo $boldcolor?>;
         font-weight:bold;
@@ -1048,7 +1048,7 @@
         margin:auto;
         display:table;
     }
-    
+
     .msg-convo{
         overflow-y:scroll;
         display:grid;
@@ -1063,7 +1063,7 @@
         height:auto;
         padding:10px;
     }
-    
+
     .compose-message>form{
         display:flex;
     }
@@ -1112,7 +1112,7 @@
         margin-bottom:10px;
         padding:10px;
         color:#ffffff;
-        float:right;    
+        float:right;
     }
 
     .msg-to-me{
