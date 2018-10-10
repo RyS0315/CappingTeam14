@@ -69,6 +69,14 @@
         margin-inline-end: 0px;
     }
 
+    div{
+        margin-block-start: 0px;
+        margin-block-end: 0em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+    }
+
+
     h3{
         margin-block-start: 0em;
         margin-block-end: 0em;
@@ -1166,6 +1174,84 @@
     .messages-default{
         height:600px;
     }
+/*************** DATABASE ****************/
+    .database-body{
+        padding-top: 100px;
+        display:flex;
+        width:93%;
+        margin:auto;
+    }
+
+    .database-all-tables{
+        display:block;
+    }
+
+    .database-content-container{
+        width:80%;
+        margin:auto;
+        margin-top:0px;
+        background-color:<?php echo $feedcolor ?>;
+        display:block;
+    }
+
+    .database-run-query{
+        display:block;
+        height:50px;
+        width:90%;
+        margin:auto;
+        padding-top:25px;
+    }
+    
+    .query-input{
+        width:90%;
+    }
+
+    .database-tables-box{
+       height:auto;
+       padding-bottom:20px;
+    }
+
+    .database-table{
+        width:90%;
+        margin:auto;
+        overflow:scroll;
+        display:flex;
+    }
+
+    .table-header{
+        width:90%;
+        margin:auto;
+        font-size:30px;
+        padding-bottom:10px;
+        text-transform:capitalize;
+    }
+
+    .database-columns{
+        display:block;
+    }
+
+    .database-table-fields{
+        border-color:#333333;
+        border-width:1px;
+        border-style:solid;
+        background-color:<?php echo $buttoncolor ?>;
+        color:#ffffff;
+        padding:20px;
+    }
+
+
+    .database-table-values{
+        border-color:#333333;
+        border-width:1px;
+        border-style:solid;
+        background-color:<?php echo $feedcolor ?>;
+        font-color:#ffffff;
+        padding:20px;
+        width:auto;
+        height:40px;
+        white-space:nowrap;
+    }
+
 /*************** MEDIA QUERIES ***********/
     @media screen and (max-width:600px){
         .header{

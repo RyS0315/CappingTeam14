@@ -111,7 +111,7 @@
                     if($id == 1){
                         echo"
                         <li class='header-profile-menu-list-item'>
-                            <a href='displaydatabse.php'>System Database</a>
+                            <a href='Database/databasePage.php'>System Database</a>
                         </li>";
                     }
                 echo"

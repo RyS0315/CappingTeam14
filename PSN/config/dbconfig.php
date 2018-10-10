@@ -1,16 +1,14 @@
 <?php
-    include '/../Database/mydb.php';
-    include '/../Database/pgdb.php';
-
     $databaseServer = 'MYSQL';
-
+    
     $servername = '127.0.0.1';
     $username = "root";
     $password = "";
     $dbname = 'psndata';
-
+    
     if($databaseServer == 'MYSQL'){
-
+        include '/../Database/mydb.php';
+        
         // Create connection for MYSQL
         $conn = mysqli_connect($servername, $username, $password, $dbname);
         
@@ -24,6 +22,7 @@
     }
     
     if($databaseServer == 'Postgres'){
+        include '/../Database/pgdb.php';
         
         //Create Connection for Postgres
         $conn = pg_connect("host=".$servername." user=".$username." password=".$password." dbname=".$dbname."");

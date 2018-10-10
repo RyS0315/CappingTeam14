@@ -1,5 +1,9 @@
 <?php
 
+
+/**
+ * Database Functions with MYSQL commands
+ */
 Class mydb {
     // Create connection
     protected $conn;
