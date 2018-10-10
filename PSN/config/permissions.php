@@ -78,4 +78,31 @@
         }
         return true;
     }
+
+    /**
+     * 
+     * Return an array ($_PERMISSIONS[]) that defines what a user can and cannot do
+     * for a certain religion based off their reputation
+     * 
+     */
+    function returnPermissions($id, $relid){
+        $repquery = "SELECT reputation, isMod
+                     FROM User_Religions
+                     WHERE userid = $id
+                     AND relid = $relid";
+        $rep = $this->db->fetchQuery($repquery);
+        $_PERMISSIONS['canpray'] = false;
+        $_PERMISSIONS['cancomment'] = false;
+        $_PERMISSIONS['canlike'] = false;
+        $_PERMISSIONS['canreport'] = false;
+        //Write checks here
+
+        if($rep['isMod']){
+            $_PERMISSIONS['canpray'] = true;
+            $_PERMISSIONS['cancomment'] = true;
+            $_PERMISSIONS['canlike'] = true;
+            $_PERMISSIONS['canreport'] = true;
+        }
+        return $_PERMISSIONS;
+    }
 ?>

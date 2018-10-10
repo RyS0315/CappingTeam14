@@ -35,7 +35,7 @@
      * If no get vars are on a page set $test[] = [0] and $vars = ['']
      *
     */
-    function checkValid($test,$vars){
+    function checkValidPage($test,$vars){
         $isvalid = array_filter(
             $test,
             function($value,$key){
@@ -80,7 +80,7 @@
      * 
      * 
      */
-    function CleanForSQL($var){
+    function cleanForSQL($var){
         return true;
     }
 
@@ -96,4 +96,13 @@
         return htmlspecialchars($var);
     }
  
+    /**
+     * 
+     * If date is within today, return how long ago it occured as a string ex: '2 hrs'
+     * otherwise return the date as mon dd, yyyy ex: Jan 1, 2018
+     * 
+     */
+    function formatDate($date){
+        return $date;
+    }
 ?>

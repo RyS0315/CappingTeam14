@@ -15,7 +15,7 @@ function sendMessage($recid, $msg, $id, $db){
         $msgid = createMessage($msg,$id,$db);//create message in messages table
         linkMessage($recid,$msgid,$db);//send created message to the user in User_Messages table
     }
-    // header('location:../messages.php');
+    header('location:../messages.php');
 }
 
 //Check message for content, sql injection and xss

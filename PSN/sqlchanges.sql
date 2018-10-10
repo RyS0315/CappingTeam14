@@ -1,15 +1,27 @@
+DROP TABLE IF EXISTS Prayer_Religion;
+DROP TABLE IF EXISTS User_religion;
+DROP TABLE IF EXISTS Prayer_Tag;
 DROP TABLE IF EXISTS Religion;
 DROP TABLE IF EXISTS Tag;
 DROP TABLE IF EXISTS Prayer;
 DROP TABLE IF EXISTS Message;
-DROP TABLE IF EXISTS Prayer_Tag;
-DROP TABLE IF EXISTS User_religion;
-DROP TABLE IF EXISTS Prayer_Religion;
 DROP TABLE IF EXISTS Comment;
 DROP TABLE IF EXISTS Notifications;
 
 
+DROP TABLE IF EXISTS Prayer_Tags;
+DROP TABLE IF EXISTS Prayer_Religions;
+DROP TABLE IF EXISTS User_Messages;
+DROP TABLE IF EXISTS User_Religions;
+DROP TABLE IF EXISTS Likes;
+DROP TABLE IF EXISTS Messages;
+DROP TABLE IF EXISTS Comments;
+DROP TABLE IF EXISTS Tags;
+DROP TABLE IF EXISTS Prayers;
+DROP TABLE IF EXISTS Users;
 DROP TABLE IF EXISTS Religions;
+
+
 CREATE TABLE Religions(
     relid INT(10) PRIMARY KEY AUTO_INCREMENT,
     religion_name VARCHAR(30),
@@ -17,7 +29,6 @@ CREATE TABLE Religions(
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-DROP TABLE IF EXISTS Users;
 CREATE TABLE Users(
     userid INT(10) PRIMARY KEY AUTO_INCREMENT,
     fname VARCHAR(20),
@@ -36,7 +47,6 @@ CREATE TABLE Users(
     CONSTRAINT FK_Users_Religions FOREIGN KEY (Primary_religion) REFERENCES Religions (relid)
 );
 
-DROP TABLE IF EXISTS Tags;
 CREATE TABLE Tags(
     tagid INT(10) PRIMARY KEY AUTO_INCREMENT,
     tag_name VARCHAR(14),
@@ -44,7 +54,6 @@ CREATE TABLE Tags(
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-DROP TABLE IF EXISTS Prayers;
 CREATE TABLE Prayers(
     prayid INT(10) PRIMARY KEY AUTO_INCREMENT,
     userid INT(10),
@@ -59,7 +68,6 @@ CREATE TABLE Prayers(
     CONSTRAINT FK_Users_Prayer FOREIGN KEY (userid) REFERENCES Users (userid)
 );
 
-DROP TABLE IF EXISTS Prayer_Tags;
 CREATE TABLE Prayer_Tags(
     prayid INT(10),
     tagid INT(10),
@@ -70,7 +78,6 @@ CREATE TABLE Prayer_Tags(
     CONSTRAINT FK_Tag_PrayerTags FOREIGN KEY (tagid) REFERENCES Tags (tagid)
 );
 
-DROP TABLE IF EXISTS Prayer_Religions;
 CREATE TABLE Prayer_Religions(
     prayid INT(10),
     relid INT(10),
@@ -82,7 +89,6 @@ CREATE TABLE Prayer_Religions(
 );
 
 
-DROP TABLE IF EXISTS User_Religions;
 CREATE TABLE User_Religions(
     userid INT(10),
     relid INT(10),
@@ -95,7 +101,6 @@ CREATE TABLE User_Religions(
     CONSTRAINT FK_Religion_UserReligion FOREIGN KEY (relid) REFERENCES Religions (relid) ON DELETE RESTRICT
 );
 
-DROP TABLE IF EXISTS Likes;
 CREATE TABLE Likes(
     userid INT(10),
     prayid INT(10),
@@ -105,10 +110,9 @@ CREATE TABLE Likes(
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(userid, prayid),
     CONSTRAINT FK_User_Likes FOREIGN KEY (userid) REFERENCES Users (userid),
-    CONSTRAINT FK_Prayer_Likes FOREIGN KEY (prayid) REFERENCES Prayer (prayid)
+    CONSTRAINT FK_Prayer_Likes FOREIGN KEY (prayid) REFERENCES Prayers (prayid)
 );
 
-DROP TABLE IF EXISTS Comments;
 CREATE TABLE Comments(
     commid INT(10) PRIMARY KEY AUTO_INCREMENT,
     userid INT(10),
@@ -121,7 +125,6 @@ CREATE TABLE Comments(
     CONSTRAINT FK_Prayer_Comments FOREIGN KEY (prayid) REFERENCES Prayers (prayid)
 );
 
-DROP TABLE IF EXISTS Messages;
 CREATE TABLE Messages(
     messageid INT(10) PRIMARY KEY AUTO_INCREMENT,
     msg VARCHAR(5000),
@@ -132,7 +135,6 @@ CREATE TABLE Messages(
     CONSTRAINT FK_User_Messages FOREIGN KEY (userid) REFERENCES Users (userid)
 );
 
-DROP TABLE IF EXISTS User_Messages;
 CREATE TABLE User_Messages(
     messageid INT(10),
     userid INT(10),
@@ -154,7 +156,12 @@ Insert into Religions(religion_name) VALUES
 
 INSERT INTO USERS (fname,lname,username,user_password,zipCode,primary_religion, email,phone_number, pPicture, bPicture)VALUES
 ('P.R.A.Y', 'Admin','Admin','Marist', 12601, 1, 'Admin@pray.com', '888-888-8888', '1.jpg', '1.jpg'),
-('Test', 'User', 'TestUser', 'Marist', 12601, 2, 'TestUser@pray.com', '888-777-66666','2.jpg', '2.jpg');
+('Test', 'User', 'TestUser', 'Marist', 12601, 2, 'TestUser@pray.com', '888-777-66666','2.jpg', '2.jpg'),
+('Riley', 'Stadel', 'RySu', 'Marist', 12601, 1, 'Riley.stadel1@gmail.com', '717-723-7629','2.jpg', '2.jpg'),
+('Griffen', 'Wiles', 'GWiles', 'Marist', 12601, 1, 'TestUser@pray.com', '888-777-66666','2.jpg', '2.jpg'),
+('Dan', 'Schroeder', 'DSchroeder', 'Marist', 12601, 1, 'TestUser@pray.com', '888-777-66666','2.jpg', '2.jpg'),
+('Ryan', 'Demayo', 'RDemayo', 'Marist', 12601, 2, 'TestUser@pray.com', '888-777-66666','2.jpg', '2.jpg'),
+('Christian', 'Gorokhovsky', 'CGorokhovsky', 'Marist', 12601, 2, 'TestUser@pray.com', '888-777-66666','2.jpg', '2.jpg');
 
 INSERT INTO Prayers(userid, content)VALUES
 (1,'Welcome to P.R.A.Y');

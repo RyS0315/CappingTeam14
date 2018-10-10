@@ -18,7 +18,8 @@ Class mydb {
             return $arrayresult;
         }else{
             //find the error and return it
-            return false;
+            echo"</br></br></br>";
+            die(mysqli_error($this->conn) ."</br>".$query);
         }
     }
 
@@ -28,7 +29,8 @@ Class mydb {
             return 'Update Worked';
         } else {
             //Find the error and return it
-            return 'Update Failed';
+            echo"</br></br></br>";
+            die(mysqli_error($this->conn) ."</br>".$query);
         }
     }
 
@@ -37,7 +39,8 @@ Class mydb {
             return 'Delete Worked';
         } else {
             //Find the error and return it
-            return 'Delete Failed';
+            echo"</br></br></br>";
+            die(mysqli_error($this->conn) ."</br>".$query);
         }
     }
 
@@ -46,7 +49,8 @@ Class mydb {
             return mysqli_insert_id($this->conn);
         } else {
             //Find the error and return it
-            return 'Insert Failed';
+            echo"</br></br></br>";
+            die(mysqli_error($this->conn) ."</br>".$query);
         }
     }
 
@@ -62,6 +66,37 @@ Class mydb {
     function CountFollowers($relid){
         
     }
+
+    function runScriptFile($file){
+        $script = file_get_contents($file);
+        $statements = parseScript($script);
+        foreach($statements as $statement) {
+            if(!mysqli_query($this->conn, $statement)){
+                die(mysqli_error($this->conn) ."</br>".$statement);
+            }   
+        }
+        return true;
+    }
 }
+
+function parseScript($script) {
+
+    $result = array();
+    $delimiter = ';';
+    while(strlen($script) && preg_match('/((DELIMITER)[ ]+([^\n\r])|[' . $delimiter . ']|$)/is', $script, $matches, PREG_OFFSET_CAPTURE)) {
+      if (count($matches) > 2) {
+        $delimiter = $matches[3][0];
+        $script = substr($script, $matches[3][1] + 1);
+      } else {
+        if (strlen($statement = trim(substr($script, 0, $matches[0][1])))) {
+          $result[] = $statement;
+        }
+        $script = substr($script, $matches[0][1] + 1);
+      }
+    }
+  
+    return $result;
+  
+  }
 
 ?>
