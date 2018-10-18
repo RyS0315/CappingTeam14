@@ -60,6 +60,43 @@
                 $this->createUserMenu($this->userid);
             }
             echo "</div></section>";
+            $this->createMobileHeader();
+        }
+
+        function createMobileHeader() {
+            echo"<section class='mobile-header'>
+                <div class='mobile-header-box'>
+                    <ul class='mobile-header-link-box'>
+                        <li class='mobile-header-link-profile'>
+                            <a href='profile.php'>
+                                <img class='mobile-profile' src='images/Users/".$this->userid."/Profile/".$this->userid.".jpg'>
+                            </a>
+                        </li>
+                        <li class='mobile-header-link-home'>
+                            <a href='index.php'>
+                                <img class='mobile-logo' src='images/icons/favicon.png'>
+                            </a>
+                        </li>
+                        <li class='mobile-header-link-notifications'>
+                            <a href='notifications.php'>
+                                <img class='mobile-notifications' src='images/icons/NotificationIcon.jpg'>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class='mobile-search-box'>
+                    <ul class='mobile-search-link-box'>
+                        <li class='mobile-header-link-messages'>
+                            <a href='messages.php'>
+                                <img class='mobile-messages' src='images/icons/MessageIcon.png'>
+                            </a>
+                        </li>
+                        <li class='mobile-header-link-prayer'>
+                            <div id='mobile-start-prayer' onclick='ShowCompose()'>PRAY</div>
+                        </li>
+                    </ul>
+                </div>
+            </section>";
         }
 
         function createTitle(){
@@ -67,6 +104,7 @@
                     <head>
                         <title>".$this->title."</title>
                         <link rel='shortcut icon' href='images/icons/favicon.png'>
+                        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
                     </head>
                     <body>";
             $this->addcss();
@@ -121,41 +159,7 @@
                         <a href='signOut.php'> Log Out </a>
                     </li>
                 </ul>
-            </div>
-
-            <section class='mobile-header'>
-                <div class='mobile-header-box'>
-                    <ul class='mobile-header-link-box'>
-                        <li class='mobile-header-link-profile'>
-                            <a href='profile.php'>
-                                <img class='mobile-profile' src='images/Users/".$this->userid."/Profile/".$this->userid.".jpg'>
-                            </a>
-                        </li>
-                        <li class='mobile-header-link-home'>
-                            <a href='index.php'>
-                                <img class='mobile-logo' src='images/icons/favicon.png'>
-                            </a>
-                        </li>
-                        <li class='mobile-header-link-notifications'>
-                            <a href='notifications.php'>
-                                <img class='mobile-notifications' src='images/icons/NotificationIcon.jpg'>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class='mobile-search-box'>
-                    <ul class='mobile-search-link-box'>
-                        <li class='mobile-header-link-messages'>
-                            <a href='messages.php'>
-                                <img class='mobile-messages' src='images/icons/MessageIcon.png'>
-                            </a>
-                        </li>
-                        <li class='mobile-header-link-prayer'>
-                            <div id='mobile-start-prayer' onclick='ShowCompose()'>PRAY</div>
-                        </li>
-                    </ul>
-                </div>
-            </section>";
+            </div>";
         }
 
         function createCompose(){

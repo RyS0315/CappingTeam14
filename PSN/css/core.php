@@ -245,6 +245,10 @@
         z-index:50;
     }
 
+    .mobile-header {
+        display: none;
+    }
+
     .header-box{
         width:93%;
         margin:auto;
