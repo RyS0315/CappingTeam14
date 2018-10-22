@@ -2,7 +2,7 @@
     class Header{
         protected $db;//Sets the Database -- Allows for queries in this class
 
-        protected $menus; 
+        protected $menus;
 
         protected $loggedIn;//Specifies if the user header should be added
 
@@ -63,13 +63,51 @@
                 $this->createUserMenu($this->userid);
             }
             echo "</div></section>";
+            $this->createMobileHeader();
+        }
+
+        function createMobileHeader() {
+            echo"<section class='mobile-header'>
+                <div class='mobile-header-box'>
+                    <ul class='mobile-header-link-box'>
+                        <li class='mobile-header-link-profile'>
+                            <a href='profile.php'>
+                                <img class='mobile-profile' src='images/Users/".$this->userid."/Profile/".$this->userid.".jpg'>
+                            </a>
+                        </li>
+                        <li class='mobile-header-link-home'>
+                            <a href='index.php'>
+                                <img class='mobile-logo' src='images/icons/favicon.png'>
+                            </a>
+                        </li>
+                        <li class='mobile-header-link-notifications'>
+                            <a href='notifications.php'>
+                                <img class='mobile-notifications' src='images/icons/NotificationIcon.jpg'>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class='mobile-search-box'>
+                    <ul class='mobile-search-link-box'>
+                        <li class='mobile-header-link-messages'>
+                            <a href='messages.php'>
+                                <img class='mobile-messages' src='images/icons/MessageIcon.png'>
+                            </a>
+                        </li>
+                        <li class='mobile-header-link-prayer'>
+                            <div id='mobile-start-prayer' onclick='ShowCompose()'>PRAY</div>
+                        </li>
+                    </ul>
+                </div>
+            </section>";
         }
 
         function createTitle(){
            echo "<html>
                     <head>
                         <title>".$this->title."</title>
-                        <link rel='shortcut icon' href='".getRoot()."images/icons/favicon.png'>
+                        <link rel='shortcut icon' href='images/icons/favicon.png'>
+                        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
                     </head>
                     <body>";
             $this->addcss();
@@ -133,7 +171,7 @@
                    WHERE u.userid = $this->userid";
             $primaryrelres = $this->db->fetchquery($primaryrelquery);
             $prel = $primaryrelres[0]['primary_religion'];
-            
+
             $chosenreligion = isset($_SESSION['currel']) ? $_SESSION['currel'] : $prel;
 
             $curreligionquery = "SELECT r.religion_name, r.relid
@@ -156,7 +194,7 @@
                     </li>
                 </ul>
                     <form method='post' class='compose-content' action='php/submitprayer.php' enctype='multipart/form-data'>
-                        <textarea id='compose-area' name='newprayer' placeholder='Compose Your Prayer' 
+                        <textarea id='compose-area' name='newprayer' placeholder='Compose Your Prayer'
                                   onkeyup='auto_grow(this)'></textarea>
                         <div id='preview'>
                             <p id='upload-size-error' style='display:none; color:#ff0000'>Image too Large. Must be less than 500KB</p>
@@ -165,7 +203,7 @@
                         <ul class='compose-content-bottom'>
                         <li class='compose-img-upload'>
                             <input type='file' name='upload' id='upload' class='inputfile' onchange='readURL(this)'>
-                            <label id='uploadbutton' for='upload'>Upload Picture</label> 
+                            <label id='uploadbutton' for='upload'>Upload Picture</label>
                         </li>
                         <li class='compose-submit'>
                             <button type='submit' name='religion' id='submit-prayer' value='".$relid."'>Send Prayer</button>
