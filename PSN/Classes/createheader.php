@@ -12,24 +12,27 @@
 
         protected $css;
 
+        protected $profpic;
+
         Public function __construct($db,$menus,$title,$css){
             $this->db = $db;
             $this->menus = $menus;
             $this->title = $title;
             $this->css = $css;
         }
-
+        
         function showUserMenu($id, $bool = 1){
             $this->loggedIn = $bool;
             $this->userid = $id;
+            $this->getUserInfo();
         }
 
         function displayHeader(){
             $this->createTitle();
             if($this->loggedIn == 1){
                 $this->createCompose();
+                $this->createLargeImageContainer();
             }
-            $this->createLargeImageContainer();
             //Header
             echo "
                   <section class='header'>
@@ -44,14 +47,14 @@
 
             echo "<ul class='logo-box'>
                     <li class='logo-li'>
-                        <a href='index.php'><img class='logo' src='images/icons/favicon.png'></a>
+                        <a href='index.php'><img class='logo' src='".getRoot()."images/icons/favicon.png'></a>
                     </li>
                   </ul>";
             if($this->loggedIn == 1){
                 echo "
                 <ul class='header-profile-pic'>
                         <li id='header-profile-pic-link' onclick='ShowMenu()'>
-                            <img class='index-profile-pic' src='images/Users/".$this->userid."/Profile/".$this->userid.".jpg'>
+                            <img class='index-profile-pic' src='".getRoot()."images/Users/".$this->userid."/Profile/".$this->profpic."'>
                         </li>
                         <li id='sort-compose'>
                             <div id='startprayer' onclick='ShowCompose()'>PRAY</div>
@@ -66,7 +69,7 @@
            echo "<html>
                     <head>
                         <title>".$this->title."</title>
-                        <link rel='shortcut icon' href='images/icons/favicon.png'>
+                        <link rel='shortcut icon' href='".getRoot()."images/icons/favicon.png'>
                     </head>
                     <body>";
             $this->addcss();
@@ -92,33 +95,33 @@
             echo "<div id='header-profile-menu' class='hidden'>
                 <ul class='header-profile-menu-name'>
                     <li class='header-profile-menu-name-name'>
-                        <a href='profile.php'>".$firstname." ".$lastname ."</a>
+                        <a href='".getRoot()."profile.php'>".$firstname." ".$lastname ."</a>
                     </li>
                     <li class='header-profile-menu-name-username'>
-                        <a href='profile.php'>@".$username."</a>
+                        <a href='".getRoot()."profile.php'>@".$username."</a>
                     </li>
                 </ul>
                 <ul class='header-profile-menu-settings'>
                     <li class='header-profile-menu-list-item'>
-                        <a href='settings-account.php'> Settings </a>
+                        <a href='".getRoot()."settings-account.php'> Settings </a>
                     </li>
                     <li class='header-profile-menu-list-item'>
-                        <a href='settings-religions.php'>Religions</a>
+                        <a href='".getRoot()."settings-religions.php'>Religions</a>
                     </li>
                     <li class='header-profile-menu-list-item'>
-                        <a href='settings-themes.php'>Themes</a>
+                        <a href='".getRoot()."settings-themes.php'>Themes</a>
                     </li>";
                     if($id == 1){
                         echo"
                         <li class='header-profile-menu-list-item'>
-                            <a href='Database/databasePage.php'>System Database</a>
+                            <a href='".getRoot()."Database/databasePage.php'>System Database</a>
                         </li>";
                     }
                 echo"
                 </ul>
                 <ul class='header-profile-menu-logout'>
                     <li class='header-profile-menu-list-item'>
-                        <a href='signOut.php'> Log Out </a>
+                        <a href='".getRoot()."signOut.php'> Log Out </a>
                     </li>
                 </ul>
             </div>";
@@ -180,6 +183,13 @@
                         <img id='imglarge' src='#'>
                     </div>
                 </div>";
+        }
+
+
+        function getUserInfo(){
+            $query = "SELECT * FROM USERS WHERE userid = '$this->userid'";
+            $result = $this->db->fetchQuery($query);
+            $this->profpic = $result[0]['pPicture'];
         }
     }
 ?>

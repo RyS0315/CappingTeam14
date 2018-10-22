@@ -32,7 +32,7 @@
     $src[] = ["src"=>"js/jqueryinit.php","type"=>"php"];
     $src[] =["src"=>"js/autoGrow.js", "type"=>"js"];
     $css[] = ["src"=>"css/core.php","type"=>"css"];
-    $title = "P.R.A.Y";
+    $title = "P.R.A.Y.";
     $header = new Header($db, $menus, $title, $css);
     $header->ShowUserMenu($id);
     $header->displayHeader();

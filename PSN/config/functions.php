@@ -105,4 +105,22 @@
     function formatDate($date){
         return $date;
     }
+
+
+    /**
+     * 
+     * Return the root of the current page so we can call any page from any folder
+     * 
+     */
+    function getRoot(){
+        $root = ROOT_DIR;
+        $root = str_replace("\\", "/", $root);
+        $root = str_replace('/config', '',$root);
+        $pageroot = getcwd() ."/";
+        $pageroot = str_replace("\\", "/", $pageroot);
+        $root = str_replace($root."/", '' , $pageroot);
+        $root = preg_replace("#(/.*?).*?(/)#", '/../', "/".$root);
+        $root = substr($root, 1);
+        return $root;
+    }
 ?>

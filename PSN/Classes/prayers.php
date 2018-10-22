@@ -13,10 +13,11 @@
         }
 
         function showPrayer($i){
-            echo "<div class='feed-container'>
+            echo "
+            <div class='feed-container'>
                 <div class='feed-box'>
                     <div class='feed-profile-img-box'>
-                        <img class='feed-profile-img 'src='images/Users/".$i['userid']."/Profile/".$i['userid'].".jpg'>
+                        <img class='feed-profile-img 'src='images/Users/".$i['userid']."/Profile/".$i['pPicture']."'>
                     </div>
                     <div class='feed-content-box'>
                         <ul class='feed-content-header'>
@@ -42,7 +43,7 @@
                             echo "
                             <div class='feed-img-box'>
                             <div class='feed-img-container'>
-                                <img class='feed-img' src='images/Users/".$i['userid']."/Uploads/".$i['img']."'
+                                <img class='feed-img' src='".getRoot()."images/Users/".$i['userid']."/Uploads/".$i['img']."'
                                      onload='center_img(this)' onclick='showLargeImg(this)'>
                             </div>
                             </div>";

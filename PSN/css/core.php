@@ -496,6 +496,14 @@
         padding:25px 0px 0px 40px;
     }
 
+    .verifyerror{
+        color:#ff0000;
+    }
+
+    #failedpassword{
+        color:#ff0000;
+    }
+
 /*************** INDEX *******************/
     .index-body{
         display:flex;
@@ -1093,6 +1101,7 @@
     
     .msg-convo{
         overflow-y:auto;
+        overflow-x:hidden;
         display:grid;
         padding:10px;
         max-height:500px;
@@ -1169,6 +1178,9 @@
 
     .msg-content{
         max-width:200px;
+        overflow-wrap: break-word;
+        white-space: pre-line;
+        white-space: pre-wrap;
     }
 
     .messages-default{
@@ -1176,10 +1188,11 @@
     }
 /*************** DATABASE ****************/
     .database-body{
-        padding-top: 100px;
+        padding-top: 70px;
         display:flex;
         width:93%;
         margin:auto;
+        padding-bottom:25px;
     }
 
     .database-all-tables{
@@ -1247,9 +1260,22 @@
         background-color:<?php echo $feedcolor ?>;
         font-color:#ffffff;
         padding:20px;
-        width:auto;
-        height:40px;
-        white-space:nowrap;
+        max-width:300px;
+        height:50px;
+        overflow-y:hidden;
+        position:relative;
+    }
+
+    .database-table-values:hover{
+        border-color:#333333;
+        border-width:1px;
+        border-style:solid;
+        background-color:#cccccc;
+        font-color:#ffffff;
+        padding:20px;
+        max-width:300px;
+        min-height:50px;
+        height:auto;
     }
 
 /*************** MEDIA QUERIES ***********/
