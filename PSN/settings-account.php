@@ -1,9 +1,5 @@
 <?php 
-    include 'config/dbconfig.php';
-    include 'config/permissions.php';
-    include 'config/functions.php';
-    include 'Classes/createheader.php';
-    include 'Classes/createFooter.php';
+    require 'config/ApplicationTop.php';
     include 'Classes/createUserSettings.php';
 
     $menus = [
@@ -29,6 +25,7 @@
         ]
     ];
     $src[] = ["src"=>"js/userMenu.js", "type"=>"js"];
+    $src[] = ["src"=>"js/settings.js", "type"=>"js"];
     $src[] = ["src"=>"js/jqueryinit.php","type"=>"php"];
     $src[] =["src"=>"js/autoGrow.js", "type"=>"js"];
     $css[] = ["src"=>"css/core.php","type"=>"css"];
@@ -70,6 +67,9 @@
         ]
     ];
     $usersettings = new UserSettings($db,$settings,$id);
+
+    $userinfoquery = "SELECT * FROM USERS where userid = $id";
+    $userinfo = $db->fetchQuery($userinfoquery);
     ?>
 
 <section class='index-body'>
@@ -78,21 +78,30 @@
 
     <div class='account-settings-box'>
         <h1>Account Settings</h1>
-        <form method='post' action=''>
-            <p>Username </p><input type='text' name='username' value='<?php echo $username ?>'>
-            <p>Bio </p><textarea name='bio' onkeyup='auto_grow(this)' value=''></textarea>
-        </form>
+        <form method='post' action='php/updateAccountSettings.php' enctype='multipart/form-data'>
+            <h3 class='settings-header'>Username</h3><input type='text' name='username' value=<?php echo $userinfo[0]['username'] ?>>
+            <h3 class='settings-header'>Profile Picture</h3>
+                <input type='file' name='profile' id='profile' class='inputfile' onchange='updateProfile(this)'>
+                <div id='profile-prev'>
+                    <h3 class='settings-header' id='profile-size-error' style='display:none; color:#ff0000'>Image too Large. Must be less than 500KB</h3>
+                    <img src='<?php echo getRoot()."images/Users/".$id."/Profile/".$userinfo[0]['pPicture']?> ' id='profile-preview'>
+                </div>
+                <label for="profile">Change Picture</label>
 
-        <h1>Update Profile Picture</h1>
-        <form method='POST' action='' enctype="multipart/form-data">
-            <input type='file' name='profile' id='profile' class='inputfile'>
-            <label for="profile">Choose a file</label>
-        </form>
+            <h3 class='settings-header'>Banner Picture</h3>
+                <input type='file' name='banner' id='banner' class='inputfile' onchange='updateBanner(this)'>
+                <div id='banner-prev'>
+                    <h3 class='settings-header' id='banner-size-error' style='display:none; color:#ff0000'>Image too Large. Must be less than 500KB</h3>
+                    <img src='<?php echo getRoot()."images/Users/".$id."/Banner/".$userinfo[0]['bPicture']?> ' id='banner-preview'>
+                </div>
+                <label for="banner">Change Picture</label>
 
-        <h1>Update Banner Picture</h1>
-        <form method='POST' action='' enctype="multipart/form-data">
-            <input type='file' name='banner' id='banner' class='inputfile'>
-            <label for="banner">Choose a file</label>
+                <div class='account-bio'>
+                <h3 class='settings-header'>Bio</h3><textarea name='bio' onkeyup='auto_grow(this)' value=''><?php echo $userinfo[0]['bio']?></textarea>
+                </div>
+                <div class='update-button'>
+                    <button type='submit' name='update' id='update-settings'>Update Settings</button>
+                </div>
         </form>
     </div>
 

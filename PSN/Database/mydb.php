@@ -28,9 +28,11 @@ Class mydb {
     }
 
     function UpdateQuery($query){
+        date_default_timezone_set('America/New_York');
+        $date = date('Y-m-d H:i:s');
+        $query = str_replace(' SET ', " SET dateLastMaint = '". $date . "' , " , $query);
         //return boolean value
         if(mysqli_query($this->conn, $query)) {
-            
             return 'Update Worked';
         } else {
             //Find the error and return it

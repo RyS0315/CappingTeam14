@@ -17,6 +17,7 @@
                 echo '<p style="margin:0px; padding-left:'.$padding.'">['.$key[$itr].']=>[</p>';
                 RecursiveArray($i, $newloop);
                 echo '<p style="margin:0px; padding-left:'.$padding.'">]</p>';
+                $itr += 1;
             }
             else{
                 echo '<p style="margin:0px; padding-left:'.$padding.'">['.$key[$itr].']=>'.$i.'</p>';
