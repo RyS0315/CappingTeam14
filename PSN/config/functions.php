@@ -104,8 +104,28 @@
      */
     function formatDate($date){
         $currentTime = getDate();
-        if ($currentTime[month] == )
-        return $date;
+        $formattedDate;
+        if ($currentTime[year] == $date.year) {
+            if ($currentTime[month] == $date.month) {
+                if ($currentTime[mday] == $date.day) {
+                    if ($currentTime[hours] == $date.hour) {
+                        if ($currentTime[minutes] == $date.minute) {
+                            $formattedDate = $currentTime[seconds] - $date.second + " seconds ago";
+                        }
+                        else {
+                            $formattedDate = $currentTime[minutes] - $date.minute + " minutes ago";
+                        }
+                    }
+                    else {
+                        $formattedDate = $currentTime[hours] - $date.hour + " hours ago";
+                    }
+                }
+            }
+        }
+        else {
+            $formattedDate = $currentTime[month] + " " + $currentTime[mday] + ", " + $currentTime[year];
+        }
+        return $formattedDate;
     }
 
 
