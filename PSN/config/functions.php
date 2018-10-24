@@ -21,7 +21,7 @@
             else{
                 echo '<p style="margin:0px; padding-left:'.$padding.'">['.$key[$itr].']=>'.$i.'</p>';
                 $itr += 1;
-            } 
+            }
         }
     }
 
@@ -43,7 +43,7 @@
             },
             ARRAY_FILTER_USE_BOTH
         );
-    
+
         $varsvalid = true;
         $keys = array_keys($_GET);
         if(isset($_GET)){
@@ -73,34 +73,34 @@
 
 
     /**
-     * 
+     *
      * This function will take a variable and make sure it is safe from sql injection
-     * 
+     *
      * Example of sql injection => ';DROP TABLES; --
-     * 
-     * 
+     *
+     *
      */
     function cleanForSQL($var){
         return true;
     }
 
     /**
-     * 
+     *
      * This function will strip all html/js tags from a variriable
      * to make it safe from xss
-     * 
+     *
      * Example of xss => <script>alert('xss')</script>
-     * 
+     *
      */
     function cleanforHTML($var){
         return htmlspecialchars($var);
     }
- 
+
     /**
-     * 
+     *
      * If date is within today, return how long ago it occured as a string ex: '2 hrs'
      * otherwise return the date as mon dd, yyyy ex: Jan 1, 2018
-     * 
+     *
      */
     function formatDate($date){
         return $date;
