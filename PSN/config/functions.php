@@ -105,19 +105,19 @@
     function formatDate($date){
         $currentTime = getDate();
         $formattedDate;
-        if ($currentTime[year] == $date.year) {
-            if ($currentTime[month] == $date.month) {
-                if ($currentTime[mday] == $date.day) {
-                    if ($currentTime[hours] == $date.hour) {
-                        if ($currentTime[minutes] == $date.minute) {
-                            $formattedDate = $currentTime[seconds] - $date.second + " seconds ago";
+        if ($currentTime[year] == $date.substring(0,4)) {
+            if ($currentTime[month] == $date.substring(5,7)) {
+                if ($currentTime[mday] == $date.substring(8,10)) {
+                    if ($currentTime[hours] == $date.substring(11,13)) {
+                        if ($currentTime[minutes] == $date.substring(14,16)) {
+                            $formattedDate = $currentTime[seconds] - $date.substring(17,19) + " seconds ago";
                         }
                         else {
-                            $formattedDate = $currentTime[minutes] - $date.minute + " minutes ago";
+                            $formattedDate = $currentTime[minutes] - $date.substring(14,16) + " minutes ago";
                         }
                     }
                     else {
-                        $formattedDate = $currentTime[hours] - $date.hour + " hours ago";
+                        $formattedDate = $currentTime[hours] - $date.substring(11,13) + " hours ago";
                     }
                 }
             }

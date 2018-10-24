@@ -20,7 +20,7 @@
             $this->title = $title;
             $this->css = $css;
         }
-        
+
         function showUserMenu($id, $bool = 1){
             $this->loggedIn = $bool;
             $this->userid = $id;
