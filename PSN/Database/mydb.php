@@ -30,6 +30,7 @@ Class mydb {
     function UpdateQuery($query){
         //return boolean value
         if(mysqli_query($this->conn, $query)) {
+            
             return 'Update Worked';
         } else {
             //Find the error and return it

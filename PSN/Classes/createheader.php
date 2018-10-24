@@ -2,7 +2,7 @@
     class Header{
         protected $db;//Sets the Database -- Allows for queries in this class
 
-        protected $menus; 
+        protected $menus;
 
         protected $loggedIn;//Specifies if the user header should be added
 
@@ -12,24 +12,27 @@
 
         protected $css;
 
+        protected $profpic;
+
         Public function __construct($db,$menus,$title,$css){
             $this->db = $db;
             $this->menus = $menus;
             $this->title = $title;
             $this->css = $css;
         }
-
+        
         function showUserMenu($id, $bool = 1){
             $this->loggedIn = $bool;
             $this->userid = $id;
+            $this->getUserInfo();
         }
 
         function displayHeader(){
             $this->createTitle();
             if($this->loggedIn == 1){
                 $this->createCompose();
+                $this->createLargeImageContainer();
             }
-            $this->createLargeImageContainer();
             //Header
             echo "
                   <section class='header'>
@@ -44,14 +47,14 @@
 
             echo "<ul class='logo-box'>
                     <li class='logo-li'>
-                        <a href='index.php'><img class='logo' src='images/icons/favicon.png'></a>
+                        <a href='index.php'><img class='logo' src='".getRoot()."images/icons/favicon.png'></a>
                     </li>
                   </ul>";
             if($this->loggedIn == 1){
                 echo "
                 <ul class='header-profile-pic'>
                         <li id='header-profile-pic-link' onclick='ShowMenu()'>
-                            <img class='index-profile-pic' src='images/Users/".$this->userid."/Profile/".$this->userid.".jpg'>
+                            <img class='index-profile-pic' src='".getRoot()."images/Users/".$this->userid."/Profile/".$this->profpic."'>
                         </li>
                         <li id='sort-compose'>
                             <div id='startprayer' onclick='ShowCompose()'>PRAY</div>
@@ -60,6 +63,43 @@
                 $this->createUserMenu($this->userid);
             }
             echo "</div></section>";
+            $this->createMobileHeader();
+        }
+
+        function createMobileHeader() {
+            echo"<section class='mobile-header'>
+                <div class='mobile-header-box'>
+                    <ul class='mobile-header-link-box'>
+                        <li class='mobile-header-link-profile'>
+                            <a href='profile.php'>
+                                <img class='mobile-profile' src='images/Users/".$this->userid."/Profile/".$this->userid.".jpg'>
+                            </a>
+                        </li>
+                        <li class='mobile-header-link-home'>
+                            <a href='index.php'>
+                                <img class='mobile-logo' src='images/icons/favicon.png'>
+                            </a>
+                        </li>
+                        <li class='mobile-header-link-notifications'>
+                            <a href='notifications.php'>
+                                <img class='mobile-notifications' src='images/icons/NotificationIcon.jpg'>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class='mobile-search-box'>
+                    <ul class='mobile-search-link-box'>
+                        <li class='mobile-header-link-messages'>
+                            <a href='messages.php'>
+                                <img class='mobile-messages' src='images/icons/MessageIcon.png'>
+                            </a>
+                        </li>
+                        <li class='mobile-header-link-prayer'>
+                            <div id='mobile-start-prayer' onclick='ShowCompose()'>PRAY</div>
+                        </li>
+                    </ul>
+                </div>
+            </section>";
         }
 
         function createTitle(){
@@ -67,6 +107,7 @@
                     <head>
                         <title>".$this->title."</title>
                         <link rel='shortcut icon' href='images/icons/favicon.png'>
+                        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
                     </head>
                     <body>";
             $this->addcss();
@@ -92,33 +133,33 @@
             echo "<div id='header-profile-menu' class='hidden'>
                 <ul class='header-profile-menu-name'>
                     <li class='header-profile-menu-name-name'>
-                        <a href='profile.php'>".$firstname." ".$lastname ."</a>
+                        <a href='".getRoot()."profile.php'>".$firstname." ".$lastname ."</a>
                     </li>
                     <li class='header-profile-menu-name-username'>
-                        <a href='profile.php'>@".$username."</a>
+                        <a href='".getRoot()."profile.php'>@".$username."</a>
                     </li>
                 </ul>
                 <ul class='header-profile-menu-settings'>
                     <li class='header-profile-menu-list-item'>
-                        <a href='settings-account.php'> Settings </a>
+                        <a href='".getRoot()."settings-account.php'> Settings </a>
                     </li>
                     <li class='header-profile-menu-list-item'>
-                        <a href='settings-religions.php'>Religions</a>
+                        <a href='".getRoot()."settings-religions.php'>Religions</a>
                     </li>
                     <li class='header-profile-menu-list-item'>
-                        <a href='settings-themes.php'>Themes</a>
+                        <a href='".getRoot()."settings-themes.php'>Themes</a>
                     </li>";
                     if($id == 1){
                         echo"
                         <li class='header-profile-menu-list-item'>
-                            <a href='Database/databasePage.php'>System Database</a>
+                            <a href='".getRoot()."Database/databasePage.php'>System Database</a>
                         </li>";
                     }
                 echo"
                 </ul>
                 <ul class='header-profile-menu-logout'>
                     <li class='header-profile-menu-list-item'>
-                        <a href='signOut.php'> Log Out </a>
+                        <a href='".getRoot()."signOut.php'> Log Out </a>
                     </li>
                 </ul>
             </div>";
@@ -130,7 +171,7 @@
                    WHERE u.userid = $this->userid";
             $primaryrelres = $this->db->fetchquery($primaryrelquery);
             $prel = $primaryrelres[0]['primary_religion'];
-            
+
             $chosenreligion = isset($_SESSION['currel']) ? $_SESSION['currel'] : $prel;
 
             $curreligionquery = "SELECT r.religion_name, r.relid
@@ -153,7 +194,7 @@
                     </li>
                 </ul>
                     <form method='post' class='compose-content' action='php/submitprayer.php' enctype='multipart/form-data'>
-                        <textarea id='compose-area' name='newprayer' placeholder='Compose Your Prayer' 
+                        <textarea id='compose-area' name='newprayer' placeholder='Compose Your Prayer'
                                   onkeyup='auto_grow(this)'></textarea>
                         <div id='preview'>
                             <p id='upload-size-error' style='display:none; color:#ff0000'>Image too Large. Must be less than 500KB</p>
@@ -162,7 +203,7 @@
                         <ul class='compose-content-bottom'>
                         <li class='compose-img-upload'>
                             <input type='file' name='upload' id='upload' class='inputfile' onchange='readURL(this)'>
-                            <label id='uploadbutton' for='upload'>Upload Picture</label> 
+                            <label id='uploadbutton' for='upload'>Upload Picture</label>
                         </li>
                         <li class='compose-submit'>
                             <button type='submit' name='religion' id='submit-prayer' value='".$relid."'>Send Prayer</button>
@@ -180,6 +221,13 @@
                         <img id='imglarge' src='#'>
                     </div>
                 </div>";
+        }
+
+
+        function getUserInfo(){
+            $query = "SELECT * FROM USERS WHERE userid = '$this->userid'";
+            $result = $this->db->fetchQuery($query);
+            $this->profpic = $result[0]['pPicture'];
         }
     }
 ?>

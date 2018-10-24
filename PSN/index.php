@@ -1,12 +1,8 @@
 <?php
-    include 'config/dbconfig.php';
-    include 'config/permissions.php';
-    include 'config/functions.php';
-    include 'Classes/createheader.php';
-    include 'Classes/createFooter.php';
+    require 'config/ApplicationTop.php';
     include 'Classes/prayers.php';
     include 'Classes/prayerCommentDisplayer.php';
-    include 'php/onloadscripts.php';
+    
     $menus = [
         [
             'name'=>'Home',
@@ -30,15 +26,6 @@
         ]
     ];
 
-    $src[] = ["src"=>"js/userMenu.js", "type"=>"js"];
-    $src[] = ["src"=>"js/removePrayer.js", "type"=>"js"];
-    $src[] = ["src"=>"js/jqueryinit.php","type"=>"php"];
-    $src[] = ["src"=>"js/autoGrow.js","type"=>"js"];
-    $src[] = ["src"=>"js/filterRel.js","type"=>"js"];
-    $src[] = ["src"=>"http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js","type"=>"js"];
-    $src[] = ["src"=>"js/composePrayer.js","type"=>"js"];
-    $css[] = ["src"=>"css/core.php","type"=>"css"];
-    $title = "P.R.A.Y";
     $header = new Header($db, $menus, $title, $css);
     $header->ShowUserMenu($id);
     $header->displayHeader();
@@ -70,7 +57,7 @@
     $searchrels = $db->fetchQuery($searchrelquery);
 
 
-    $prayerquery = "SELECT p.userid, u.fname, u.lname, u.username, p.content, pr.relid, p.prayid, p.img, r.religion_name
+    $prayerquery = "SELECT p.userid, u.fname, u.lname, u.username, p.content, pr.relid, p.prayid, p.img, r.religion_name, u.pPicture
                     FROM Prayers p, Users u, Prayer_Religions pr, Religions r
                     WHERE p.userid = u.userid
                     AND pr.prayid = p.prayid
@@ -87,6 +74,8 @@
             <p> Prayers sent </p>
             <p> Reputation (Rank)</p>
             <p> Date Joined </p>
+
+            <?php echo getRoot() ?>
         </div>
 
         <div class='index-center-box'>
@@ -101,8 +90,8 @@
                                 <button id='filter-rel--".$i['relid']."' class='hidden' type='submit' name='religion' value=".$i['relid'].">
                             </li>";
                         }?>
+                    </form>
                     </ul>
-            </form>
                 </li>
             </ul>
 

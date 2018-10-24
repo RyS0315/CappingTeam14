@@ -1,4 +1,6 @@
 <?php
+    define('ROOT_DIR', __DIR__);
+    
     $databaseServer = 'MYSQL';
     
     $servername = '127.0.0.1';

@@ -245,6 +245,13 @@
         z-index:50;
     }
 
+<<<<<<< HEAD
+=======
+    .mobile-header {
+        display: none;
+    }
+
+>>>>>>> f95c3e053e7d90f96a433adfec7e01a9da514f8e
     .header-box{
         width:93%;
         margin:auto;
@@ -494,6 +501,14 @@
         border-color:rgba(0,0,0,.2);
         background-color:#ffffff;
         padding:25px 0px 0px 40px;
+    }
+
+    .verifyerror{
+        color:#ff0000;
+    }
+
+    #failedpassword{
+        color:#ff0000;
     }
 
 /*************** INDEX *******************/
@@ -1093,6 +1108,7 @@
 
     .msg-convo{
         overflow-y:auto;
+        overflow-x:hidden;
         display:grid;
         padding:10px;
         max-height:500px;
@@ -1169,6 +1185,9 @@
 
     .msg-content{
         max-width:200px;
+        overflow-wrap: break-word;
+        white-space: pre-line;
+        white-space: pre-wrap;
     }
 
     .messages-default{
@@ -1176,10 +1195,11 @@
     }
 /*************** DATABASE ****************/
     .database-body{
-        padding-top: 100px;
+        padding-top: 70px;
         display:flex;
         width:93%;
         margin:auto;
+        padding-bottom:25px;
     }
 
     .database-all-tables{
@@ -1201,7 +1221,7 @@
         margin:auto;
         padding-top:25px;
     }
-    
+
     .query-input{
         width:90%;
     }
@@ -1247,14 +1267,160 @@
         background-color:<?php echo $feedcolor ?>;
         font-color:#ffffff;
         padding:20px;
-        width:auto;
-        height:40px;
-        white-space:nowrap;
+        max-width:300px;
+        height:50px;
+        overflow-y:hidden;
+        position:relative;
     }
 
+<<<<<<< HEAD
 /*************** MEDIA QUERIES ***********/
     @media screen and (max-width:600px){
         .header{
             display:none;
         }
     }
+=======
+    .database-table-values:hover{
+        border-color:#333333;
+        border-width:1px;
+        border-style:solid;
+        background-color:#cccccc;
+        font-color:#ffffff;
+        padding:20px;
+        max-width:300px;
+        min-height:50px;
+        height:auto;
+    }
+
+/*************** MOBILE ******************/
+@media screen and (max-width: 960px) {
+    /* Move the logo to the right so it doesn't clip into Nav Bar */
+    .logo-li {
+        margin-left: 120px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /*** INDEX ***/
+    .index-body {
+        width: 96%;
+        padding-top: 120px;
+    }
+
+    .index-left-box {
+        display: none;
+    }
+
+    .index-center-box {
+        width: 98%;
+        margin: 12px 12px 0px 12px;
+    }
+
+    .index-right-box {
+        display: none;
+    }
+
+    /*** HEADER **/
+    /* Hide old menu */
+    .header {
+        display: none;
+    }
+
+    .mobile-header {
+        display: block;
+        height: 60px;
+        width: 100%;
+        border-bottom: 2px solid <?php echo $menuborder?>;
+        background-color: <?php echo $boxcolor ?>;
+        position: fixed;
+        z-index: 50;
+    }
+
+    .mobile-header-link-box {
+        margin: 0px;
+    }
+
+    /* Profile Picture - Left */
+    .mobile-profile {
+        height: 50px;
+        width: 50px;
+        float: right;
+        position: absolute;
+        margin-top: 5px;
+        border-radius: 50%;
+        left: 15%;
+    }
+
+    /* Logo - Center */
+    .mobile-logo {
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        margin-top: 5px;
+        left: 47.2%;
+        border-radius: 50%;
+    }
+
+    /* Notifications - Right */
+    .mobile-notifications {
+        height: 50px;
+        width: 50px;
+        float: right;
+        position: absolute;
+        margin-top: 5px;
+        border-radius: 50%;
+        right: 15%;
+    }
+
+    /* Search Bar */
+    .mobile-search-box {
+        height: 60px;
+        width: 100%;
+        position: absolute;
+        top: 62px;
+        background-color: <?php echo $boxcolor ?>;
+        opacity: 1;
+    }
+
+    .mobile-search-link-box {
+        margin: 0px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+
+    /* Messages - Left */
+    .mobile-messages {
+        height: 50px;
+        width: 50px;
+        left: 25%;
+        float: right;
+        position: absolute;
+        margin-top: 5px;
+        border-radius: 20px;
+    }
+
+    /* Pray - Right */
+    .mobile-header-link-prayer {
+        margin-top: 10px;
+        float: right;
+        position: absolute;
+        right: 25%;
+    }
+
+    #mobile-start-prayer {
+        height: auto;
+        background-color: <?php echo $buttoncolor ?>;
+        color: <?php echo $buttontext?>;
+        padding: 6px;
+        border-radius: 100px;
+        border-style: solid;
+        border-color: <?php echo $textcolor?>;
+        border-width: 1px;
+        font-size: 22px;
+        padding-right: 15px;
+        padding-left: 15px;
+        font-weight: bold;
+    }
+}
+>>>>>>> f95c3e053e7d90f96a433adfec7e01a9da514f8e

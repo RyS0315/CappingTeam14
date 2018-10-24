@@ -75,7 +75,7 @@
          * 
          */
         function setPath($name){
-            $dir = "images/Users/".$this->userid."/".$this->type."/";
+            $dir = getRoot()."images/Users/".$this->userid."/".$this->type."/";
             $path = $dir."".$name;
             // echo $path;
             return $path;

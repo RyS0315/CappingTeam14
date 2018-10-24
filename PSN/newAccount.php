@@ -10,6 +10,8 @@
                        '',
                        '',
                        ''];
+
+    // print_ary($_POST);
     if(isset($_POST['submit'])){
         $message = createAccount($db);
     }
@@ -51,7 +53,7 @@
     function checkUsername($db){
         if(isset($_POST['username'])){
             if($_POST['username'] != ''){
-                return checkAvailableUsername($db);    
+                return checkAvailableUsername($db);  
             }else{
                 return 'Enter Your Username';
             }
@@ -105,12 +107,36 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
         $security = $_POST['securityAnswer'];
-        $insertquery = "INSERT into USERS (fname,lname,username,user_password) 
-                        VALUES('$firstname', '$lastname','$username','$password')";
+        $insertquery = "INSERT into USERS (fname,lname,username,user_password,Primary_Religion,pPicture,bPicture) 
+                        VALUES('$firstname', '$lastname','$username','$password' , 2, 'default.png', 'default.png')";
         $insertresult = $db->InsertQuery($insertquery);
+        createDir($insertresult);
+        setDefaultPhoto($insertresult);
         setUser($insertresult);
-        header('Location:settings-religions.php');
+        header('Location:'.getRoot().'index.php');
     }
+
+    function createDir($id){
+        mkdir(getRoot()."images/Users/".$id );
+        mkdir(getRoot()."images/Users/".$id."/Profile" );
+        mkdir(getRoot()."images/Users/".$id."/Banner" );
+        mkdir(getRoot()."images/Users/".$id."/Uploads" );
+    }
+
+    function setDefaultPhoto($id){
+        copy(getRoot()."images/icons/defaultProfile.jpg" , getRoot()."images/Users/".$id."/Profile/default.png");
+        copy(getRoot()."images/icons/defaultBanner.png" , getRoot()."images/Users/".$id."/Banner/default.png");
+    }
+
+    $first_ph = isset($_POST['firstname']) ? $_POST['firstname'] : '';
+    $last_ph = isset($_POST['lastname']) ? $_POST['lastname'] : '';
+    $username_ph = isset($_POST['username']) ? $_POST['username'] : '';
+
+
+    $message['first'] = isset($message['first']) ? $message['first'] : '';
+    $message['username'] = isset($message['username']) ? $message['username'] : '';
+    $message['password'] = isset($message['password']) ? $message['password'] : '';
+    $message['security'] = isset($message['security']) ? $message['security'] : '';
 ?>
 
 <html>
@@ -132,14 +158,26 @@
         <div class='newaccount-form-box'>
             <h2>Create Account</h2>
             <form id='newaccount-form-inputs' method='post' action='newAccount.php'>
-                <input type='text' name='firstname' placeholder='First Name'>
-                <input type='text' name='lastname' placeholder='Last Name'>
-                <input type='text' name='username' placeholder='UserName'>
+                <div class='verifyerror' >
+                    <?php echo $message['first'] ?>
+                </div>
+                <input type='text' name='firstname' placeholder='First Name' value=<?php echo $first_ph?> >
+                <input type='text' name='lastname' placeholder='Last Name' value=<?php echo $last_ph?> >
+                <div class='verifyerror' >
+                    <?php echo $message['username'] ?>
+                </div>
+                <input type='text' name='username' placeholder='UserName' value=<?php echo $username_ph?>>
+                <div class='verifyerror' >
+                    <?php echo $message['password'] ?>
+                </div>
                 <div class='hidden' id='failedpassword'>
                     Passwords Do Not Match
                 </div>
                 <input type='password' id='password' name='password' placeholder='Password'>
                 <input type='password' id='confirmpassword'name='confirmpassword' placeholder='Confirm Password' onblur='checkPassword()'>
+                <div class='verifyerror'>
+                    <?php echo $message['security'] ?>
+                </div>
                 <select name='security'>
                     <option value=0>Select a Security Question </option><?php
                     foreach($securityquests as $i){?>
@@ -168,6 +206,9 @@
             var failed = document.getElementById('failedpassword');
             $(failed).fadeIn();
         }
-        
+    }
+
+    function checkStrength(){
+
     }
 </script>
