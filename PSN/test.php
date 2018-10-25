@@ -1,67 +1,69 @@
 <?php
-$t = new DateTime('2000-01-01');
+$t = new DateTime('2018-10-24 20:55:00', new DateTimeZone('America/New_York'));
 function formatDate($date){
-    $currentTime = getDate();
+    $currentDate = new DateTime(null, new DateTimeZone('America/New_York'));
+    $currentTime = $currentDate->format('Y-m-d H:i:s');
     $formattedDate;
-    if ($currentTime['year'] == substr($date,0,4)) {
-        if ($currentTime['month'] == substr($date,5,2)) {
-            if ($currentTime['mday'] == substr($date,8,2)) {
-                if ($currentTime['hours'] == substr($date,11,2)) {
-                    if ($currentTime['minutes'] == substr($date,14,2)) {
-                        $formattedDate = $currentTime['seconds'] - substr($date,17,2)." seconds ago";
+    $month;
+    switch (substr($date,5,2)) {
+        case "01":
+            $month = "January";
+            break;
+        case "02":
+            $month = "February";
+            break;
+        case "03":
+            $month = "March";
+            break;
+        case "04":
+            $month = "April";
+            break;
+        case "05":
+            $month = "May";
+            break;
+        case "06":
+            $month = "June";
+            break;
+        case "07":
+            $month = "July";
+            break;
+        case "08":
+            $month = "August";
+            break;
+        case "09":
+            $month = "September";
+            break;
+        case "10":
+            $month = "October";
+            break;
+        case "11":
+            $month = "November";
+            break;
+        case "12":
+            $month = "December";
+            break;
+    }
+    if (substr($currentTime,0,4) == substr($date,0,4)) {
+        if (substr($currentTime,5,2) == substr($date,5,2)) {
+            if (substr($currentTime,8,2) == substr($date,8,2)) {
+                if (substr($currentTime,11,2) == substr($date,11,2)) {
+                    if (substr($currentTime,14,2) == substr($date,14,2)) {
+                        $formattedDate = intval(substr($currentTime,17,2)) - intval(substr($date,17,2))." seconds ago";
+                        return $formattedDate;
                     }
                     else {
-                        $formattedDate = $currentTime['minutes'] - substr($date,14,2)." minutes ago";
+                        $formattedDate = intval(substr($currentTime,14,2)) - intval(substr($date,14,2))." minutes ago";
+                        return $formattedDate;
                     }
                 }
                 else {
-                    $formattedDate = $currentTime['hours'] - substr($date,11,2)." hours ago";
+                    $formattedDate = intval(substr($currentTime,11,2)) - intval(substr($date,11,2))." hours ago";
+                    return $formattedDate;
                 }
             }
         }
     }
-    else {
-        $month;
-        switch (substr($date,5,2)) {
-            case "01":
-                $month = "January";
-                break;
-            case "02":
-                $month = "February";
-                break;
-            case "03":
-                $month = "March";
-                break;
-            case "04":
-                $month = "April";
-                break;
-            case "05":
-                $month = "May";
-                break;
-            case "06":
-                $month = "June";
-                break;
-            case "07":
-                $month = "July";
-                break;
-            case "08":
-                $month = "August";
-                break;
-            case "09":
-                $month = "September";
-                break;
-            case "10":
-                $month = "October";
-                break;
-            case "11":
-                $month = "November";
-                break;
-            case "12":
-                $month = "December";
-                break;
-        }
-        $formattedDate = $month." ".substr($date,8,2).", ".substr($date,0,4)." ".substr($date,11,2).":".substr($date,14,2).":".substr($date,17,2);
-    }
+    $formattedDate = $month." ".substr($date,8,2).", ".substr($date,0,4)." ".substr($date,11,2).":".substr($date,14,2).":".substr($date,17,2);
     return $formattedDate;
 }
 $newDate = $t->format('Y-m-d H:i:s');
