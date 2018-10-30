@@ -848,8 +848,17 @@
     }
 
     .feed-like{
-        width:20%;
+        width:15%;
         display:inline-flex;
+    }
+
+    .feed-downvote{
+        width:15%;
+        display:inline-flex;
+    }
+
+    .prayer-date{
+        margin-left:40%;
     }
 
     .like-button{
