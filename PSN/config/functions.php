@@ -194,13 +194,13 @@
      *
      */
     function prayersSent($id, $relid, $db){
-        $query = "SELECT COUNT(pr.prayid)
+        $query = "SELECT COUNT(pr.prayid) as num
             FROM prayers p, prayer_religions pr
             WHERE p.prayid = pr.prayid
             AND p.userid = '$id'
             AND pr.relid = '$relid'";
         $result = $db->fetchQuery($query);
-        return $result[0]['prayid'];
+        return $result[0]['num'];
     }
 
     /**
@@ -212,8 +212,7 @@
     function dateJoined($id, $relid, $db){
         $query = "SELECT user_religions.dateAdded FROM user_religions WHERE userid = '$id' AND relid = '$relid'";
         $result = $db->fetchQuery($query);
-        $date = $result[0]['dateAdded']->format('Y-m-d H:i:s');
-        return formatDate($date);
+        return formatDate($result[0]['dateAdded']);
     }
 
     /**

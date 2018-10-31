@@ -2,7 +2,7 @@
     require 'config/ApplicationTop.php';
     include 'Classes/prayers.php';
     include 'Classes/prayerCommentDisplayer.php';
-    
+
     $menus = [
         [
             'name'=>'Home',
@@ -38,7 +38,7 @@
                    WHERE u.userid = $id";
     $primaryrelres = $db->fetchquery($primaryrelquery);
     $prel = $primaryrelres[0]['primary_religion'];
-    
+
     $chosenreligion = isset($_SESSION['currel']) ? $_SESSION['currel'] : $prel;
 
     $curreligionquery = "SELECT r.religion_name, r.relid
@@ -49,15 +49,15 @@
     $searchrelquery = "SELECT DISTINCT r.religion_name, r.relid
                        FROM Religions r, Users u, User_religions ur
                        WHERE r.relid <> $chosenreligion
-                       AND ( ((u.userid = $id 
-                       AND r.relid = u.primary_religion) 
-                       OR (ur.userid = $id 
+                       AND ( ((u.userid = $id
+                       AND r.relid = u.primary_religion)
+                       OR (ur.userid = $id
                        AND r.relid = ur.relid)))
                        OR ($id = 1 AND r.relid <> $chosenreligion)";
     $searchrels = $db->fetchQuery($searchrelquery);
 
 
-    $prayerquery = "SELECT p.userid, u.fname, u.lname, u.username, p.content, pr.relid, p.prayid, p.img, 
+    $prayerquery = "SELECT p.userid, u.fname, u.lname, u.username, p.content, pr.relid, p.prayid, p.img,
                         r.religion_name, u.pPicture, p.dateLastMaint
                     FROM Prayers p, Users u, Prayer_Religions pr, Religions r
                     WHERE p.userid = u.userid
@@ -72,9 +72,9 @@
     <section class='index-body'>
         <div class='index-left-box'>
             <p class='trends-header'>My <?php echo $curreligion[0]['religion_name']?> Stats</p>
-            <p> Prayers sent </p>
-            <p> Reputation (Rank)</p>
-            <p> Date Joined </p>
+            <p> Prayers sent: <?php echo prayersSent($id, $chosenreligion, $db)?></p>
+            <p> Reputation (Rank): <?php echo getReputation($id, $chosenreligion, $db)?></p>
+            <p> Date Joined: <?php echo dateJoined($id, $chosenreligion, $db)?></p>
 
             <?php echo getRoot() ?>
         </div>
