@@ -200,7 +200,7 @@
             AND p.userid = '$id'
             AND pr.relid = '$relid'";
         $result = $db->fetchQuery($query);
-        return $result;
+        return $result[0]['prayid'];
     }
 
     /**
@@ -212,7 +212,7 @@
     function dateJoined($id, $relid, $db){
         $query = "SELECT user_religions.dateAdded FROM user_religions WHERE userid = '$id' AND relid = '$relid'";
         $result = $db->fetchQuery($query);
-        $date = $result->format('Y-m-d H:i:s');
+        $date = $result[0]['dateAdded']->format('Y-m-d H:i:s');
         return formatDate($date);
     }
 
@@ -223,6 +223,6 @@
     function getReputation($id, $relid, $db){
         $query = "SELECT user_religions.reputation FROM user_religions WHERE userid = '$id' AND relid = '$relid'";
         $result = $db->fetchQuery($query);
-        return $result;
+        return $result[0]['reputation'];
     }
 ?>
