@@ -191,6 +191,7 @@
     /**
      * 
      * Return the number of prayers sent by a user to the current religion
+     * hint: Select Count
      * 
      */
     function prayersSent($id, $relid){
@@ -210,6 +211,7 @@
     /**
      * 
      * Calculate the users reputation for a religion
+     * 
      */
     function getReputation($id, $relid){
 
