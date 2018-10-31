@@ -22,7 +22,7 @@
             else{
                 echo '<p style="margin:0px; padding-left:'.$padding.'">['.$key[$itr].']=>'.$i.'</p>';
                 $itr += 1;
-            } 
+            }
         }
     }
 
@@ -44,7 +44,7 @@
             },
             ARRAY_FILTER_USE_BOTH
         );
-    
+
         $varsvalid = true;
         $keys = array_keys($_GET);
         if(isset($_GET)){
@@ -74,34 +74,34 @@
 
 
     /**
-     * 
+     *
      * This function will take a variable and make sure it is safe from sql injection
-     * 
+     *
      * Example of sql injection => ';DROP TABLES; --
-     * 
-     * 
+     *
+     *
      */
     function cleanForSQL($var){
         return true;
     }
 
     /**
-     * 
+     *
      * This function will strip all html/js tags from a variriable
      * to make it safe from xss
-     * 
+     *
      * Example of xss => <script>alert('xss')</script>
-     * 
+     *
      */
     function cleanforHTML($var){
         return htmlspecialchars($var);
     }
- 
+
     /**
-     * 
+     *
      * If date is within today, return how long ago it occured as a string ex: '2 hrs'
      * otherwise return the date as mon dd, yyyy ex: Jan 1, 2018
-     * 
+     *
      */
     function formatDate($date){
         $currentDate = new DateTime(null, new DateTimeZone('America/New_York'));
@@ -172,9 +172,9 @@
 
 
     /**
-     * 
+     *
      * Return the root of the current page so we can call any page from any folder
-     * 
+     *
      */
     function getRoot(){
         $root = ROOT_DIR;
@@ -189,31 +189,40 @@
     }
 
     /**
-     * 
+     *
      * Return the number of prayers sent by a user to the current religion
-     * hint: Select Count
-     * 
+     *
      */
-    function prayersSent($id, $relid){
-
+    function prayersSent($id, $relid, $db){
+        $query = "SELECT COUNT(pr.prayid) as num
+            FROM prayers p, prayer_religions pr
+            WHERE p.prayid = pr.prayid
+            AND p.userid = '$id'
+            AND pr.relid = '$relid'";
+        $result = $db->fetchQuery($query);
+        return $result[0]['num'];
     }
 
     /**
-     * 
+     *
      * Return the date joined in dateFormat() format
      * hint: dateAdded
-     * 
+     *
      */
-    function dateJoined($id, $relid){
-
+    function dateJoined($id, $relid, $db){
+        $query = "SELECT user_religions.dateAdded FROM user_religions WHERE userid = '$id' AND relid = '$relid'";
+        $result = $db->fetchQuery($query);
+        return formatDate($result[0]['dateAdded']);
     }
 
     /**
-     * 
+     *
      * Calculate the users reputation for a religion
      * 
      */
-    function getReputation($id, $relid){
-
+    function getReputation($id, $relid, $db){
+        $query = "SELECT user_religions.reputation FROM user_religions WHERE userid = '$id' AND relid = '$relid'";
+        $result = $db->fetchQuery($query);
+        return $result[0]['reputation'];
     }
 ?>
