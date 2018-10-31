@@ -1,4 +1,4 @@
-<?php 
+<?php
     include 'config/dbconfig.php';
     include 'config/functions.php';
     include 'config/permissions.php';
@@ -36,13 +36,12 @@
     $header->ShowUserMenu($id);
     $header->displayHeader();
 ?>
-    <img src='images/Users/<?php echo $id?>/Banner/<?php echo $id?>.jpg' width='100%'></img>
+    <img class='profile-banner' src='images/Users/<?php echo $id?>/Banner/<?php echo $id?>.jpg' width='100%'></img>
 
     <section class='index-body'>
         <img class='profile-profile-pic' src='images/Users/<?php echo $id?>/Profile/<?php echo $id?>.jpg'>
     </section>
-<?php 
+<?php
     $footer = new Footer($db,$src);
     $footer->buildFooter();
-?> 
-
+?>
