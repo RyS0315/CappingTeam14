@@ -17,6 +17,7 @@
                 echo '<p style="margin:0px; padding-left:'.$padding.'">['.$key[$itr].']=>[</p>';
                 RecursiveArray($i, $newloop);
                 echo '<p style="margin:0px; padding-left:'.$padding.'">]</p>';
+                $itr += 1;
             }
             else{
                 echo '<p style="margin:0px; padding-left:'.$padding.'">['.$key[$itr].']=>'.$i.'</p>';
@@ -103,28 +104,69 @@
      *
      */
     function formatDate($date){
-        $currentTime = getDate();
+        $currentDate = new DateTime(null, new DateTimeZone('America/New_York'));
+        $currentTime = $currentDate->format('Y-m-d H:i:s');
         $formattedDate;
-        if ($currentTime[year] == $date.substring(0,4)) {
-            if ($currentTime[month] == $date.substring(5,7)) {
-                if ($currentTime[mday] == $date.substring(8,10)) {
-                    if ($currentTime[hours] == $date.substring(11,13)) {
-                        if ($currentTime[minutes] == $date.substring(14,16)) {
-                            $formattedDate = $currentTime[seconds] - $date.substring(17,19) + " seconds ago";
+        $month;
+        switch (substr($date,5,2)) {
+            case "01":
+                $month = "January";
+                break;
+            case "02":
+                $month = "February";
+                break;
+            case "03":
+                $month = "March";
+                break;
+            case "04":
+                $month = "April";
+                break;
+                case "05":
+                $month = "May";
+                break;
+            case "06":
+                $month = "June";
+                break;
+            case "07":
+                $month = "July";
+                break;
+            case "08":
+                $month = "August";
+                break;
+            case "09":
+                $month = "September";
+                break;
+            case "10":
+                $month = "October";
+                break;
+            case "11":
+                $month = "November";
+                break;
+            case "12":
+                $month = "December";
+                break;
+        }
+        if (substr($currentTime,0,4) == substr($date,0,4)) {
+            if (substr($currentTime,5,2) == substr($date,5,2)) {
+                if (substr($currentTime,8,2) == substr($date,8,2)) {
+                    if (substr($currentTime,11,2) == substr($date,11,2)) {
+                        if (substr($currentTime,14,2) == substr($date,14,2)) {
+                            $formattedDate = intval(substr($currentTime,17,2)) - intval(substr($date,17,2))." seconds ago";
+                            return $formattedDate;
                         }
                         else {
-                            $formattedDate = $currentTime[minutes] - $date.substring(14,16) + " minutes ago";
+                            $formattedDate = intval(substr($currentTime,14,2)) - intval(substr($date,14,2))." minutes ago";
+                            return $formattedDate;
                         }
                     }
                     else {
-                        $formattedDate = $currentTime[hours] - $date.substring(11,13) + " hours ago";
+                        $formattedDate = intval(substr($currentTime,11,2)) - intval(substr($date,11,2))." hours ago";
+                        return $formattedDate;
                     }
                 }
             }
         }
-        else {
-            $formattedDate = $currentTime[month] + " " + $currentTime[mday] + ", " + $currentTime[year];
-        }
+        $formattedDate = $month." ".substr($date,8,2).", ".substr($date,0,4);
         return $formattedDate;
     }
 
@@ -144,5 +186,32 @@
         $root = preg_replace("#(/.*?).*?(/)#", '/../', "/".$root);
         $root = substr($root, 1);
         return $root;
+    }
+
+    /**
+     *
+     * Return the number of prayers sent by a user to the current religion
+     *
+     */
+    function prayersSent($id, $relid){
+
+    }
+
+    /**
+     *
+     * Return the date joined in dateFormat() format
+     * hint: dateAdded
+     *
+     */
+    function dateJoined($id, $relid){
+
+    }
+
+    /**
+     *
+     * Calculate the users reputation for a religion
+     */
+    function getReputation($id, $relid){
+
     }
 ?>

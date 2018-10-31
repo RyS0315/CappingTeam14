@@ -49,6 +49,17 @@
                             </div>";
                         }
                         echo"
+                        <ul class='feed-interact-menu'>
+                            <li class='feed-like'>
+                            Upvote
+                            </li>
+                            <li class='feed-downvote'>
+                            Downvote
+                            </li>
+                            <li class='prayer-date'>
+                            <p>Posted ". formatDate($i['dateLastMaint']) ."</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class='feed-comment-box'>";
@@ -60,10 +71,6 @@
                                 <button type='submit' name='prayid' id='submit-comment' value='".$i['prayid']."'>Submit</button>
                             </div>
                         </form>
-                        <ul class='feed-interact-menu'>
-                            <li class='feed-like'>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>";

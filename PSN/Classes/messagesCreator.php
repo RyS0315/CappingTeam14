@@ -71,7 +71,7 @@
                     <p class='msg-name'>".$msgs[0]['fname']."</p>
                  </div>
                  <div id='msg-convo' class='msg-convo'>
-                 <script>scrollBottom()</script>";
+                 ";
             foreach($msgs as $i){
                 echo"<div class='msg-container'>";
                     if($i['userid'] == $this->userid){
@@ -91,7 +91,8 @@
                     <textarea name='msg' id='msg' placeholder='Compose Message'></textarea>
                     <button class='submit-button'type='submit' name='id' value='".$recid."'> Submit</button>
                     </form>
-                 </div>";
+                 </div>
+                 <script>scrollBottom()</script>";
         }
     }
 ?>
