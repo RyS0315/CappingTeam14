@@ -193,13 +193,13 @@
      * Return the number of prayers sent by a user to the current religion
      *
      */
-    function prayersSent($id, $relid){
+    function prayersSent($id, $relid, $db){
         $query = "SELECT COUNT(pr.prayid)
             FROM prayers p, prayer_religions pr
             WHERE p.prayid = pr.prayid
             AND p.userid = '$id'
             AND pr.relid = '$relid'";
-        $result = fetchQuery($query);
+        $result = $db->fetchQuery($query);
         return $result;
     }
 
@@ -209,9 +209,9 @@
      * hint: dateAdded
      *
      */
-    function dateJoined($id, $relid){
+    function dateJoined($id, $relid, $db){
         $query = "SELECT user_religions.dateAdded FROM user_religions WHERE userid = '$id' AND relid = '$relid'";
-        $result = fetchQuery($query);
+        $result = $db->fetchQuery($query);
         $date = $result->format('Y-m-d H:i:s');
         return formatDate($date);
     }
@@ -220,9 +220,9 @@
      *
      * Calculate the users reputation for a religion
      */
-    function getReputation($id, $relid){
+    function getReputation($id, $relid, $db){
         $query = "SELECT user_religions.reputation FROM user_religions WHERE userid = '$id' AND relid = '$relid'";
-        $result = fetchQuery($query);
+        $result = $db->fetchQuery($query);
         return $result;
     }
 ?>
