@@ -82,7 +82,7 @@
                         </li>
                         <li class='mobile-header-link-notifications'>
                             <a href='notifications.php'>
-                                <img class='mobile-notifications' src='images/icons/NotificationIcon.jpg'>
+                                <img class='mobile-notifications' src='images/icons/NotificationIcon.png'>
                             </a>
                         </li>
                     </ul>
