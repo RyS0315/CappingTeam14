@@ -176,6 +176,26 @@
         z-index: -1;
     }
 
+    button{
+        width:auto;
+        height:auto;
+        padding:7px;
+        border-radius:100px;
+        border-style:solid;
+        border-width:1px;
+        border-color:<?php echo $boldcolor?>;
+        background-color:<?php echo $buttoncolor?>;
+        color:<?php echo $buttontext?>;
+        display:inline-block;
+        font-weight:bold;
+        font-size:16px;
+    }
+
+    button:hover{
+        cursor:pointer;
+        background-color:<?php echo $buttonhover ?>;
+    }
+
     label{
         width:auto;
         height:auto;
@@ -826,8 +846,17 @@
     }
 
     .feed-like{
-        width:20%;
+        width:15%;
         display:inline-flex;
+    }
+
+    .feed-downvote{
+        width:15%;
+        display:inline-flex;
+    }
+
+    .prayer-date{
+        margin-left:40%;
     }
 
     .like-button{
@@ -1017,11 +1046,44 @@
     }
 /*************** ACCOUNT SETTINGS ********/
     .account-settings-box{
-        height:1000px;
-        width:70%;
+        width:60%;
         background-color:<?php echo $feedcolor ?>;
         margin-left:25px;
-        padding:20px;
+        padding:25px;
+        padding-top:0px;
+    }
+
+    #profile-prev{
+        margin-bottom:10px;
+    }
+
+    #profile-preview{
+        width:200px;
+        height:200px;
+        border-radius:50%;
+    }
+
+     #banner-prev{
+        margin-bottom:10px;
+    }
+
+    #banner-preview{
+        width:600px;
+        height:300px;
+    }
+
+    .account-bio{
+        margin-top:25px;
+    }
+
+    .update-button{
+        padding-top:25px;
+    }
+
+    .settings-header{
+        margin-top:20px;
+        margin-bottom:10px;
+        color:rgba(0,0,0, .85);
     }
 /*************** RELIGIONS ***************/
     .settings-religions-body{
@@ -1279,432 +1341,432 @@
         height:auto;
     }
 /************ MEDIA QUERIES **************/
-@media screen and (max-width: 960px) {
-    /* Move the logo to the right so it doesn't clip into Nav Bar */
-    .logo-li {
-        margin-left: 120px;
+    @media screen and (max-width: 960px) {
+        /* Move the logo to the right so it doesn't clip into Nav Bar */
+        .logo-li {
+            margin-left: 120px;
+        }
+    }
+
+    /*************** TABLET ******************/
+    @media screen and (max-width: 768px) {
+        /*** INDEX ***/
+        .index-body {
+            width: 96%;
+            padding-top: 135px;
+        }
+
+        .index-left-box {
+            display: none;
+        }
+
+        .index-center-box {
+            width: 98%;
+            margin: 12px 12px 0px 12px;
+        }
+
+        .index-right-box {
+            display: none;
+        }
+
+        .feed-box {
+            padding-top: 10px;
+            padding-bottom: 0px;
+        }
+
+        .sort-menu {
+            padding: 10px;
+        }
+
+        /*** HEADER **/
+        /* Hide old menu */
+        .header {
+            display: none;
+        }
+
+        .mobile-header {
+            display: block;
+            height: 60px;
+            width: 100%;
+            border-bottom: 1px solid <?php echo $menuborder?>;
+            background-color: <?php echo $boxcolor ?>;
+            position: fixed;
+            z-index: 50;
+        }
+
+        .mobile-header-link-box {
+            margin: 0px;
+        }
+
+        /* Profile Picture - Left */
+        .mobile-profile {
+            height: 50px;
+            width: 50px;
+            float: right;
+            position: absolute;
+            margin-top: 5px;
+            border-radius: 50%;
+            left: 15%;
+        }
+
+        /* Logo - Center */
+        .mobile-logo {
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            margin-top: 5px;
+            left: 47.2%;
+            border-radius: 50%;
+        }
+
+        /* Notifications - Right */
+        .mobile-notifications {
+            height: 50px;
+            width: 50px;
+            float: right;
+            position: absolute;
+            margin-top: 5px;
+            border-radius: 50%;
+            right: 15%;
+        }
+
+        /* Search Bar */
+        .mobile-search-box {
+            height: 60px;
+            width: 100%;
+            position: absolute;
+            top: 61px;
+            background-color: <?php echo $boxcolor ?>;
+            opacity: 1;
+        }
+
+        .mobile-search-link-box {
+            margin: 0px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        /* Messages - Left */
+        .mobile-messages {
+            height: 50px;
+            width: 50px;
+            left: 25%;
+            float: right;
+            position: absolute;
+            margin-top: 5px;
+            border-radius: 20px;
+        }
+
+        /* Pray - Right */
+        .mobile-header-link-prayer {
+            margin-top: 10px;
+            float: right;
+            position: absolute;
+            right: 25%;
+        }
+
+        .prayer-box {
+            width: 72%;
+        }
+
+        #mobile-start-prayer {
+            height: auto;
+            background-color: <?php echo $buttoncolor ?>;
+            color: <?php echo $buttontext?>;
+            padding: 6px;
+            border-radius: 100px;
+            border-style: solid;
+            border-color: <?php echo $textcolor?>;
+            border-width: 1px;
+            font-size: 22px;
+            padding-right: 15px;
+            padding-left: 15px;
+            font-weight: bold;
+        }
+
+        /*** PROFILE ***/
+        .profile-banner {
+            margin-top: 120px;
+        }
+
+        .profile-profile-pic {
+            width: 140px;
+            height: 140px;
+            border: 2px solid #fff;
+            color: #fff;
+            transform: translateY(-208px);
+            margin: auto;
+        }
+
+        /*** MESSAGES ***/
+        .messages-users-settings-box {
+            width: 28%;
+        }
+
+        .messages-users-heading {
+            font-size: 24px;
+        }
+
+        .messages-feed {
+            margin-left: 20px;
+            width: 70%;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .mobile-header {
+            height: 50px;
+        }
+
+        /* Profile Picture - Left */
+        .mobile-profile {
+            height: 40px;
+            width: 40px;
+            margin-top: 5px;
+            left: 12%;
+        }
+
+        /* Logo - Center */
+        .mobile-logo {
+            height: 40px;
+            width: 40px;
+            margin-top: 5px;
+            left: 44.5%;
+        }
+
+        /* Notifications - Right */
+        .mobile-notifications {
+            height: 40px;
+            width: 40px;
+            margin-top: 5px;
+            right: 12%;
+        }
+
+        /* Search Bar */
+        .mobile-search-box {
+            height: 50px;
+            top: 51px;
+        }
+
+        .mobile-search-link-box {
+            margin: 0px;
+            height: 40px;
+            margin-bottom: 5px;
+        }
+
+        /* Messages - Left */
+        .mobile-messages {
+            height: 40px;
+            width: 40px;
+            left: 25%;
+            margin-top: 5px;
+        }
+
+        /* Pray - Right */
+        .mobile-header-link-prayer {
+            margin-top: 5px;
+        }
+
+        #mobile-start-prayer {
+            font-size: 20px;
+        }
+
+        .prayer-box {
+            width: 94%;
+            margin-top: 40px;
+        }
+
+        .compose-header {
+            margin-left: 24px;
+            height: 60px;
+        }
+
+        .compose-header h1 {
+            margin-top: 24px;
+            font-size: 26px;
+        }
+
+        #closebutton {
+            height: 20px;
+            width: 20px;
+        }
+
+        .compose-content {
+            padding: 25px;
+        }
+
+        .compose-content-bottom {
+            margin-top: 15px;
+        }
+
+        /*** INDEX ***/
+        .index-body {
+            padding-top: 110px;
+        }
+
+        .feed-profile-img-box {
+            width: 17%;
+        }
+
+        .feed-profile-name {
+            font-size: 20px;
+        }
+
+        #deleteprayer {
+            height: 10px;
+            width: 10px;
+        }
+
+        .delete-comment-button {
+            height: 6px;
+            width: 6px;
+        }
+
+        /*** PROFILE ***/
+        .profile-banner {
+            margin-top: 100px;
+        }
+
+        .profile-profile-pic {
+            width: 100px;
+            height: 100px;
+            transform: translateY(-164px);
+            margin: auto;
+        }
+    }
+
+    /************** MOBILE L *****************/
+    @media screen and (max-width: 425px) {
+        .mobile-header {
+            height: 40px;
+        }
+
+        /* Profile Picture - Left */
+        .mobile-profile {
+            height: 30px;
+            width: 30px;
+            margin-top: 5px;
+            left: 10%;
+        }
+
+        /* Logo - Center */
+        .mobile-logo {
+            height: 30px;
+            width: 30px;
+            margin-top: 5px;
+            left: 46.5%;
+        }
+
+        /* Notifications - Right */
+        .mobile-notifications {
+            height: 30px;
+            width: 30px;
+            margin-top: 5px;
+            right: 10%;
+        }
+
+        /* Search Bar */
+        .mobile-search-box {
+            height: 40px;
+            top: 41px;
+        }
+
+        .mobile-search-link-box {
+            margin: 0px;
+            height: 30px;
+            margin-bottom: 5px;
+        }
+
+        /* Messages - Left */
+        .mobile-messages {
+            height: 30px;
+            width: 30px;
+            left: 25%;
+            margin-top: 5px;
+        }
+
+        /* Pray - Right */
+        .mobile-header-link-prayer {
+            margin-top: 5px;
+        }
+
+        #mobile-start-prayer {
+            font-size: 14px;
+        }
+
+        .prayer-box {
+            width: 94%;
+            margin-top: 40px;
+        }
+
+        .compose-header {
+            margin-left: 24px;
+            height: 60px;
+        }
+
+        .compose-header h1 {
+            margin-top: 24px;
+            font-size: 26px;
+        }
+
+        #closebutton {
+            height: 20px;
+            width: 20px;
+        }
+
+        .compose-content {
+            padding: 25px;
+        }
+
+        .compose-content-bottom {
+            margin-top: 15px;
+        }
+
+        /*** INDEX ***/
+        .index-body {
+            padding-top: 90px;
+        }
+
+        .feed-profile-img-box {
+            width: 17%;
+        }
+
+        .feed-profile-name {
+            font-size: 20px;
+        }
+
+        #deleteprayer {
+            height: 10px;
+            width: 10px;
+        }
+
+        .delete-comment-button {
+            height: 6px;
+            width: 6px;
+        }
+
+        /*** PROFILE ***/
+        .profile-banner {
+            margin-top: 80px;
+        }
+
+        .profile-profile-pic {
+            width: 72px;
+            height: 72px;
+            transform: translateY(-130px);
+        }
+
+        /*** MESSAGES ***/
+        .messages-users-settings-box {
+            width: 28%;
+        }
+
+        .messages-users-heading {
+            font-size: 24px;
+        }
+
+        .messages-feed {
+            margin-left: 20px;
+            width: 70%;
+        }
     }
-}
-
-/*************** TABLET ******************/
-@media screen and (max-width: 768px) {
-    /*** INDEX ***/
-    .index-body {
-        width: 96%;
-        padding-top: 135px;
-    }
-
-    .index-left-box {
-        display: none;
-    }
-
-    .index-center-box {
-        width: 98%;
-        margin: 12px 12px 0px 12px;
-    }
-
-    .index-right-box {
-        display: none;
-    }
-
-    .feed-box {
-        padding-top: 10px;
-        padding-bottom: 0px;
-    }
-
-    .sort-menu {
-        padding: 10px;
-    }
-
-    /*** HEADER **/
-    /* Hide old menu */
-    .header {
-        display: none;
-    }
-
-    .mobile-header {
-        display: block;
-        height: 60px;
-        width: 100%;
-        border-bottom: 1px solid <?php echo $menuborder?>;
-        background-color: <?php echo $boxcolor ?>;
-        position: fixed;
-        z-index: 50;
-    }
-
-    .mobile-header-link-box {
-        margin: 0px;
-    }
-
-    /* Profile Picture - Left */
-    .mobile-profile {
-        height: 50px;
-        width: 50px;
-        float: right;
-        position: absolute;
-        margin-top: 5px;
-        border-radius: 50%;
-        left: 15%;
-    }
-
-    /* Logo - Center */
-    .mobile-logo {
-        height: 50px;
-        width: 50px;
-        position: absolute;
-        margin-top: 5px;
-        left: 47.2%;
-        border-radius: 50%;
-    }
-
-    /* Notifications - Right */
-    .mobile-notifications {
-        height: 50px;
-        width: 50px;
-        float: right;
-        position: absolute;
-        margin-top: 5px;
-        border-radius: 50%;
-        right: 15%;
-    }
-
-    /* Search Bar */
-    .mobile-search-box {
-        height: 60px;
-        width: 100%;
-        position: absolute;
-        top: 61px;
-        background-color: <?php echo $boxcolor ?>;
-        opacity: 1;
-    }
-
-    .mobile-search-link-box {
-        margin: 0px;
-        height: 60px;
-        margin-bottom: 10px;
-    }
-
-    /* Messages - Left */
-    .mobile-messages {
-        height: 50px;
-        width: 50px;
-        left: 25%;
-        float: right;
-        position: absolute;
-        margin-top: 5px;
-        border-radius: 20px;
-    }
-
-    /* Pray - Right */
-    .mobile-header-link-prayer {
-        margin-top: 10px;
-        float: right;
-        position: absolute;
-        right: 25%;
-    }
-
-    .prayer-box {
-        width: 72%;
-    }
-
-    #mobile-start-prayer {
-        height: auto;
-        background-color: <?php echo $buttoncolor ?>;
-        color: <?php echo $buttontext?>;
-        padding: 6px;
-        border-radius: 100px;
-        border-style: solid;
-        border-color: <?php echo $textcolor?>;
-        border-width: 1px;
-        font-size: 22px;
-        padding-right: 15px;
-        padding-left: 15px;
-        font-weight: bold;
-    }
-
-    /*** PROFILE ***/
-    .profile-banner {
-        margin-top: 120px;
-    }
-
-    .profile-profile-pic {
-        width: 140px;
-        height: 140px;
-        border: 2px solid #fff;
-        color: #fff;
-        transform: translateY(-208px);
-        margin: auto;
-    }
-
-    /*** MESSAGES ***/
-    .messages-users-settings-box {
-        width: 28%;
-    }
-
-    .messages-users-heading {
-        font-size: 24px;
-    }
-
-    .messages-feed {
-        margin-left: 20px;
-        width: 70%;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .mobile-header {
-        height: 50px;
-    }
-
-    /* Profile Picture - Left */
-    .mobile-profile {
-        height: 40px;
-        width: 40px;
-        margin-top: 5px;
-        left: 12%;
-    }
-
-    /* Logo - Center */
-    .mobile-logo {
-        height: 40px;
-        width: 40px;
-        margin-top: 5px;
-        left: 44.5%;
-    }
-
-    /* Notifications - Right */
-    .mobile-notifications {
-        height: 40px;
-        width: 40px;
-        margin-top: 5px;
-        right: 12%;
-    }
-
-    /* Search Bar */
-    .mobile-search-box {
-        height: 50px;
-        top: 51px;
-    }
-
-    .mobile-search-link-box {
-        margin: 0px;
-        height: 40px;
-        margin-bottom: 5px;
-    }
-
-    /* Messages - Left */
-    .mobile-messages {
-        height: 40px;
-        width: 40px;
-        left: 25%;
-        margin-top: 5px;
-    }
-
-    /* Pray - Right */
-    .mobile-header-link-prayer {
-        margin-top: 5px;
-    }
-
-    #mobile-start-prayer {
-        font-size: 20px;
-    }
-
-    .prayer-box {
-        width: 94%;
-        margin-top: 40px;
-    }
-
-    .compose-header {
-        margin-left: 24px;
-        height: 60px;
-    }
-
-    .compose-header h1 {
-        margin-top: 24px;
-        font-size: 26px;
-    }
-
-    #closebutton {
-        height: 20px;
-        width: 20px;
-    }
-
-    .compose-content {
-        padding: 25px;
-    }
-
-    .compose-content-bottom {
-        margin-top: 15px;
-    }
-
-    /*** INDEX ***/
-    .index-body {
-        padding-top: 110px;
-    }
-
-    .feed-profile-img-box {
-        width: 17%;
-    }
-
-    .feed-profile-name {
-        font-size: 20px;
-    }
-
-    #deleteprayer {
-        height: 10px;
-        width: 10px;
-    }
-
-    .delete-comment-button {
-        height: 6px;
-        width: 6px;
-    }
-
-    /*** PROFILE ***/
-    .profile-banner {
-        margin-top: 100px;
-    }
-
-    .profile-profile-pic {
-        width: 100px;
-        height: 100px;
-        transform: translateY(-164px);
-        margin: auto;
-    }
-}
-
-/************** MOBILE L *****************/
-@media screen and (max-width: 425px) {
-    .mobile-header {
-        height: 40px;
-    }
-
-    /* Profile Picture - Left */
-    .mobile-profile {
-        height: 30px;
-        width: 30px;
-        margin-top: 5px;
-        left: 10%;
-    }
-
-    /* Logo - Center */
-    .mobile-logo {
-        height: 30px;
-        width: 30px;
-        margin-top: 5px;
-        left: 46.5%;
-    }
-
-    /* Notifications - Right */
-    .mobile-notifications {
-        height: 30px;
-        width: 30px;
-        margin-top: 5px;
-        right: 10%;
-    }
-
-    /* Search Bar */
-    .mobile-search-box {
-        height: 40px;
-        top: 41px;
-    }
-
-    .mobile-search-link-box {
-        margin: 0px;
-        height: 30px;
-        margin-bottom: 5px;
-    }
-
-    /* Messages - Left */
-    .mobile-messages {
-        height: 30px;
-        width: 30px;
-        left: 25%;
-        margin-top: 5px;
-    }
-
-    /* Pray - Right */
-    .mobile-header-link-prayer {
-        margin-top: 5px;
-    }
-
-    #mobile-start-prayer {
-        font-size: 14px;
-    }
-
-    .prayer-box {
-        width: 94%;
-        margin-top: 40px;
-    }
-
-    .compose-header {
-        margin-left: 24px;
-        height: 60px;
-    }
-
-    .compose-header h1 {
-        margin-top: 24px;
-        font-size: 26px;
-    }
-
-    #closebutton {
-        height: 20px;
-        width: 20px;
-    }
-
-    .compose-content {
-        padding: 25px;
-    }
-
-    .compose-content-bottom {
-        margin-top: 15px;
-    }
-
-    /*** INDEX ***/
-    .index-body {
-        padding-top: 90px;
-    }
-
-    .feed-profile-img-box {
-        width: 17%;
-    }
-
-    .feed-profile-name {
-        font-size: 20px;
-    }
-
-    #deleteprayer {
-        height: 10px;
-        width: 10px;
-    }
-
-    .delete-comment-button {
-        height: 6px;
-        width: 6px;
-    }
-
-    /*** PROFILE ***/
-    .profile-banner {
-        margin-top: 80px;
-    }
-
-    .profile-profile-pic {
-        width: 72px;
-        height: 72px;
-        transform: translateY(-130px);
-    }
-
-    /*** MESSAGES ***/
-    .messages-users-settings-box {
-        width: 28%;
-    }
-
-    .messages-users-heading {
-        font-size: 24px;
-    }
-
-    .messages-feed {
-        margin-left: 20px;
-        width: 70%;
-    }
-}

@@ -20,7 +20,7 @@
             $this->title = $title;
             $this->css = $css;
         }
-        
+
         function showUserMenu($id, $bool = 1){
             $this->loggedIn = $bool;
             $this->userid = $id;
@@ -82,7 +82,7 @@
                         </li>
                         <li class='mobile-header-link-notifications'>
                             <a href='notifications.php'>
-                                <img class='mobile-notifications' src='images/icons/NotificationIcon.jpg'>
+                                <img class='mobile-notifications' src='images/icons/NotificationIcon.png'>
                             </a>
                         </li>
                     </ul>

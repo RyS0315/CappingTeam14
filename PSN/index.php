@@ -57,7 +57,8 @@
     $searchrels = $db->fetchQuery($searchrelquery);
 
 
-    $prayerquery = "SELECT p.userid, u.fname, u.lname, u.username, p.content, pr.relid, p.prayid, p.img, r.religion_name, u.pPicture
+    $prayerquery = "SELECT p.userid, u.fname, u.lname, u.username, p.content, pr.relid, p.prayid, p.img, 
+                        r.religion_name, u.pPicture, p.dateLastMaint
                     FROM Prayers p, Users u, Prayer_Religions pr, Religions r
                     WHERE p.userid = u.userid
                     AND pr.prayid = p.prayid
