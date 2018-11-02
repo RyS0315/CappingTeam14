@@ -876,17 +876,33 @@
     }
 
     .feed-like{
-        width:15%;
+        width:auto;
         display:inline-flex;
+        font-weight:bold;
     }
 
     .feed-downvote{
-        width:15%;
+        width:auto;
+        margin-left:5%;
         display:inline-flex;
+        text-align:center;
+        font-weight:bold;
+    }
+
+    .feed-like:hover{
+        cursor:pointer;
+    }
+
+    .feed-downvote:hover{
+        cursor:pointer;
+    }
+
+    .up-down-active{
+        color:<?php echo $linkcolor?>;
     }
 
     .prayer-date{
-        margin-left:40%;
+        margin-left:45%;
     }
 
     .like-button{

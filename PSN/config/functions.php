@@ -225,4 +225,18 @@
         $result = $db->fetchQuery($query);
         return $result[0]['reputation'];
     }
+
+    /**
+     * 
+     * Calculate the prayer's score based off the likes and dislikes
+     * Like = Score + 1
+     * Dislike = Score - 1
+     * 
+     * Hint: (select count where isLike = 1) - (Select count where islike = 0)
+     * 
+     */
+    function prayerScore($prayid, $db){
+        $score = 0;
+        return $score;
+    }
 ?>

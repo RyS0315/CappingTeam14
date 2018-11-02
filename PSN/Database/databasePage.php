@@ -72,7 +72,7 @@
     <div class='database-tables-box'>
         <?php 
             $table = new Table($db);
-            $table->displayTable($view); 
+            $table->displayTable($view);
         ?>
     </div>
 

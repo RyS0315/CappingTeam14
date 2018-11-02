@@ -6,13 +6,39 @@
 
         protected $comments;//The class that creates all the comments for a prayer
 
+        protected $likeclass;
+        
+        protected $dislikeclass;
+
         Public function __construct($db,$userid,$comments){
             $this->db = $db;
             $this->userid = $userid;
             $this->comments = $comments;
         }
 
+        function checkLike($prayid){
+            $this->likeclass = "";
+            $this->dislikeclass = "";
+            $checkquery = "SELECT *
+                           FROM LIKES
+                           WHERE prayid = '$prayid'
+                           AND userid = '$this->userid'";
+            $check = $this->db->fetchQuery($checkquery);
+            if($check){
+                if($check[0]['isLike'] == 0){
+                    $this->dislikeclass = "up-down-active";
+                }else{
+                    $this->likeclass = "up-down-active";
+                }
+            }
+        }
+
         function showPrayer($i){
+            $this->checkLike($i['prayid']);
+            $likeurl = "`php/addLike.php`";
+            $likedata = "{prayid : ".$i['prayid']."}";
+            $dislikeurl = "`php/addDislike.php`";
+            $dislikedata = "{prayid : ".$i['prayid']."}";
             echo "
             <div class='feed-container'>
                 <div class='feed-box'>
@@ -50,10 +76,10 @@
                         }
                         echo"
                         <ul class='feed-interact-menu'>
-                            <li class='feed-like'>
+                            <li class='feed-like ".$this->likeclass."' onclick='addLike(".$likeurl.", ".$likedata.", ".$i['prayid'].")' id='like--".$i['prayid']."' >
                             Upvote
                             </li>
-                            <li class='feed-downvote'>
+                            <li class='feed-downvote ".$this->dislikeclass."' onclick='addDislike(".$dislikeurl.", ".$dislikedata.", ".$i['prayid'].")' id='dislike--".$i['prayid']."'>
                             Downvote
                             </li>
                             <li class='prayer-date'>
