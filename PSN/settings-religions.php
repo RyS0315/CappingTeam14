@@ -85,7 +85,7 @@
         <?php
             foreach($religions as $i){?>
                 <div class='religion-box'>
-                        <button type='submit' value='<?php echo $i['relid'] ?>'><?php echo $i['religion_name'] ?></button>
+                    <button type='submit' value='<?php echo $i['relid'] ?>'><?php echo $i['religion_name'] ?></button>
                 </div>
                 <?php
             }?>

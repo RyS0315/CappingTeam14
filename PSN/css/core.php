@@ -724,18 +724,46 @@
         color:#ff0000;
     }
 /*************** PROFILE *****************/
+    .profile-banner{
+        width:100%;
+        max-height:500px;
+        overflow:hidden;
+        padding-top:50px;
+    }
+
+    .profile-banner-box{
+        height: 500px;
+        width: 100%;
+    }
+    
     .profile-body{
         width:80%;
         margin:auto;
     }
 
+    .profile-pic-box{
+        width:500px;
+        height: 500px;
+        overflow:hiddden;
+        margin:auto;
+        transform: translateY(-500px);
+    }
+
     .profile-profile-pic{
         border-radius: 50%;
-        height: 200px;
-        width: 200px;
         border: 2px solid #fff;
         color: #fff;
-        transform: translateY(-100px);
+        height:100%;
+        width:100%;
+    }
+
+    .profile-banner-pic{
+        min-height: 500px;
+        min-width: 100%;
+    }
+
+    .profile-header-name{
+        font-size:40px;
     }
 /*************** USERSETTINGS ************/
     .usersettings-box{

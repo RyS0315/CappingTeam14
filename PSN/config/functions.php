@@ -218,6 +218,7 @@
     /**
      *
      * Calculate the users reputation for a religion
+     * 
      */
     function getReputation($id, $relid, $db){
         $query = "SELECT user_religions.reputation FROM user_religions WHERE userid = '$id' AND relid = '$relid'";
