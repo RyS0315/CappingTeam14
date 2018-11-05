@@ -1,4 +1,4 @@
-<?php 
+<?php
     include 'config/dbconfig.php';
     include 'config/permissions.php';
     include 'config/functions.php';
@@ -15,7 +15,7 @@
         $error = $check['error'];
         $attempts = $check['attempts'];
     }
-    
+
 $menus = [
     [
         'name'=>'Home',
@@ -34,10 +34,10 @@ $menus = [
     <section class='login-body'>
         <div class='login-form-box'>
             <div class='login-form-box-body'>
-                <h1 style='width:50%; margin:auto; padding-top:50px; font-family:"Palatino"; font-size:28px'>Log in to P.R.A.Y.</h1>
+                <h1 style='width:50%; margin:auto; padding-top:50px; font-size:28px'>Log in to P.R.A.Y.</h1>
                 <p class='error' style='width:50%; margin:auto; margin-top:5px'><?php echo $error ?></p>
-                <form method='post' action='login.php' id='login-form-inputs'>    
-                    <input type='text' name='username' value='<?php echo $inputUsername ?>' placeholder='Username or Email'>
+                <form method='post' action='login.php' id='login-form-inputs'>
+                    <input type='text' name='username' value='<?php echo $inputUsername ?>' placeholder='Username or Email'></br>
                     <input type='password' name='password' placeholder='Password'></br>
                     <input type='hidden' name='attempts' value='<?php echo $attempts ?>'>
                     <button class='submit-button' name='submit' type='submit'>Login</button>

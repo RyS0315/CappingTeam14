@@ -36,7 +36,7 @@
             return $message;
         }else{
             doCreate($db);
-        } 
+        }
     }
 
     function checkFirst(){
@@ -53,7 +53,7 @@
     function checkUsername($db){
         if(isset($_POST['username'])){
             if($_POST['username'] != ''){
-                return checkAvailableUsername($db);  
+                return checkAvailableUsername($db);
             }else{
                 return 'Enter Your Username';
             }
@@ -107,7 +107,7 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
         $security = $_POST['securityAnswer'];
-        $insertquery = "INSERT into USERS (fname,lname,username,user_password,Primary_Religion,pPicture,bPicture) 
+        $insertquery = "INSERT into USERS (fname,lname,username,user_password,Primary_Religion,pPicture,bPicture)
                         VALUES('$firstname', '$lastname','$username','$password' , 2, 'default.png', 'default.png')";
         $insertresult = $db->InsertQuery($insertquery);
         createDir($insertresult);
@@ -144,6 +144,7 @@
         <title>PSN-Login</title>
 </head>
 <link rel='stylesheet' type='text/css' href='css/core.php'>
+<link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
 <body>
 <section class='header'>
         <div class='header-box'>

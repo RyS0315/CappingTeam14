@@ -37,6 +37,11 @@
             echo "
                   <section class='header'>
                   <div class='header-box'>
+                  <ul class='logo-box'>
+                      <li class='logo-li'>
+                          <a href='index.php'><img class='logo' src='".getRoot()."images/icons/favicon.png'></a>
+                      </li>
+                  </ul>
                   <ul class='header-link-box'>";
             foreach($this->menus as $i){
                 echo "<li class='header-link ".$i['active']."'>
@@ -45,21 +50,17 @@
             }
             echo "</ul>";
 
-            echo "<ul class='logo-box'>
-                    <li class='logo-li'>
-                        <a href='index.php'><img class='logo' src='".getRoot()."images/icons/favicon.png'></a>
-                    </li>
-                  </ul>";
+            echo "";
             if($this->loggedIn == 1){
                 echo "
                 <ul class='header-profile-pic'>
-                        <li id='header-profile-pic-link' onclick='ShowMenu()'>
-                            <img class='index-profile-pic' src='".getRoot()."images/Users/".$this->userid."/Profile/".$this->profpic."'>
-                        </li>
-                        <li id='sort-compose'>
-                            <div id='startprayer' onclick='ShowCompose()'>PRAY</div>
-                        </li>
-                    </ul>";
+                    <li id='sort-compose'>
+                        <div id='startprayer' onclick='ShowCompose()'>PRAY</div>
+                    </li>
+                    <li id='header-profile-pic-link' onclick='ShowMenu()'>
+                        <img class='index-profile-pic' src='".getRoot()."images/Users/".$this->userid."/Profile/".$this->profpic."'>
+                    </li>
+                </ul>";
                 $this->createUserMenu($this->userid);
             }
             echo "</div></section>";
@@ -91,7 +92,7 @@
                     <ul class='mobile-search-link-box'>
                         <li class='mobile-header-link-messages'>
                             <a href='messages.php'>
-                                <img class='mobile-messages' src='images/icons/MessageIcon.png'>
+                                <img class='mobile-messages' src='images/icons/MessageIcon2.png'>
                             </a>
                         </li>
                         <li class='mobile-header-link-prayer'>
@@ -108,6 +109,7 @@
                         <title>".$this->title."</title>
                         <link rel='shortcut icon' href='images/icons/favicon.png'>
                         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                        <link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
                     </head>
                     <body>";
             $this->addcss();
