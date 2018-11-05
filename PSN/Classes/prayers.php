@@ -6,6 +6,10 @@
 
         protected $comments;//The class that creates all the comments for a prayer
 
+        protected $likepic;
+        
+        protected $dislikepic;
+
         protected $likeclass;
         
         protected $dislikeclass;
@@ -17,6 +21,8 @@
         }
 
         function checkLike($prayid){
+            $this->likepic = getRoot()."images/icons/thumbs-up-grey.png";
+            $this->dislikepic = getRoot()."images/icons/thumbs-down-grey.png";
             $this->likeclass = "";
             $this->dislikeclass = "";
             $checkquery = "SELECT *
@@ -26,8 +32,10 @@
             $check = $this->db->fetchQuery($checkquery);
             if($check){
                 if($check[0]['isLike'] == 0){
+                    $this->dislikepic = getRoot()."images/icons/thumbs-down-purple.png";
                     $this->dislikeclass = "up-down-active";
                 }else{
+                    $this->likepic = getRoot()."images/icons/thumbs-up-purple.png";
                     $this->likeclass = "up-down-active";
                 }
             }
@@ -77,10 +85,10 @@
                         echo"
                         <ul class='feed-interact-menu'>
                             <li class='feed-like ".$this->likeclass."' onclick='addLike(".$likeurl.", ".$likedata.", ".$i['prayid'].")' id='like--".$i['prayid']."' >
-                            Upvote
+                            <img id='like-pic--".$i['prayid']."' src='".$this->likepic."' width='20px' height='20px'>
                             </li>
                             <li class='feed-downvote ".$this->dislikeclass."' onclick='addDislike(".$dislikeurl.", ".$dislikedata.", ".$i['prayid'].")' id='dislike--".$i['prayid']."'>
-                            Downvote
+                            <img id='dislike-pic--".$i['prayid']."' src='".$this->dislikepic."' width='20px' height='20px'>
                             </li>
                             <li class='prayer-date'>
                             <p>Posted ". formatDate($i['dateLastMaint']) ."</p>

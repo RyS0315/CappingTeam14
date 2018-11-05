@@ -70,10 +70,24 @@
     ];
     $usersettings = new UserSettings($db,$settings,$id);
 
-    $allreligionsquery = "SELECT * 
-                          FROM RELIGIONS
-                          WHERE relid <> 1";
+    $myreligionsquery = "SELECT r.religion_name, r.relid
+                         FROM USER_RELIGIONS ur, Religions r
+                         WHERE ur.userid = '$id'
+                         AND ur.relid = r.relid";
+    $myreligions = $db->fetchQuery($myreligionsquery);
+
+    
+
+    $allreligionsquery = "SELECT r.religion_name, r.relid
+                          FROM RELIGIONS r LEFT JOIN User_religions ur ON ur.relid = r.relid
+                          WHERE r.relid <> 1
+                          AND r.relid NOT IN (SELECT r.relid 
+                                          FROM Religions r, user_religions ur 
+                                          WHERE r.relid = ur.relid 
+                                          AND ur.userid = '$id')";
     $religions = $db->FetchQuery($allreligionsquery);
+
+    
     ?>
 
 <section class='index-body'>
@@ -83,6 +97,7 @@
     <div class='settings-religions-body'>
     <form method='post' action='php/addReligion.php'>
         <?php
+         print_ary($myreligions); print_ary($religions);
             foreach($religions as $i){?>
                 <div class='religion-box'>
                     <button type='submit' value='<?php echo $i['relid'] ?>'><?php echo $i['religion_name'] ?></button>

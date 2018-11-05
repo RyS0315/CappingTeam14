@@ -75,8 +75,6 @@
             <p> Prayers sent  </p>
             <p> Reputation (Rank)</p>
             <p> Date Joined </p>
-
-            <?php echo getRoot() ?>
         </div>
 
         <div class='index-center-box'>

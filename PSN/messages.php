@@ -72,7 +72,9 @@
                 $messager->displayConvo($messages[$curconvo], $curconvo);
             }else{?>
                 <div class='messages-default'>
-                <p>No Conversation Selected</p> 
+
+                <p>No Conversation Selected</p>
+                
                 </div>
             <?php } ?>
         </div>
