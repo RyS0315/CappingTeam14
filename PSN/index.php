@@ -72,11 +72,9 @@
     <section class='index-body'>
         <div class='index-left-box'>
             <p class='trends-header'>My <?php echo $curreligion[0]['religion_name']?> Stats</p>
-            <p> Prayers sent </p>
+            <p> Prayers sent  </p>
             <p> Reputation (Rank)</p>
             <p> Date Joined </p>
-
-            <?php echo getRoot() ?>
         </div>
 
         <div class='index-center-box'>

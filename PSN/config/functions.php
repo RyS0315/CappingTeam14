@@ -194,13 +194,13 @@
      *
      */
     function prayersSent($id, $relid, $db){
-        $query = "SELECT COUNT(pr.prayid)
+        $query = "SELECT COUNT(pr.prayid) as num
             FROM prayers p, prayer_religions pr
             WHERE p.prayid = pr.prayid
             AND p.userid = '$id'
             AND pr.relid = '$relid'";
         $result = $db->fetchQuery($query);
-        return $result;
+        return $result[0]['num'];
     }
 
     /**
@@ -212,17 +212,31 @@
     function dateJoined($id, $relid, $db){
         $query = "SELECT user_religions.dateAdded FROM user_religions WHERE userid = '$id' AND relid = '$relid'";
         $result = $db->fetchQuery($query);
-        $date = $result->format('Y-m-d H:i:s');
-        return formatDate($date);
+        return formatDate($result[0]['dateAdded']);
     }
 
     /**
      *
      * Calculate the users reputation for a religion
+     * 
      */
     function getReputation($id, $relid, $db){
         $query = "SELECT user_religions.reputation FROM user_religions WHERE userid = '$id' AND relid = '$relid'";
         $result = $db->fetchQuery($query);
-        return $result;
+        return $result[0]['reputation'];
+    }
+
+    /**
+     * 
+     * Calculate the prayer's score based off the likes and dislikes
+     * Like = Score + 1
+     * Dislike = Score - 1
+     * 
+     * Hint: (select count where isLike = 1) - (Select count where islike = 0)
+     * 
+     */
+    function prayerScore($prayid, $db){
+        $score = 0;
+        return $score;
     }
 ?>

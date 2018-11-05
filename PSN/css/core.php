@@ -755,26 +755,41 @@
         color:#ff0000;
     }
 /*************** PROFILE *****************/
+    .profile-banner{
+        width:100%;
+        max-height:500px;
+        overflow:hidden;
+        padding-top:50px;
+    }
+
+    .profile-banner-box{
+        height: 500px;
+        width: 100%;
+    }
+
     .profile-body{
+        position:relative;
         width:80%;
         margin:auto;
     }
 
     .profile-profile-pic{
         border-radius: 50%;
-        height: 200px;
-        width: 200px;
-        border: 2px solid #fff;
+        width:320px;
+        height: 320px;
         color: #fff;
+        transform: translateY(-180px);
+        border:5px solid <?php echo $menuborder?>;
         margin:auto;
-        transform: translateY(-166px);
-        border:5px solid <?php echo $menuborder?>;;
+        display:block;
     }
 
-    .profile-banner {
+    .profile-banner-pic {
         height: auto;
         width:100%;
     }
+
+
 /*************** USERSETTINGS ************/
     .usersettings-box{
         display:block;
@@ -892,17 +907,33 @@
     }
 
     .feed-like{
-        width:15%;
+        width:auto;
         display:inline-flex;
+        font-weight:bold;
     }
 
     .feed-downvote{
-        width:15%;
+        width:auto;
+        margin-left:5%;
         display:inline-flex;
+        text-align:center;
+        font-weight:bold;
+    }
+
+    .feed-like:hover{
+        cursor:pointer;
+    }
+
+    .feed-downvote:hover{
+        cursor:pointer;
+    }
+
+    .up-down-active{
+        color:<?php echo $linkcolor?>;
     }
 
     .prayer-date{
-        margin-left:40%;
+        margin-left:45%;
     }
 
     .like-button{

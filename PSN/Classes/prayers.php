@@ -6,13 +6,47 @@
 
         protected $comments;//The class that creates all the comments for a prayer
 
+        protected $likepic;
+        
+        protected $dislikepic;
+
+        protected $likeclass;
+        
+        protected $dislikeclass;
+
         Public function __construct($db,$userid,$comments){
             $this->db = $db;
             $this->userid = $userid;
             $this->comments = $comments;
         }
 
+        function checkLike($prayid){
+            $this->likepic = getRoot()."images/icons/thumbs-up-grey.png";
+            $this->dislikepic = getRoot()."images/icons/thumbs-down-grey.png";
+            $this->likeclass = "";
+            $this->dislikeclass = "";
+            $checkquery = "SELECT *
+                           FROM LIKES
+                           WHERE prayid = '$prayid'
+                           AND userid = '$this->userid'";
+            $check = $this->db->fetchQuery($checkquery);
+            if($check){
+                if($check[0]['isLike'] == 0){
+                    $this->dislikepic = getRoot()."images/icons/thumbs-down-purple.png";
+                    $this->dislikeclass = "up-down-active";
+                }else{
+                    $this->likepic = getRoot()."images/icons/thumbs-up-purple.png";
+                    $this->likeclass = "up-down-active";
+                }
+            }
+        }
+
         function showPrayer($i){
+            $this->checkLike($i['prayid']);
+            $likeurl = "`php/addLike.php`";
+            $likedata = "{prayid : ".$i['prayid']."}";
+            $dislikeurl = "`php/addDislike.php`";
+            $dislikedata = "{prayid : ".$i['prayid']."}";
             echo "
             <div class='feed-container'>
                 <div class='feed-box'>
@@ -50,11 +84,11 @@
                         }
                         echo"
                         <ul class='feed-interact-menu'>
-                            <li class='feed-like'>
-                            Upvote
+                            <li class='feed-like ".$this->likeclass."' onclick='addLike(".$likeurl.", ".$likedata.", ".$i['prayid'].")' id='like--".$i['prayid']."' >
+                            <img id='like-pic--".$i['prayid']."' src='".$this->likepic."' width='20px' height='20px'>
                             </li>
-                            <li class='feed-downvote'>
-                            Downvote
+                            <li class='feed-downvote ".$this->dislikeclass."' onclick='addDislike(".$dislikeurl.", ".$dislikedata.", ".$i['prayid'].")' id='dislike--".$i['prayid']."'>
+                            <img id='dislike-pic--".$i['prayid']."' src='".$this->dislikepic."' width='20px' height='20px'>
                             </li>
                             <li class='prayer-date'>
                             <p>Posted ". formatDate($i['dateLastMaint']) ."</p>

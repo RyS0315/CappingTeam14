@@ -176,6 +176,7 @@ INSERT INTO Comments(userid,prayid,comment)VALUES
 
 
 INSERT INTO User_Religions (userid, relid, reputation, isMod)VALUES
+(1, 1, 500, 1),
 (2, 2, 200, 0),
 (2, 3, 50, 0),
 (2, 4, 0, 0);
