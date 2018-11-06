@@ -468,9 +468,10 @@
     }
 /*************** LOGIN PAGE **************/
     .login-body{
-        /* height:600px; */
-        width:50%;
-        margin: auto;
+        width:36%;
+        float:right;
+        margin-top:20px;
+        margin-right: 9.5%;
         padding-top:60px;
     }
 
@@ -479,16 +480,17 @@
         width:auto;
         height:330px;
         max-width:835px;
-        border-style: solid;
-        border-width:1px;
-        border-color:rgba(0,0,0,.2);
         background-color:<?php echo $boxcolor?>;
+        border: 1px solid <?php echo $menuborder ?>;
+        border-radius:5px;
     }
 
     .login-form-box-body{
         width:100%;
         background-color: #ffffff;
         padding-bottom:10px;
+        border-bottom: 1px solid <?php echo $menuborder ?>;
+        border-radius: 5px 5px 0px 0px;
     }
 
     #login-form-inputs{
@@ -516,6 +518,37 @@
     .submit-button:hover{
         cursor:pointer;
         background-color:<?php echo $buttonhover ?>;
+    }
+
+    .pray-desc{
+        margin-top:80px;
+        width: 36%;
+        float:left;
+        border-radius: 5px;
+        background-color: <?php echo $boxcolor ?>;
+        margin-left: 9.5%;
+    }
+
+    .pray-desc-header{
+        text-align: center;
+        padding:0px;
+        border:1px solid <?php echo $menuborder ?>;
+        border-radius: 5px 5px 0px 0px;
+    }
+    .pray-desc-header h2{
+        font-size: 20px;
+    }
+
+    .pray-desc-body{
+        background-color: #fff;
+        padding:20px;
+        border: 1px solid <?php echo $menuborder ?>;
+        border-top:0px;
+        border-radius: 0px 0px 5px 5px;
+    }
+
+    .pray-desc-body p{
+        font-size:18px;
     }
 /*************** NEW ACCOUNT *************/
     .newaccount-body{
@@ -788,8 +821,6 @@
         height: auto;
         width:100%;
     }
-
-
 /*************** USERSETTINGS ************/
     .usersettings-box{
         display:block;
@@ -874,10 +905,7 @@
 
     .feed-content-box{
         width:90%;
-    }
-
-    .feed-content-delete{
-        margin-top:-10px;
+        margin-left:20px;
     }
 
     .feed-profile-link:hover{
@@ -933,7 +961,7 @@
     }
 
     .prayer-date{
-        margin-left:45%;
+        margin-left:40%;
     }
 
     .like-button{
@@ -1188,6 +1216,7 @@
     .messages-users-settings-box{
         display:inline-block;
         width:21%;
+        margin-top: 20px;
     }
 
     .messages-users-heading-box{
@@ -1198,6 +1227,7 @@
         border-color: rgba(0,0,0,.3);
         border-style: solid;
         border-width: 1px;
+        border-radius:5px 5px 0px 0px;
     }
 
     .messages-users-heading{
@@ -1211,7 +1241,7 @@
     .messages-users{
         width:100%;
         background-color:<?php echo $feedcolor ?>;
-        height:500px;
+        height:530px;
         border-color: rgba(0,0,0,.3);
         border-style: solid;
         border-width: 1px;
@@ -1225,6 +1255,7 @@
         border-color: rgba(0,0,0,.3);
         border-style: solid;
         border-width: 1px;
+        border-radius:0px 0px 5px 5px;
     }
 
     .messages-feed{
@@ -1234,6 +1265,8 @@
         border-color: rgba(0,0,0,.3);
         border-style: solid;
         border-width: 1px;
+        border-radius: 5px;
+        margin-top:20px;
     }
 
     .msg-user-name-box{
@@ -1431,7 +1464,71 @@
         height:auto;
     }
 /*************** MEDIA QUERIES ***********/
-    /*************** TABLET ******************/
+    @media screen and (max-width: 1250px) {
+        .prayer-date{
+            margin-left: 35%;
+        }
+    }
+
+    @media screen and (max-width: 1150px) {
+        .header-box{
+            margin-left:20px;
+        }
+
+        .prayer-date{
+            margin-left:18%;
+        }
+
+        #sort-compose{
+            margin-left:20%;
+        }
+
+        .messages-users-heading{
+            font-size: 24px;
+        }
+    }
+
+    @media screen and (max-width: 920px) {
+        .header-box{
+            margin-left:10px;
+        }
+
+        .index-left-box{
+            display:none;
+        }
+
+        .index-right-box{
+            display:none;
+        }
+
+        .index-center-box{
+            width:96%;
+        }
+
+        .prayer-date{
+            margin-left:45%;
+        }
+
+        #sort-compose{
+            margin-left:30%;
+        }
+
+        .messages-users-heading{
+            font-size: 20px;
+        }
+    }
+
+    @media screen and (max-width: 830px) {
+        .prayer-date{
+            margin-left: 35%;
+        }
+
+        #sort-compose{
+            margin-left:40%;
+        }
+    }
+
+    /*********** TABLET **************/
     @media screen and (max-width: 768px) {
         /*** INDEX ***/
         .index-body {
@@ -1454,11 +1551,18 @@
 
         .feed-box {
             padding-top: 10px;
-            padding-bottom: 0px;
         }
 
         .sort-menu {
             padding: 10px;
+        }
+
+        .religion-menu-header{
+            padding:10px;
+        }
+
+        .religion-menu-item{
+            font-size:20px;
         }
 
         /*** HEADER **/
@@ -1481,7 +1585,7 @@
             margin: 0px;
         }
 
-        /* Profile Picture - Left */
+        /* Profile Picture - Right */
         .mobile-profile {
             height: 50px;
             width: 50px;
@@ -1489,28 +1593,31 @@
             position: absolute;
             margin-top: 5px;
             border-radius: 50%;
-            left: 15%;
+            right: 12%;
         }
 
-        /* Logo - Center */
+        /* Logo - Left */
         .mobile-logo {
             height: 50px;
             width: 50px;
             position: absolute;
+            left: 12%;
             margin-top: 5px;
-            left: 47.2%;
             border-radius: 50%;
         }
 
-        /* Notifications - Right */
+        /* Notifications - Center */
+        .mobile-header-link-notifications{
+            display:block;
+            margin:auto;
+            position:relative;
+        }
+
         .mobile-notifications {
             height: 50px;
             width: 50px;
-            float: right;
-            position: absolute;
             margin-top: 5px;
             border-radius: 50%;
-            right: 15%;
         }
 
         /* Search Bar */
@@ -1520,6 +1627,7 @@
             position: absolute;
             top: 61px;
             background-color: <?php echo $boxcolor ?>;
+            border-bottom: 1px solid <?php echo $menuborder ?>;
             opacity: 1;
         }
 
@@ -1586,7 +1694,17 @@
         }
 
         .messages-users-heading {
-            font-size: 24px;
+            font-size: 20px;
+        }
+
+        .message-preview-name{
+            margin-top:2px;
+            font-size: 12px;
+        }
+
+        .message-preview-msg{
+            margin-top:6px;
+            font-size: 12px;
         }
 
         .messages-feed {
@@ -1600,28 +1718,24 @@
             height: 50px;
         }
 
-        /* Profile Picture - Left */
+        /* Profile Picture - Right */
         .mobile-profile {
             height: 40px;
             width: 40px;
-            margin-top: 5px;
-            left: 12%;
+            right: 8%;
         }
 
-        /* Logo - Center */
+        /* Logo - Left */
         .mobile-logo {
             height: 40px;
             width: 40px;
-            margin-top: 5px;
-            left: 44.5%;
+            left: 8%;
         }
 
-        /* Notifications - Right */
+        /* Notifications - Center */
         .mobile-notifications {
             height: 40px;
             width: 40px;
-            margin-top: 5px;
-            right: 12%;
         }
 
         /* Search Bar */
@@ -1715,6 +1829,9 @@
             transform: translateY(-164px);
             margin: auto;
         }
+
+        /*** MESSAGES ***/
+
     }
 
     /************** MOBILE L *****************/
@@ -1723,28 +1840,24 @@
             height: 40px;
         }
 
-        /* Profile Picture - Left */
+        /* Profile Picture - Right */
         .mobile-profile {
             height: 30px;
             width: 30px;
-            margin-top: 5px;
-            left: 10%;
+            right: 5%;
         }
 
-        /* Logo - Center */
+        /* Logo - Left */
         .mobile-logo {
             height: 30px;
             width: 30px;
-            margin-top: 5px;
-            left: 46.5%;
+            left: 5%;
         }
 
-        /* Notifications - Right */
+        /* Notifications - Center */
         .mobile-notifications {
             height: 30px;
             width: 30px;
-            margin-top: 5px;
-            right: 10%;
         }
 
         /* Search Bar */
