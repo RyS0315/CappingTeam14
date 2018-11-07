@@ -1,4 +1,4 @@
-<?php 
+<?php
     include 'config/dbconfig.php';
     include 'config/permissions.php';
     include 'config/functions.php';
@@ -15,7 +15,7 @@
         $error = $check['error'];
         $attempts = $check['attempts'];
     }
-    
+
 $menus = [
     [
         'name'=>'Home',
@@ -31,13 +31,30 @@ $menus = [
     $header->displayHeader();
 ?>
     </section>
+    <section class='pray-desc'>
+        <div class='pray-desc-header'>
+            <h1> P.R.A.Y. </h1>
+            <h2> People, Religion, and You </h2>
+        </div>
+        <div class='pray-desc-body'>
+            <p>Sometimes it takes someone bigger than yourself to get back up
+               when you are down in life, you may need help from a community
+               of people that understands what you are going through, you may
+               need help from God. </p>
+            <br>
+            <p>PRAY is the social network that connects people from all around
+               the World to communicate and stay connected through the exchange
+               of Prayers, comments, and messages</p>
+        </div>
+    </section>
+
     <section class='login-body'>
         <div class='login-form-box'>
             <div class='login-form-box-body'>
-                <h1 style='width:50%; margin:auto; padding-top:50px; font-family:"Palatino"; font-size:28px'>Log in to P.R.A.Y.</h1>
+                <h1 style='width:50%; margin:auto; padding-top:50px; font-size:28px'>Log in to P.R.A.Y.</h1>
                 <p class='error' style='width:50%; margin:auto; margin-top:5px'><?php echo $error ?></p>
-                <form method='post' action='login.php' id='login-form-inputs'>    
-                    <input type='text' name='username' value='<?php echo $inputUsername ?>' placeholder='Username or Email'>
+                <form method='post' action='login.php' id='login-form-inputs'>
+                    <input type='text' name='username' value='<?php echo $inputUsername ?>' placeholder='Username or Email'></br>
                     <input type='password' name='password' placeholder='Password'></br>
                     <input type='hidden' name='attempts' value='<?php echo $attempts ?>'>
                     <button class='submit-button' name='submit' type='submit'>Login</button>

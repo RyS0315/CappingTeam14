@@ -1,4 +1,4 @@
-<?php 
+<?php
     include 'config/dbconfig.php';
     include 'config/functions.php';
     include 'config/permissions.php';
@@ -49,19 +49,15 @@
     $userinfo = $db->fetchQuery($userinfoquery);
 ?>
     <section class='profile-banner'>
-        <div class='profile-banner-box'> 
+        <div class='profile-banner-box'>
             <img class='profile-banner-pic' src='images/Users/<?php echo $pageid?>/Banner/<?php echo $userinfo[0]['bPicture']?>'>
         </div>
-        <div class='profile-pic-box'> 
-            <img class='profile-profile-pic' src='images/Users/<?php echo $pageid?>/Profile/<?php echo $userinfo[0]['pPicture']?>'>
-        </div>
     </section>
-
+    <img class='profile-profile-pic' src='images/Users/<?php echo $pageid?>/Profile/<?php echo $userinfo[0]['pPicture']?>'>
     <section class='profile-body'>
-    <h1 class='profile-header-name'><?php echo $userinfo[0]['fname'] . " " . $userinfo[0]['lname'] ?></h1>
+        <h1 class='profile-header-name'><?php echo $userinfo[0]['fname'] . " " . $userinfo[0]['lname'] ?></h1>
     </section>
-<?php 
+<?php
     $footer = new Footer($db,$src);
     $footer->buildFooter();
-?> 
-
+?>

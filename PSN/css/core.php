@@ -56,6 +56,7 @@
     body{
         margin:0px;
         background-color:<?php echo $backgroundcolor ?>;
+        font-family: 'Work Sans' !important;
     }
     ::placeholder{
         color:rgba(0,0,0,.4);
@@ -76,6 +77,9 @@
         margin-inline-end: 0px;
     }
 
+    h2 {
+        font-family: 'Work Sans';
+    }
 
     h3{
         margin-block-start: 0em;
@@ -86,12 +90,16 @@
 
     input{
         margin-bottom:10px;
-        width:50%;
         height:35px;
         border-color:rgb(0,0,0,.15);
         border-radius:5px;
         text-indent: 5px;
         font-size:16px;
+        font-family: 'Work Sans' !important;
+    }
+
+    input, textarea, select, button, text{
+        font-family: 'Work Sans';
     }
 
     select{
@@ -112,6 +120,7 @@
         font-size:16px;
         border-radius:7px;
         text-indent: 5px;
+        font-family: 'Work Sans';
     }
 
     form {
@@ -189,6 +198,7 @@
         display:inline-block;
         font-weight:bold;
         font-size:16px;
+        font-family: 'Work Sans';
     }
 
     button:hover{
@@ -270,10 +280,15 @@
     }
 
     .header-box{
-        width:93%;
-        margin:auto;
+        width:96%;
+        margin-right:10px;
+        margin-left:40px;
         display:flex;
         height:calc(100% - 16px);
+    }
+
+    .logo-box {
+        width: 6%;
     }
 
     .header-link-box{
@@ -322,7 +337,7 @@
     }
 
     .header-profile-pic{
-        width:40%;
+        width:52%;
         transform: translateY(-35%);
     }
 
@@ -333,7 +348,8 @@
     }
 
     #header-profile-pic-link{
-        margin-left:50%;
+        position:absolute;
+        right:36px;
         margin-top:-13px;
     }
 
@@ -354,9 +370,9 @@
         width:200px;
         position:fixed;
         margin-top:50px;
-        margin-left:73%;
+        right:20px;
         background-color:<?php echo $feedcolor?>;
-        border-radius:5px;
+        border-radius:0px 0px 5px 5px;
         border-color:<?php echo $menuborder ?>;
         border-width:1px;
         border-style:solid;
@@ -448,14 +464,14 @@
 
     #sort-compose{
         margin-left:3%;
-        margin-top:-6px;
+        margin-top:-8px;
     }
-
 /*************** LOGIN PAGE **************/
     .login-body{
-        /* height:600px; */
-        width:50%;
-        margin: auto;
+        width:40%;
+        float:right;
+        margin-top:30px;
+        margin-right: 6%;
         padding-top:60px;
     }
 
@@ -464,16 +480,17 @@
         width:auto;
         height:330px;
         max-width:835px;
-        border-style: solid;
-        border-width:1px;
-        border-color:rgba(0,0,0,.2);
         background-color:<?php echo $boxcolor?>;
+        border: 1px solid <?php echo $menuborder ?>;
+        border-radius:5px;
     }
 
     .login-form-box-body{
         width:100%;
         background-color: #ffffff;
         padding-bottom:10px;
+        border-bottom: 1px solid <?php echo $menuborder ?>;
+        border-radius: 5px 5px 0px 0px;
     }
 
     #login-form-inputs{
@@ -502,6 +519,37 @@
         cursor:pointer;
         background-color:<?php echo $buttonhover ?>;
     }
+
+    .pray-desc{
+        margin-top:90px;
+        width: 40%;
+        float:left;
+        border-radius: 5px;
+        background-color: <?php echo $boxcolor ?>;
+        margin-left: 6%;
+    }
+
+    .pray-desc-header{
+        text-align: center;
+        padding:0px;
+        border:1px solid <?php echo $menuborder ?>;
+        border-radius: 5px 5px 0px 0px;
+    }
+    .pray-desc-header h2{
+        font-size: 20px;
+    }
+
+    .pray-desc-body{
+        background-color: #fff;
+        padding:20px;
+        border: 1px solid <?php echo $menuborder ?>;
+        border-top:0px;
+        border-radius: 0px 0px 5px 5px;
+    }
+
+    .pray-desc-body p{
+        font-size:18px;
+    }
 /*************** NEW ACCOUNT *************/
     .newaccount-body{
         width:50%;
@@ -518,6 +566,7 @@
         border-color:rgba(0,0,0,.2);
         background-color:#ffffff;
         padding:25px 0px 0px 40px;
+        font-family:'Work Sans'
     }
 
     .verifyerror{
@@ -527,11 +576,10 @@
     #failedpassword{
         color:#ff0000;
     }
-
 /*************** INDEX *******************/
     .index-body{
         display:flex;
-        width:93%;
+        width:96%;
         margin:auto;
         height:auto;
         padding-bottom:25px;
@@ -539,24 +587,43 @@
     }
 
     .index-left-box{
-        width:25%;
+        width:20%;
         display:block;
+        height: auto;
         max-height:600px;
         background-color: <?php echo $boxcolor ?>;
+        margin-top:20px;
+        border-radius:4px;
+        border:1px solid <?php echo $menuborder ?>;
+    }
+
+    .trends-header{
+        padding-bottom: 10px;
+        border-bottom: 1px solid <?php echo $menuborder ?>;
+    }
+
+    .index-left-box p{
+        padding-left:16px;
     }
 
     .index-center-box{
-        width:52%;
-        margin-left:15px;
-        background-color:<?php echo $feedcolor ?>;
-        margin-right:15px;
+        width:50%;
+        margin-left:6%;
+        margin-right:6%;
         height:auto;
     }
 
     .index-right-box{
-        width:25%;
+        width:20%;
         background-color: <?php echo $boxcolor ?>;
         max-height:600px;
+        margin-top:20px;
+        border-radius:4px;
+        border:1px solid <?php echo $menuborder ?>;
+    }
+
+    .index-right-box p{
+        padding-left:16px;
     }
 
     .compose-prayer{
@@ -595,7 +662,8 @@
     }
 
     .trends-header{
-        margin:10px 0px 0px 10px;
+        margin-top:10px;
+        margin-bottom:10px;
         font-size:22px;
         color:<?php echo $textcolor ?>;
     }
@@ -609,15 +677,17 @@
         height:auto;
         background-color:<?php echo $buttoncolor ?>;
         color:<?php echo $buttontext?>;
-        padding:6px;
+        padding:4px;
         border-radius:100px;
         border-style:solid;
         border-color:<?php echo $textcolor?>;
         border-width:1px;
-        font-size:16px;
+        font-size:22px;
         padding-right:15px;
         padding-left:15px;
         font-weight:bold;
+        width:60px;
+        text-align:center;
     }
 
     #startprayer:hover{
@@ -732,38 +802,31 @@
     }
 
     .profile-banner-box{
-        height: 500px;
         width: 100%;
     }
-    
+
     .profile-body{
+        position:relative;
         width:80%;
         margin:auto;
     }
 
-    .profile-pic-box{
-        width:500px;
-        height: 500px;
-        overflow:hiddden;
-        margin:auto;
-        transform: translateY(-500px);
-    }
-
+    /* TODO - Fix Profile Picture location */
     .profile-profile-pic{
         border-radius: 50%;
-        border: 2px solid #fff;
+        width:240px;
+        height: 240px;
         color: #fff;
-        height:100%;
+        transform:translateY(-132px);
+        border:5px solid <?php echo $menuborder?>;
+        margin:auto;
+        display:block;
+        position:relative;
+    }
+
+    .profile-banner-pic {
+        height: auto;
         width:100%;
-    }
-
-    .profile-banner-pic{
-        min-height: 500px;
-        min-width: 100%;
-    }
-
-    .profile-header-name{
-        font-size:40px;
     }
 /*************** USERSETTINGS ************/
     .usersettings-box{
@@ -789,7 +852,7 @@
         text-align: center;
         display:block;
         height: calc(100% - 21px);
-        padding-top: 21px;
+        padding-top: 18px;
         width:100%;
     }
 
@@ -798,7 +861,7 @@
     }
 
     .current{
-        background-color:<?php echo $linkcolor ?>;
+        background-color:<?php echo $buttoncolor ?>;
     }
 /*************** PRAYER FEED *************/
     .feed-content-header{
@@ -816,19 +879,21 @@
     }
 
     .feed-content-name{
-        width:87%;
+        width:100%;
     }
 
     .feed-container{
-        border-bottom-style:solid;
-        border-bottom-color:<?php echo $backgroundcolor ?>;
-        border-bottom-width:2px;
+        border:1px solid <?php echo $menuborder ?>;
         width:100%;
         height:auto;
+        background-color:<?php echo $feedcolor ?>;
+        margin-top: 20px;
+        padding-top:10px;
+        border-radius:4px;
     }
 
     .feed-box{
-        padding:30px 20px 30px 20px;
+        padding:20px;
         display:flex;
         border-bottom-style:solid;
         border-bottom-color:<?php echo $backgroundcolor ?>;
@@ -847,6 +912,7 @@
 
     .feed-content-box{
         width:90%;
+        margin-left:20px;
     }
 
     .feed-profile-link:hover{
@@ -902,7 +968,7 @@
     }
 
     .prayer-date{
-        margin-left:45%;
+        margin-left:40%;
     }
 
     .like-button{
@@ -962,14 +1028,14 @@
         width:100%;
         z-index:100;
     }
-
 /*************** COMMENTS ****************/
     .feed-comment-box{
         width:80%;
         padding-left:10%;
         padding-right:10%;
-        padding-bottom:20px;
+        padding-bottom:0px;
         background-color:<?php echo $commentcolor ?>;
+        border-radius:4px;
     }
 
     .post-comment{
@@ -1028,7 +1094,12 @@
 
     .comment-feed-content{
         padding-left:10px;
-        width:85%;
+        width:90%;
+    }
+
+    .comment-feed-content p {
+        width:90%;
+        word-wrap:break-word;
     }
 
     .show-more{
@@ -1047,15 +1118,14 @@
 /*************** RELIGION MENU ***********/
     .sort-menu{
         font-size:24px;
-        padding:20px;
-        border-bottom-style:solid;
-        border-bottom-color:<?php echo $backgroundcolor ?>;
-        border-bottom-width:1px;
-        margin-block-start: 0em;
-        margin-block-end: 0em;
+        margin-top:20px;
+        border:1px solid <?php echo $menuborder ?>;
+        background-color:<?php echo $feedcolor ?>;
+        border-radius:4px;
     }
 
     .religion-menu-header{
+        padding:20px;
         display:block;
         color:<?php echo $textcolor?>;
     }
@@ -1063,12 +1133,14 @@
     .religion-menu-items{
         height:auto;
         width:200px;
-        position:fixed;
+        position:absolute;
         background-color:<?php echo $feedcolor ?>;
-        border-radius:5px;
+        border-radius:0px 0px 4px 4px;
         border-color:<?php echo $menuborder ?>;
         border-width:1px;
         border-style:solid;
+        margin-top:20px;
+        margin-left:-10px;
         display:none;
         z-index:20;
     }
@@ -1084,6 +1156,7 @@
 
     .religion-menu-item{
         padding:10px;
+        padding-left:16px;
         color:<?php echo $textcolor ?>;
     }
 
@@ -1204,12 +1277,22 @@
         border-top-left-radius:0px;
         border-bottom-right-radius:5px;
         border-bottom-left-radius:5px;
+        
+    .religion-box{
+        margin:20px;
+    }
+
+    .religion-box button {
+        border-radius: 5px;
+        width: 180px;
+        font-size: 28px;
     }
 /*************** MESSAGES ****************/
 
     .messages-users-settings-box{
         display:inline-block;
         width:21%;
+        margin-top: 20px;
     }
 
     .messages-users-heading-box{
@@ -1220,6 +1303,7 @@
         border-color: rgba(0,0,0,.3);
         border-style: solid;
         border-width: 1px;
+        border-radius:5px 5px 0px 0px;
     }
 
     .messages-users-heading{
@@ -1233,7 +1317,7 @@
     .messages-users{
         width:100%;
         background-color:<?php echo $feedcolor ?>;
-        height:500px;
+        height:530px;
         border-color: rgba(0,0,0,.3);
         border-style: solid;
         border-width: 1px;
@@ -1247,6 +1331,7 @@
         border-color: rgba(0,0,0,.3);
         border-style: solid;
         border-width: 1px;
+        border-radius:0px 0px 5px 5px;
     }
 
     .messages-feed{
@@ -1256,6 +1341,8 @@
         border-color: rgba(0,0,0,.3);
         border-style: solid;
         border-width: 1px;
+        border-radius: 5px;
+        margin-top:20px;
     }
 
     .msg-user-name-box{
@@ -1452,20 +1539,78 @@
         min-height:50px;
         height:auto;
     }
-
-/*************** MOBILE ******************/
-    @media screen and (max-width: 960px) {
-        /* Move the logo to the right so it doesn't clip into Nav Bar */
-        .logo-li {
-            margin-left: 120px;
+/*************** MEDIA QUERIES ***********/
+    @media screen and (max-width: 1250px) {
+        .prayer-date{
+            margin-left: 35%;
         }
     }
 
+    @media screen and (max-width: 1150px) {
+        .header-box{
+            margin-left:20px;
+        }
+
+        .prayer-date{
+            margin-left:18%;
+        }
+
+        #sort-compose{
+            margin-left:20%;
+        }
+
+        .messages-users-heading{
+            font-size: 24px;
+        }
+    }
+
+    @media screen and (max-width: 920px) {
+        .header-box{
+            margin-left:10px;
+        }
+
+        .index-left-box{
+            display:none;
+        }
+
+        .index-right-box{
+            display:none;
+        }
+
+        .index-center-box{
+            width:96%;
+            margin:auto;
+        }
+
+        .prayer-date{
+            margin-left:45%;
+        }
+
+        #sort-compose{
+            margin-left:30%;
+        }
+
+        .messages-users-heading{
+            font-size: 20px;
+        }
+    }
+
+    @media screen and (max-width: 830px) {
+        .prayer-date{
+            margin-left: 35%;
+        }
+
+        #sort-compose{
+            margin-left:40%;
+        }
+    }
+
+    /*********** TABLET **************/
     @media screen and (max-width: 768px) {
         /*** INDEX ***/
         .index-body {
             width: 96%;
-            padding-top: 120px;
+            padding-top: 135px;
         }
 
         .index-left-box {
@@ -1474,11 +1619,26 @@
 
         .index-center-box {
             width: 98%;
-            margin: 12px 12px 0px 12px;
         }
 
         .index-right-box {
             display: none;
+        }
+
+        .feed-box {
+            padding-top: 10px;
+        }
+
+        .sort-menu {
+            padding: 10px;
+        }
+
+        .religion-menu-header{
+            padding:10px;
+        }
+
+        .religion-menu-item{
+            font-size:20px;
         }
 
         /*** HEADER **/
@@ -1491,7 +1651,7 @@
             display: block;
             height: 60px;
             width: 100%;
-            border-bottom: 2px solid <?php echo $menuborder?>;
+            border-bottom: 1px solid <?php echo $menuborder?>;
             background-color: <?php echo $boxcolor ?>;
             position: fixed;
             z-index: 50;
@@ -1501,7 +1661,7 @@
             margin: 0px;
         }
 
-        /* Profile Picture - Left */
+        /* Profile Picture - Right */
         .mobile-profile {
             height: 50px;
             width: 50px;
@@ -1509,28 +1669,31 @@
             position: absolute;
             margin-top: 5px;
             border-radius: 50%;
-            left: 15%;
+            right: 12%;
         }
 
-        /* Logo - Center */
+        /* Logo - Left */
         .mobile-logo {
             height: 50px;
             width: 50px;
             position: absolute;
+            left: 12%;
             margin-top: 5px;
-            left: 47.2%;
             border-radius: 50%;
         }
 
-        /* Notifications - Right */
+        /* Notifications - Center */
+        .mobile-header-link-notifications{
+            display:block;
+            margin:auto;
+            position:relative;
+        }
+
         .mobile-notifications {
             height: 50px;
             width: 50px;
-            float: right;
-            position: absolute;
             margin-top: 5px;
             border-radius: 50%;
-            right: 15%;
         }
 
         /* Search Bar */
@@ -1538,8 +1701,9 @@
             height: 60px;
             width: 100%;
             position: absolute;
-            top: 62px;
+            top: 61px;
             background-color: <?php echo $boxcolor ?>;
+            border-bottom: 1px solid <?php echo $menuborder ?>;
             opacity: 1;
         }
 
@@ -1557,7 +1721,6 @@
             float: right;
             position: absolute;
             margin-top: 5px;
-            border-radius: 20px;
         }
 
         /* Pray - Right */
@@ -1566,6 +1729,10 @@
             float: right;
             position: absolute;
             right: 25%;
+        }
+
+        .prayer-box {
+            width: 72%;
         }
 
         #mobile-start-prayer {
@@ -1581,5 +1748,311 @@
             padding-right: 15px;
             padding-left: 15px;
             font-weight: bold;
+        }
+
+        /*** PROFILE ***/
+        .profile-banner-pic{
+            padding-top:72px;
+        }
+
+        .profile-profile-pic {
+            width: 140px;
+            height: 140px;
+            color: #fff;
+            transform: translateY(-80px);
+            margin: auto;
+        }
+
+        /*** MESSAGES ***/
+        .messages-users-settings-box {
+            width: 28%;
+        }
+
+        .messages-users-heading {
+            font-size: 20px;
+        }
+
+        .message-preview-name{
+            margin-top:2px;
+            font-size: 12px;
+        }
+
+        .message-preview-msg{
+            margin-top:6px;
+            font-size: 12px;
+        }
+
+        .messages-feed {
+            margin-left: 20px;
+            width: 70%;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .mobile-header {
+            height: 50px;
+        }
+
+        /* Profile Picture - Right */
+        .mobile-profile {
+            height: 40px;
+            width: 40px;
+            right: 8%;
+        }
+
+        /* Logo - Left */
+        .mobile-logo {
+            height: 40px;
+            width: 40px;
+            left: 8%;
+        }
+
+        /* Notifications - Center */
+        .mobile-notifications {
+            height: 40px;
+            width: 40px;
+        }
+
+        /* Search Bar */
+        .mobile-search-box {
+            height: 50px;
+            top: 51px;
+        }
+
+        .mobile-search-link-box {
+            margin: 0px;
+            height: 40px;
+            margin-bottom: 5px;
+        }
+
+        /* Messages - Left */
+        .mobile-messages {
+            height: 40px;
+            width: 40px;
+            left: 25%;
+            margin-top: 5px;
+        }
+
+        /* Pray - Right */
+        .mobile-header-link-prayer {
+            margin-top: 5px;
+        }
+
+        #mobile-start-prayer {
+            font-size: 20px;
+        }
+
+        .prayer-box {
+            width: 94%;
+            margin-top: 40px;
+        }
+
+        .compose-header {
+            margin-left: 24px;
+            height: 60px;
+        }
+
+        .compose-header h1 {
+            margin-top: 24px;
+            font-size: 26px;
+        }
+
+        #closebutton {
+            height: 20px;
+            width: 20px;
+        }
+
+        .compose-content {
+            padding: 25px;
+        }
+
+        .compose-content-bottom {
+            margin-top: 15px;
+        }
+
+        /*** INDEX ***/
+        .index-body {
+            padding-top: 110px;
+        }
+
+        .feed-profile-img-box {
+            width: 17%;
+        }
+
+        .feed-profile-name {
+            font-size: 20px;
+        }
+
+        #deleteprayer {
+            height: 10px;
+            width: 10px;
+        }
+
+        .delete-comment-button {
+            height: 6px;
+            width: 6px;
+        }
+
+        .prayer-date{
+            margin-left:25%;
+            font-size:12px;
+        }
+
+        /*** PROFILE ***/
+        .profile-banner-pic {
+            padding-top: 52px;
+        }
+
+        .profile-profile-pic {
+            width: 100px;
+            height: 100px;
+            transform: translateY(-58px);
+            margin: auto;
+        }
+
+        /*** MESSAGES ***/
+        .messages-users-heading{
+            font-size:16px;
+        }
+
+        .feed-profile-img{
+            height:32px;
+            width:32px;
+        }
+    }
+
+    /************** MOBILE L *****************/
+    @media screen and (max-width: 425px) {
+        .mobile-header {
+            height: 40px;
+        }
+
+        /* Profile Picture - Right */
+        .mobile-profile {
+            height: 30px;
+            width: 30px;
+            right: 5%;
+        }
+
+        /* Logo - Left */
+        .mobile-logo {
+            height: 30px;
+            width: 30px;
+            left: 5%;
+        }
+
+        /* Notifications - Center */
+        .mobile-notifications {
+            height: 30px;
+            width: 30px;
+        }
+
+        /* Search Bar */
+        .mobile-search-box {
+            height: 40px;
+            top: 41px;
+        }
+
+        .mobile-search-link-box {
+            margin: 0px;
+            height: 30px;
+            margin-bottom: 5px;
+        }
+
+        /* Messages - Left */
+        .mobile-messages {
+            height: 30px;
+            width: 30px;
+            left: 25%;
+            margin-top: 5px;
+        }
+
+        /* Pray - Right */
+        .mobile-header-link-prayer {
+            margin-top: 5px;
+        }
+
+        #mobile-start-prayer {
+            font-size: 14px;
+        }
+
+        .prayer-box {
+            width: 94%;
+            margin-top: 40px;
+        }
+
+        .compose-header {
+            margin-left: 24px;
+            height: 60px;
+        }
+
+        .compose-header h1 {
+            margin-top: 24px;
+            font-size: 26px;
+        }
+
+        #closebutton {
+            height: 20px;
+            width: 20px;
+        }
+
+        .compose-content {
+            padding: 25px;
+        }
+
+        .compose-content-bottom {
+            margin-top: 15px;
+        }
+
+        /*** INDEX ***/
+        .index-body {
+            padding-top: 90px;
+        }
+
+        .feed-profile-img-box {
+            width: 17%;
+        }
+
+        .feed-profile-name {
+            font-size: 20px;
+        }
+
+        .feed-profile-username {
+            font-size:12px;
+        }
+
+        #deleteprayer {
+            height: 10px;
+            width: 10px;
+        }
+
+        .delete-comment-button {
+            height: 6px;
+            width: 6px;
+        }
+
+        /*** PROFILE ***/
+        .profile-banner-pic {
+            padding-top: 32px;
+        }
+
+        .profile-profile-pic {
+            width: 72px;
+            height: 72px;
+            transform: translateY(-44px);
+        }
+
+        /*** MESSAGES ***/
+        .messages-users-settings-box {
+            width: 28%;
+        }
+
+        .messages-users-heading {
+            font-size: 14px;
+        }
+
+        .messages-feed {
+            margin-left: 20px;
+            width: 70%;
         }
     }

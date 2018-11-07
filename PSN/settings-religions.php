@@ -1,4 +1,4 @@
-<?php 
+<?php
     include 'config/dbconfig.php';
     include 'config/permissions.php';
     include 'config/functions.php';
@@ -87,13 +87,13 @@
     $allreligionsquery = "SELECT DISTINCT r.religion_name, r.relid
                           FROM RELIGIONS r LEFT JOIN User_religions ur ON ur.relid = r.relid
                           WHERE r.relid <> 1
-                          AND r.relid NOT IN (SELECT r.relid 
-                                          FROM Religions r, user_religions ur 
-                                          WHERE r.relid = ur.relid 
+                          AND r.relid NOT IN (SELECT r.relid
+                                          FROM Religions r, user_religions ur
+                                          WHERE r.relid = ur.relid
                                           AND ur.userid = '$id')";
     $religions = $db->FetchQuery($allreligionsquery);
 
-    
+
     ?>
 
 <section class='index-body'>
@@ -152,7 +152,7 @@
 
 <section>
 
-<?php 
+<?php
     $footer = new Footer($db,$src);
     $footer->buildFooter();
 ?>

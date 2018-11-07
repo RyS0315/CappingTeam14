@@ -153,13 +153,24 @@ Insert into Religions(religion_name) VALUES
 ('Judaism'),
 ('Islam'),
 ('Buddhism'),
-('Hinduism');
+('Hinduism'),
+('Baha\'i'),
+('Confucianism'),
+('Jainism'),
+('Shinto'),
+('Sikhism'),
+('Taoism'),
+('Agnosticism'),
+('Atheism'),
+('Mormonism'),
+('Scientology'),
+('Zoroastrianism');
 
 INSERT INTO USERS (fname,lname,username,user_password,zipCode,primary_religion, email,phone_number, pPicture, bPicture)VALUES
 ('P.R.A.Y.', 'Admin','Admin','Marist', 12601, 1, 'Admin@pray.com', '888-888-8888', '1.jpg', '1.jpg'),
 ('Test', 'User', 'TestUser', 'Marist', 12601, 2, 'TestUser@pray.com', '888-777-66666','2.jpg', '2.jpg'),
 ('Riley', 'Stadel', 'RStadel', 'Marist', 12601, 2, 'Riley.stadel1@gmail.com', '717-723-7629','2.jpg', '2.jpg'),
-('Griffen', 'Wiles', 'GWiles', 'Marist', 12601, 2, 'TestUser@pray.com', '888-777-66666','2.jpg', '2.jpg'),
+('Griffin', 'Wiles', 'GWiles', 'Marist', 12601, 2, 'TestUser@pray.com', '888-777-66666','2.jpg', '2.jpg'),
 ('Dan', 'Schroeder', 'DSchroeder', 'Marist', 12601, 2, 'TestUser@pray.com', '888-777-66666','2.jpg', '2.jpg'),
 ('Ryan', 'Demayo', 'RDemayo', 'Marist', 12601, 2, 'TestUser@pray.com', '888-777-66666','2.jpg', '2.jpg'),
 ('Christian', 'Gorokhovsky', 'CGorokhovsky', 'Marist', 12601, 2, 'TestUser@pray.com', '888-777-66666','2.jpg', '2.jpg');
