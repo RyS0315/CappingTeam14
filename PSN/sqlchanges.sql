@@ -153,7 +153,18 @@ Insert into Religions(religion_name) VALUES
 ('Judaism'),
 ('Islam'),
 ('Buddhism'),
-('Hinduism');
+('Hinduism'),
+('Baha\'i'),
+('Confucianism'),
+('Jainism'),
+('Shinto'),
+('Sikhism'),
+('Taoism'),
+('Agnosticism'),
+('Atheism'),
+('Mormonism'),
+('Scientology'),
+('Zoroastrianism'),
 
 INSERT INTO USERS (fname,lname,username,user_password,zipCode,primary_religion, email,phone_number, pPicture, bPicture)VALUES
 ('P.R.A.Y.', 'Admin','Admin','Marist', 12601, 1, 'Admin@pray.com', '888-888-8888', '1.jpg', '1.jpg'),
