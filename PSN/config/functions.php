@@ -239,4 +239,19 @@
         $score = 0;
         return $score;
     }
+
+    /**
+     * 
+     * 
+     * 
+     */
+    function countFollowers($relid, $db){
+        $query = "SELECT COUNT(userid) as num
+                  FROM User_Religions
+                  WHERE relid = '$relid'";
+        $count = $db->fetchQuery($query);
+        // print_ary($count);
+        return $count[0]['num'];
+
+    }
 ?>

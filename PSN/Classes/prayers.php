@@ -109,6 +109,5 @@
                 </div>
             </div>";
             }
-                        // <img class='like-button' src='images/icons/Like.png'><p class='feed-num-likes'>".$i['favs']."</p>
     }
 ?>

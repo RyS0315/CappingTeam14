@@ -16,11 +16,11 @@
                   'text'=>'rgba(255,255,255,.65)',
                   'boxcolor'=>'#1b0036',
                   'link'=>'rgba(200,0,200,.65)',
-                  'feed'=>'#550006',
+                  'feed'=>'#250036',
                   'menuborder'=>'#111111',
                   'boldcolor'=>'#ffffff',
-                  'buttoncolor'=>'#e132ef',
-                  'buttonhover'=>'#b100bb',
+                  'buttoncolor'=>'#a415df',
+                  'buttonhover'=>'#8405af',
                   'buttontext'=>'#ffffff',
                   'commentbox'=>'#320942'],
         'Gold'=>['background'=>'#f3c812',
@@ -1139,6 +1139,71 @@
         background-color:<?php echo $feedcolor ?>;
         padding:20px;
         margin-left:25px;
+    }
+
+    .my-religions{
+        display:flex;
+        flex-wrap:wrap;
+    }
+
+    .religion-box{
+        width:30%;
+        margin-right:10px;
+        margin-bottom:10px;
+        background-color:<?php echo $boxcolor?>;
+        border-radius:5px;
+        border-style:solid;
+        border-width:1px;
+    }
+
+    .all-religions{
+        flex-wrap:wrap;
+        display:flex;
+    }
+
+    .religion-header{
+        background-color:<?php echo $buttoncolor ?>;
+        border-top-right-radius:5px;
+        border-top-left-radius:5px;
+        border-bottom-right-radius:0px;
+        border-bottom-left-radius:0px;
+    }
+
+    .religion-header-text{
+        margin:0px;
+        padding-top:15px;
+        padding-bottom:15px;
+        text-align:center;
+    }
+
+    .header-white{
+        color:<?php echo $buttontext ?>;
+    }
+
+    .addreligion-stats{
+        padding-top:10px;
+        padding-bottom:10px;
+    }
+
+    .drop-religion{
+        width:100%;
+        border-radius:0px;
+    }
+
+    .add-religion{
+        width:100%;
+        border-top-right-radius:0px;
+        border-top-left-radius:0px;
+        border-bottom-right-radius:5px;
+        border-bottom-left-radius:5px;
+    }
+
+    .add-primary{
+        width:100%;
+        border-top-right-radius:0px;
+        border-top-left-radius:0px;
+        border-bottom-right-radius:5px;
+        border-bottom-left-radius:5px;
     }
 /*************** MESSAGES ****************/
 

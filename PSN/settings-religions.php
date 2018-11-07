@@ -76,9 +76,15 @@
                          AND ur.relid = r.relid";
     $myreligions = $db->fetchQuery($myreligionsquery);
 
+    $primaryreligionquery = "SELECT primary_Religion
+                             FROM Users
+                             WHERE userid = '$id'";
+    $primaryreligion = $db->fetchQuery($primaryreligionquery);
+
+    $prel = $primaryreligion[0]['primary_Religion'];
     
 
-    $allreligionsquery = "SELECT r.religion_name, r.relid
+    $allreligionsquery = "SELECT DISTINCT r.religion_name, r.relid
                           FROM RELIGIONS r LEFT JOIN User_religions ur ON ur.relid = r.relid
                           WHERE r.relid <> 1
                           AND r.relid NOT IN (SELECT r.relid 
@@ -95,16 +101,53 @@
     <?php $usersettings->displaySettings();?>
 
     <div class='settings-religions-body'>
-    <form method='post' action='php/addReligion.php'>
-        <?php
-         print_ary($myreligions); print_ary($religions);
-            foreach($religions as $i){?>
-                <div class='religion-box'>
-                    <button type='submit' value='<?php echo $i['relid'] ?>'><?php echo $i['religion_name'] ?></button>
+        <h1>My religions</h1>
+        <div class='my-religions'>
+        <?php foreach($myreligions as $i){
+            echo"<div class='religion-box'>
+                <div class='religion-header'>
+                <h1 class='religion-header-text header-white' >".$i['religion_name']."</h1>
                 </div>
-                <?php
-            }?>
+                <div class='addreligion-stats'>
+                <h2 class='religion-header-text'>".countFollowers($i['relid'], $db)." Followers</h2>
+                </div>
+                <div class='religion-follow-action'>
+                "; 
+                if($i['relid'] == $prel){
+                    echo "<div>
+                    <h3 class='religion-header-text'>Primary Religion</h3>
+                    </div>";
+                }else{
+                echo "
+                <form method='post' action='php/addReligion.php'>
+                <button class='drop-religion ' value='".$i['relid']."' name='religion'>Unfollow</button>
+                </form>
+                <form method='post' action='php/addPrimary.php'>
+                <button class='add-primary' value='".$i['relid']."' name='religion'>Make Primary</button>
+                </form>";
+                }
+                echo"</div>
+            </div>"; 
+        }?>
+        </div>
+        <h1> All Religions </h1>
+        <div class='all-religions'>
+        <?php foreach($religions as $i){
+            echo"<div class='religion-box'>
+            <div class='religion-header header-white'>
+            <h1 class='religion-header-text'>".$i['religion_name']."</h1>
+            </div>
+            <div class='addreligion-stats'>
+            <h2 class='religion-header-text'>".countFollowers($i['relid'], $db)." Followers</h2>
+            </div>
+            <div class='religion-follow-action'>
+            <form method='post' action='php/addReligion.php'>
+            <button class='add-religion' value='".$i['relid']."' name='religion'>Follow</button>
             </form>
+            </div>
+        </div>";     
+        }?>
+        </div>
     </div>
 
 <section>
