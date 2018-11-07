@@ -52,6 +52,7 @@
                 <div class='feed-box'>
                     <div class='feed-profile-img-box'>
                         <img class='feed-profile-img 'src='images/Users/".$i['userid']."/Profile/".$i['pPicture']."'>
+                        <p class='prayer-score' id='score--".$i['prayid']."'>".prayerScore($i['prayid'], $this->db)."</p>
                     </div>
                     <div class='feed-content-box'>
                         <ul class='feed-content-header'>

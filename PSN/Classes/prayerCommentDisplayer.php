@@ -53,7 +53,7 @@
                         <p class='comment-profile-name'>".$comment['fname']." ".$comment['lname']."</p>
                         <p class='comment-profile-username'>@".$comment['username']."</p>
                     </a>
-                    <p>".$comment['comment']."</p>
+                    <p class='comment-content'>".$comment['comment']."</p>
                     </div>";
                     if($this->canDelete($prayid, $comment['userid'])){
                         echo "<form method='post' action='php/removeComment.php'>

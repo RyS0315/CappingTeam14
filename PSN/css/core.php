@@ -933,6 +933,9 @@
     }
 
     .feed-content{
+        overflow-wrap: break-word;
+        white-space: pre-line;
+        white-space: pre-wrap;
         padding-top:5px;
         padding-bottom: 5px;
     }
@@ -1028,6 +1031,12 @@
         width:100%;
         z-index:100;
     }
+
+    .prayer-score{
+        margin-left:10px;
+        margin-top:20px;
+        font-size:30px;
+    }
 /*************** COMMENTS ****************/
     .feed-comment-box{
         width:80%;
@@ -1052,6 +1061,11 @@
         border-bottom-width:1px;
     }
 
+    .comment-content{
+        overflow-wrap: break-word;
+        white-space: pre-line;
+        white-space: pre-wrap;
+    }
     .comment{
         width:100%;
         margin-bottom:10px;
@@ -1207,7 +1221,6 @@
     }
 /*************** RELIGIONS ***************/
     .settings-religions-body{
-        height:1000px;
         width:75%;
         background-color:<?php echo $feedcolor ?>;
         padding:20px;
@@ -1277,15 +1290,6 @@
         border-top-left-radius:0px;
         border-bottom-right-radius:5px;
         border-bottom-left-radius:5px;
-        
-    .religion-box{
-        margin:20px;
-    }
-
-    .religion-box button {
-        border-radius: 5px;
-        width: 180px;
-        font-size: 28px;
     }
 /*************** MESSAGES ****************/
 
