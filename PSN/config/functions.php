@@ -218,7 +218,7 @@
     /**
      *
      * Calculate the users reputation for a religion
-     * 
+     *
      */
     function getReputation($id, $relid, $db){
         $query = "SELECT user_religions.reputation FROM user_religions WHERE userid = '$id' AND relid = '$relid'";
@@ -227,16 +227,21 @@
     }
 
     /**
-     * 
+     *
      * Calculate the prayer's score based off the likes and dislikes
      * Like = Score + 1
      * Dislike = Score - 1
-     * 
+     *
      * Hint: (select count where isLike = 1) - (Select count where islike = 0)
-     * 
+     *
      */
     function prayerScore($prayid, $db){
         $score = 0;
+        $queryLikes = "SELECT count(likes.isLike) as likes FROM likes WHERE isLike = 1 AND prayid = '$prayid'";
+        $resultLikes = $db->fetchQuery($queryLikes);
+        $queryDislikes = "SELECT count(likes.isLike) as dislikes FROM likes WHERE isLike = 0 AND prayid = '$prayid'";
+        $resultDislikes = $db->fetchQuery($queryDislikes);
+        $score = $resultLikes[0]['likes'] - $resultDislikes[0]['dislikes'];
         return $score;
     }
 ?>
