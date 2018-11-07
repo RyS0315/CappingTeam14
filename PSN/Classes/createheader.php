@@ -71,11 +71,6 @@
             echo"<section class='mobile-header'>
                 <div class='mobile-header-box'>
                     <ul class='mobile-header-link-box'>
-                        <li class='mobile-header-link-profile'>
-                            <a href='profile.php'>
-                                <img class='mobile-profile' src='images/Users/".$this->userid."/Profile/".$this->userid.".jpg'>
-                            </a>
-                        </li>
                         <li class='mobile-header-link-home'>
                             <a href='index.php'>
                                 <img class='mobile-logo' src='images/icons/favicon.png'>
@@ -85,6 +80,9 @@
                             <a href='notifications.php'>
                                 <img class='mobile-notifications' src='images/icons/NotificationIcon.png'>
                             </a>
+                        </li>
+                        <li class='mobile-header-link-profile' onclick='ShowMenu()'>
+                            <img class='mobile-profile' src='images/Users/".$this->userid."/Profile/".$this->userid.".jpg'>
                         </li>
                     </ul>
                 </div>

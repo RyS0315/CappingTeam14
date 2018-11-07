@@ -468,10 +468,10 @@
     }
 /*************** LOGIN PAGE **************/
     .login-body{
-        width:36%;
+        width:40%;
         float:right;
-        margin-top:20px;
-        margin-right: 9.5%;
+        margin-top:30px;
+        margin-right: 6%;
         padding-top:60px;
     }
 
@@ -521,12 +521,12 @@
     }
 
     .pray-desc{
-        margin-top:80px;
-        width: 36%;
+        margin-top:90px;
+        width: 40%;
         float:left;
         border-radius: 5px;
         background-color: <?php echo $boxcolor ?>;
-        margin-left: 9.5%;
+        margin-left: 6%;
     }
 
     .pray-desc-header{
@@ -589,11 +589,17 @@
     .index-left-box{
         width:20%;
         display:block;
+        height: auto;
         max-height:600px;
         background-color: <?php echo $boxcolor ?>;
         margin-top:20px;
         border-radius:4px;
         border:1px solid <?php echo $menuborder ?>;
+    }
+
+    .trends-header{
+        padding-bottom: 10px;
+        border-bottom: 1px solid <?php echo $menuborder ?>;
     }
 
     .index-left-box p{
@@ -796,7 +802,6 @@
     }
 
     .profile-banner-box{
-        height: 500px;
         width: 100%;
     }
 
@@ -806,15 +811,17 @@
         margin:auto;
     }
 
+    /* TODO - Fix Profile Picture location */
     .profile-profile-pic{
         border-radius: 50%;
-        width:320px;
-        height: 320px;
+        width:240px;
+        height: 240px;
         color: #fff;
-        transform: translateY(-180px);
+        transform:translateY(-132px);
         border:5px solid <?php echo $menuborder?>;
         margin:auto;
         display:block;
+        position:relative;
     }
 
     .profile-banner-pic {
@@ -1090,6 +1097,11 @@
         width:90%;
     }
 
+    .comment-feed-content p {
+        width:90%;
+        word-wrap:break-word;
+    }
+
     .show-more{
         width:100%;
         height:50px;
@@ -1121,7 +1133,7 @@
     .religion-menu-items{
         height:auto;
         width:200px;
-        position:fixed;
+        position:absolute;
         background-color:<?php echo $feedcolor ?>;
         border-radius:0px 0px 4px 4px;
         border-color:<?php echo $menuborder ?>;
@@ -1503,6 +1515,7 @@
 
         .index-center-box{
             width:96%;
+            margin:auto;
         }
 
         .prayer-date{
@@ -1542,7 +1555,6 @@
 
         .index-center-box {
             width: 98%;
-            margin: 12px 12px 0px 12px;
         }
 
         .index-right-box {
@@ -1675,16 +1687,15 @@
         }
 
         /*** PROFILE ***/
-        .profile-banner {
-            margin-top: 120px;
+        .profile-banner-pic{
+            padding-top:72px;
         }
 
         .profile-profile-pic {
             width: 140px;
             height: 140px;
-            border: 2px solid #fff;
             color: #fff;
-            transform: translateY(-208px);
+            transform: translateY(-80px);
             margin: auto;
         }
 
@@ -1818,20 +1829,32 @@
             width: 6px;
         }
 
+        .prayer-date{
+            margin-left:25%;
+            font-size:12px;
+        }
+
         /*** PROFILE ***/
-        .profile-banner {
-            margin-top: 100px;
+        .profile-banner-pic {
+            padding-top: 52px;
         }
 
         .profile-profile-pic {
             width: 100px;
             height: 100px;
-            transform: translateY(-164px);
+            transform: translateY(-58px);
             margin: auto;
         }
 
         /*** MESSAGES ***/
+        .messages-users-heading{
+            font-size:16px;
+        }
 
+        .feed-profile-img{
+            height:32px;
+            width:32px;
+        }
     }
 
     /************** MOBILE L *****************/
@@ -1930,6 +1953,10 @@
             font-size: 20px;
         }
 
+        .feed-profile-username {
+            font-size:12px;
+        }
+
         #deleteprayer {
             height: 10px;
             width: 10px;
@@ -1941,14 +1968,14 @@
         }
 
         /*** PROFILE ***/
-        .profile-banner {
-            margin-top: 80px;
+        .profile-banner-pic {
+            padding-top: 32px;
         }
 
         .profile-profile-pic {
             width: 72px;
             height: 72px;
-            transform: translateY(-130px);
+            transform: translateY(-44px);
         }
 
         /*** MESSAGES ***/
@@ -1957,7 +1984,7 @@
         }
 
         .messages-users-heading {
-            font-size: 24px;
+            font-size: 14px;
         }
 
         .messages-feed {
