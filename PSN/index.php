@@ -95,7 +95,7 @@
                 <li class='religion-menu-header'>
                     <?php echo $curreligion[0]['religion_name']?>
                     <ul class='religion-menu-items'>
-                    <form method='post' action='php/filterReligion.php'>
+                    <form method='post' action='php/filterReligion.php' style='max-height:300px; overflow-y:scroll; overflow-x:hidden; font-size: 22px;'>
                         <?php foreach($searchrels as $i){
                            echo" <li class='religion-menu-item' onclick='filterRel(".$i['relid'].")'>
                                 ".$i['religion_name']."
