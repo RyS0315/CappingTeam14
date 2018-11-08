@@ -53,7 +53,8 @@
                        AND r.relid = u.primary_religion)
                        OR (ur.userid = $id
                        AND r.relid = ur.relid)))
-                       OR ($id = 1 AND r.relid <> $chosenreligion)";
+                       OR ($id = 1 AND r.relid <> $chosenreligion)
+                       ORDER BY r.religion_name";
     $searchrels = $db->fetchQuery($searchrelquery);
 
 
