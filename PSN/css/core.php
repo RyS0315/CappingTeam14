@@ -36,6 +36,7 @@
                   'commentbox'=>'#fbfb90'],
     ];
     $chosen='Light';
+
     $backgroundcolor = $theme[$chosen]['background'];
     $boxcolor = $theme[$chosen]['boxcolor'];
     $textcolor = $theme[$chosen]['text'];

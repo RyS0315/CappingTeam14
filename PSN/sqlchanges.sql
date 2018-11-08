@@ -154,7 +154,7 @@ Insert into Religions(religion_name) VALUES
 ('Islam'),
 ('Buddhism'),
 ('Hinduism'),
-('Baha\'i'),
+("Baha'i"),
 ('Confucianism'),
 ('Jainism'),
 ('Shinto'),

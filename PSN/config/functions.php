@@ -200,7 +200,11 @@
             AND p.userid = '$id'
             AND pr.relid = '$relid'";
         $result = $db->fetchQuery($query);
-        return $result[0]['num'];
+        if($result){
+            return $result[0]['num'];
+        }else{
+            return 0;
+        }
     }
 
     /**
@@ -212,7 +216,11 @@
     function dateJoined($id, $relid, $db){
         $query = "SELECT user_religions.dateAdded FROM user_religions WHERE userid = '$id' AND relid = '$relid'";
         $result = $db->fetchQuery($query);
-        return formatDate($result[0]['dateAdded']);
+        if($result){
+            return formatDate($result[0]['dateAdded']);
+        } else{
+            return "Not Joined";
+        }
     }
 
     /**
@@ -223,7 +231,11 @@
     function getReputation($id, $relid, $db){
         $query = "SELECT user_religions.reputation FROM user_religions WHERE userid = '$id' AND relid = '$relid'";
         $result = $db->fetchQuery($query);
-        return $result[0]['reputation'];
+        if($result){
+            return $result[0]['reputation'];
+        } else {
+            return 0;
+        }
     }
 
     /**
@@ -241,8 +253,12 @@
         $resultLikes = $db->fetchQuery($queryLikes);
         $queryDislikes = "SELECT count(likes.isLike) as dislikes FROM likes WHERE isLike = 0 AND prayid = '$prayid'";
         $resultDislikes = $db->fetchQuery($queryDislikes);
-        $score = $resultLikes[0]['likes'] - $resultDislikes[0]['dislikes'];
-        return $score;
+        if($resultLikes && $resultDislikes){
+            $score = $resultLikes[0]['likes'] - $resultDislikes[0]['dislikes'];
+            return $score;
+        } else{
+            return $score;
+        }
     }
 
     /**

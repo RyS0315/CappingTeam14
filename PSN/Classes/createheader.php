@@ -82,7 +82,7 @@
                             </a>
                         </li>
                         <li class='mobile-header-link-profile' onclick='ShowMenu()'>
-                            <img class='mobile-profile' src='images/Users/".$this->userid."/Profile/".$this->userid.".jpg'>
+                            <img class='mobile-profile' src='images/Users/".$this->userid."/Profile/".$this->profpic."'>
                         </li>
                     </ul>
                 </div>
