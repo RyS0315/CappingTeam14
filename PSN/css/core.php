@@ -556,18 +556,19 @@
         width:50%;
         margin: auto;
         padding-top:60px;
+        padding-bottom:20px;
     }
 
     .newaccount-form-box{
         width:auto;
-        height:700px;
         max-width:835px;
         border-style: solid;
         border-width:1px;
         border-color:rgba(0,0,0,.2);
         background-color:#ffffff;
-        padding:25px 0px 0px 40px;
-        font-family:'Work Sans'
+        padding:25px 0px 25px 40px;
+        font-family:'Work Sans';
+        border-radius:5px;
     }
 
     .verifyerror{
@@ -576,6 +577,15 @@
 
     #failedpassword{
         color:#ff0000;
+    }
+
+    #invalidChars{
+        color:#ff0000;
+    }
+
+    .religions-container{
+        display:flex;
+        flex-wrap:wrap;
     }
 /*************** INDEX *******************/
     .index-body{
@@ -1150,12 +1160,12 @@
         width:200px;
         position:absolute;
         background-color:<?php echo $feedcolor ?>;
-        border-radius:0px 0px 4px 4px;
+        border-radius:4px 4px 4px 4px;
         border-color:<?php echo $menuborder ?>;
         border-width:1px;
         border-style:solid;
         margin-top:20px;
-        margin-left:-10px;
+        margin-left:-20px;
         display:none;
         z-index:20;
     }

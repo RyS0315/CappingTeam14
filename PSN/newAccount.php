@@ -84,10 +84,29 @@
             return 'Confirm your Password';
         }
         if($password == $confirmpassword){
-            return true;
+            $check = checkStrength($password);
+            if($check == 'passed'){
+                return true;
+            } else{
+                return $check;
+            }
+            
         }else{
             return 'Passwords Do Not Match';
         }
+    }
+
+    function checkStrength($password){
+        if(!preg_match('/[A-Z]/', $password)){
+            return "Password must contain an Uppercase Letter";
+        }
+        if(!preg_match('/[0-9]/', $password)){
+            return "Password must contain a Number";
+        }
+        if(strlen($password) < 8){
+            return "Password must be 8 characters in Length";
+        }
+        return 'passed';
     }
 
     function checkSecurity(){
@@ -107,13 +126,13 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
         $security = $_POST['securityAnswer'];
-        $insertquery = "INSERT into USERS (fname,lname,username,user_password,Primary_Religion,pPicture,bPicture)
-                        VALUES('$firstname', '$lastname','$username','$password' , 2, 'default.png', 'default.png')";
+        $insertquery = "INSERT into USERS (fname,lname,username,user_password,pPicture,bPicture)
+                        VALUES('$firstname', '$lastname','$username','$password' , 'default.png', 'default.png')";
         $insertresult = $db->InsertQuery($insertquery);
         createDir($insertresult);
         setDefaultPhoto($insertresult);
         setUser($insertresult);
-        header('Location:'.getRoot().'index.php');
+        header('Location:'.getRoot().'newAccount-religion.php');
     }
 
     function createDir($id){
@@ -157,7 +176,7 @@
 
     <section class='newaccount-body'>
         <div class='newaccount-form-box'>
-            <h2>Create Account</h2>
+            <h2>Step One - Login Information</h2>
             <form id='newaccount-form-inputs' method='post' action='newAccount.php'>
                 <div class='verifyerror' >
                     <?php echo $message['first'] ?>
@@ -173,6 +192,9 @@
                 </div>
                 <div class='hidden' id='failedpassword'>
                     Passwords Do Not Match
+                </div>
+                <div class='hidden' id='invalidChars'>
+                    Password must reach 8 characters and contain at least one uppercase, and one number
                 </div>
                 <input type='password' id='password' name='password' placeholder='Password'>
                 <input type='password' id='confirmpassword'name='confirmpassword' placeholder='Confirm Password' onblur='checkPassword()'>
@@ -201,6 +223,7 @@
 
         if(passwordcontent == confirmcontent){
             var failed = document.getElementById('failedpassword');
+            checkStrength(passwordcontent);
             $(failed).fadeOut();
         }
         else{
@@ -208,8 +231,33 @@
             $(failed).fadeIn();
         }
     }
-
-    function checkStrength(){
-
+    /**
+     * 
+     * A password must have 
+     * 8 Digits
+     * At least one Uppercase Letter, Lowercase Letter, and Special character
+     * 
+     */
+    function checkStrength(pw){
+        var uppercase = new RegExp(/[A-Z]/);
+        var number = new RegExp(/[0-9]/);
+        var valid = true;
+        if(pw.length < 8){
+            valid = false;
+        }
+        if(!uppercase.test(pw)){
+            valid = false;
+        }
+        if(!number.test(pw)){
+            valid = false;
+        }
+        if(!valid){
+            var failed = document.getElementById('invalidChars');
+            $(failed).fadeIn();
+        } else{
+            var failed = document.getElementById('invalidChars');
+            $(failed).fadeOut();
+        }
     }
+
 </script>

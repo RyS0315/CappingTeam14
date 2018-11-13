@@ -94,16 +94,18 @@
             <ul class='sort-menu'>
                 <li class='religion-menu-header'>
                     <?php echo $curreligion[0]['religion_name']?>
+                    <?php if($searchrels){?>
                     <ul class='religion-menu-items'>
-                    <form method='post' action='php/filterReligion.php' style='max-height:300px; overflow-y:scroll; overflow-x:hidden; font-size: 22px;'>
+                    <form method='post' action='php/filterReligion.php'>
                         <?php foreach($searchrels as $i){
-                           echo" <li class='religion-menu-item' onclick='filterRel(".$i['relid'].")'>
-                                ".$i['religion_name']."
-                                <button id='filter-rel--".$i['relid']."' class='hidden' type='submit' name='religion' value=".$i['relid'].">
+                            echo" <li class='religion-menu-item' onclick='filterRel(".$i['relid'].")'>
+                            ".$i['religion_name']."
+                            <button id='filter-rel--".$i['relid']."' class='hidden' type='submit' name='religion' value=".$i['relid'].">
                             </li>";
                         }?>
                     </form>
-                    </ul>
+                    </ul><?php
+                    }?>
                 </li>
             </ul>
 

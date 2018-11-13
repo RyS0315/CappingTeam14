@@ -48,16 +48,6 @@
             'active'=>''
         ],
         [
-            'name'=>'Email',
-            'link'=>'settings-email.php',
-            'active'=>''
-        ],
-        [
-            'name'=>'Blocked Accounts',
-            'link'=>'settings-blocked.php',
-            'active'=>''
-        ],
-        [
             'name'=>'Themes',
             'link'=>'settings-themes.php',
             'active'=>'current'

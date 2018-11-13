@@ -43,6 +43,8 @@ CREATE TABLE Users(
     phone_number VARCHAR(15),
     pPicture VARCHAR(20),
     bPicture VARCHAR(20),
+    securityquest VARCHAR(100),
+    securityAnswer VARCHAR(20),
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT FK_Users_Religions FOREIGN KEY (Primary_religion) REFERENCES Religions (relid)

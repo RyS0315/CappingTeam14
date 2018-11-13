@@ -48,16 +48,6 @@
             'active'=>''
         ],
         [
-            'name'=>'Email',
-            'link'=>'settings-email.php',
-            'active'=>''
-        ],
-        [
-            'name'=>'Blocked Accounts',
-            'link'=>'settings-blocked.php',
-            'active'=>''
-        ],
-        [
             'name'=>'Themes',
             'link'=>'settings-themes.php',
             'active'=>''
@@ -73,7 +63,8 @@
     $myreligionsquery = "SELECT r.religion_name, r.relid
                          FROM USER_RELIGIONS ur, Religions r
                          WHERE ur.userid = '$id'
-                         AND ur.relid = r.relid";
+                         AND ur.relid = r.relid
+                         ORDER BY r.religion_name";
     $myreligions = $db->fetchQuery($myreligionsquery);
 
     $primaryreligionquery = "SELECT primary_Religion

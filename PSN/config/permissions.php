@@ -50,16 +50,33 @@
             $SETTINGS['firstname'] = $userresult[0]['fname'];
             $SETTINGS['lastname'] = $userresult[0]['lname'];
             $SETTINGS['password'] = $userresult[0]['user_password'];
+            checkPReligion($id, $db);
             return $SETTINGS;
         }
         else{
             $page = basename($_SERVER['REQUEST_URI']);
-            if (require_login($page)) {//This if statement is broken!!!! 
+            if (require_login($page)) {
                 header('Location:login.php');
             }else{
                 return false;
             }
         }
+    }
+
+    function checkPReligion($id, $db){
+        $query = "SELECT u.primary_religion
+                  FROM Users u
+                  WHERE u.userid = $id";
+        $result = $db->fetchQuery($query);
+        $page = basename($_SERVER['REQUEST_URI']);
+        if($page != 'newAccount-Religion.php'){
+            if($result[0]['primary_religion'] == null){
+                header('Location:newAccount-Religion.php');
+            } else{
+                return true;
+            }
+        }
+        return true;
     }
 
     function signOut(){

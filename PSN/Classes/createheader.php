@@ -61,13 +61,14 @@
                         <img class='index-profile-pic' src='".getRoot()."images/Users/".$this->userid."/Profile/".$this->profpic."'>
                     </li>
                 </ul>";
+                $this->createMobileHeader();
                 $this->createUserMenu($this->userid);
             }
             echo "</div></section>";
-            $this->createMobileHeader();
         }
 
         function createMobileHeader() {
+            
             echo"<section class='mobile-header'>
                 <div class='mobile-header-box'>
                     <ul class='mobile-header-link-box'>
@@ -81,7 +82,7 @@
                                 <img class='mobile-notifications' src='images/icons/NotificationIcon.png'>
                             </a>
                         </li>
-                        <li class='mobile-header-link-profile' onclick='ShowMenu()'>
+                        <li id='mobile-header-link-profile' onclick='ShowMenuMobile()'>
                             <img class='mobile-profile' src='images/Users/".$this->userid."/Profile/".$this->profpic."'>
                         </li>
                     </ul>

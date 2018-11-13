@@ -35,11 +35,40 @@
     $header = new Header($db, $menus,$title,$css);
     $header->ShowUserMenu($id);
     $header->displayHeader();
+
+    /**
+     * 
+     * Notifications for a user are comments and upvotes on a prayer
+     * that is associated with that user
+     * 
+     * Do not include downvotes
+     * If score on a prayer reaches the downvote limit give a warning
+     * notification
+     * 
+     */
+    $likesquery = "SELECT l.prayid, COUNT(l.userid) AS likes
+                   FROM Likes l, Prayers p
+                   WHERE p.userid = '$id'
+                   AND p.prayid = l.prayid
+                   GROUP BY l.prayid";
+    $likes = $db->fetchQuery($likesquery);
+
+    $commentsquery = "SELECT COUNT(c.userid) AS comments, c.prayid
+                      FROM Prayers p, Comments c
+                      WHERE p.userid = '$id'
+                      AND c.prayid = p.prayid
+                      GROUP BY c.prayid";
+    $comments = $db->fetchQuery($commentsquery);
+    
+
+
 ?>
     <section class='index-body'>
 
     </section>
 <?php 
+print_ary($likes);
+print_ary($comments);
     $footer = new Footer($db,$src);
     $footer->buildFooter();
 ?>
