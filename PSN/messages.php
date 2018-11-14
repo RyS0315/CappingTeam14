@@ -4,6 +4,15 @@
 
     $curconvo = isset($_SESSION['curconvo']) ? $_SESSION['curconvo'] : '';
 
+    $usersquery = "SELECT u.username
+              FROM users u
+              WHERE u.userid <> $id";
+    $users = $db->fetchQuery($usersquery);
+
+    foreach($users as $i){
+        $usersjs[] = $i['username'];
+    }
+
     $menus = [
         [
             'name'=>'Home',
@@ -87,6 +96,10 @@
 ?>
 
 <script>
-    array = ['RStadel', 'GWiles', 'RSOMETHING'];
+    array = getarrayInfo(<?php echo json_encode($usersjs); ?>);
     autocomplete(document.getElementById("user-search"), array);
+
+    function getarrayInfo(userObj){
+        return userObj;
+    }
 </script>

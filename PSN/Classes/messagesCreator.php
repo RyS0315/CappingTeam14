@@ -25,7 +25,9 @@
                       AND m.userid = '$this->userid')
                       OR (m.userid = u.userid
                       AND m.messageid = um.messageid
-                      AND um.userid = '$this->userid')";
+                      AND um.userid = '$this->userid')
+                      GROUP BY (u.userid)
+                      ORDER BY Max(m.messageid) desc";
             $result = $this->db->fetchQuery($query);
             return $result;
         }

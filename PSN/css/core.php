@@ -1342,9 +1342,9 @@
 
     .messages-settings{
         width:calc(100% - 5px);
-        padding-top:10px;
+        padding-top:5px;
         padding-left:5px;
-        padding-bottom:10px;
+        padding-bottom:5px;
         background-color:<?php echo $feedcolor ?>;
         border-color: rgba(0,0,0,.3);
         border-style: solid;
