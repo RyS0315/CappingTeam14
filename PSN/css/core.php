@@ -377,6 +377,7 @@
         border-color:<?php echo $menuborder ?>;
         border-width:1px;
         border-style:solid;
+        z-index:1000;
     }
 
 
@@ -1340,13 +1341,19 @@
     }
 
     .messages-settings{
-        width:100%;
-        height:50px;
+        width:calc(100% - 5px);
+        padding-top:10px;
+        padding-left:5px;
+        padding-bottom:10px;
         background-color:<?php echo $feedcolor ?>;
         border-color: rgba(0,0,0,.3);
         border-style: solid;
         border-width: 1px;
         border-radius:0px 0px 5px 5px;
+    }
+
+    #user-search{
+        width:95%;
     }
 
     .messages-feed{
@@ -1379,9 +1386,9 @@
     .msg-convo{
         overflow-y:auto;
         overflow-x:hidden;
-        display:grid;
         padding:10px;
         max-height:500px;
+        min-height:500px;
     }
 
     .compose-message{
@@ -1430,6 +1437,7 @@
     .msg-container{
         min-height:50px;
         width:100%;
+        display:table;
     }
 
     .msg-from-me{
@@ -1553,6 +1561,20 @@
         max-width:300px;
         min-height:50px;
         height:auto;
+    }
+/*************** NOTIFICATIONS ***********/
+    .notification-feed{
+        width:60%;
+        margin:auto;
+    }
+    .notification-container{
+        background-color:<?php echo $feedcolor ?>;
+        margin-top:10px;
+        padding:20px;
+        width:100%;
+        min-height:150px;
+        border-radius:5px;
+        border:1px solid <?php echo $menuborder ?>;
     }
 /*************** MEDIA QUERIES ***********/
     @media screen and (max-width: 1250px) {

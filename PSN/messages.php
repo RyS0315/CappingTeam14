@@ -1,11 +1,6 @@
 <?php 
-    include 'config/dbconfig.php';
-    include 'config/permissions.php';
-    include 'config/functions.php';
-    include 'Classes/createheader.php';
-    include 'Classes/createFooter.php';
+    require 'config/ApplicationTop.php';
     include 'Classes/messagesCreator.php';
-    include 'php/onloadscripts.php';
 
     $curconvo = isset($_SESSION['curconvo']) ? $_SESSION['curconvo'] : '';
 
@@ -63,12 +58,19 @@
                     }
                 ?>
             </div>
-            <div class='messages-settings'>
-            </div>
+                <form autocomplete="off" action="openConvo.php">
+                <div class='messages-settings'>
+                <input type='text' name='user' id='user-search' placeholder='Search Users'></textarea>
+                </div>
+            </form>
         </div>
         <div class='messages-feed'>
             <?php 
             if($curconvo != ''){
+                $messages[$curconvo] = $messager->getMessages($curconvo);
+                if(!$messages[$curconvo]){
+                    $messages[$curconvo] = $messager->brandNewConvo($curconvo);
+                }
                 $messager->displayConvo($messages[$curconvo], $curconvo);
             }else{?>
                 <div class='messages-default'>
@@ -83,3 +85,8 @@
     $footer = new Footer($db,$src);
     $footer->buildFooter();
 ?>
+
+<script>
+    array = ['RStadel', 'GWiles', 'RSOMETHING'];
+    autocomplete(document.getElementById("user-search"), array);
+</script>

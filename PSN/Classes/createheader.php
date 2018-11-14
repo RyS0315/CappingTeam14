@@ -61,10 +61,12 @@
                         <img class='index-profile-pic' src='".getRoot()."images/Users/".$this->userid."/Profile/".$this->profpic."'>
                     </li>
                 </ul>";
-                $this->createMobileHeader();
-                $this->createUserMenu($this->userid);
             }
             echo "</div></section>";
+            $this->createMobileHeader();
+            if($this->loggedIn == 1){
+                $this->createUserMenu($this->userid);
+            }
         }
 
         function createMobileHeader() {

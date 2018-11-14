@@ -4,6 +4,7 @@
     include 'config/permissions.php';
     include 'Classes/createheader.php';
     include 'Classes/createFooter.php';
+    include 'Classes/notificationCreator.php';
 
     $menus = [
         [
@@ -60,15 +61,20 @@
                       GROUP BY c.prayid";
     $comments = $db->fetchQuery($commentsquery);
     
-
+    $notify = new Notificationer($db, $id);
 
 ?>
     <section class='index-body'>
-
+    <div class='notification-feed'>
+        <?php foreach($likes as $i){
+            $notify->showLikes($i);    
+        }?>
+        <?php foreach($comments as $i){
+            $notify->showComments($i);    
+        }?>
+    </div>
     </section>
 <?php 
-print_ary($likes);
-print_ary($comments);
     $footer = new Footer($db,$src);
     $footer->buildFooter();
 ?>

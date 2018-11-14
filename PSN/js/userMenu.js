@@ -16,15 +16,15 @@
 
     function ShowMenuMobile(){
         var menu = document.getElementById('header-profile-menu');
-        var button = document.getElementById('mobile-header-profile-pic-link');
+        var button = document.getElementById('mobile-header-link-profile');
         button.removeAttribute('onclick');
         $(menu).fadeIn();
         button.setAttribute('onclick','CloseMenuMobile()');
     }
 
     function CloseMenuMobile(){
-        var menu = document.getElementById('mobile-header-profile-menu');
-        var button = document.getElementById('mobile-header-profile-pic-link');
+        var menu = document.getElementById('header-profile-menu');
+        var button = document.getElementById('mobile-header-link-profile');
         button.removeAttribute('onclick');
         $(menu).fadeOut();
         button.setAttribute('onclick','ShowMenuMobile()');

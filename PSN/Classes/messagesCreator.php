@@ -39,9 +39,11 @@
             $query = "SELECT DISTINCT m.userid, m.msg, u.fname, m.messageid
                       FROM User_messages um, Messages m, Users u
                       WHERE um.messageid = m.messageid
-                      AND u.userid = '$id'
-                      AND(um.userid = '$id'
-                      OR m.userid = '$id')
+                      AND u.userid = $id
+                      AND ((um.userid = '$id'
+                      AND m.userid = $this->userid)
+                      OR (m.userid = '$id'
+                      AND um.userid = $this->userid))
                       ORDER BY m.dateAdded, m.messageid";
             $result = $this->db->fetchQuery($query);
             return $result;
@@ -72,18 +74,20 @@
                  </div>
                  <div id='msg-convo' class='msg-convo'>
                  ";
-            foreach($msgs as $i){
-                echo"<div class='msg-container'>";
+            if($msgs[0]['msg']){
+                foreach($msgs as $i){
+                    echo"<div class='msg-container'>";
                     if($i['userid'] == $this->userid){
                         echo "<div class='msg-from-me'>
-                                    <p class='msg-content' style='color:#ffffff'>".$i['msg']."</p>
-                                </div>";
+                        <p class='msg-content' style='color:#ffffff'>".$i['msg']."</p>
+                        </div>";
                     }else{
                         echo "<div class='msg-to-me'>
                         <p class='msg-content'>".$i['msg']."</p>
                         </div>";
                     }
                     echo "</div>";
+                }
             }
             echo "</div>
                 <div class='compose-message'>
@@ -93,6 +97,19 @@
                     </form>
                  </div>
                  <script>scrollBottom()</script>";
+        }
+
+        function brandNewConvo($id){
+            $query = "SELECT DISTINCT u.fname
+                      FROM Users u
+                      WHERE u.userid = '$id'";
+            $result = $this->db->fetchQuery($query);
+
+            $values[0]['fname'] = $result[0]['fname'];
+            $values[0]['msg'] = null;
+            $values[0]['userid'] = $id;
+
+            return $values;
         }
     }
 ?>
