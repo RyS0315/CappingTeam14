@@ -1148,7 +1148,7 @@
     }
 /*************** RELIGION MENU ***********/
     .sort-menu{
-        font-size:24px;
+        font-size:22px;
         margin-top:20px;
         border:1px solid <?php echo $menuborder ?>;
         background-color:<?php echo $feedcolor ?>;
@@ -1162,7 +1162,9 @@
     }
 
     .religion-menu-items{
-        height:auto;
+        max-height:300px;
+        overflow-y:scroll;
+        overflow-x:hidden;
         width:200px;
         position:absolute;
         background-color:<?php echo $feedcolor ?>;
@@ -1349,7 +1351,6 @@
         width:calc(100% - 5px);
         padding-top:5px;
         padding-left:5px;
-        padding-bottom:5px;
         background-color:<?php echo $feedcolor ?>;
         border-color: rgba(0,0,0,.3);
         border-style: solid;
