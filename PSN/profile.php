@@ -1,9 +1,7 @@
 <?php
-    include 'config/dbconfig.php';
-    include 'config/functions.php';
-    include 'config/permissions.php';
-    include 'Classes/createheader.php';
-    include 'Classes/createFooter.php';
+    require 'config/ApplicationTop.php';
+    include 'Classes/prayers.php';
+    include 'Classes/prayerCommentDisplayer.php';
 
     $pageid = isset($_GET['id']) ? $_GET['id'] : $id;
 
@@ -43,6 +41,18 @@
     $header->ShowUserMenu($id);
     $header->displayHeader();
 
+    $comments = new PrayerCommentDisplayer($db, $id);
+    $feed = new PrayerCreator($db,$id,$comments);
+
+    $prayerquery = "SELECT p.userid, u.fname, u.lname, u.username, p.content, pr.relid, p.prayid, p.img,
+                        r.religion_name, u.pPicture, p.dateLastMaint
+                    FROM Prayers p, Users u, Prayer_Religions pr, Religions r
+                    WHERE p.userid = u.userid
+                    AND pr.prayid = p.prayid
+                    AND pr.relid = r.relid
+                    ORDER BY p.prayid desc";
+    $prayers = $db->FetchQuery($prayerquery);
+
     $userinfoquery = "SELECT username, fname, lname, bio, pPicture, bPicture, dateAdded, Primary_Religion
                       FROM Users
                       WHERE userid = $pageid";
@@ -57,6 +67,13 @@
     <section class='profile-body'>
         <h1 class='profile-header-name'><?php echo $userinfo[0]['fname'] . " " . $userinfo[0]['lname'] ?></h1>
     </section>
+
+    <div id="profile-prayers">
+        <?php
+        foreach($prayers as $i){
+            $feed->showPrayer($i);
+        }?>
+    </div>
 <?php
     $footer = new Footer($db,$src);
     $footer->buildFooter();

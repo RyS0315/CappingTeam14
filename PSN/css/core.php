@@ -840,6 +840,11 @@
         height: auto;
         width:100%;
     }
+
+    #profile-prayers {
+        width:70%;
+        margin:auto;
+    }
 /*************** USERSETTINGS ************/
     .usersettings-box{
         display:block;
