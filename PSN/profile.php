@@ -50,6 +50,7 @@
                     WHERE p.userid = u.userid
                     AND pr.prayid = p.prayid
                     AND pr.relid = r.relid
+                    AND u.userid = '$pageid'
                     ORDER BY p.prayid desc";
     $prayers = $db->FetchQuery($prayerquery);
 

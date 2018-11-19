@@ -75,8 +75,8 @@ CREATE TABLE Prayer_Tags(
     prayid INT(10),
     tagid INT(10),
     PRIMARY KEY(prayid, tagid),
-    dateLastMaint DATETIME,
-    dateAdded DATETIME,
+    dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
+    dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT FK_Prayer_PrayerTags FOREIGN KEY (prayid) REFERENCES Prayers (prayid),
     CONSTRAINT FK_Tag_PrayerTags FOREIGN KEY (tagid) REFERENCES Tags (tagid)
 );
@@ -201,7 +201,7 @@ INSERT INTO User_Religions (userid, relid, reputation, isMod)VALUES
 
 INSERT INTO TAGS(tag_name)VALUES
 ('God'),
-('Relgion'),
+('Religion'),
 ('Pray'),
 ('Faith'),
 ('Believe');

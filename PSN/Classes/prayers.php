@@ -41,12 +41,22 @@
             }
         }
 
+        function getTags($prayid){
+            $tagquery = "SELECT t.tag_name
+                         FROM Prayer_tags pt, tags t
+                         WHERE prayid = $prayid
+                         AND t.tagid = pt.tagid";
+            $tags = $this->db->fetchQuery($tagquery);
+            return $tags;
+        }
+
         function showPrayer($i){
             $this->checkLike($i['prayid']);
             $likeurl = "`php/addLike.php`";
             $likedata = "{prayid : ".$i['prayid']."}";
             $dislikeurl = "`php/addDislike.php`";
             $dislikedata = "{prayid : ".$i['prayid']."}";
+            $tags = $this->getTags($i['prayid']);
             echo "
             <div class='feed-container'>
                 <div class='feed-box'>
@@ -94,6 +104,12 @@
                             <li class='prayer-date'>
                             <p>Posted ". formatDate($i['dateLastMaint']) ."</p>
                             </li>
+                        </ul>
+                        <ul class='prayer-tags-menu'>";
+                            foreach($tags as $t){
+                                echo "<li class='prayer-tag'>#".$t['tag_name']."</li>";
+                            }
+                        echo"
                         </ul>
                     </div>
                 </div>
