@@ -151,17 +151,35 @@
                 if (substr($currentTime,8,2) == substr($date,8,2)) {
                     if (substr($currentTime,11,2) == substr($date,11,2)) {
                         if (substr($currentTime,14,2) == substr($date,14,2)) {
-                            $formattedDate = intval(substr($currentTime,17,2)) - intval(substr($date,17,2))." seconds ago";
-                            return $formattedDate;
+                            if (intval(substr($currentTime,17,2)) - intval(substr($date,17,2)) == 1) {
+                                $formattedDate = intval(substr($currentTime,17,2)) - intval(substr($date,17,2))." second ago";
+                                return $formattedDate;
+                            }
+                            else {
+                                $formattedDate = intval(substr($currentTime,17,2)) - intval(substr($date,17,2))." seconds ago";
+                                return $formattedDate;
+                            }
                         }
                         else {
-                            $formattedDate = intval(substr($currentTime,14,2)) - intval(substr($date,14,2))." minutes ago";
-                            return $formattedDate;
+                            if (intval(substr($currentTime,14,2)) - intval(substr($date,14,2)) == 1) {
+                                $formattedDate = intval(substr($currentTime,14,2)) - intval(substr($date,14,2))." minute ago";
+                                return $formattedDate;
+                            }
+                            else {
+                                $formattedDate = intval(substr($currentTime,14,2)) - intval(substr($date,14,2))." minutes ago";
+                                return $formattedDate;
+                            }
                         }
                     }
                     else {
-                        $formattedDate = intval(substr($currentTime,11,2)) - intval(substr($date,11,2))." hours ago";
-                        return $formattedDate;
+                        if (intval(substr($currentTime,11,2)) - intval(substr($date,11,2)) == 1) {
+                            $formattedDate = intval(substr($currentTime,11,2)) - intval(substr($date,11,2))." hour ago";
+                            return $formattedDate;
+                        }
+                        else {
+                            $formattedDate = intval(substr($currentTime,11,2)) - intval(substr($date,11,2))." hours ago";
+                            return $formattedDate;
+                        }
                     }
                 }
             }
@@ -262,9 +280,9 @@
     }
 
     /**
-     * 
-     * 
-     * 
+     *
+     *
+     *
      */
     function countFollowers($relid, $db){
         $query = "SELECT COUNT(userid) as num
