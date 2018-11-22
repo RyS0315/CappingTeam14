@@ -757,6 +757,27 @@
     #compose-area{
         min-height:100px;
         width:100%;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-top-left-radius:7px;
+        border-top-right-radius: 7px;
+    }
+
+    #tags-area{
+        width: 100%;
+        border-color: #1DA1F2;
+        font-size: 16px;
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+        border-top-left-radius:0px;
+        border-top-right-radius: 0px;
+        text-indent: 5px;
+        font-family: 'Work Sans';
+        border-width:1px;
+    }
+
+    #tags-area:focus{
+        outline: none;
     }
 
     #submit-prayer{
@@ -805,6 +826,41 @@
     #upload-size-error{
         color:#ff0000;
     }
+
+    #cur-tags{
+        display:flex;
+    }
+
+    .tag{
+        border-style:solid;
+        border-width:1px;
+        border-color:<?php echo $menuborder ?>;
+        padding-top:3px;
+        padding-bottom:3px;
+        text-align:center;
+        margin-right:5px;
+        padding-left:5px;
+        padding-right:5px;
+        border-radius:3px;
+        background-color:<?php echo $backgroundcolor?>;
+        display:flex;
+    }
+
+    .tag-desc{
+        padding-right:5px;
+    }
+
+    .drop-tag{
+        height:10px;
+        width:10px;
+        transform:translateY(5px);
+    }
+
+    .drop-tag:hover{
+        cursor:pointer;
+    }
+
+
 /*************** PROFILE *****************/
     .profile-banner{
         width:100%;
@@ -1128,11 +1184,6 @@
         width:90%;
     }
 
-    .comment-feed-content p {
-        width:90%;
-        word-wrap:break-word;
-    }
-
     .show-more{
         width:100%;
         height:50px;
@@ -1163,7 +1214,7 @@
 
     .religion-menu-items{
         max-height:300px;
-        overflow-y:scroll;
+        overflow-y:auto;
         overflow-x:hidden;
         width:200px;
         position:absolute;

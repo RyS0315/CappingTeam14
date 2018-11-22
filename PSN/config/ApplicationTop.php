@@ -6,7 +6,6 @@
     include getRoot().'Classes/createFooter.php';
     include getRoot().'php/onloadscripts.php';
 
-    
     $src[] = ["src"=>"js/userMenu.js", "type"=>"js"];
     $src[] = ["src"=>"js/removePrayer.js", "type"=>"js"];
     $src[] = ["src"=>"js/jqueryinit.php","type"=>"php"];

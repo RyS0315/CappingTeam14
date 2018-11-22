@@ -26,8 +26,6 @@
                 return $i["type"]." is not a valid type";
             }
         }
-
-
     }
 
 ?>

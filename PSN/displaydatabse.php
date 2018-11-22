@@ -4,6 +4,7 @@
     include 'config/functions.php';
     include 'Classes/createheader.php';
     include 'Classes/createFooter.php';
+    
     $menus = [
         [
             'name'=>'Home',
