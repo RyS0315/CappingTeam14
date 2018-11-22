@@ -1715,6 +1715,10 @@
             right: 12%;
         }
 
+        #header-profile-menu{
+            margin-top:60px;
+        }
+
         /* Logo - Left */
         .mobile-logo {
             height: 50px;
@@ -1841,6 +1845,10 @@
             height: 40px;
             width: 40px;
             right: 8%;
+        }
+
+        #header-profile-menu{
+            margin-top: 50px;
         }
 
         /* Logo - Left */
@@ -1975,6 +1983,10 @@
             height: 30px;
             width: 30px;
             right: 5%;
+        }
+
+        #header-profile-menu{
+            margin-top:40px;
         }
 
         /* Logo - Left */
