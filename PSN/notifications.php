@@ -5,6 +5,7 @@
     include 'Classes/createheader.php';
     include 'Classes/createFooter.php';
     include 'Classes/notificationCreator.php';
+    include 'Classes/prayers.php';
 
     $menus = [
         [
@@ -37,6 +38,8 @@
     $header->ShowUserMenu($id);
     $header->displayHeader();
 
+    $prev = new PrayerCreator($db,$id);
+
     /**
      * 
      * Notifications for a user are comments and upvotes on a prayer
@@ -51,17 +54,19 @@
                    FROM Likes l, Prayers p
                    WHERE p.userid = '$id'
                    AND p.prayid = l.prayid
-                   GROUP BY l.prayid";
+                   GROUP BY l.prayid
+                   ORDER BY l.dateLastMaint desc";
     $likes = $db->fetchQuery($likesquery);
 
     $commentsquery = "SELECT COUNT(c.userid) AS comments, c.prayid
                       FROM Prayers p, Comments c
                       WHERE p.userid = '$id'
                       AND c.prayid = p.prayid
-                      GROUP BY c.prayid";
+                      GROUP BY c.prayid
+                      ORDER BY c.dateLastMaint desc";
     $comments = $db->fetchQuery($commentsquery);
     
-    $notify = new Notificationer($db, $id);
+    $notify = new Notificationer($db, $id, $prev);
 
 ?>
     <section class='index-body'>

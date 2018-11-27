@@ -4,6 +4,8 @@ function ShowCompose(){
     var button = document.getElementById('startprayer');
     var close = document.getElementById('closebutton');
     var body = document.body;
+    var page = document.getElementById('body');
+    page.setAttribute('style' , 'position:fixed');
     // body.setAttribute('style', 'overflow:hidden');
     button.removeAttribute('onclick');
     $(box).fadeIn();
@@ -17,6 +19,8 @@ function CloseCompose(){
     var button = document.getElementById('startprayer');
     var close = document.getElementById('closebutton');
     var body = document.body;
+    var page = document.getElementById('body');
+    page.removeAttribute('style' , 'position:fixed');
     // body.setAttribute('style', 'overflow:scroll');
     close.removeAttribute('onclick');
     $(box).fadeOut();

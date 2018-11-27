@@ -2,6 +2,7 @@
     require 'config/ApplicationTop.php';
     include 'Classes/prayers.php';
     include 'Classes/prayerCommentDisplayer.php';
+    include 'Classes/tagDisplayer.php';
 
     $menus = [
         [
@@ -78,9 +79,21 @@
                         FROM Users u
                         WHERE u.userid = $id";
     $dateJoined = $db->FetchQuery($dateJoinedquery);
+
+    $featuredTagsQuery = "SELECT t.tag_name, COUNT(pt.tagid) as nums
+                          FROM Tags t, Prayer_tags pt , prayer_religions pr
+                          WHERE t.tagid = pt.tagid
+                          AND pt.prayid = pr.prayid
+                          AND pr.relid = '$chosenreligion'
+                          GROUP BY pt.tagid
+                          ORDER BY COUNT(pt.tagid) desc
+                          LIMIT 5";
+    $featuredtags = $db->fetchQuery($featuredTagsQuery);
+
+    $tagsdisp = new TagDisplayer($db, $id);
 ?>
 
-    <section class='index-body'>
+    <section class='index-body' id='body'>
         <div class='index-left-box'>
             <p class='trends-header'>My <?php echo $curreligion[0]['religion_name']?> Stats</p>
             <p>Prayers sent: <?php echo prayersSent($id, $curreligion[0]['relid'], $db )?> </p>
@@ -117,6 +130,10 @@
 
         <div class='index-right-box'>
             <p class='trends-header'>Featured Tags</p>
+            <?php
+            foreach($featuredtags as $i){
+                $tagsdisp->showtag($i);
+            }?>
         </div>
     </section>
  <?php

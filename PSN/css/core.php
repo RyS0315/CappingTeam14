@@ -59,6 +59,7 @@
         background-color:<?php echo $backgroundcolor ?>;
         font-family: 'Work Sans' !important;
     }
+
     ::placeholder{
         color:rgba(0,0,0,.4);
     }
@@ -238,9 +239,9 @@
     .close{
         height:30px;
         width:30px;
-        position:absolute;
-        right:25px;
-        top:10px;
+        position:relative;
+        margin-left:95%;
+        transform:translateY(-25px);
     }
 
     .close:hover{
@@ -679,6 +680,11 @@
         font-size:22px;
         color:<?php echo $textcolor ?>;
     }
+
+    .featured-tag-box{
+        padding-top:10px;
+        padding-bottom:10px;
+    }
 /*************** COMPOSE *****************/
     .compose-header{
         width:auto;
@@ -707,20 +713,14 @@
         background-color:<?php echo $buttonhover ?>;
     }
 
-    #compose-prayer{
-        position:absolute;
-        height:100%;
-        width:100%;
-        z-index:100;
-    }
-
     .prayer-box{
         height:auto;
         width:50%;
         margin:auto;
         background-color:<?php echo $feedcolor?>;
-        margin-top:60px;
+        margin-top:100px;
         border-radius:5px;
+        margin-bottom:100px;
     }
 
     #closebutton{
@@ -1089,20 +1089,28 @@
     }
 
     .imglarge-box{
-        width:40%;
+        width:60%;
+        background-color:<?php echo $boxcolor ?>;
+        padding-top:50px;
+        padding-bottom:50px;
         margin:auto;
         margin-top:100px;
+        margin-bottom:100px;
+        border-radius:5px;
+        border-style:solid;
+        border-color:#000000;
+        border-width:1px;
+    }
+
+    .imglarge-img-container{
+        width:95%;
+        margin:auto;
+        border-radius:5px;
+        overflow:hidden;
     }
 
     #imglarge{
         width:100%;
-    }
-
-    #imglarge-body{
-        position:absolute;
-        height:100%;
-        width:100%;
-        z-index:100;
     }
 
     .prayer-score{
@@ -1624,6 +1632,7 @@
         width:60%;
         margin:auto;
     }
+
     .notification-container{
         background-color:<?php echo $feedcolor ?>;
         margin-top:10px;
@@ -1632,6 +1641,12 @@
         min-height:150px;
         border-radius:5px;
         border:1px solid <?php echo $menuborder ?>;
+    }
+
+    .prayer-prev{
+        max-height:250px;
+        overflow-y:scroll;
+        overflow-x:hidden;
     }
 /*************** MEDIA QUERIES ***********/
     @media screen and (max-width: 1250px) {
