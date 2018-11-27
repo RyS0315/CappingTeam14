@@ -601,7 +601,7 @@
 
     .index-left-box{
         width:20%;
-        display:block;
+        display:table;
         height: auto;
         max-height:600px;
         background-color: <?php echo $boxcolor ?>;
@@ -617,6 +617,7 @@
 
     .index-left-box p{
         padding-left:16px;
+        padding-bottom:20px;
     }
 
     .index-center-box{
@@ -629,10 +630,10 @@
     .index-right-box{
         width:20%;
         background-color: <?php echo $boxcolor ?>;
-        max-height:600px;
         margin-top:20px;
         border-radius:4px;
         border:1px solid <?php echo $menuborder ?>;
+        display:table;
     }
 
     .index-right-box p{
@@ -682,8 +683,7 @@
     }
 
     .featured-tag-box{
-        padding-top:10px;
-        padding-bottom:10px;
+        padding-bottom:20px;
     }
 /*************** COMPOSE *****************/
     .compose-header{

@@ -97,9 +97,7 @@
         <div class='index-left-box'>
             <p class='trends-header'>My <?php echo $curreligion[0]['religion_name']?> Stats</p>
             <p>Prayers sent: <?php echo prayersSent($id, $curreligion[0]['relid'], $db )?> </p>
-            <br>
             <p> Reputation: <?php echo getReputation($id, $curreligion[0]['relid'], $db )?></p>
-            <br>
             <p> Joined: <?php echo dateJoined($id, $curreligion[0]['relid'], $db )?> </p>
         </div>
 
