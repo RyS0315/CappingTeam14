@@ -612,11 +612,6 @@
         border:1px solid <?php echo $menuborder ?>;
     }
 
-    .trends-header{
-        padding-bottom: 10px;
-        border-bottom: 1px solid <?php echo $menuborder ?>;
-    }
-
     .index-left-box p{
         padding-left:16px;
         padding-bottom:15px;
@@ -692,7 +687,6 @@
         padding-top: 12px;
         padding-bottom: 12px !important;
         margin-bottom:4px;
-        background-color: <?php echo $boxcolor ?>;
         font-size:20px;
         border-bottom-style:solid;
         border-bottom-color:<?php echo $menuborder ?>;
@@ -944,6 +938,7 @@
     .trends-header {
         margin-top: 4px;
         margin-bottom: 10px;
+        font-size: 20px;
         background-color: <?php echo $commentcolor ?>;
     }
 /*************** USERSETTINGS ************/
@@ -1777,11 +1772,6 @@
     }
 
     @media screen and (max-width: 1024px) {
-        .profile-body {
-            max-width: 30%;
-            margin-left: 40px;
-        }
-
         .messages-feed{
             width:60%;
         }
@@ -1845,7 +1835,7 @@
         }
     }
 
-    /*********** TABLET **************/
+/*********** TABLET **************/
     @media screen and (max-width: 768px) {
         /*** INDEX ***/
         .index-body {
@@ -2017,9 +2007,7 @@
         }
 
         .profile-body {
-            transform: translateY(-160px);
-            margin-left: 20px;
-            max-width: 34%;
+            transform: translateY(-100px);
         }
 
         .profile-header-name {
@@ -2065,7 +2053,7 @@
             width: 24.3%;
         }
     }
-
+/*********** 600px ***************/
     @media screen and (max-width: 600px) {
         .mobile-header {
             height: 50px;
@@ -2193,9 +2181,7 @@
         }
 
         .profile-body {
-            transform: translateY(-120px);
-            margin-left: 20px;
-            max-width: 33%;
+            transform: translateY(-72px);
         }
 
         .profile-header-name {
@@ -2329,8 +2315,7 @@
         }
 
         .profile-body {
-            transform: translateY(-90px);
-            margin-left: 10px;
+            transform: translateY(-52px);
         }
 
         .profile-header-name {
