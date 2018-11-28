@@ -677,13 +677,6 @@
         padding-bottom:10px;
     }
 
-    .trends-header{
-        margin-top:10px;
-        margin-bottom:10px;
-        font-size:22px;
-        color:<?php echo $textcolor ?>;
-    }
-
     .featured-tag-box{
         padding-bottom:20px;
     }
@@ -945,6 +938,7 @@
         margin-top: 4px;
         margin-bottom: 10px;
         background-color: <?php echo $commentcolor ?>;
+        font-size:20px;
     }
 /*************** USERSETTINGS ************/
     .usersettings-box{
@@ -1522,7 +1516,7 @@
         overflow-y:auto;
         overflow-x:hidden;
         padding:10px;
-        height: 60%;
+        height: 65%;
     }
 
     .compose-message{
