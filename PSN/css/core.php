@@ -717,7 +717,7 @@
 
     .prayer-box{
         height:auto;
-        width:50%;
+        width:70%;
         margin:auto;
         background-color:<?php echo $feedcolor?>;
         margin-top:100px;
@@ -965,12 +965,12 @@
 
     .feed-container{
         border:1px solid <?php echo $menuborder ?>;
-        width:100%;
+        width:99.6%;
         height:auto;
-        background-color:<?php echo $feedcolor ?>;
+        background-color: <?php echo $feedcolor ?>;
         margin-top: 20px;
-        padding-top:10px;
-        border-radius:4px;
+        padding-top: 10px;
+        border-radius: 5px;
     }
 
     .feed-box{
@@ -1897,7 +1897,6 @@
             background-color: <?php echo $boxcolor ?>;
             border-bottom: 1px solid <?php echo $menuborder ?>;
             opacity: 1;
-            transition: top 0.2s ease-in-out;
         }
 
         .mobile-search-box-up {
