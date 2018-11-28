@@ -2311,7 +2311,7 @@
 
         /*** MESSAGES ***/
         .messages-users-settings-box {
-            width: 28%;
+            display: none;
         }
 
         .messages-users-heading {
@@ -2320,7 +2320,7 @@
 
         .messages-feed {
             margin-left: 20px;
-            width: 70%;
+            width: 96%;
         }
 
         #user-searchautocomplete-list{

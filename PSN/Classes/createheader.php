@@ -70,7 +70,7 @@
         }
 
         function createMobileHeader() {
-            
+
             echo"<section class='mobile-header'>
                 <div class='mobile-header-box'>
                     <ul class='mobile-header-link-box'>
@@ -97,7 +97,7 @@
                             </a>
                         </li>
                         <li class='mobile-header-link-prayer'>
-                            <div id='mobile-start-prayer' onclick='ShowCompose()'>PRAY</div>
+                            <div id='mobile-start-prayer' class='button' onclick='ShowCompose()'>PRAY</div>
                         </li>
                     </ul>
                 </div>
@@ -199,8 +199,8 @@
                     <form method='post' class='compose-content' action='php/submitprayer.php' enctype='multipart/form-data'>
                         <textarea id='compose-area' name='newprayer' placeholder='Compose Your Prayer'
                                   onkeyup='auto_grow(this)'></textarea>
-                        <input type='text' id='tags-area' name='prayertags' placeholder='Add a Tag' 
-                            onkeypress='if (event.keyCode == 13) {event.preventDefault(); addTag(this) } 
+                        <input type='text' id='tags-area' name='prayertags' placeholder='Add a Tag'
+                            onkeypress='if (event.keyCode == 13) {event.preventDefault(); addTag(this) }
                             if (event.keyCode === 32) {return false;}'>
                         <div id='cur-tags'>
                         </div>
