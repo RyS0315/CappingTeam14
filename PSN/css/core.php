@@ -717,7 +717,7 @@
 
     .prayer-box{
         height:auto;
-        width:50%;
+        width:70%;
         margin:auto;
         background-color:<?php echo $feedcolor?>;
         margin-top:60px;
@@ -861,8 +861,6 @@
     .drop-tag:hover{
         cursor:pointer;
     }
-
-
 /*************** PROFILE *****************/
     .profile-banner{
         width:100%;
@@ -877,16 +875,10 @@
 
     .profile-body{
         position:relative;
-        width:90%;
-        margin:auto;
-        transform:translateY(-250px);
+        margin-left:8%;
+        transform: translateY(-260px);
     }
 
-    .profile-header-name{
-        font-size:40px;
-    }
-
-    /* TODO - Fix Profile Picture location */
     .profile-profile-pic{
         border-radius: 50%;
         width:240px;
@@ -908,6 +900,15 @@
         width:50%;
         margin:auto;
         transform:translateY(-225px);
+    }
+
+    .profile-header-name {
+        font-size: 2.6em;
+    }
+
+    #profile-prayers {
+        transform: translateY(-212px);
+        width: 72%;
     }
 /*************** USERSETTINGS ************/
     .usersettings-box{
@@ -965,16 +966,17 @@
 
     .feed-container{
         border:1px solid <?php echo $menuborder ?>;
-        width:100%;
+        width:99.6%;
         height:auto;
-        background-color:<?php echo $feedcolor ?>;
+        background-color: <?php echo $feedcolor ?>;
         margin-top: 20px;
-        padding-top:10px;
-        border-radius:4px;
+        padding-top: 10px;
+        border-radius: 5px;
     }
 
     .feed-box{
         padding:20px;
+        padding-bottom:16px;
         display:flex;
         border-bottom-style:solid;
         border-bottom-color:<?php echo $backgroundcolor ?>;
@@ -1125,6 +1127,15 @@
         margin-left:10px;
         margin-top:20px;
         font-size:30px;
+    }
+
+    .prayer-tags-menu {
+        margin-top:12px;
+        margin-bottom:0px;
+    }
+
+    .prayer-tag {
+        margin-right:6px;
     }
 /*************** COMMENTS ****************/
     .feed-comment-box{
@@ -1291,6 +1302,11 @@
         margin-bottom:10px;
     }
 
+    #banner-prev img {
+        height: auto;
+        width: 100%;
+    }
+
     #banner-preview{
         width:600px;
         height:300px;
@@ -1388,7 +1404,6 @@
         border-bottom-left-radius:5px;
     }
 /*************** MESSAGES ****************/
-
     .messages-users-settings-box{
         display:inline-block;
         width:21%;
@@ -1425,18 +1440,18 @@
     }
 
     .messages-settings{
-        width:calc(100% - 5px);
-        padding-top:5px;
-        padding-left:5px;
+        width:calc(100% - 8px);
+        padding-top:8px;
+        padding-left:8px;
         background-color:<?php echo $feedcolor ?>;
-        border-color: rgba(0,0,0,.3);
-        border-style: solid;
-        border-width: 1px;
+        border: 1px solid rgba(0,0,0,.3);
+        border-top:0px;
         border-radius:0px 0px 5px 5px;
+        height:44px;
     }
 
     #user-search{
-        width:95%;
+        width:97%;
     }
 
     .messages-feed{
@@ -1448,6 +1463,7 @@
         border-width: 1px;
         border-radius: 5px;
         margin-top:20px;
+        height: 75.7%   ;
     }
 
     .msg-user-name-box{
@@ -1554,6 +1570,24 @@
     .messages-default{
         height:600px;
     }
+
+    #user-searchautocomplete-list{
+        display:block;
+        position:absolute;
+        transform:translateY(-500px);
+        width:18.8%;
+        background-color: <?php echo $feedcolor ?>;
+        border: 1px solid <?php echo $menuborder ?>;
+        border-radius: 5px 5px 0px 0px;
+        border-bottom: none;
+        height: 490px;
+    }
+
+    .autocomplete-uni-item{
+        padding:6px;
+        font-size: 20px;
+        border-bottom: 1px solid <?php echo $menuborder ?>;
+    }
 /*************** DATABASE ****************/
     .database-body{
         padding-top: 70px;
@@ -1647,14 +1681,14 @@
     }
 /*************** NOTIFICATIONS ***********/
     .notification-feed{
-        width:60%;
+        width:72%;
         margin:auto;
     }
 
     .notification-container{
         background-color:<?php echo $feedcolor ?>;
-        margin-top:10px;
-        padding:20px;
+        margin-top:16px;
+        padding:16px;
         width:100%;
         min-height:150px;
         border-radius:5px;
@@ -1688,6 +1722,34 @@
 
         .messages-users-heading{
             font-size: 24px;
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+        .profile-body {
+            max-width: 30%;
+            margin-left: 40px;
+        }
+
+        .messages-feed{
+            width:60%;
+        }
+
+        .feed-profile-img {
+            height: 38px;
+            width: 38px;
+        }
+
+        .message-preview-name {
+            font-size: 14px;
+        }
+
+        .message-preview-msg {
+            font-size: 14px;
+        }
+
+        #user-searchautocomplete-list {
+            width: 18.4%;
         }
     }
 
@@ -1799,6 +1861,10 @@
             right: 12%;
         }
 
+        #header-profile-menu{
+            margin-top:60px;
+        }
+
         /* Logo - Left */
         .mobile-logo {
             height: 50px;
@@ -1827,11 +1893,15 @@
         .mobile-search-box {
             height: 60px;
             width: 100%;
-            position: absolute;
+            position: fixed;
             top: 61px;
             background-color: <?php echo $boxcolor ?>;
             border-bottom: 1px solid <?php echo $menuborder ?>;
             opacity: 1;
+        }
+
+        .mobile-search-box-up {
+            top: 0px;
         }
 
         .mobile-search-link-box {
@@ -1890,6 +1960,21 @@
             margin: auto;
         }
 
+        .profile-body {
+            transform: translateY(-160px);
+            margin-left: 20px;
+            max-width: 34%;
+        }
+
+        .profile-header-name {
+            font-size: 2em;
+        }
+
+        #profile-prayers {
+            transform: translateY(-136px);
+            width: 82%;
+        }
+
         /*** MESSAGES ***/
         .messages-users-settings-box {
             width: 28%;
@@ -1913,6 +1998,10 @@
             margin-left: 20px;
             width: 70%;
         }
+
+        #user-searchautocomplete-list{
+            width: 24.3%;
+        }
     }
 
     @media screen and (max-width: 600px) {
@@ -1925,6 +2014,10 @@
             height: 40px;
             width: 40px;
             right: 8%;
+        }
+
+        #header-profile-menu{
+            margin-top: 50px;
         }
 
         /* Logo - Left */
@@ -2037,6 +2130,21 @@
             margin: auto;
         }
 
+        .profile-body {
+            transform: translateY(-120px);
+            margin-left: 20px;
+            max-width: 33%;
+        }
+
+        .profile-header-name {
+            font-size: 1.5em;
+        }
+
+        #profile-prayers {
+            transform: translateY(-104px);
+            width: 92%;
+        }
+
         /*** MESSAGES ***/
         .messages-users-heading{
             font-size:16px;
@@ -2045,6 +2153,22 @@
         .feed-profile-img{
             height:32px;
             width:32px;
+        }
+
+        .message-preview-content {
+            margin-left:6px;
+        }
+
+        .message-preview {
+            padding: 4px;
+        }
+
+        .message-preview-img {
+            display: none;
+        }
+
+        #user-searchautocomplete-list{
+            width:23.8%;
         }
     }
 
@@ -2059,6 +2183,10 @@
             height: 30px;
             width: 30px;
             right: 5%;
+        }
+
+        #header-profile-menu{
+            margin-top:40px;
         }
 
         /* Logo - Left */
@@ -2169,6 +2297,19 @@
             transform: translateY(-44px);
         }
 
+        .profile-body {
+            transform: translateY(-90px);
+            margin-left: 10px;
+        }
+
+        .profile-header-name {
+            font-size: 1.2em;
+        }
+
+        #profile-prayers {
+            transform: translateY(-86px);
+        }
+
         /*** MESSAGES ***/
         .messages-users-settings-box {
             width: 28%;
@@ -2181,5 +2322,9 @@
         .messages-feed {
             margin-left: 20px;
             width: 70%;
+        }
+
+        #user-searchautocomplete-list{
+            width:22.2%;
         }
     }
