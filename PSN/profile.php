@@ -68,7 +68,8 @@
     $allrelsquery = "SELECT r.religion_name
                       FROM Religions r, User_Religions u
                       WHERE u.userid = $pageid
-                      AND u.relid = r.relid";
+                      AND u.relid = r.relid
+                      ORDER BY r.religion_name";
     $allrels = $db->fetchQuery($allrelsquery);
 
     $userinfoquery = "SELECT username, fname, lname, bio, pPicture, bPicture, dateAdded, Primary_Religion
