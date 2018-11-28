@@ -619,7 +619,7 @@
 
     .index-left-box p{
         padding-left:16px;
-        padding-bottom:20px;
+        padding-bottom:15px;
     }
 
     .index-center-box{
@@ -933,6 +933,17 @@
         margin-top: 4px;
         margin-bottom: 4px;
         background-color: <?php echo $commentcolor ?>;
+    }
+
+    .index-trends-header {
+        padding-top: 12px;
+        padding-bottom: 12px !important;
+        margin-bottom:4px;
+        background-color: <?php echo $boxcolor ?>;
+        font-size:20px;
+        border-bottom-style:solid;
+        border-bottom-color:<?php echo $menuborder ?>;
+        border-bottom-width:1px;
     }
 /*************** USERSETTINGS ************/
     .usersettings-box{
@@ -1984,6 +1995,11 @@
             padding-right: 15px;
             padding-left: 15px;
             font-weight: bold;
+        }
+
+        #mobile-start-prayer:hover{
+            cursor:pointer;
+            background-color:<?php echo $buttonhover ?>;
         }
 
         /*** PROFILE ***/

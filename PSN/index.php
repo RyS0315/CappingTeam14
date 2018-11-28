@@ -96,7 +96,7 @@
 
     <section class='index-body' id='body'>
         <div class='index-left-box'>
-            <p class='trends-header'>My <?php echo $curreligion[0]['religion_name']?> Stats</p>
+            <p class='index-trends-header'>My <?php echo $curreligion[0]['religion_name']?> Stats</p>
             <p>Prayers sent: <?php echo prayersSent($id, $curreligion[0]['relid'], $db )?> </p>
             <p> Reputation: <?php echo getReputation($id, $curreligion[0]['relid'], $db )?></p>
             <p> Joined: <?php echo dateJoined($id, $curreligion[0]['relid'], $db )?> </p>
@@ -128,7 +128,7 @@
         </div>
 
         <div class='index-right-box'>
-            <p class='trends-header'>Featured Tags</p>
+            <p class='index-trends-header'>Featured Tags</p>
             <?php
             foreach($featuredtags as $i){
                 $tagsdisp->showtag($i);
