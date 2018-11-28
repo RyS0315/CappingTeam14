@@ -1,7 +1,7 @@
 <?php
     header("Content-type: text/css; charset: UTF-8");
     $theme = [
-        'Light'=>['background'=>'#efe9ef',
+        'Light'=>['background'=>'#efe6f3',
                   'text'=>'rgba(0,0,0,.65)',
                   'boxcolor'=>'#f3e1ff',
                   'link'=>'#a415df',
@@ -23,19 +23,19 @@
                   'buttonhover'=>'#8405af',
                   'buttontext'=>'#ffffff',
                   'commentbox'=>'#320942'],
-        'Gold'=>['background'=>'#f3c812',
+        'Gold'=>['background'=>'#f3d842',
                   'text'=>'rgba(0,0,0,.65)',
-                  'boxcolor'=>'#ffff00',
+                  'boxcolor'=>'#ffff66',
                   'link'=>'#a415df',
-                  'feed'=>'#ffff00',
+                  'feed'=>'#ffffbb',
                   'menuborder'=>'rgba(0,0,0,.3)',
                   'boldcolor'=>'#000000',
                   'buttoncolor'=>'#a415df',
                   'buttonhover'=>'#8405af',
                   'buttontext'=>'#f3e1ff',
-                  'commentbox'=>'#fbfb90'],
+                  'commentbox'=>'#ffff88'],
     ];
-    $chosen='Light';
+    $chosen='Gold';
 
     $backgroundcolor = $theme[$chosen]['background'];
     $boxcolor = $theme[$chosen]['boxcolor'];
