@@ -51,6 +51,26 @@
                     ORDER BY p.prayid desc";
     $prayers = $db->FetchQuery($prayerquery);
 
+    $prayertotalquery = "SELECT count(p.prayid) as total_prayers
+                    FROM Prayers p, Users u, Prayer_Religions pr, Religions r
+                    WHERE p.userid = u.userid
+                    AND pr.prayid = p.prayid
+                    AND pr.relid = r.relid
+                    AND u.userid = $pageid";
+    $totalprayers = $db->FetchQuery($prayertotalquery);
+
+    $primaryrelquery = "SELECT r.religion_name
+                      FROM Religions r, Users u
+                      WHERE u.userid = $pageid
+                      AND u.primary_religion = r.relid";
+    $primaryrel = $db->fetchQuery($primaryrelquery);
+
+    $allrelsquery = "SELECT r.religion_name
+                      FROM Religions r, User_Religions u
+                      WHERE u.userid = $pageid
+                      AND u.relid = r.relid";
+    $allrels = $db->fetchQuery($allrelsquery);
+
     $userinfoquery = "SELECT username, fname, lname, bio, pPicture, bPicture, dateAdded, Primary_Religion
                       FROM Users
                       WHERE userid = $pageid";
@@ -65,6 +85,22 @@
     <img class='profile-profile-pic' src='images/Users/<?php echo $pageid?>/Profile/<?php echo $userinfo[0]['pPicture']?>'>
     <div class='profile-body'>
         <h1 class='profile-header-name'><?php echo $userinfo[0]['fname'] . " " . $userinfo[0]['lname'] ?></h1>
+    </div>
+
+    <div id="profile-stats">
+        Primary Religion: <?php echo $primaryrel[0]['religion_name'] ?>
+        <br>
+        Total Prayers Sent: <?php echo $totalprayers[0]['total_prayers'] ?>
+        <br>
+        <?php echo count($allrels)?>
+        Religions Followed: <?php for($i = 0; $i < count($allrels); $i++) {
+            if ($i == count($allrels) - 1) {
+                echo $allrels[$i]['religion_name'];
+            }
+            else {
+                echo $allrels[$i]['religion_name'].", ";
+            }
+        }?>
     </div>
 
     <div id="profile-prayers">
