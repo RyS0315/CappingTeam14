@@ -1,7 +1,7 @@
 <?php
     header("Content-type: text/css; charset: UTF-8");
     $theme = [
-        'Light'=>['background'=>'#efe9ef',
+        'Light'=>['background'=>'#efe6f3',
                   'text'=>'rgba(0,0,0,.65)',
                   'boxcolor'=>'#f3e1ff',
                   'link'=>'#a415df',
@@ -23,17 +23,17 @@
                   'buttonhover'=>'#8405af',
                   'buttontext'=>'#ffffff',
                   'commentbox'=>'#320942'],
-        'Gold'=>['background'=>'#f3c812',
+        'Gold'=>['background'=>'#ffff66',
                   'text'=>'rgba(0,0,0,.65)',
-                  'boxcolor'=>'#ffff00',
+                  'boxcolor'=>'#ffff12',
                   'link'=>'#a415df',
-                  'feed'=>'#ffff00',
+                  'feed'=>'#ffffbb',
                   'menuborder'=>'rgba(0,0,0,.3)',
                   'boldcolor'=>'#000000',
                   'buttoncolor'=>'#a415df',
                   'buttonhover'=>'#8405af',
                   'buttontext'=>'#f3e1ff',
-                  'commentbox'=>'#fbfb90'],
+                  'commentbox'=>'#ffff88'],
     ];
     $chosen='Light';
 
@@ -59,6 +59,7 @@
         background-color:<?php echo $backgroundcolor ?>;
         font-family: 'Work Sans' !important;
     }
+
     ::placeholder{
         color:rgba(0,0,0,.4);
     }
@@ -76,6 +77,8 @@
         margin-block-end: 0em;
         margin-inline-start: 0px;
         margin-inline-end: 0px;
+        margin:0px;
+        padding:0px;
     }
 
     h2 {
@@ -238,9 +241,9 @@
     .close{
         height:30px;
         width:30px;
-        position:absolute;
-        right:25px;
-        top:10px;
+        position:relative;
+        margin-left:95%;
+        transform:translateY(-25px);
     }
 
     .close:hover{
@@ -600,7 +603,7 @@
 
     .index-left-box{
         width:20%;
-        display:block;
+        display:table;
         height: auto;
         max-height:600px;
         background-color: <?php echo $boxcolor ?>;
@@ -616,6 +619,7 @@
 
     .index-left-box p{
         padding-left:16px;
+        padding-bottom:20px;
     }
 
     .index-center-box{
@@ -628,10 +632,10 @@
     .index-right-box{
         width:20%;
         background-color: <?php echo $boxcolor ?>;
-        max-height:600px;
         margin-top:20px;
         border-radius:4px;
         border:1px solid <?php echo $menuborder ?>;
+        display:table;
     }
 
     .index-right-box p{
@@ -679,6 +683,10 @@
         font-size:22px;
         color:<?php echo $textcolor ?>;
     }
+
+    .featured-tag-box{
+        padding-bottom:20px;
+    }
 /*************** COMPOSE *****************/
     .compose-header{
         width:auto;
@@ -707,20 +715,14 @@
         background-color:<?php echo $buttonhover ?>;
     }
 
-    #compose-prayer{
-        position:absolute;
-        height:100%;
-        width:100%;
-        z-index:100;
-    }
-
     .prayer-box{
         height:auto;
         width:50%;
         margin:auto;
         background-color:<?php echo $feedcolor?>;
-        margin-top:60px;
+        margin-top:100px;
         border-radius:5px;
+        margin-bottom:100px;
     }
 
     #closebutton{
@@ -1096,20 +1098,28 @@
     }
 
     .imglarge-box{
-        width:40%;
+        width:60%;
+        background-color:<?php echo $boxcolor ?>;
+        padding-top:50px;
+        padding-bottom:50px;
         margin:auto;
         margin-top:100px;
+        margin-bottom:100px;
+        border-radius:5px;
+        border-style:solid;
+        border-color:#000000;
+        border-width:1px;
+    }
+
+    .imglarge-img-container{
+        width:95%;
+        margin:auto;
+        border-radius:5px;
+        overflow:hidden;
     }
 
     #imglarge{
         width:100%;
-    }
-
-    #imglarge-body{
-        position:absolute;
-        height:100%;
-        width:100%;
-        z-index:100;
     }
 
     .prayer-score{
@@ -1271,6 +1281,10 @@
         margin-left:25px;
         padding:25px;
         padding-top:0px;
+        border-radius:5px;
+        border-style:solid;
+        border-color: rgba(0,0,0,.3);
+        border-width:1px;
     }
 
     #profile-prev{
@@ -1315,7 +1329,12 @@
         width:75%;
         background-color:<?php echo $feedcolor ?>;
         padding:20px;
+        padding-top:0px;
         margin-left:25px;
+        border-radius:5px;
+        border-style:solid;
+        border-color: rgba(0,0,0,.3);
+        border-width:1px;
     }
 
     .my-religions{
@@ -1331,6 +1350,7 @@
         border-radius:5px;
         border-style:solid;
         border-width:1px;
+        border-color: rgba(0,0,0,.3);
     }
 
     .all-religions{
@@ -1663,6 +1683,7 @@
         width:72%;
         margin:auto;
     }
+
     .notification-container{
         background-color:<?php echo $feedcolor ?>;
         margin-top:16px;
@@ -1671,6 +1692,12 @@
         min-height:150px;
         border-radius:5px;
         border:1px solid <?php echo $menuborder ?>;
+    }
+
+    .prayer-prev{
+        max-height:250px;
+        overflow-y:scroll;
+        overflow-x:hidden;
     }
 /*************** MEDIA QUERIES ***********/
     @media screen and (max-width: 1250px) {

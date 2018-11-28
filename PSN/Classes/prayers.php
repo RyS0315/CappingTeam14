@@ -14,7 +14,7 @@
         
         protected $dislikeclass;
 
-        Public function __construct($db,$userid,$comments){
+        Public function __construct($db, $userid, $comments = null){
             $this->db = $db;
             $this->userid = $userid;
             $this->comments = $comments;
@@ -113,18 +113,35 @@
                         </ul>
                     </div>
                 </div>
-                <div class='feed-comment-box'>";
+                ";
+                if($this->comments){
+                    echo"
+                    <div class='feed-comment-box'>";
                     $this->comments->showComments($i);
                     echo "<div class='post-comment'>
-                        <form method='post' action='php/prayercomment.php'>
-                            <textarea class='comment' name='comment' style='height:35px' onkeyup='auto_grow(this)' placeholder='Comment'></textarea>
-                            <div id='submit-comment-box'>
-                                <button type='submit' name='prayid' id='submit-comment' value='".$i['prayid']."'>Submit</button>
-                            </div>
-                        </form>
+                    <form method='post' action='php/prayercomment.php'>
+                    <textarea class='comment' name='comment' style='height:35px' onkeyup='auto_grow(this)' placeholder='Comment'></textarea>
+                    <div id='submit-comment-box'>
+                    <button type='submit' name='prayid' id='submit-comment' value='".$i['prayid']."'>Submit</button>
                     </div>
-                </div>
-            </div>";
-            }
+                    </form>
+                    </div>
+                    </div>
+                    </div>";
+                }
+                $this->createLargeImageContainer($i);
+        }
+
+        function createLargeImageContainer($i){
+            echo"<div id='imglarge-body' class='hidden'>
+                    <div class='imglarge-box'>
+                    <img id='closelargeimg' class='close' src='images/icons/close.png'>
+                    <div class='imglarge-img-container'>
+                        <img id='imglarge' src='#'>
+                    </div>
+                    </div>
+                </div>";
+        }
     }
+
 ?>

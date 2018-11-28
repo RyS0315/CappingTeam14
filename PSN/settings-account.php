@@ -62,7 +62,7 @@
     $userinfo = $db->fetchQuery($userinfoquery);
     ?>
 
-<section class='index-body'>
+<section class='index-body' id='body'>
 
     <?php $usersettings->displaySettings();?>
 

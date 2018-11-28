@@ -1,6 +1,4 @@
 <?php
-
-
 /**
  * Database Functions with MYSQL commands
  */
@@ -105,5 +103,4 @@ function parseScript($script) {
     return $result;
   
   }
-
 ?>
