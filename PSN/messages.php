@@ -1,4 +1,4 @@
-<?php 
+<?php
     require 'config/ApplicationTop.php';
     include 'Classes/messagesCreator.php';
 
@@ -35,7 +35,7 @@
             'active'=>'active'
         ]
     ];
-    
+
 
     $header = new Header($db, $menus,$title,$css);
     $header->ShowUserMenu($id);
@@ -44,10 +44,11 @@
     $messager = new messageCreator($db, $id);
 
     $users = $messager->getUsers();
-    
+
 ?>
 
     <section class='index-body' id='body'>
+        <img class='mobile-message-button' src='images/icons/messageArrow.png'>
         <div class='messages-users-settings-box'>
             <div class='messages-users-heading-box'>
                 <p class='messages-users-heading'>Conversations</p>
@@ -70,7 +71,7 @@
             </form>
         </div>
         <div class='messages-feed'>
-            <?php 
+            <?php
             if($curconvo != ''){
                 $messages[$curconvo] = $messager->getMessages($curconvo);
                 if(!$messages[$curconvo]){
@@ -81,12 +82,12 @@
                 <div class='messages-default'>
 
                 <p>No Conversation Selected</p>
-                
+
                 </div>
             <?php } ?>
         </div>
     </section>
-<?php 
+<?php
     $footer = new Footer($db,$src);
     $footer->buildFooter();
 ?>
