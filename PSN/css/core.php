@@ -909,6 +909,12 @@
         transform: translateY(-212px);
         width: 72%;
     }
+
+    #profile-stats {
+        transform: translateY(-212px);
+        width: 72%;
+        margin: auto;
+    }
 /*************** USERSETTINGS ************/
     .usersettings-box{
         display:block;
@@ -1975,6 +1981,12 @@
             width: 82%;
         }
 
+        #profile-stats {
+            transform: translateY(-136px);
+            width: 82%;
+            margin: auto;
+        }
+
         /*** MESSAGES ***/
         .messages-users-settings-box {
             width: 28%;
@@ -2145,6 +2157,12 @@
             width: 92%;
         }
 
+        #profile-stats {
+            transform: translateY(-104px);
+            width: 92%;
+            margin: auto;
+        }
+
         /*** MESSAGES ***/
         .messages-users-heading{
             font-size:16px;
@@ -2307,6 +2325,10 @@
         }
 
         #profile-prayers {
+            transform: translateY(-86px);
+        }
+
+        #profile-stats {
             transform: translateY(-86px);
         }
 
