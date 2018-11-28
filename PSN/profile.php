@@ -88,19 +88,18 @@
     </div>
 
     <div id="profile-stats">
-        Primary Religion: <?php echo $primaryrel[0]['religion_name'] ?>
-        <br>
-        Total Prayers Sent: <?php echo $totalprayers[0]['total_prayers'] ?>
-        <br>
-        <?php echo count($allrels)?>
-        Religions Followed: <?php for($i = 0; $i < count($allrels); $i++) {
+        <p class="trends-header">My Stats</p>
+        <p><b>Primary Religion:</b> <?php echo $primaryrel[0]['religion_name'] ?></p>
+        <p><b>Total Prayers Sent:</b> <?php echo $totalprayers[0]['total_prayers'] ?></p>
+        <p><b><?php echo count($allrels)?>
+        Religions Followed:</b> <?php for($i = 0; $i < count($allrels); $i++) {
             if ($i == count($allrels) - 1) {
                 echo $allrels[$i]['religion_name'];
             }
             else {
                 echo $allrels[$i]['religion_name'].", ";
             }
-        }?>
+        }?></p>
     </div>
 
     <div id="profile-prayers">

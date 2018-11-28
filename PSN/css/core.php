@@ -897,7 +897,7 @@
     }
 
     #profile-prayers {
-        width:50%;
+        width:72%;
         margin:auto;
         transform:translateY(-225px);
     }
@@ -908,13 +908,19 @@
 
     #profile-prayers {
         transform: translateY(-212px);
-        width: 50%;
+        width: 72%;
     }
 
     #profile-stats {
         transform: translateY(-212px);
         width: 72%;
         margin: auto;
+        display:table;
+        height: auto;
+        max-height:600px;
+        background-color: <?php echo $boxcolor ?>;
+        border-radius:4px;
+        border:1px solid <?php echo $menuborder ?>;
     }
 /*************** USERSETTINGS ************/
     .usersettings-box{
