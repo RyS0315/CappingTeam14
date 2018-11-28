@@ -16,6 +16,7 @@
     $src[] = ["src"=>"js/searchUsers.js","type"=>"js"];
     $src[] = ["src"=>"js/LikeDislike.js","type"=>"js"];
     $src[] = ["src"=>"js/mobileHeader.js", "type"=>"js"];
+    $src[] = ["src"=>"js/mobileMessages.js", "type"=>"js"];
 
     $css[] = ["src"=>"css/core.php","type"=>"css"];
 

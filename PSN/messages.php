@@ -48,7 +48,7 @@
 ?>
 
     <section class='index-body' id='body'>
-        <img class='mobile-message-button' src='images/icons/messageArrow.png'>
+        <img src='images/icons/messageArrow.png' class='mobile-message-button' onclick='mobileMessage()'>
         <div class='messages-users-settings-box'>
             <div class='messages-users-heading-box'>
                 <p class='messages-users-heading'>Conversations</p>
