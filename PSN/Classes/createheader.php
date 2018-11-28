@@ -97,7 +97,7 @@
                             </a>
                         </li>
                         <li class='mobile-header-link-prayer'>
-                            <div id='mobile-start-prayer' onclick='ShowCompose()'>PRAY</div>
+                            <div class='button' id='mobile-start-prayer' onclick='ShowCompose()'>PRAY</div>
                         </li>
                     </ul>
                 </div>

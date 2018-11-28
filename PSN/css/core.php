@@ -908,7 +908,7 @@
 
     #profile-prayers {
         transform: translateY(-212px);
-        width: 72%;
+        width: 50%;
     }
 /*************** USERSETTINGS ************/
     .usersettings-box{
