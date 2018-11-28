@@ -720,7 +720,7 @@
         width:50%;
         margin:auto;
         background-color:<?php echo $feedcolor?>;
-        margin-top:100px;
+        margin-top:60px;
         border-radius:5px;
         margin-bottom:100px;
     }
@@ -877,8 +877,13 @@
 
     .profile-body{
         position:relative;
-        width:80%;
+        width:90%;
         margin:auto;
+        transform:translateY(-250px);
+    }
+
+    .profile-header-name{
+        font-size:40px;
     }
 
     /* TODO - Fix Profile Picture location */
@@ -900,8 +905,9 @@
     }
 
     #profile-prayers {
-        width:70%;
+        width:50%;
         margin:auto;
+        transform:translateY(-225px);
     }
 /*************** USERSETTINGS ************/
     .usersettings-box{
@@ -1096,11 +1102,11 @@
         padding-top:50px;
         padding-bottom:50px;
         margin:auto;
-        margin-top:100px;
+        margin-top:60px;
         margin-bottom:100px;
         border-radius:5px;
         border-style:solid;
-        border-color:#000000;
+        border-color:<?php echo $menuborder ?>;
         border-width:1px;
     }
 
