@@ -687,6 +687,17 @@
     .featured-tag-box{
         padding-bottom:20px;
     }
+
+    .index-trends-header {
+        padding-top: 12px;
+        padding-bottom: 12px !important;
+        margin-bottom:4px;
+        background-color: <?php echo $boxcolor ?>;
+        font-size:20px;
+        border-bottom-style:solid;
+        border-bottom-color:<?php echo $menuborder ?>;
+        border-bottom-width:1px;
+    }
 /*************** COMPOSE *****************/
     .compose-header{
         width:auto;
@@ -875,8 +886,16 @@
 
     .profile-body{
         position:relative;
-        margin-left:8%;
-        transform: translateY(-260px);
+        width:50%;
+        margin:auto;
+        transform: translateY(-155px);
+        text-align:center;
+        padding-bottom:32px;
+    }
+
+    .profile-header-name {
+        font-size: 2.6em;
+        width:auto;
     }
 
     .profile-profile-pic{
@@ -897,23 +916,15 @@
     }
 
     #profile-prayers {
-        width:72%;
+        width:50%;
         margin:auto;
         transform:translateY(-225px);
     }
 
-    .profile-header-name {
-        font-size: 2.6em;
-    }
-
-    #profile-prayers {
-        transform: translateY(-212px);
-        width: 72%;
-    }
 
     #profile-stats {
-        transform: translateY(-212px);
-        width: 71.4%;
+        transform: translateY(-205px);
+        width: 50%;
         margin: auto;
         display:table;
         height: auto;
@@ -921,6 +932,7 @@
         background-color: <?php echo $feedcolor ?>;
         border-radius:4px;
         border:1px solid <?php echo $menuborder ?>;
+        margin-bottom:36px;
     }
 
     #profile-stats p {
@@ -931,19 +943,8 @@
 
     .trends-header {
         margin-top: 4px;
-        margin-bottom: 4px;
+        margin-bottom: 10px;
         background-color: <?php echo $commentcolor ?>;
-    }
-
-    .index-trends-header {
-        padding-top: 12px;
-        padding-bottom: 12px !important;
-        margin-bottom:4px;
-        background-color: <?php echo $boxcolor ?>;
-        font-size:20px;
-        border-bottom-style:solid;
-        border-bottom-color:<?php echo $menuborder ?>;
-        border-bottom-width:1px;
     }
 /*************** USERSETTINGS ************/
     .usersettings-box{
