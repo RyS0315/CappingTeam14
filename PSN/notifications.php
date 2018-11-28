@@ -1,9 +1,5 @@
 <?php 
-    include 'config/dbconfig.php';
-    include 'config/functions.php';
-    include 'config/permissions.php';
-    include 'Classes/createheader.php';
-    include 'Classes/createFooter.php';
+    require 'config/ApplicationTop.php';
     include 'Classes/notificationCreator.php';
     include 'Classes/prayers.php';
 
@@ -69,7 +65,7 @@
     $notify = new Notificationer($db, $id, $prev);
 
 ?>
-    <section class='index-body'>
+    <section class='index-body' id='body'>
     <div class='notification-feed'>
         <?php foreach($likes as $i){
             $notify->showLikes($i);    

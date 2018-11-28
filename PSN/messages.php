@@ -51,7 +51,7 @@
     
 ?>
 
-    <section class='index-body'>
+    <section class='index-body' id='body'>
         <div class='messages-users-settings-box'>
             <div class='messages-users-heading-box'>
                 <p class='messages-users-heading'>Conversations</p>

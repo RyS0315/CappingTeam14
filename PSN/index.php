@@ -84,7 +84,8 @@
                           FROM Tags t, Prayer_tags pt , prayer_religions pr
                           WHERE t.tagid = pt.tagid
                           AND pt.prayid = pr.prayid
-                          AND pr.relid = '$chosenreligion'
+                          AND (pr.relid = '$chosenreligion'
+                          OR pr.relid = 1)
                           GROUP BY pt.tagid
                           ORDER BY COUNT(pt.tagid) desc
                           LIMIT 5";

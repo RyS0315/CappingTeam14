@@ -77,6 +77,8 @@
         margin-block-end: 0em;
         margin-inline-start: 0px;
         margin-inline-end: 0px;
+        margin:0px;
+        padding:0px;
     }
 
     h2 {
@@ -1263,6 +1265,10 @@
         margin-left:25px;
         padding:25px;
         padding-top:0px;
+        border-radius:5px;
+        border-style:solid;
+        border-color: rgba(0,0,0,.3);
+        border-width:1px;
     }
 
     #profile-prev{
@@ -1302,7 +1308,12 @@
         width:75%;
         background-color:<?php echo $feedcolor ?>;
         padding:20px;
+        padding-top:0px;
         margin-left:25px;
+        border-radius:5px;
+        border-style:solid;
+        border-color: rgba(0,0,0,.3);
+        border-width:1px;
     }
 
     .my-religions{
@@ -1318,6 +1329,7 @@
         border-radius:5px;
         border-style:solid;
         border-width:1px;
+        border-color: rgba(0,0,0,.3);
     }
 
     .all-religions{

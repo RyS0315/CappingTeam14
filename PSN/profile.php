@@ -32,9 +32,6 @@
         $menus[1]['active'] = '';
     }
 
-    $src[] = ["src"=>"js/userMenu.js", "type"=>"js"];
-    $src[] = ["src"=>"js/jqueryinit.php","type"=>"php"];
-    $css[] = ["src"=>"css/core.php","type"=>"css"];
     $title = "P.R.A.Y.";
 
     $header = new Header($db, $menus,$title,$css);
@@ -59,15 +56,16 @@
                       WHERE userid = $pageid";
     $userinfo = $db->fetchQuery($userinfoquery);
 ?>
-    <section class='profile-banner'>
+    <section class='profile-page-body' id='body'>
+    <div class='profile-banner'>
         <div class='profile-banner-box'>
             <img class='profile-banner-pic' src='images/Users/<?php echo $pageid?>/Banner/<?php echo $userinfo[0]['bPicture']?>'>
         </div>
-    </section>
+    </div>
     <img class='profile-profile-pic' src='images/Users/<?php echo $pageid?>/Profile/<?php echo $userinfo[0]['pPicture']?>'>
-    <section class='profile-body'>
+    <div class='profile-body'>
         <h1 class='profile-header-name'><?php echo $userinfo[0]['fname'] . " " . $userinfo[0]['lname'] ?></h1>
-    </section>
+    </div>
 
     <div id="profile-prayers">
         <?php
@@ -75,6 +73,7 @@
             $feed->showPrayer($i);
         }?>
     </div>
+    </section>
 <?php
     $footer = new Footer($db,$src);
     $footer->buildFooter();

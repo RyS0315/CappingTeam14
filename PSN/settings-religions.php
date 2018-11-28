@@ -1,9 +1,5 @@
 <?php
-    include 'config/dbconfig.php';
-    include 'config/permissions.php';
-    include 'config/functions.php';
-    include 'Classes/createheader.php';
-    include 'Classes/createFooter.php';
+    require 'config/ApplicationTop.php';
     include 'Classes/createUserSettings.php';
 
     $menus = [
@@ -87,7 +83,7 @@
 
     ?>
 
-<section class='index-body'>
+<section class='index-body' id='body'>
 
     <?php $usersettings->displaySettings();?>
 
