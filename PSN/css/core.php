@@ -1163,7 +1163,7 @@
 
     .religion-menu-items{
         max-height:300px;
-        overflow-y:scroll;
+        overflow-y:auto;
         overflow-x:hidden;
         width:200px;
         position:absolute;
