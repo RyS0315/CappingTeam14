@@ -613,8 +613,7 @@
     }
 
     .index-left-box p{
-        padding-left:16px;
-        padding-bottom:15px;
+        padding: 8px;
     }
 
     .index-center-box{
@@ -677,10 +676,11 @@
         margin-bottom:10px;
         font-size:22px;
         color:<?php echo $textcolor ?>;
+        border-bottom: 1px solid <?php echo $menuborder ?>;
     }
 
-    .featured-tag-box{
-        padding-bottom:20px;
+    .featured-tag-box p{
+        padding: 8px;
     }
 
     .index-trends-header {
@@ -836,6 +836,7 @@
 
     #cur-tags{
         display:flex;
+        flex-wrap: wrap;
     }
 
     .tag{
@@ -851,6 +852,7 @@
         border-radius:3px;
         background-color:<?php echo $backgroundcolor?>;
         display:flex;
+        margin-top: 8px;
     }
 
     .tag-desc{

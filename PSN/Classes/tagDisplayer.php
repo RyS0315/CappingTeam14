@@ -11,8 +11,8 @@
 
         function showtag($tag){
             echo"<div class='featured-tag-box'>
-            <p>#".$tag['tag_name']."<p>
-            <p>Used ".$tag['nums']." Times 
+            <p>#".$tag['tag_name']."</p>
+            <p>Used ".$tag['nums']." Times </p>
             </div>";
         }
     }
