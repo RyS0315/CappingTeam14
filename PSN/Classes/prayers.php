@@ -129,6 +129,19 @@
                     </div>
                     </div>";
                 }
-                }
-            }
+                $this->createLargeImageContainer($i);
+        }
+
+        function createLargeImageContainer($i){
+            echo"<div id='imglarge-body' class='hidden'>
+                    <div class='imglarge-box'>
+                    <img id='closelargeimg' class='close' src='images/icons/close.png'>
+                    <div class='imglarge-img-container'>
+                        <img id='imglarge' src='#'>
+                    </div>
+                    </div>
+                </div>";
+        }
+    }
+
 ?>

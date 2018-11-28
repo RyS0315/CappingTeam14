@@ -31,7 +31,7 @@
             $this->createTitle();
             if($this->loggedIn == 1){
                 $this->createCompose();
-                $this->createLargeImageContainer();
+                // $this->createLargeImageContainer();
             }
             //Header
             echo "
@@ -222,16 +222,7 @@
             </div>";
         }
 
-        function createLargeImageContainer(){
-            echo"<div id='imglarge-body' class='overlay hidden'>
-                    <div class='imglarge-box'>
-                    <img id='closelargeimg' class='close' src='images/icons/close.png'>
-                    <div class='imglarge-img-container'>
-                        <img id='imglarge' src='#'>
-                    </div>
-                    </div>
-                </div>";
-        }
+
 
 
         function getUserInfo(){

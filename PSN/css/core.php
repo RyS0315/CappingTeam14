@@ -23,9 +23,9 @@
                   'buttonhover'=>'#8405af',
                   'buttontext'=>'#ffffff',
                   'commentbox'=>'#320942'],
-        'Gold'=>['background'=>'#f3d842',
+        'Gold'=>['background'=>'#ffff66',
                   'text'=>'rgba(0,0,0,.65)',
-                  'boxcolor'=>'#ffff66',
+                  'boxcolor'=>'#ffff12',
                   'link'=>'#a415df',
                   'feed'=>'#ffffbb',
                   'menuborder'=>'rgba(0,0,0,.3)',
@@ -35,7 +35,7 @@
                   'buttontext'=>'#f3e1ff',
                   'commentbox'=>'#ffff88'],
     ];
-    $chosen='Gold';
+    $chosen='Light';
 
     $backgroundcolor = $theme[$chosen]['background'];
     $boxcolor = $theme[$chosen]['boxcolor'];
