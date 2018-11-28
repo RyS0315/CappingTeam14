@@ -68,7 +68,8 @@
     $allrelsquery = "SELECT r.religion_name
                       FROM Religions r, User_Religions u
                       WHERE u.userid = $pageid
-                      AND u.relid = r.relid";
+                      AND u.relid = r.relid
+                      ORDER BY r.religion_name";
     $allrels = $db->fetchQuery($allrelsquery);
 
     $userinfoquery = "SELECT username, fname, lname, bio, pPicture, bPicture, dateAdded, Primary_Religion
@@ -88,10 +89,11 @@
     </div>
 
     <div id="profile-stats">
-        <p> Primary Religion: <?php echo $primaryrel[0]['religion_name'] ?> </p>
-        <p> Total Prayers Sent: <?php echo $totalprayers[0]['total_prayers'] ?> </p>
-        <p> <?php echo count($allrels)?>
-            Religions Followed: <?php for($i = 0; $i < count($allrels); $i++) {
+        <p class="trends-header">My Stats</p>
+        <p><b>Primary Religion:</b> <?php echo $primaryrel[0]['religion_name'] ?></p>
+        <p><b>Total Prayers Sent:</b> <?php echo $totalprayers[0]['total_prayers'] ?></p>
+        <p><b><?php echo count($allrels)?>
+        Religions Followed:</b> <?php for($i = 0; $i < count($allrels); $i++) {
             if ($i == count($allrels) - 1) {
                 echo $allrels[$i]['religion_name'];
             }

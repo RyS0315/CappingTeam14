@@ -897,7 +897,7 @@
     }
 
     #profile-prayers {
-        width:50%;
+        width:72%;
         margin:auto;
         transform:translateY(-225px);
     }
@@ -908,21 +908,31 @@
 
     #profile-prayers {
         transform: translateY(-212px);
-        width: 50%;
+        width: 72%;
     }
 
     #profile-stats {
         transform: translateY(-212px);
-        width: 48.6%;
+        width: 71.4%;
         margin: auto;
-        border: 1px solid <?php echo $menuborder ?>;
-        border-radius: 5px;
+        display:table;
+        height: auto;
+        max-height:600px;
         background-color: <?php echo $feedcolor ?>;
-        padding: 6px;
+        border-radius:4px;
+        border:1px solid <?php echo $menuborder ?>;
     }
 
     #profile-stats p {
         padding: 6px;
+        padding-left: 12px;
+        padding-bottom: 8px;
+    }
+
+    .trends-header {
+        margin-top: 4px;
+        margin-bottom: 4px;
+        background-color: <?php echo $commentcolor ?>;
     }
 /*************** USERSETTINGS ************/
     .usersettings-box{
@@ -2006,7 +2016,7 @@
 
         #profile-stats {
             transform: translateY(-136px);
-            width: 80%;
+            width: 81.2%;
             margin: auto;
         }
 
@@ -2182,7 +2192,7 @@
 
         #profile-stats {
             transform: translateY(-104px);
-            width: 88.4%;
+            width: 91.2%;
             margin: auto;
         }
 
