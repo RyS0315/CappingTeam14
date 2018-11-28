@@ -31,7 +31,7 @@
             $this->createTitle();
             if($this->loggedIn == 1){
                 $this->createCompose();
-                $this->createLargeImageContainer();
+                // $this->createLargeImageContainer();
             }
             //Header
             echo "
@@ -186,7 +186,7 @@
             $relname = $curreligion[0]['religion_name'];
 
             echo "
-                <div id='compose-prayer' class='hidden'>
+                <div id='compose-prayer' class='overlay hidden'>
                 <div class='prayer-box'>
                 <ul class='compose-header-background'>
                     <li class='compose-header'>
@@ -199,6 +199,11 @@
                     <form method='post' class='compose-content' action='php/submitprayer.php' enctype='multipart/form-data'>
                         <textarea id='compose-area' name='newprayer' placeholder='Compose Your Prayer'
                                   onkeyup='auto_grow(this)'></textarea>
+                        <input type='text' id='tags-area' name='prayertags' placeholder='Add a Tag' 
+                            onkeypress='if (event.keyCode == 13) {event.preventDefault(); addTag(this) } 
+                            if (event.keyCode === 32) {return false;}'>
+                        <div id='cur-tags'>
+                        </div>
                         <div id='preview'>
                             <p id='upload-size-error' style='display:none; color:#ff0000'>Image too Large. Must be less than 500KB</p>
                             <img src='' id='uploadpreview' style='display:none'>
@@ -217,14 +222,7 @@
             </div>";
         }
 
-        function createLargeImageContainer(){
-            echo"<div id='imglarge-body' class=''hidden>
-                    <div class='imglarge-box'>
-                    <img id='closelargeimg' class='close' src='images/icons/close.png'>
-                        <img id='imglarge' src='#'>
-                    </div>
-                </div>";
-        }
+
 
 
         function getUserInfo(){

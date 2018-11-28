@@ -1,23 +1,31 @@
 function ShowCompose(){
-    var box = document.getElementById('compose-prayer');
+    var body = document.getElementById('compose-prayer');
     var overlay = document.getElementById('overlay');
     var button = document.getElementById('startprayer');
     var close = document.getElementById('closebutton');
-    var body = document.body;
+    var page = document.getElementById('body');
+
+    var height = document.body.scrollTop;
+    page.setAttribute('style' , 'position:fixed');
+    page.style.top -= height;
+    var par = body.parentNode;
+    par.removeChild(body);
+    overlay.appendChild(body);
     // body.setAttribute('style', 'overflow:hidden');
     button.removeAttribute('onclick');
-    $(box).fadeIn();
+    $(body).fadeIn();
     $(overlay).fadeIn();
-    close.setAttribute('onclick','CloseCompose()');
+    close.setAttribute('onclick','CloseCompose('+height+')');
 }
 
-function CloseCompose(){
+function CloseCompose(height){
     var box = document.getElementById('compose-prayer');
     var overlay = document.getElementById('overlay');
     var button = document.getElementById('startprayer');
     var close = document.getElementById('closebutton');
-    var body = document.body;
-    // body.setAttribute('style', 'overflow:scroll');
+    var page = document.getElementById('body');
+    page.removeAttribute('style' , 'position:fixed');
+    document.body.scrollTop = height;
     close.removeAttribute('onclick');
     $(box).fadeOut();
     $(overlay).fadeOut()
@@ -44,4 +52,41 @@ function readURL(input) {
         }
         reader.readAsDataURL(input.files[0]);
     }
+}
+
+function addTag(inp){
+    var tagval = inp.value;
+    var dest = document.getElementById('cur-tags');
+    var newdiv = document.createElement("DIV");
+    newdiv.setAttribute('class', 'tag');
+    newdiv.setAttribute('id', 'tag--'+tagval);
+    var tagdesc = document.createElement('p');
+    tagdesc.setAttribute('class', 'tag-desc');
+    tagdesc.innerHTML = tagval;
+    var hidinp = document.createElement("INPUT");
+    hidinp.setAttribute('type', 'text');
+    hidinp.setAttribute('class', 'hidden');
+    hidinp.setAttribute('value', tagval);
+    hidinp.setAttribute('name', 'tag--'+tagval);
+    var droptag = document.createElement("img");
+    droptag.setAttribute('class', 'drop-tag');
+    droptag.setAttribute('src', 'images/icons/close.png');
+    droptag.setAttribute('onclick', 'DropTag("'+tagval+'")')
+    
+    dest.appendChild(newdiv);
+    newdiv.appendChild(tagdesc);
+    newdiv.appendChild(hidinp);
+    newdiv.appendChild(droptag);
+
+    inp.value = '';
+    console.log(hidinp);
+    console.log(tagdesc);
+    console.log(tagval);
+}
+
+function DropTag(val){
+    var div = document.getElementById('tag--'+val);
+    var pnode = document.getElementById('cur-tags')
+    pnode.removeChild(div);
+
 }

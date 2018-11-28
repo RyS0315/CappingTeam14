@@ -1,6 +1,5 @@
 <?php 
-    include 'config/dbconfig.php';
-    include 'config/permissions.php';
+    require 'config/ApplicationTop.php';
 
     $relarray = [
         [
