@@ -1588,6 +1588,10 @@
         font-size: 20px;
         border-bottom: 1px solid <?php echo $menuborder ?>;
     }
+
+    .mobile-message-button{
+        display: none;
+    }
 /*************** DATABASE ****************/
     .database-body{
         padding-top: 70px;
@@ -2313,6 +2317,15 @@
         /*** MESSAGES ***/
         .messages-users-settings-box {
             display: none;
+        }
+
+        .mobile-message-button {
+            display: block;
+            height: 50px;
+            width: auto;
+            position: absolute;
+            left: 0px;
+            margin-top: 72%;
         }
 
         .messages-users-heading {
