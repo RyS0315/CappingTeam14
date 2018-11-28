@@ -97,7 +97,7 @@
                             </a>
                         </li>
                         <li class='mobile-header-link-prayer'>
-                            <div id='mobile-start-prayer' onclick='ShowCompose()'>PRAY</div>
+                            <div class='button' id='mobile-start-prayer' onclick='ShowCompose()'>PRAY</div>
                         </li>
                     </ul>
                 </div>
@@ -186,7 +186,7 @@
             $relname = $curreligion[0]['religion_name'];
 
             echo "
-                <div id='compose-prayer' class='overlay hidden'>
+                <div id='compose-prayer' class='hidden'>
                 <div class='prayer-box'>
                 <ul class='compose-header-background'>
                     <li class='compose-header'>

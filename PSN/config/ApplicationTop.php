@@ -15,8 +15,9 @@
     $src[] = ["src"=>"js/composePrayer.js","type"=>"js"];
     $src[] = ["src"=>"js/searchUsers.js","type"=>"js"];
     $src[] = ["src"=>"js/LikeDislike.js","type"=>"js"];
+    $src[] = ["src"=>"js/mobileHeader.js", "type"=>"js"];
 
     $css[] = ["src"=>"css/core.php","type"=>"css"];
-    
+
     $title = "P.R.A.Y.";
 ?>

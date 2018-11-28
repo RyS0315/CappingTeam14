@@ -1,5 +1,3 @@
-//NOT FINISHED
-
 var didScroll;
 var lastScrollTop = 0;
 var delta = 5;
@@ -30,10 +28,14 @@ function hasScrolled() {
     if (st > lastScrollTop && st > navbarHeight){
         // Scroll Down
         $('.mobile-search-box').removeClass('mobile-search-box').addClass('mobile-search-box-up');
+        $('.mobile-messages').hide();
+        $('.mobile-header-link-prayer').hide();
     } else {
         // Scroll Up
         if(st + $(window).height() < $(document).height()) {
             $('.mobile-search-box-up').removeClass('mobile-search-box-up').addClass('mobile-search-box');
+            $('.mobile-messages').show();
+            $('.mobile-header-link-prayer').show();
         }
     }
 

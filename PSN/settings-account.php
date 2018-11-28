@@ -24,12 +24,8 @@
             'active'=>''
         ]
     ];
-    $src[] = ["src"=>"js/userMenu.js", "type"=>"js"];
-    $src[] = ["src"=>"js/settings.js", "type"=>"js"];
-    $src[] = ["src"=>"js/jqueryinit.php","type"=>"php"];
-    $src[] =["src"=>"js/autoGrow.js", "type"=>"js"];
-    $css[] = ["src"=>"css/core.php","type"=>"css"];
-    $title = "P.R.A.Y.";
+
+    
     $header = new Header($db, $menus, $title, $css);
     $header->ShowUserMenu($id);
     $header->displayHeader();
