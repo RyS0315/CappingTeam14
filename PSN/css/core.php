@@ -675,16 +675,8 @@
         padding-bottom:10px;
     }
 
-    .trends-header{
-        margin-top:10px;
-        margin-bottom:10px;
-        font-size:22px;
-        color:<?php echo $textcolor ?>;
-        border-bottom: 1px solid <?php echo $menuborder ?>;
-    }
-
-    .featured-tag-box p{
-        padding: 8px;
+    .featured-tag-box{
+        padding-bottom:20px;
     }
 
     .index-trends-header {
@@ -918,12 +910,18 @@
     #profile-prayers {
         width:50%;
         margin:auto;
-        transform:translateY(-225px);
+        transform:translateY(-205px);
     }
 
+    #bio {
+        width:50%;
+        margin:auto;
+        text-align: center;
+        transform:translateY(-215px);
+    }
 
     #profile-stats {
-        transform: translateY(-205px);
+        transform: translateY(-185px);
         width: 50%;
         margin: auto;
         display:table;
@@ -946,6 +944,7 @@
         margin-bottom: 10px;
         font-size: 20px;
         background-color: <?php echo $commentcolor ?>;
+        font-size:20px;
     }
 /*************** USERSETTINGS ************/
     .usersettings-box{
@@ -1523,7 +1522,7 @@
         overflow-y:auto;
         overflow-x:hidden;
         padding:10px;
-        height: 60%;
+        height: 65%;
     }
 
     .compose-message{
@@ -2031,6 +2030,13 @@
             margin: auto;
         }
 
+        #bio {
+            transform: translateY(-136px);
+            width: 81.2%;
+            margin: auto;
+            text-align: center;
+        }
+
         /*** MESSAGES ***/
         .messages-users-settings-box {
             width: 28%;
@@ -2205,6 +2211,13 @@
             margin: auto;
         }
 
+        #bio {
+            transform: translateY(-104px);
+            width: 91.2%;
+            margin: auto;
+            text-align: center;
+        }
+
         /*** MESSAGES ***/
         .messages-users-heading{
             font-size:16px;
@@ -2334,6 +2347,11 @@
 
         #profile-stats {
             transform: translateY(-86px);
+        }
+
+        #bio {
+            transform: translateY(-86px);
+            text-align: center;
         }
 
         /*** MESSAGES ***/
