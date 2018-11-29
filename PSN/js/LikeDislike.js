@@ -66,6 +66,7 @@ function addDislike(url, data, prayid){
                     scorediv.innerHTML = newscore;
                 }
             }
+            //checkscore(newscore);
         }
     });
 }

@@ -26,7 +26,7 @@
         ]
     ];
 
-    
+
     $title = "P.R.A.Y.";
 
     $header = new Header($db, $menus,$title,$css);
@@ -62,7 +62,6 @@
     $comments = $db->fetchQuery($commentsquery);
     
     $notify = new Notificationer($db, $id, $prev);
-
 ?>
     <section class='index-body' id='body'>
     <div class='notification-feed'>
