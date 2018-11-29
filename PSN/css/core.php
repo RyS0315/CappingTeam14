@@ -906,12 +906,18 @@
     #profile-prayers {
         width:50%;
         margin:auto;
-        transform:translateY(-225px);
+        transform:translateY(-205px);
     }
 
+    #bio {
+        width:50%;
+        margin:auto;
+        text-align: center;
+        transform:translateY(-215px);
+    }
 
     #profile-stats {
-        transform: translateY(-205px);
+        transform: translateY(-185px);
         width: 50%;
         margin: auto;
         display:table;
