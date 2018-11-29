@@ -2026,6 +2026,13 @@
             margin: auto;
         }
 
+        #bio {
+            transform: translateY(-136px);
+            width: 81.2%;
+            margin: auto;
+            text-align: center;
+        }
+
         /*** MESSAGES ***/
         .messages-users-settings-box {
             width: 28%;
@@ -2200,6 +2207,13 @@
             margin: auto;
         }
 
+        #bio {
+            transform: translateY(-104px);
+            width: 91.2%;
+            margin: auto;
+            text-align: center;
+        }
+
         /*** MESSAGES ***/
         .messages-users-heading{
             font-size:16px;
@@ -2329,6 +2343,11 @@
 
         #profile-stats {
             transform: translateY(-86px);
+        }
+
+        #bio {
+            transform: translateY(-86px);
+            text-align: center;
         }
 
         /*** MESSAGES ***/
