@@ -374,7 +374,7 @@
         width:200px;
         position:fixed;
         margin-top:50px;
-        right:20px;
+        right:0px;
         background-color:<?php echo $feedcolor?>;
         border-radius:0px 0px 5px 5px;
         border-color:<?php echo $menuborder ?>;
@@ -465,6 +465,10 @@
         height:auto;
         margin-block-start: 0em;
         margin-block-end: 0em;
+    }
+
+    .header-profile-menu-logout .header-profile-menu-list-item:hover {
+        border-radius: 0px 0px 5px 5px;
     }
 
     #sort-compose{
@@ -722,7 +726,7 @@
 
     .prayer-box{
         height:auto;
-        width:70%;
+        width:50%;
         margin:auto;
         background-color:<?php echo $feedcolor?>;
         margin-top:60px;
@@ -2280,7 +2284,7 @@
 
         /*** INDEX ***/
         .index-body {
-            padding-top: 90px;
+            padding-top: 100px;
         }
 
         .feed-profile-img-box {
