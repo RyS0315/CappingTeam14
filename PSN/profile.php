@@ -88,6 +88,10 @@
         <h1 class='profile-header-name'><?php echo $userinfo[0]['fname'] . " " . $userinfo[0]['lname'] ?></h1>
     </div>
 
+    <div id="bio">
+        <?php echo $userinfo[0]['bio']?>
+    </div>
+
     <div id="profile-stats">
         <p class="trends-header">My Stats</p>
         <p><b>Primary Religion:</b> <?php echo $primaryrel[0]['religion_name'] ?></p>
