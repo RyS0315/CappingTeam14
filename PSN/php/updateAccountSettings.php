@@ -14,6 +14,8 @@ $username = isset($_POST['username']) ? $_POST['username'] : $curUserInfo[0]['us
 echo $username; 
 
 $bio = isset($_POST['bio']) ? $_POST['bio'] : $curUserInfo[0]['bio'];
+$bio = str_replace("'", "\\'", $bio);
+$bio = str_replace('"', '\\"', $bio);
 echo $bio;
 
 //upload profile image

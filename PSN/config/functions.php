@@ -79,10 +79,11 @@
      *
      * Example of sql injection => ';DROP TABLES; --
      *
-     *
      */
     function cleanForSQL($var){
-        return true;
+        $var = str_replace("'", "\\'", $var);
+        $var = str_replace('"', '\\"', $var);
+        return $var;
     }
 
     /**
@@ -280,8 +281,8 @@
     }
 
     /**
-     *
-     *
+     * 
+     * Return the Number of followers for a Religion
      *
      */
     function countFollowers($relid, $db){

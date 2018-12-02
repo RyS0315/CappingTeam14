@@ -1,7 +1,14 @@
 <?php
     header("Content-type: text/css; charset: UTF-8");
+    include '../config/ApplicationTop.php';
+    /**
+     * 
+     * Themes for the site.
+     * The Gold Theme will not be live because it sucks
+     * 
+     */
     $theme = [
-        'Light'=>['background'=>'#efe6f3',
+        'LIGHT'=>['background'=>'#efe6f3',
                   'text'=>'rgba(0,0,0,.65)',
                   'boxcolor'=>'#f3e1ff',
                   'link'=>'#a415df',
@@ -12,7 +19,7 @@
                   'buttonhover'=>'#8405af',
                   'buttontext'=>'#f3e1ff',
                   'commentbox'=>'#fbfbfb'],
-        'Dark' =>['background'=>'#140026',
+        'DARK' =>['background'=>'#140026',
                   'text'=>'rgba(255,255,255,.65)',
                   'boxcolor'=>'#1b0036',
                   'link'=>'rgba(200,0,200,.65)',
@@ -23,7 +30,7 @@
                   'buttonhover'=>'#8405af',
                   'buttontext'=>'#ffffff',
                   'commentbox'=>'#320942'],
-        'Gold'=>['background'=>'#ffff66',
+        'GOLD'=>['background'=>'#ffff66',
                   'text'=>'rgba(0,0,0,.65)',
                   'boxcolor'=>'#ffff12',
                   'link'=>'#a415df',
@@ -35,7 +42,16 @@
                   'buttontext'=>'#f3e1ff',
                   'commentbox'=>'#ffff88'],
     ];
-    $chosen='Light';
+
+    $curthemequery = "SELECT u.theme
+                      FROM USERS u
+                      WHERE u.userid = $id";
+    $curthemeresult = $db->fetchQuery($curthemequery);
+
+    $chosen = 'LIGHT';
+    if($curthemeresult){
+        $chosen = $curthemeresult[0]['theme'];
+    }
 
     $backgroundcolor = $theme[$chosen]['background'];
     $boxcolor = $theme[$chosen]['boxcolor'];
@@ -1131,7 +1147,7 @@
     }
 
     .imglarge-box{
-        width:60%;
+        width:50%;
         background-color:<?php echo $boxcolor ?>;
         padding-top:50px;
         padding-bottom:50px;

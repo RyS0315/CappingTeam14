@@ -11,7 +11,7 @@
 
     function checkUser($username, $pass, $db, $attempts){
         $validuserquery = "SELECT userid
-                           FROM USERS
+                           FROM Users
                            WHERE username = '$username'
                            AND user_password = '$pass'";
         $checkResult = $db->FetchQuery($validuserquery);
