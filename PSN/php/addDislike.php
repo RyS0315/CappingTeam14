@@ -1,7 +1,7 @@
 <?php
     require '../config/ApplicationTop.php';
 
-    $prayid = $_POST['prayid'];
+    $prayid = cleanVar($_POST['prayid']);
     // $type = $_POST['type'];
 
     $checkquery = "SELECT *

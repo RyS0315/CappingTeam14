@@ -85,7 +85,7 @@
     }
 
     function require_login($page){
-        $nologin = ['login.php','newAccount.php'];
+        $nologin = ['login.php','newAccount.php', 'core.php'];
         foreach($nologin as $i){
             if($i == $page){
                 return false;

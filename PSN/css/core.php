@@ -1,6 +1,8 @@
 <?php
     header("Content-type: text/css; charset: UTF-8");
-    include '../config/ApplicationTop.php';
+    include '../config/dbconfig.php';
+    include '../config/functions.php';
+    include '../config/permissions.php';
     /**
      * 
      * Themes for the site.
@@ -42,11 +44,12 @@
                   'buttontext'=>'#f3e1ff',
                   'commentbox'=>'#ffff88'],
     ];
-
-    $curthemequery = "SELECT u.theme
-                      FROM USERS u
-                      WHERE u.userid = $id";
-    $curthemeresult = $db->fetchQuery($curthemequery);
+    if($id != ''){
+        $curthemequery = "SELECT u.theme
+                  FROM USERS u
+                  WHERE u.userid = $id";
+        $curthemeresult = $db->fetchQuery($curthemequery);
+    }
 
     $chosen = 'LIGHT';
     if($curthemeresult){
@@ -355,7 +358,6 @@
 
     #header-profile-pic-link:hover {
         cursor: pointer;
-        border: 3px solid <?php echo $linkcolor ?>;
     }
 
     #header-profile-pic-link {
@@ -955,10 +957,14 @@
     }
 
     .settings-link:hover {
-        background-color: <?php echo $linkcolor ?>;
+        background-color: <?php echo $backgroundcolor ?>;
     }
 
     .current {
+        background-color: <?php echo $buttoncolor ?>;
+    }
+
+    .current:hover{
         background-color: <?php echo $buttoncolor ?>;
     }
 /*************** PRAYER FEED *************/
@@ -1326,6 +1332,11 @@
         margin-top: 20px;
         margin-bottom: 10px;
         color: rgba(0,0,0, .85);
+    }
+
+    .password-change{
+        display:block;
+        width:60%;
     }
 /*************** RELIGIONS ***************/
     .settings-religions-body {

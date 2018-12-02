@@ -74,8 +74,29 @@
 
 
     /**
+     * 
+     * Hackers live in this world and will find any way to steal important information
+     * This function will secure any variable that someone has the ability to type and send to the database
+     * by changing those variables into php safe variables
+     * 
+     * Some examples -- Anytime someone uses a doublequote or singlequote the query using that variable gets
+     * confused. We have to add escape keys to those quotes before we send it into a query.
+     * 
+     * Another example involves script tags. If someone type <script></script> into a prayer the prayer
+     * should read that. We need to add escape keys to the < and > part of that string in order to keep people from running
+     * javascript functions that can hack our code.
+     * 
+     * 
+     */
+    function cleanVar($var){
+        return cleanForSQL(cleanforHTML($var));
+    }
+
+    /**
      *
      * This function will take a variable and make sure it is safe from sql injection
+     * This function will inject escape keys into all single and double quotes to insure
+     * that those values are read as quotes and not the start of php strings
      *
      * Example of sql injection => ';DROP TABLES; --
      *
@@ -83,6 +104,7 @@
     function cleanForSQL($var){
         $var = str_replace("'", "\\'", $var);
         $var = str_replace('"', '\\"', $var);
+        $var = str_replace('`', '\\`', $var);
         return $var;
     }
 
@@ -95,7 +117,9 @@
      *
      */
     function cleanforHTML($var){
-        return htmlspecialchars($var);
+        $var = str_replace('<', '\\<', $var);
+        $var = str_replace('>', '\\>', $var);
+        return $var;
     }
 
     /**
