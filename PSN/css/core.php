@@ -1559,13 +1559,16 @@
     #user-searchautocomplete-list {
         display: block;
         position: absolute;
-        transform: translateY(-500px);
-        width: 18.8%;
+        width: 20.1%;
         background-color: <?php echo $feedcolor ?>;
         border: 1px solid <?php echo $menuborder ?>;
         border-radius: 5px 5px 0px 0px;
         border-bottom: none;
-        height: 490px;
+    }
+
+    .autocomplete-uni-item:hover{
+        cursor:pointer;
+        background-color:<?php echo $backgroundcolor?>;
     }
 
     .autocomplete-uni-item {
