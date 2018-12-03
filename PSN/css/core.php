@@ -52,7 +52,7 @@
     }
 
     $chosen = 'LIGHT';
-    if($curthemeresult){
+    if($curthemeresult[0]['theme']){
         $chosen = $curthemeresult[0]['theme'];
     }
 
@@ -1575,6 +1575,8 @@
         border: 1px solid <?php echo $menuborder ?>;
         border-radius: 5px 5px 0px 0px;
         border-bottom: none;
+        max-height:200px;
+        overflow:auto;
     }
 
     .autocomplete-uni-item:hover{

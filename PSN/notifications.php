@@ -49,6 +49,7 @@
                    FROM Likes l, Prayers p
                    WHERE p.userid = '$id'
                    AND p.prayid = l.prayid
+                   AND l.isLike = 1
                    GROUP BY l.prayid
                    ORDER BY l.dateLastMaint desc";
     $likes = $db->fetchQuery($likesquery);

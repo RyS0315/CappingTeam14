@@ -12,7 +12,6 @@ Class pgdb {
     }
 
     function FetchQuery($query){
-        $result_array=[];
         $arrayresult = [];
         if($queryresult = pg_query($this->conn, $query)){
             while ($row = pg_fetch_assoc($queryresult)){

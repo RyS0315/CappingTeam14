@@ -1,4 +1,11 @@
 <?php
+    /**
+     * Include this file first on every single php file
+     * This script initializes the database, adds all custom built functions
+     * includes the header and footer script, adds all css files, and includes all js functions
+     * to be used throughout the site.
+     * 
+     */
     include 'dbconfig.php';
     include 'functions.php';
     include getRoot().'config/permissions.php';
