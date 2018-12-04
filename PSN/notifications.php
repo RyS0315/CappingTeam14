@@ -58,7 +58,7 @@
                       FROM Prayers p, Comments c
                       WHERE p.userid = '$id'
                       AND c.prayid = p.prayid
-                      GROUP BY c.prayid
+                      GROUP BY c.prayid, c.dateLastMaint
                       ORDER BY c.dateLastMaint desc";
     $comments = $db->fetchQuery($commentsquery);
     
