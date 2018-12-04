@@ -1,6 +1,6 @@
 <?php
 require '../config/ApplicationTop.php';
-include getRoot().'Classes/imageUploader.php';
+include getRoot().'Classes/ImageUploader.php';
 include getRoot().'config/permissions.php';
 
 print_ary($_POST);

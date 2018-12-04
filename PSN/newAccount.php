@@ -12,6 +12,12 @@
         $message = createAccount($db);
     }
     // print_ary($message);
+
+    /**
+     * Function To Create a New account.
+     * If all the checks go through on the input fields, then create the account
+     * 
+     */
     function createAccount($db){
         $error['first'] = checkFirst();
         $error['username'] = checkUsername($db);
@@ -35,6 +41,11 @@
         }
     }
 
+    /**
+     * 
+     * Check the first not input
+     * 
+     */
     function checkFirst(){
         if(isset($_POST['firstname'])){
             if($_POST['firstname'] != ''){
@@ -46,6 +57,11 @@
         return 'Enter Your Name';
     }
 
+    /**
+     * 
+     * Check if the username is typed in
+     * 
+     */
     function checkUsername($db){
         if(isset($_POST['username'])){
             if($_POST['username'] != ''){
@@ -57,6 +73,12 @@
         return 'Enter Your Username';
     }
 
+
+    /**
+     * 
+     * Check if the username is taken
+     * 
+     */
     function checkAvailableUsername($db){
         $username = $_POST['username'];
         $usernamequery = "SELECT username
@@ -70,6 +92,12 @@
         }
     }
 
+
+    /**
+     * 
+     * Check password for completness 
+     * 
+     */
     function checkPassword(){
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $confirmpassword = isset($_POST['confirmpassword']) ? $_POST['confirmpassword'] : '';
@@ -92,6 +120,11 @@
         }
     }
 
+    /**
+     * 
+     * Check password for strength
+     * 
+     */
     function checkStrength($password){
         if(!preg_match('/[A-Z]/', $password)){
             return "Password must contain an Uppercase Letter";
@@ -105,6 +138,11 @@
         return 'passed';
     }
 
+    /**
+     * 
+     * Check if the security question is answered
+     * 
+     */
     function checkSecurity(){
         if(isset($_POST['securityAnswer'])){
             if($_POST['securityAnswer'] != ''){
@@ -116,6 +154,12 @@
         return 'Answer the security question';
     }
 
+
+    /**
+     * 
+     * Create the account. First insert the information into the database, then Create the directories
+     * 
+     */
     function doCreate($db){
         $firstname = $_POST['firstname'];
         $lastname = isset($_POST['lastname']) ? $_POST['lastname'] : '';
@@ -132,10 +176,10 @@
     }
 
     function createDir($id){
-        mkdir(getRoot()."images/Users/".$id ,0777, true);
-        mkdir(getRoot()."images/Users/".$id."/Profile" ,0777, true);
-        mkdir(getRoot()."images/Users/".$id."/Banner" ,0777, true);
-        mkdir(getRoot()."images/Users/".$id."/Uploads" ,0777, true);
+        mkdir(getRoot()."images/Users/".$id ,7777, true);
+        mkdir(getRoot()."images/Users/".$id."/Profile" ,7777, true);
+        mkdir(getRoot()."images/Users/".$id."/Banner" ,7777, true);
+        mkdir(getRoot()."images/Users/".$id."/Uploads" ,7777, true);
     }
 
     function setDefaultPhoto($id){
