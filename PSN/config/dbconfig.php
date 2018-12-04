@@ -4,7 +4,7 @@
     define('DEBUG', true); 
     // you want all errors to be triggered
     error_reporting(E_ALL);
-    ini_set('display_errors', 'Off');
+    ini_set('display_errors', 'On');
     $databaseServer = 'MYSQL';
     
     //LocalHost
