@@ -176,10 +176,10 @@
     }
 
     function createDir($id){
-        mkdir(getRoot()."images/Users/".$id ,7777, true);
-        mkdir(getRoot()."images/Users/".$id."/Profile" ,7777, true);
-        mkdir(getRoot()."images/Users/".$id."/Banner" ,7777, true);
-        mkdir(getRoot()."images/Users/".$id."/Uploads" ,7777, true);
+        mkdir(getRoot()."images/Users/".$id ,0777, true);
+        mkdir(getRoot()."images/Users/".$id."/Profile" ,0777, true);
+        mkdir(getRoot()."images/Users/".$id."/Banner" ,0777, true);
+        mkdir(getRoot()."images/Users/".$id."/Uploads" ,0777, true);
     }
 
     function setDefaultPhoto($id){
