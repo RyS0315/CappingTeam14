@@ -132,15 +132,15 @@
     }
 
     function createDir($id){
-        mkdir($_SERVER['DOCUMENT_ROOT'] ."images/Users/".$id );
-        mkdir($_SERVER['DOCUMENT_ROOT'] ."images/Users/".$id."/Profile" );
-        mkdir($_SERVER['DOCUMENT_ROOT'] ."images/Users/".$id."/Banner" );
-        mkdir($_SERVER['DOCUMENT_ROOT'] ."images/Users/".$id."/Uploads" );
+        mkdir(getRoot()."images/Users/".$id ,0777, true);
+        mkdir(getRoot()."images/Users/".$id."/Profile" ,0777, true);
+        mkdir(getRoot()."images/Users/".$id."/Banner" ,0777, true);
+        mkdir(getRoot()."images/Users/".$id."/Uploads" ,0777, true);
     }
 
     function setDefaultPhoto($id){
-        copy($_SERVER['DOCUMENT_ROOT'] ."images/icons/defaultProfile.jpg" , $_SERVER['DOCUMENT_ROOT'] ."images/Users/".$id."/Profile/default.png");
-        copy($_SERVER['DOCUMENT_ROOT'] ."images/icons/defaultBanner.png" , $_SERVER['DOCUMENT_ROOT'] ."images/Users/".$id."/Banner/default.png");
+        copy(getRoot()."images/icons/defaultProfile.jpg" , getRoot()."images/Users/".$id."/Profile/default.png");
+        copy(getRoot()."images/icons/defaultBanner.png" , getRoot()."images/Users/".$id."/Banner/default.png");
     }
 
     $first_ph = isset($_POST['firstname']) ? $_POST['firstname'] : '';
