@@ -44,6 +44,8 @@
     $messager = new messageCreator($db, $id);
 
     $users = $messager->getUsers();
+    $src[] = ["src"=>"js/messagePreview.js", "type"=>"js"];
+
 
 ?>
 

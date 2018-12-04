@@ -11,7 +11,6 @@ Class mydb {
     }
 
     function FetchQuery($query){
-        $result_array=[];
         $arrayresult = [];
         if($queryresult = mysqli_query($this->conn, $query)){
             while ($row = mysqli_fetch_assoc($queryresult)){
