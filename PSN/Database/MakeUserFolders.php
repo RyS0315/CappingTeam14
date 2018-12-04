@@ -1,4 +1,5 @@
 <?php
+    header('location:../index.php');
     require '../config/ApplicationTop.php';
 
     $userquery = "SELECT u.userid, u.pPicture, u.bPicture

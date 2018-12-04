@@ -1,10 +1,10 @@
 <?php
     define('ROOT_DIR', __DIR__);
     // toggle this to change the setting
-    define('DEBUG', true); 
+    define('DEBUG', false); 
     // you want all errors to be triggered
-    error_reporting(E_ALL);
-    ini_set('display_errors', 'On');
+    //error_reporting(E_ALL);
+    ini_set('display_errors', 'Off');
     $databaseServer = 'MYSQL';
     
     //LocalHost
