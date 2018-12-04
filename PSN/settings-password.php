@@ -54,12 +54,14 @@
     $oldpass = isset($_POST['oldpass']) ? cleanVar($_POST['oldpass']) : '';
     $newpass = isset($_POST['newpass']) ? cleanVar($_POST['newpass']) : '';
     $verifypass = isset($_POST['verifypass']) ? cleanVar($_POST['verifypass']) : '';
+    $error['old'] = '';
+    $error['password'] = '';
     if($check == 1){
         $error['old'] = checkOld($oldpass, $db, $id);
         $error['password'] = checkPassword($newpass, $verifypass);
         $validate = validate($error);
         if($validate){
-            addNew($newpass, $db, $id);
+            $success = addNew($newpass, $db, $id);
         }
     }
 
@@ -134,8 +136,11 @@
      * 
      */
     function addNew($new, $db, $id){
-
+        $query = "UPDATE Users SET user_password = '$new' WHERE userid = $id";
+        $result = $db->fetchQuery($query);
+        return 'Password Update Worked!';
     }
+
     ?>
 
 <section class='index-body' id='body'>
@@ -145,12 +150,19 @@
     <form method='post' action=''>
     <h3>Old Password</h3>
     <input class='password-change' id='oldpassword' type='password' name='oldpass' placeholder='Enter Your Old Password'>
+    <p class='error' style='display:inline-block'><?php echo $error['old']?></p>
     <h3>New Password</h3>
     <input class='password-change' id='newpassword' type='password' name='newpass' placeholder='Enter Your New Password'>
+    <p class='error' style='display:inline-block'><?php echo $error['password']?></p>
     <h3>Verify New Password</h3>
     <input class='password-change' id='verifypassword' type='password' name='verifypass' placeholder='Verify Your New Password'>
+    </br>
     <button type='submit' name='change-password'>Update</button>
     </form>
+    <?php if(isset($success)){
+        echo "<p>".$success."</p>";
+    }
+    ?>
     </div>
 
 <section>

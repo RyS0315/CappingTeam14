@@ -11,7 +11,6 @@
     include getRoot().'config/permissions.php';
     include getRoot().'Classes/createheader.php';
     include getRoot().'Classes/createFooter.php';
-    include getRoot().'php/onloadscripts.php';
 
     $src[] = ["src"=>"js/userMenu.js", "type"=>"js"];
     $src[] = ["src"=>"js/removePrayer.js", "type"=>"js"];

@@ -105,6 +105,8 @@
 
         function createTitle(){
            echo "<html>
+           <script type='text/javascript' src='js/PrayImg.js'></script>
+           <script type='text/javascript' src='js/updatemessages.js'></script>
                     <head>
                         <title>".$this->title."</title>
                         <link rel='shortcut icon' href='images/icons/favicon.png'>

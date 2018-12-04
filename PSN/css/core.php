@@ -1335,7 +1335,7 @@
     }
 
     .password-change{
-        display:block;
+        display:inline-block;
         width:60%;
     }
 /*************** RELIGIONS ***************/

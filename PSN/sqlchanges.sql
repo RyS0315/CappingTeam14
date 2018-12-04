@@ -95,7 +95,7 @@ CREATE TABLE Prayer_Religions(
 CREATE TABLE User_Religions(
     userid INT(10),
     relid INT(10),
-    reputation INT(10),
+    reputation INT(10) DEFAULT 0,
     isMod BOOLEAN DEFAULT 0,
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,
