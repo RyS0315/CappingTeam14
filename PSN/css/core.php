@@ -52,7 +52,7 @@
     }
 
     $chosen = 'LIGHT';
-    if($curthemeresult[0]['theme']){
+    if($curthemeresult[0]['theme'] != Null){
         $chosen = $curthemeresult[0]['theme'];
     }
 
