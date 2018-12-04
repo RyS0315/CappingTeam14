@@ -1,6 +1,5 @@
 <?php
-include '../config/dbconfig.php';
-include '../config/functions.php';
+require '../config/ApplicationTop.php';
 include getRoot().'Classes/imageUploader.php';
 include getRoot().'config/permissions.php';
 

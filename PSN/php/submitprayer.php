@@ -1,8 +1,6 @@
 <?php 
+    require '../config/ApplicationTop.php';
     include '../Classes/imageUploader.php';
-    include '../config/dbconfig.php';
-    include '../config/permissions.php';
-    include '../config/functions.php';
 
     $relid = isset($_POST['religion']) ? $_POST['religion'] : '';
     $content = isset($_POST['newprayer']) ? cleanVar($_POST['newprayer']) : '';
