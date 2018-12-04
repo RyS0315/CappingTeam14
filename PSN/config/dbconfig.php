@@ -6,7 +6,7 @@
     error_reporting(E_ALL);
     ini_set('display_errors', 'On');
     $databaseServer = 'MYSQL';
-
+    
     //LocalHost
     // $servername = '127.0.0.1';
     // $username = "root";
@@ -15,7 +15,7 @@
 
 
     //LiveHost
-    $servername = '10.10.9.146';
+    $servername = '127.0.0.1';
     $username = "PrayAdmin";
     $password = "1nPabloW3Trust";
     $dbname = 'psndata';
@@ -25,7 +25,6 @@
         
         // Create connection for MYSQL
         $conn = mysqli_connect($servername, $username, $password, $dbname);
-        
         
         // Check connection
         if (!$conn) {
