@@ -6,10 +6,18 @@
     error_reporting(E_ALL);
     ini_set('display_errors', 'On');
     $databaseServer = 'MYSQL';
-    
-    $servername = '127.0.0.1';
-    $username = "root";
-    $password = "";
+
+    //LocalHost
+    // $servername = '127.0.0.1';
+    // $username = "root";
+    // $password = "";
+    // $dbname = 'psndata';
+
+
+    //LiveHost
+    $servername = '10.10.9.146';
+    $username = "PrayAdmin";
+    $password = "1nPabloW3Trust";
     $dbname = 'psndata';
     
     if($databaseServer == 'MYSQL'){
