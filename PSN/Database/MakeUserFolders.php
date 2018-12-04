@@ -1,7 +1,7 @@
 <?php
     require '../config/ApplicationTop.php';
 
-    $userquery = "SELECT u.userid
+    $userquery = "SELECT u.userid, u.pPicture, u.bPicture
                   FROM Users u";
     $users = $db->FetchQuery($userquery);
 
@@ -10,6 +10,7 @@
     foreach($users as $i){
         $new = true;
         foreach($curdirs as $j){
+            $dirnum = str_replace('../images/Users/', '' , $j);
             if(!$new){
                 continue;
             }
