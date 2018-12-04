@@ -16,7 +16,7 @@
         include dirname(__FILE__).'/../Database/mydb.php';
         
         // Create connection for MYSQL
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        $conn = mysql_connect($servername, $username, $password, $dbname);
         
         
         // Check connection
