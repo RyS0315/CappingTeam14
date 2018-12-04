@@ -50,7 +50,7 @@
                    WHERE p.userid = '$id'
                    AND p.prayid = l.prayid
                    AND l.isLike = 1
-                   GROUP BY l.prayid
+                   GROUP BY l.prayid, l.dateLastMaint
                    ORDER BY l.dateLastMaint desc";
     $likes = $db->fetchQuery($likesquery);
 
