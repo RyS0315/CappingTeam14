@@ -69,7 +69,7 @@
                   WHERE u.userid = $id";
         $result = $db->fetchQuery($query);
         $page = basename($_SERVER['REQUEST_URI']);
-        if($page != 'newAccount-religion.php'){
+        if($page != 'newAccount-religion.php' && $page != 'core.php'){
             if($result[0]['primary_religion'] == null){
                 header('Location:newAccount-religion.php');
             } else{

@@ -38,7 +38,7 @@ CREATE TABLE Users(
     bio TEXT,
     zipCode INT(10),
     Primary_religion INT(10),
-    theme VARCHAR(20),
+    theme VARCHAR(20) DEFAULT 'LIGHT',
     email VARCHAR(30),
     phone_number VARCHAR(15),
     pPicture VARCHAR(20),

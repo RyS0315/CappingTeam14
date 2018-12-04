@@ -128,7 +128,7 @@
         createDir($insertresult);
         setDefaultPhoto($insertresult);
         setUser($insertresult);
-        //header('Location:'.getRoot().'newAccount-religion.php');
+        header('Location:'.getRoot().'newAccount-religion.php');
     }
 
     function createDir($id){

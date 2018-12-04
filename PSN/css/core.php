@@ -44,16 +44,16 @@
                   'buttontext'=>'#f3e1ff',
                   'commentbox'=>'#ffff88'],
     ];
+    $chosen = 'LIGHT';
     if($id != ''){
         $curthemequery = "SELECT u.theme
                   FROM USERS u
                   WHERE u.userid = $id";
         $curthemeresult = $db->fetchQuery($curthemequery);
-    }
-
-    $chosen = 'LIGHT';
-    if($curthemeresult[0]['theme'] != Null){
-        $chosen = $curthemeresult[0]['theme'];
+        
+        if($curthemeresult[0]['theme'] != Null){
+            $chosen = $curthemeresult[0]['theme'];
+        }
     }
 
     $backgroundcolor = $theme[$chosen]['background'];
