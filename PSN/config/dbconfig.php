@@ -13,7 +13,7 @@
     $dbname = 'psndata';
     
     if($databaseServer == 'MYSQL'){
-        include '/../Database/mydb.php';
+        include dirname(__FILE__).'/../Database/mydb.php';
         
         // Create connection for MYSQL
         $conn = mysqli_connect($servername, $username, $password, $dbname);
