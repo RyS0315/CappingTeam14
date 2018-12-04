@@ -8,17 +8,17 @@
     $databaseServer = 'MYSQL';
     
     //LocalHost
-    // $servername = '127.0.0.1';
-    // $username = "root";
-    // $password = "";
-    // $dbname = 'psndata';
+    $servername = '127.0.0.1';
+    $username = "root";
+    $password = "";
+    $dbname = 'psndata';
 
 
     //LiveHost
-    $servername = '127.0.0.1';
-    $username = "PrayAdmin";
-    $password = "1nPabl0W3Trust";
-    $dbname = 'psndata';
+    // $servername = '127.0.0.1';
+    // $username = "PrayAdmin";
+    // $password = "1nPabl0W3Trust";
+    // $dbname = 'psndata';
     
     if($databaseServer == 'MYSQL'){
         include dirname(__FILE__).'/../Database/mydb.php';

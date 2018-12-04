@@ -8,8 +8,8 @@
     $content = isset($_POST['newprayer']) ? cleanVar($_POST['newprayer']) : '';
     $img = isset($_FILES['upload']) ? $_FILES['upload'] : '' ;
 
-    // print_ary($_FILES);
-    // print_ary($_POST);
+    print_ary($_FILES);
+    print_ary($_POST);
 
     $keys = array_keys($_POST);
     
@@ -23,7 +23,7 @@
         }
     }
 
-    print_ary($tags);
+    //print_ary($tags);
 
     if($content != ''){
 
