@@ -481,7 +481,7 @@
         margin-top: 30px;
         margin-right: 6%;
         padding-top: 60px;
-        margin-bottom: 24px;
+        margin-bottom: 32px;
     }
 
     .login-form-box {
@@ -1396,7 +1396,7 @@
 
     .drop-religion {
         width: 100%;
-        border-radius:0 px;
+        border-radius: 0px;
     }
 
     .add-religion {
