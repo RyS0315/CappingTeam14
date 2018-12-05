@@ -500,6 +500,7 @@
         padding-bottom: 10px;
         border-bottom: 1px solid <?php echo $menuborder ?>;
         border-radius: 5px 5px 0px 0px;
+        margin-top: 90px;
     }
 
     #login-form-inputs {
@@ -528,7 +529,7 @@
     }
 
     .pray-desc {
-        margin-top: 90px;
+       
         width: 40%;
         float: left;
         border-radius: 5px;
