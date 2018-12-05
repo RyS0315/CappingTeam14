@@ -492,6 +492,7 @@
         border: 1px solid <?php echo $menuborder ?>;
         border-radius: 5px;
         margin: auto;
+        margin-top: 90px;
     }
 
     .login-form-box-body {
@@ -500,7 +501,6 @@
         padding-bottom: 10px;
         border-bottom: 1px solid <?php echo $menuborder ?>;
         border-radius: 5px 5px 0px 0px;
-        margin-top: 90px;
     }
 
     #login-form-inputs {
