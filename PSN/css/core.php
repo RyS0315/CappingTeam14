@@ -482,6 +482,7 @@
         margin-right: 6%;
         padding-top: 60px;
         margin-bottom: 24px;
+        margin-top: 60px;
     }
 
     .login-form-box {
@@ -492,7 +493,6 @@
         border: 1px solid <?php echo $menuborder ?>;
         border-radius: 5px;
         margin: auto;
-        margin-top: 90px;
     }
 
     .login-form-box-body {
