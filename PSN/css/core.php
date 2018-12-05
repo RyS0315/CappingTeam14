@@ -2054,7 +2054,6 @@
 
   .login-body {
       width: 70%;
-      margin-top: 0px;
       margin-right: 15%;
       padding-top: 32px;
   }
