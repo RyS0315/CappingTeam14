@@ -57,7 +57,7 @@
 
     <?php $usersettings->displaySettings();?>
 
-    <?php die("THIS PAGE IS CURRENTLY UNDER MAINTENCE")?>
+    <?php die("THIS PAGE IS CURRENTLY UNDER MAINTENANCE")?>
 
     <div class='account-settings-box'>
         <h1>Account Settings</h1>
