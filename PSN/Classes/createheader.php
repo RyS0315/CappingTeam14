@@ -62,14 +62,30 @@
                 </ul>";
             }
             echo "</div></section>";
-            $this->createMobileHeader();
             if($this->loggedIn == 1){
+                $this->createMobileHeader();
                 $this->createUserMenu($this->userid);
+            }else{
+                echo"
+                  <section class='header login'>
+                  <div class='header-box'>
+                  <ul class='logo-box'>
+                      <li class='logo-li'>
+                          <a href='index.php'><img class='logo' src='".getRoot()."images/icons/favicon.png'></a>
+                      </li>
+                  </ul>
+                  <ul class='header-link-box'>";
+            foreach($this->menus as $i){
+                echo "<li class='header-link ".$i['active']."'>
+                        <a href='".$i['link']."'>".$i['name']."</a>
+                      </li>";
+            }
+            echo "</ul>";
+            echo "</div></section>";
             }
         }
 
         function createMobileHeader() {
-
             echo"<section class='mobile-header'>
                 <div class='mobile-header-box'>
                     <ul class='mobile-header-link-box'>

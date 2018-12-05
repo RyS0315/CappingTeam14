@@ -534,6 +534,7 @@
         border-radius: 5px;
         background-color: <?php echo $boxcolor ?>;
         margin-left: 6%;
+        padding-bottom:32px;
     }
 
     .pray-desc-header {
@@ -1855,8 +1856,15 @@
     /****** HEADER ******/
 
         /* Hide old menu */
-        .header {
+        .header{
             display: none;
+        }
+        .login{
+            display:block;
+        }
+
+        .header-link-box{
+            margin-left:10%;
         }
 
         .mobile-header {
