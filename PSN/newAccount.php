@@ -201,11 +201,12 @@
 <html>
     <head>
         <title>PSN-Login</title>
+        <link rel='shortcut icon' href='images/icons/favicon.png'>
 </head>
 <link rel='stylesheet' type='text/css' href='css/core.php'>
 <link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
 <body>
-<section class='header'>
+<section class='header login'>
         <div class='header-box'>
             <ul>
                 <li class='header-link'>

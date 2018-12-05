@@ -5,7 +5,7 @@ require '../config/ApplicationTop.php';
 print_ary($_POST);
 
 $recid = isset($_POST['id']) ? $_POST['id'] : '';
-$msg = isset($_POST['msg']) ? cleanForHTML($_POST['msg']) : '';
+$msg = isset($_POST['msg']) ? cleanVar($_POST['msg']) : '';
 
 function sendMessage($recid, $msg, $id, $db){
     $msg = checkMessage($msg);//make sure message is safe

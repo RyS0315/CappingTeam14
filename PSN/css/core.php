@@ -257,7 +257,7 @@
         height: 30px;
         width: 30px;
         position: relative;
-        margin-left: 95%;
+        margin-left:calc(100% - 45px);
         transform: translateY(-25px);
     }
 
@@ -481,13 +481,14 @@
         margin-top: 30px;
         margin-right: 6%;
         padding-top: 60px;
-        margin-bottom: 32px;
+        margin-bottom: 24px;
+        margin-top: 60px;
     }
 
     .login-form-box {
         width: auto;
         height: 330px;
-        width: 60%;
+        width: 100%;
         background-color: <?php echo $boxcolor?>;
         border: 1px solid <?php echo $menuborder ?>;
         border-radius: 5px;
@@ -504,7 +505,7 @@
 
     #login-form-inputs {
         margin: auto;
-        width: 50%;
+        width: 90%;
         margin-top: 10px;
     }
 
@@ -528,12 +529,12 @@
     }
 
     .pray-desc {
-        margin-top: 90px;
         width: 40%;
         float: left;
         border-radius: 5px;
         background-color: <?php echo $boxcolor ?>;
         margin-left: 6%;
+        padding-bottom:32px;
     }
 
     .pray-desc-header {
@@ -1396,7 +1397,7 @@
 
     .drop-religion {
         width: 100%;
-        border-radius: 0px;
+        border-radius:0 px;
     }
 
     .add-religion {
@@ -1566,7 +1567,14 @@
     }
 
     .messages-default {
-        height: 600px;
+        padding-top:25px;
+        width:90%;
+        margin:auto;
+    }
+
+    .messages-default-title{
+        width:100%;
+        text-align:center;
     }
 
     #user-searchautocomplete-list {
@@ -1848,8 +1856,15 @@
     /****** HEADER ******/
 
         /* Hide old menu */
-        .header {
+        .header{
             display: none;
+        }
+        .login{
+            display:block;
+        }
+
+        .header-link-box{
+            margin-left:10%;
         }
 
         .mobile-header {
@@ -2042,13 +2057,11 @@
   /****** LOGIN ******/
   .pray-desc {
       width: 70%;
-      margin-top: 150px;
       margin-left: 15%;
   }
 
   .login-body {
       width: 70%;
-      margin-top: 0px;
       margin-right: 15%;
       padding-top: 32px;
   }
@@ -2239,7 +2252,6 @@
     /****** LOGIN ******/
       .pray-desc {
           width: 80%;
-          margin-top: 130px;
           margin-left: 10%;
       }
 

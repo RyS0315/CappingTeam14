@@ -37,7 +37,7 @@
 <link rel='stylesheet' type='text/css' href='css/core.php'>
 <link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
 <body>
-<section class='header'>
+<section class='header login'>
     <div class='header-box'>
         <ul>
             <li class='header-link'>

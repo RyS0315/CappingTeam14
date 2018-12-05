@@ -5,7 +5,7 @@ include '../Classes/prayerCommenter.php';
 print_ary($_POST);
 
 $prayid = isset($_POST['prayid']) ? $_POST['prayid'] : '';
-$comment = isset($_POST['comment']) ? $_POST['comment'] : '';
+$comment = isset($_POST['comment']) ? cleanVar($_POST['comment']) : '';
 
 
 if($prayid){
