@@ -45,19 +45,20 @@
      * notification
      * 
      */
-    $likesquery = "SELECT l.prayid, COUNT(l.userid) AS likes
+    $likesquery = "SELECT l.prayid, COUNT(l.userid) AS likes, l.dateLastMaint
                    FROM Likes l, Prayers p
                    WHERE p.userid = '$id'
                    AND p.prayid = l.prayid
-                   GROUP BY l.prayid
+                   AND l.isLike = 1
+                   GROUP BY l.prayid, l.dateLastMaint
                    ORDER BY l.dateLastMaint desc";
     $likes = $db->fetchQuery($likesquery);
 
-    $commentsquery = "SELECT COUNT(c.userid) AS comments, c.prayid
+    $commentsquery = "SELECT COUNT(c.userid) AS comments, c.prayid, c.dateLastMaint
                       FROM Prayers p, Comments c
                       WHERE p.userid = '$id'
                       AND c.prayid = p.prayid
-                      GROUP BY c.prayid
+                      GROUP BY c.prayid, c.dateLastMaint
                       ORDER BY c.dateLastMaint desc";
     $comments = $db->fetchQuery($commentsquery);
     

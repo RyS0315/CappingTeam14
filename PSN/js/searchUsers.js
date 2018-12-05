@@ -14,7 +14,7 @@ function autocomplete(inp, arr) {
         a.setAttribute("id", this.id + "autocomplete-list");
         a.setAttribute("class", "autocomplete-items");
         /*append the DIV element as a child of the autocomplete container:*/
-        this.parentNode.insertBefore(a, this.parentNode.firstChild);
+        this.parentNode.parentNode.appendChild(a);
         /*for each item in the array...*/
         for (i = 0; i < arr.length; i++) {
           /*check if the item starts with the same letters as the text field value:*/
@@ -32,6 +32,10 @@ function autocomplete(inp, arr) {
             a.appendChild(b);
           }
         }
+        //Get height values for a and move it up
+        aheight = a.clientHeight;
+        ascroll = aheight + 54;
+        a.setAttribute('style', 'transform:translateY(-'+ascroll+'px)');
     });
     /*execute a function presses a key on the keyboard:*/
     inp.addEventListener("keydown", function(e) {

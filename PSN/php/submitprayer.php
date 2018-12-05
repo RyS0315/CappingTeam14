@@ -1,15 +1,13 @@
 <?php 
-    include '../Classes/imageUploader.php';
-    include '../config/dbconfig.php';
-    include '../config/permissions.php';
-    include '../config/functions.php';
+    require '../config/ApplicationTop.php';
+    include getRoot().'Classes/ImageUploader.php';
 
     $relid = isset($_POST['religion']) ? $_POST['religion'] : '';
-    $content = isset($_POST['newprayer']) ? $_POST['newprayer'] : '';
+    $content = isset($_POST['newprayer']) ? cleanVar($_POST['newprayer']) : '';
     $img = isset($_FILES['upload']) ? $_FILES['upload'] : '' ;
 
-    // print_ary($_FILES);
-    // print_ary($_POST);
+    print_ary($_FILES);
+    print_ary($_POST);
 
     $keys = array_keys($_POST);
     
@@ -23,7 +21,7 @@
         }
     }
 
-    print_ary($tags);
+    //print_ary($tags);
 
     if($content != ''){
 

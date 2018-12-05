@@ -42,11 +42,6 @@
             'active'=>''
         ],
         [
-            'name'=>'Themes',
-            'link'=>'settings-themes.php',
-            'active'=>''
-        ],
-        [
             'name'=>'Religions',
             'link'=>'settings-religions.php',
             'active'=>''

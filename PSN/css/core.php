@@ -1,7 +1,16 @@
 <?php
     header("Content-type: text/css; charset: UTF-8");
+    include '../config/dbconfig.php';
+    include '../config/functions.php';
+    include '../config/permissions.php';
+    /**
+     * 
+     * Themes for the site.
+     * The Gold Theme will not be live because it sucks
+     * 
+     */
     $theme = [
-        'Light'=>['background'=>'#efe6f3',
+        'LIGHT'=>['background'=>'#efe6f3',
                   'text'=>'rgba(0,0,0,.65)',
                   'boxcolor'=>'#f3e1ff',
                   'link'=>'#a415df',
@@ -12,7 +21,7 @@
                   'buttonhover'=>'#8405af',
                   'buttontext'=>'#f3e1ff',
                   'commentbox'=>'#fbfbfb'],
-        'Dark' =>['background'=>'#140026',
+        'DARK' =>['background'=>'#140026',
                   'text'=>'rgba(255,255,255,.65)',
                   'boxcolor'=>'#1b0036',
                   'link'=>'rgba(200,0,200,.65)',
@@ -23,7 +32,7 @@
                   'buttonhover'=>'#8405af',
                   'buttontext'=>'#ffffff',
                   'commentbox'=>'#320942'],
-        'Gold'=>['background'=>'#ffff66',
+        'GOLD'=>['background'=>'#ffff66',
                   'text'=>'rgba(0,0,0,.65)',
                   'boxcolor'=>'#ffff12',
                   'link'=>'#a415df',
@@ -35,7 +44,17 @@
                   'buttontext'=>'#f3e1ff',
                   'commentbox'=>'#ffff88'],
     ];
-    $chosen='Light';
+    $chosen = 'LIGHT';
+    if($id != ''){
+        $curthemequery = "SELECT u.theme
+                  FROM USERS u
+                  WHERE u.userid = $id";
+        $curthemeresult = $db->fetchQuery($curthemequery);
+        
+        if($curthemeresult[0]['theme'] != Null){
+            $chosen = $curthemeresult[0]['theme'];
+        }
+    }
 
     $backgroundcolor = $theme[$chosen]['background'];
     $boxcolor = $theme[$chosen]['boxcolor'];
@@ -938,10 +957,14 @@
     }
 
     .settings-link:hover {
-        background-color: <?php echo $linkcolor ?>;
+        background-color: <?php echo $backgroundcolor ?>;
     }
 
     .current {
+        background-color: <?php echo $buttoncolor ?>;
+    }
+
+    .current:hover{
         background-color: <?php echo $buttoncolor ?>;
     }
 /*************** PRAYER FEED *************/
@@ -1094,7 +1117,7 @@
     }
 
     .imglarge-box {
-        width: 60%;
+        width: 50%;
         background-color: <?php echo $boxcolor ?>;
         padding-top: 50px;
         padding-bottom: 50px;
@@ -1309,6 +1332,11 @@
         margin-top: 20px;
         margin-bottom: 10px;
         color: rgba(0,0,0, .85);
+    }
+
+    .password-change{
+        display:inline-block;
+        width:60%;
     }
 /*************** RELIGIONS ***************/
     .settings-religions-body {
@@ -1542,13 +1570,18 @@
     #user-searchautocomplete-list {
         display: block;
         position: absolute;
-        transform: translateY(-500px);
-        width: 18.8%;
+        width: 20.1%;
         background-color: <?php echo $feedcolor ?>;
         border: 1px solid <?php echo $menuborder ?>;
         border-radius: 5px 5px 0px 0px;
         border-bottom: none;
-        height: 490px;
+        max-height:200px;
+        overflow:auto;
+    }
+
+    .autocomplete-uni-item:hover{
+        cursor:pointer;
+        background-color:<?php echo $backgroundcolor?>;
     }
 
     .autocomplete-uni-item {

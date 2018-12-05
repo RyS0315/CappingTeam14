@@ -1,7 +1,5 @@
 <?php
-    include '../config/dbconfig.php';
-    include '../config/permissions.php';
-    include '../config/functions.php';
+    require '../config/ApplicationTop.php';;
 
     $commid = isset($_POST['delete']) ? $_POST['delete'] : '';
 

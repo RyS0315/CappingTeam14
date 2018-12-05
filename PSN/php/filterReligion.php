@@ -1,7 +1,5 @@
 <?php
-include '../config/dbconfig.php';
-include '../config/permissions.php';
-include '../config/functions.php';
+require '../config/ApplicationTop.php';
 
 $newrelid = isset($_POST['religion']) ? $_POST['religion'] : '';
 

@@ -30,7 +30,7 @@
     $header = new Header($db, $menus, $title, $css);
     $header->ShowUserMenu($id);
     $header->displayHeader();
-
+    
     $comments = new PrayerCommentDisplayer($db, $id);
     $feed = new PrayerCreator($db,$id,$comments);
 
@@ -39,7 +39,6 @@
                    WHERE u.userid = $id";
     $primaryrelres = $db->fetchquery($primaryrelquery);
     $prel = $primaryrelres[0]['primary_religion'];
-
     $chosenreligion = isset($_SESSION['currel']) ? $_SESSION['currel'] : $prel;
 
     $curreligionquery = "SELECT r.religion_name, r.relid
@@ -93,48 +92,44 @@
 
     $tagsdisp = new TagDisplayer($db, $id);
 ?>
-
-    <section class='index-body' id='body'>
-        <div class='index-left-box'>
-            <p class='index-trends-header'>My <?php echo $curreligion[0]['religion_name']?> Stats</p>
-            <p>Prayers sent: <?php echo prayersSent($id, $curreligion[0]['relid'], $db )?> </p>
-            <p> Reputation: <?php echo getReputation($id, $curreligion[0]['relid'], $db )?></p>
-            <p> Joined: <?php echo dateJoined($id, $curreligion[0]['relid'], $db )?> </p>
-        </div>
-
-        <div class='index-center-box'>
-            <ul class='sort-menu'>
-                <li class='religion-menu-header'>
-                    <?php echo $curreligion[0]['religion_name']?>
-                    <?php if($searchrels){?>
-                    <ul class='religion-menu-items'>
-                    <form method='post' action='php/filterReligion.php'>
-                        <?php foreach($searchrels as $i){
-                            echo" <li class='religion-menu-item' onclick='filterRel(".$i['relid'].")'>
-                            ".$i['religion_name']."
-                            <button id='filter-rel--".$i['relid']."' class='hidden' type='submit' name='religion' value=".$i['relid'].">
-                            </li>";
-                        }?>
-                    </form>
-                    </ul><?php
+<section class='index-body' id='body'>
+    <div class='index-left-box'>
+        <p class='index-trends-header'>My <?php echo $curreligion[0]['religion_name']?> Stats</p>
+        <p>Prayers sent: <?php echo prayersSent($id, $curreligion[0]['relid'], $db )?> </p>
+        <p> Reputation: <?php echo getReputation($id, $curreligion[0]['relid'], $db )?></p>
+        <p> Joined: <?php echo dateJoined($id, $curreligion[0]['relid'], $db )?> </p>
+    </div>
+    <div class='index-center-box'>
+        <ul class='sort-menu'>
+            <li class='religion-menu-header'>
+                <?php echo $curreligion[0]['religion_name']?>
+                <?php if($searchrels){?>
+                <ul class='religion-menu-items'>
+                <form method='post' action='php/filterReligion.php'>
+                    <?php foreach($searchrels as $i){
+                        echo" <li class='religion-menu-item' onclick='filterRel(".$i['relid'].")'>
+                        ".$i['religion_name']."
+                        <button id='filter-rel--".$i['relid']."' class='hidden' type='submit' name='religion' value=".$i['relid'].">
+                        </li>";
                     }?>
-                </li>
-            </ul>
-
-            <?php
-            foreach($prayers as $i){
-                $feed->showPrayer($i);
-            }?>
-        </div>
-
-        <div class='index-right-box'>
-            <p class='index-trends-header'>Featured Tags</p>
-            <?php
-            foreach($featuredtags as $i){
-                $tagsdisp->showtag($i);
-            }?>
-        </div>
-    </section>
+                </form>
+                </ul><?php
+                }?>
+            </li>
+        </ul>
+        <?php
+        foreach($prayers as $i){
+            $feed->showPrayer($i);
+        }?>
+    </div>
+    <div class='index-right-box'>
+        <p class='index-trends-header'>Featured Tags</p>
+        <?php
+        foreach($featuredtags as $i){
+            $tagsdisp->showtag($i);
+        }?>
+    </div>
+</section>
  <?php
     $footer = new Footer($db,$src);
     $footer->buildFooter();

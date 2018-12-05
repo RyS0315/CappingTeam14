@@ -46,8 +46,8 @@ function addDislike(url, data, prayid){
         type: "POST",
         url: url,
         data: data, 
-        success: function (data) {
-            // alert(data);
+        success: function (result) {
+            // alert(result);
             if(dislike.classList.contains("up-down-active")){
                 dislike.classList.remove("up-down-active");
                 dislikepic.src = "images/icons/thumbs-down-grey.png";
@@ -66,7 +66,22 @@ function addDislike(url, data, prayid){
                     scorediv.innerHTML = newscore;
                 }
             }
-            //checkscore(newscore);
+            checkscore(newscore, data);
         }
     });
+}
+
+function checkscore(newscore, data){
+    if(newscore < -5){
+        $.ajax({
+            type: "POST",
+            url: 'php/banPrayer.php',
+            data: data, 
+            success: function (data) {
+                //alert(data);
+            }
+        });
+    } else{
+        return true;
+    }
 }

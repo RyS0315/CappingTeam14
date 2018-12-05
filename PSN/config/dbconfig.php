@@ -1,19 +1,30 @@
 <?php
     define('ROOT_DIR', __DIR__);
-    
+    // toggle this to change the setting
+    define('DEBUG', false); 
+    // you want all errors to be triggered
+    //error_reporting(E_ALL);
+    ini_set('display_errors', 'Off');
     $databaseServer = 'MYSQL';
     
+    //LocalHost
+    // $servername = '127.0.0.1';
+    // $username = "root";
+    // $password = "";
+    // $dbname = 'psndata';
+
+
+    //LiveHost
     $servername = '127.0.0.1';
-    $username = "root";
-    $password = "";
+    $username = "PrayAdmin";
+    $password = "1nPabl0W3Trust";
     $dbname = 'psndata';
     
     if($databaseServer == 'MYSQL'){
-        include '/../Database/mydb.php';
+        include dirname(__FILE__).'/../Database/mydb.php';
         
         // Create connection for MYSQL
         $conn = mysqli_connect($servername, $username, $password, $dbname);
-        
         
         // Check connection
         if (!$conn) {

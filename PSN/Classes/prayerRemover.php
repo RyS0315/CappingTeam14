@@ -86,6 +86,17 @@
             $this->db->deleteQuery($query);
         }
 
+        /**
+         * 
+         * Function to ban a prayer. Same idea as remove prayer but the current user does not need permission
+         * 
+         */
+        function banPrayer($prayer){
+            $this->removeRelation($prayer['prayid']);//Remove all field where the prayer is a foreign key
+            $this->removeimg($prayer['img']);//Remove the image from the directory
+            $this->remove($prayer['prayid']);//Remove prayer from prayer table
+        }
+
     }
 
 ?>

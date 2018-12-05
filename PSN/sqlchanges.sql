@@ -38,7 +38,7 @@ CREATE TABLE Users(
     bio TEXT,
     zipCode INT(10),
     Primary_religion INT(10),
-    default_view VARCHAR(20),
+    theme VARCHAR(20) DEFAULT 'LIGHT',
     email VARCHAR(30),
     phone_number VARCHAR(15),
     pPicture VARCHAR(20),
@@ -95,7 +95,7 @@ CREATE TABLE Prayer_Religions(
 CREATE TABLE User_Religions(
     userid INT(10),
     relid INT(10),
-    reputation INT(10),
+    reputation INT(10) DEFAULT 0,
     isMod BOOLEAN DEFAULT 0,
     dateLastMaint DATETIME DEFAULT CURRENT_TIMESTAMP,
     dateAdded DATETIME DEFAULT CURRENT_TIMESTAMP,

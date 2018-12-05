@@ -2,17 +2,17 @@
     class Header{
         protected $db;//Sets the Database -- Allows for queries in this class
 
-        protected $menus;
+        protected $menus;//Create the menu bar links
 
         protected $loggedIn;//Specifies if the user header should be added
 
         protected $userid;//Id of the user uploading the image
 
-        protected $title;
+        protected $title;//Creates the page title
 
-        protected $css;
+        protected $css;//Links all the css files used
 
-        protected $profpic;
+        protected $profpic;//The profile pic name
 
         Public function __construct($db,$menus,$title,$css){
             $this->db = $db;
@@ -31,7 +31,6 @@
             $this->createTitle();
             if($this->loggedIn == 1){
                 $this->createCompose();
-                // $this->createLargeImageContainer();
             }
             //Header
             echo "
@@ -106,6 +105,8 @@
 
         function createTitle(){
            echo "<html>
+           <script type='text/javascript' src='js/PrayImg.js'></script>
+           <script type='text/javascript' src='js/updatemessages.js'></script>
                     <head>
                         <title>".$this->title."</title>
                         <link rel='shortcut icon' href='images/icons/favicon.png'>
@@ -150,7 +151,7 @@
                         <a href='".getRoot()."settings-religions.php'>Religions</a>
                     </li>
                     <li class='header-profile-menu-list-item'>
-                        <a href='".getRoot()."settings-themes.php'>Themes</a>
+                        <a href='".getRoot()."php/changeTheme.php'> Theme </a>
                     </li>";
                     if($id == 1){
                         echo"
@@ -221,9 +222,6 @@
                 </div>
             </div>";
         }
-
-
-
 
         function getUserInfo(){
             $query = "SELECT * FROM USERS WHERE userid = '$this->userid'";

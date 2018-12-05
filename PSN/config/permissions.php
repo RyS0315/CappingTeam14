@@ -11,7 +11,7 @@
 
     function checkUser($username, $pass, $db, $attempts){
         $validuserquery = "SELECT userid
-                           FROM USERS
+                           FROM Users
                            WHERE username = '$username'
                            AND user_password = '$pass'";
         $checkResult = $db->FetchQuery($validuserquery);
@@ -69,9 +69,9 @@
                   WHERE u.userid = $id";
         $result = $db->fetchQuery($query);
         $page = basename($_SERVER['REQUEST_URI']);
-        if($page != 'newAccount-Religion.php'){
+        if($page != 'newAccount-religion.php' && $page != 'core.php'){
             if($result[0]['primary_religion'] == null){
-                header('Location:newAccount-Religion.php');
+                header('Location:newAccount-religion.php');
             } else{
                 return true;
             }
@@ -85,7 +85,7 @@
     }
 
     function require_login($page){
-        $nologin = ['login.php','newAccount.php'];
+        $nologin = ['login.php','newAccount.php', 'core.php'];
         foreach($nologin as $i){
             if($i == $page){
                 return false;

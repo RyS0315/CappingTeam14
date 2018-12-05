@@ -18,7 +18,7 @@
              * 2->Sent a message to me
              * 
              */
-            $query = "SELECT DISTINCT u.userid, u.fname, u.lname, u.username, u.pPicture
+            $query = "SELECT DISTINCT u.userid, u.fname, u.lname, u.username, u.pPicture, Max(m.messageid)
                       FROM User_Messages um, Users u, Messages m
                       WHERE (um.userid = u.userid
                       AND m.messageid = um.messageid
@@ -38,7 +38,7 @@
          * 
          */
         function getMessages($id){
-            $query = "SELECT DISTINCT m.userid, m.msg, u.fname, m.messageid
+            $query = "SELECT DISTINCT m.userid, m.msg, u.fname, m.messageid, m.dateAdded
                       FROM User_messages um, Messages m, Users u
                       WHERE um.messageid = m.messageid
                       AND u.userid = $id
