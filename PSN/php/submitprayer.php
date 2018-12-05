@@ -6,6 +6,8 @@
     $content = isset($_POST['newprayer']) ? cleanVar($_POST['newprayer']) : '';
     $img = isset($_FILES['upload']) ? $_FILES['upload'] : '' ;
 
+    $content = substr($content, 0 , 139);
+
     print_ary($_FILES);
     print_ary($_POST);
 
@@ -63,12 +65,13 @@
     
     function addTags($tags, $prayid, $db){
         foreach($tags as $i){
+            $name = substr($i, 0, 13);
             $checkquery = "SELECT *
                            FROM Tags
-                           WHERE tag_name = '$i'";
+                           WHERE tag_name = '$name'";
             $check = $db->fetchQuery($checkquery);
             if(!$check){
-                $newTagQuery = "INSERT into TAGS(tag_name)VALUES('$i')";
+                $newTagQuery = "INSERT into TAGS(tag_name)VALUES('$name')";
                 $newTag = $db->InsertQuery($newTagQuery);
                 $tagPrayerQuery = "INSERT INTO PRAYER_TAGS(prayid, tagid) VALUES($prayid, $newTag)";
                 $tagPrayer = $db->InsertQuery($tagPrayerQuery);
