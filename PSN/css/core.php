@@ -529,7 +529,6 @@
     }
 
     .pray-desc {
-       
         width: 40%;
         float: left;
         border-radius: 5px;
@@ -2050,7 +2049,6 @@
   /****** LOGIN ******/
   .pray-desc {
       width: 70%;
-      margin-top: 150px;
       margin-left: 15%;
   }
 
@@ -2247,7 +2245,6 @@
     /****** LOGIN ******/
       .pray-desc {
           width: 80%;
-          margin-top: 130px;
           margin-left: 10%;
       }
 
