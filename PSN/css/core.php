@@ -4,10 +4,10 @@
     include '../config/functions.php';
     include '../config/permissions.php';
     /**
-     * 
+     *
      * Themes for the site.
      * The Gold Theme will not be live because it sucks
-     * 
+     *
      */
     $theme = [
         'LIGHT'=>['background'=>'#efe6f3',
@@ -50,7 +50,7 @@
                   FROM USERS u
                   WHERE u.userid = $id";
         $curthemeresult = $db->fetchQuery($curthemequery);
-        
+
         if($curthemeresult[0]['theme'] != Null){
             $chosen = $curthemeresult[0]['theme'];
         }
@@ -481,15 +481,17 @@
         margin-top: 30px;
         margin-right: 6%;
         padding-top: 60px;
+        margin-bottom: 24px;
     }
 
     .login-form-box {
         width: auto;
         height: 330px;
-        max-width: 835px;
+        width: 60%;
         background-color: <?php echo $boxcolor?>;
         border: 1px solid <?php echo $menuborder ?>;
         border-radius: 5px;
+        margin: auto;
     }
 
     .login-form-box-body {
