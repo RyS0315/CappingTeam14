@@ -57,6 +57,8 @@
 
     <?php $usersettings->displaySettings();?>
 
+    <?php die("THIS PAGE IS CURRENTLY UNDER MAINTENCE")?>
+
     <div class='account-settings-box'>
         <h1>Account Settings</h1>
         <form method='post' action='php/updateAccountSettings.php' enctype='multipart/form-data'>
