@@ -339,7 +339,6 @@
 
     #header-profile-pic-link:hover {
         cursor: pointer;
-        border: 3px solid <?php echo $linkcolor ?>;
     }
 
     #header-profile-pic-link {
@@ -541,7 +540,7 @@
     .newaccount-body {
         width: 50%;
         margin: auto;
-        padding-top: 60px;
+        padding-top: 72px;
         padding-bottom: 20px;
     }
 
@@ -550,7 +549,7 @@
         max-width: 835px;
         border: 1px solid rgba(0,0,0,.2);
         background-color: #ffffff;
-        padding: 25px 0px 25px 40px;
+        padding: 25px 0px 25px 60px;
         font-family: 'Work Sans';
         border-radius: 5px;
     }
@@ -1726,6 +1725,11 @@
         #user-searchautocomplete-list {
             width: 18.4%;
         }
+
+        /* CREATE ACCOUNT */
+        .newaccount-body {
+            width: 86%;
+        }
     }
 /*********** 920px ************/
     @media screen and (max-width: 920px) {
@@ -1999,6 +2003,25 @@
             width: 24.3%;
         }
     }
+
+  /****** LOGIN ******/
+  .pray-desc {
+      width: 70%;
+      margin-top: 150px;
+      margin-left: 15%;
+  }
+
+  .login-body {
+      width: 70%;
+      margin-top: 0px;
+      margin-right: 15%;
+      padding-top: 32px;
+  }
+
+  /*** CREATE ACCOUNT ***/
+    .newaccount-body {
+        width: 98%;
+    }
 /*********** 600px ************/
     @media screen and (max-width: 600px) {
 
@@ -2177,6 +2200,25 @@
         #user-searchautocomplete-list {
             width: 23.8%;
         }
+
+    /****** LOGIN ******/
+      .pray-desc {
+          width: 80%;
+          margin-top: 130px;
+          margin-left: 10%;
+      }
+
+      .login-body {
+          width: 80%;
+          margin-right: 10%;
+      }
+
+    /****** CREATE ACCOUNT ******/
+        .religion-box {
+            width: 44%;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
     }
 /*********** 425px ************/
     @media screen and (max-width: 425px) {
@@ -2314,5 +2356,16 @@
 
         #user-searchautocomplete-list {
             width: 22.2%;
+        }
+
+      /****** LOGIN ******/
+        .pray-desc {
+            width: 92%;
+            margin-left: 4%;
+        }
+
+        .login-body {
+            width: 92%;
+            margin-right: 4%;
         }
     }
