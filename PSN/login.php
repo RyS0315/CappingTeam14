@@ -51,8 +51,8 @@ $menus = [
     <section class='login-body'>
         <div class='login-form-box'>
             <div class='login-form-box-body'>
-                <h1 style='width:50%; margin:auto; padding-top:50px; font-size:28px'>Log in to P.R.A.Y.</h1>
-                <p class='error' style='width:50%; margin:auto; margin-top:5px'><?php echo $error ?></p>
+                <h1 style='width:90%; margin:auto; padding-top:50px; font-size:28px'>Log in to P.R.A.Y.</h1>
+                <p class='error' style='width:90%; margin:auto; margin-top:5px'><?php echo $error ?></p>
                 <form method='post' action='login.php' id='login-form-inputs'>
                     <input type='text' name='username' value='<?php echo $inputUsername ?>' placeholder='Username or Email'></br>
                     <input type='password' name='password' placeholder='Password'></br>
@@ -60,7 +60,7 @@ $menus = [
                     <button class='submit-button' name='submit' type='submit'>Login</button>
                 </form>
             </div>
-            <p style='width:50%; margin:auto; margin-top:10px;'>New User?
+            <p style='width:90%; margin:auto; margin-top:10px;'>New User?
                 <a style='padding-left:5px'href='newAccount.php'>Create an account</a></p>
         </div>
     </section>

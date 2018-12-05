@@ -487,7 +487,7 @@
     .login-form-box {
         width: auto;
         height: 330px;
-        width: 60%;
+        width: 100%;
         background-color: <?php echo $boxcolor?>;
         border: 1px solid <?php echo $menuborder ?>;
         border-radius: 5px;
@@ -504,7 +504,7 @@
 
     #login-form-inputs {
         margin: auto;
-        width: 50%;
+        width: 90%;
         margin-top: 10px;
     }
 
