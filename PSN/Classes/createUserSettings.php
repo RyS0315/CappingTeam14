@@ -1,4 +1,4 @@
-<?php 
+<?php
     class UserSettings{
 
         protected $menus;
@@ -14,6 +14,7 @@
         }
 
         function displaySettings(){
+            echo "<div class='usersettingsdiv'>";
             echo "<ul class='usersettings-box'>";
             foreach($this->menus as $i){
                 echo "<li class='settings-link ".$i['active']."'>
@@ -21,6 +22,7 @@
                 </li>";
             }
             echo '</ul>';
+            echo '</div>';
         }
     }
 
