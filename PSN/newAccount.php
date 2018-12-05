@@ -114,7 +114,7 @@
             } else{
                 return $check;
             }
-            
+
         }else{
             return 'Passwords Do Not Match';
         }
@@ -226,7 +226,7 @@
                 <div class='verifyerror' >
                     <?php echo $message['username'] ?>
                 </div>
-                <input type='text' name='username' placeholder='UserName' value=<?php echo $username_ph?>>
+                <input type='text' name='username' placeholder='Username' value=<?php echo $username_ph?>>
                 <div class='verifyerror' >
                     <?php echo $message['password'] ?>
                 </div>
@@ -272,11 +272,11 @@
         }
     }
     /**
-     * 
-     * A password must have 
+     *
+     * A password must have
      * 8 Digits
      * At least one Uppercase Letter, Lowercase Letter, and Special character
-     * 
+     *
      */
     function checkStrength(pw){
         var uppercase = new RegExp(/[A-Z]/);
