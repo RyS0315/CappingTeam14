@@ -31,23 +31,6 @@ $menus = [
     $header->displayHeader();
 ?>
     </section>
-    <section class='pray-desc'>
-        <div class='pray-desc-header'>
-            <h1> P.R.A.Y. </h1>
-            <h2> People, Religion, and You </h2>
-        </div>
-        <div class='pray-desc-body'>
-            <p>Sometimes it takes someone bigger than yourself to get back up
-               when you are down in life, you may need help from a community
-               of people that understands what you are going through, you may
-               need help from God. </p>
-            <br>
-            <p>PRAY is the social network that connects people from all around
-               the World to communicate and stay connected through the exchange
-               of Prayers, comments, and messages</p>
-        </div>
-    </section>
-
     <section class='login-body'>
         <div class='login-form-box'>
             <div class='login-form-box-body'>
@@ -62,6 +45,24 @@ $menus = [
             </div>
             <p style='width:90%; margin:auto; margin-top:10px;'>New User?
                 <a style='padding-left:5px'href='newAccount.php'>Create an account</a></p>
+        </div>
+    </section>
+
+
+    <section class='pray-desc'>
+        <div class='pray-desc-header'>
+            <h1> P.R.A.Y. </h1>
+            <h2> People, Religion, and You </h2>
+        </div>
+        <div class='pray-desc-body'>
+            <p>Sometimes it takes someone bigger than yourself to get back up
+               when you are down in life, you may need help from a community
+               of people that understands what you are going through, you may
+               need help from God. </p>
+            <br>
+            <p>PRAY is the social network that connects people from all around
+               the World to communicate and stay connected through the exchange
+               of Prayers, comments, and messages</p>
         </div>
     </section>
 </body>
