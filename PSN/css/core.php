@@ -257,7 +257,7 @@
         height: 30px;
         width: 30px;
         position: relative;
-        margin-left: 95%;
+        margin-left:calc(100% - 45px);
         transform: translateY(-25px);
     }
 
