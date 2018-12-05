@@ -316,6 +316,39 @@
         $count = $db->fetchQuery($query);
         // print_ary($count);
         return $count[0]['num'];
+    }
 
+
+
+    /**
+     * 
+     * Return the name of the browser being used
+     * 
+     */
+    function ExactBrowserName(){
+        $ExactBrowserNameUA=$_SERVER['HTTP_USER_AGENT'];
+        // echo $ExactBrowserNameUA;
+
+        if (strpos(strtolower($ExactBrowserNameUA), "safari/") and strpos(strtolower($ExactBrowserNameUA), "opr/")) {
+            // OPERA
+            $ExactBrowserNameBR="Opera";
+        } elseIf (strpos(strtolower($ExactBrowserNameUA), "safari/") and strpos(strtolower($ExactBrowserNameUA), "chrome/")) {
+            // CHROME
+            $ExactBrowserNameBR="Chrome";
+        } elseIf (strpos(strtolower($ExactBrowserNameUA), "msie")) {
+            // INTERNET EXPLORER
+            $ExactBrowserNameBR="Internet Explorer";
+        } elseIf (strpos(strtolower($ExactBrowserNameUA), "firefox/")) {
+            // FIREFOX
+            $ExactBrowserNameBR="Firefox";
+        } elseIf (strpos(strtolower($ExactBrowserNameUA), "safari/") and strpos(strtolower($ExactBrowserNameUA), "opr/")==false and strpos(strtolower($ExactBrowserNameUA), "chrome/")==false) {
+            // SAFARI
+            $ExactBrowserNameBR="Safari";
+        } else {
+            // OUT OF DATA
+            $ExactBrowserNameBR="OUT OF DATA";
+        };
+
+        return $ExactBrowserNameBR;
     }
 ?>

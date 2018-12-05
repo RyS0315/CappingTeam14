@@ -82,8 +82,10 @@
                 $messager->displayConvo($messages[$curconvo], $curconvo);
             }else{?>
                 <div class='messages-default'>
+                    <h1 class='messages-default-title'>Welcome to Messages</h1>
+                    <p>Choose an existing Conversation, or search for a new conversation</p>
 
-                <p>No Conversation Selected</p>
+
 
                 </div>
             <?php } ?>

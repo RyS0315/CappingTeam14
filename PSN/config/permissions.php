@@ -6,7 +6,9 @@
     $username = $usersettings['username'];
     $firstname = $usersettings['firstname'];
     $lastname = $usersettings['lastname'];
-    // print_ary($usersettings);
+    // $browser = ExactBrowserName();
+    // checkBrowser($browser);
+    //print_ary($usersettings);
     // $password = $usersettings['password'];
 
     function checkUser($username, $pass, $db, $attempts){
@@ -121,5 +123,26 @@
             $_PERMISSIONS['canreport'] = true;
         }
         return $_PERMISSIONS;
+    }
+
+    /**
+     * 
+     * Check if the current browser is supported
+     * 
+     */
+    function checkBrowser($browser){
+        // print_ary($browser);
+        echo $browser;
+        $supported = ['Chrome'];
+        $check = false;
+        foreach($supported as $i){
+            if($i = $browser){
+                $check = true;
+                continue;
+            }
+        }
+        if(!$check){
+            header('Location:unsupportedBrowser.php');
+        }
     }
 ?>

@@ -1564,7 +1564,14 @@
     }
 
     .messages-default {
-        height: 600px;
+        padding-top:25px;
+        width:90%;
+        margin:auto;
+    }
+
+    .messages-default-title{
+        width:100%;
+        text-align:center;
     }
 
     #user-searchautocomplete-list {
