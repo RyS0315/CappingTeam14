@@ -145,24 +145,28 @@
 
 <section class='index-body' id='body'>
     <?php $usersettings->displaySettings();?>
-    <div class='account-settings-box'>
-    <h1>Update Your Password</h1>
-    <form method='post' action=''>
-    <h3>Old Password</h3>
-    <input class='password-change' id='oldpassword' type='password' name='oldpass' placeholder='Enter Your Old Password'>
-    <p class='error' style='display:inline-block'><?php echo $error['old']?></p>
-    <h3>New Password</h3>
-    <input class='password-change' id='newpassword' type='password' name='newpass' placeholder='Enter Your New Password'>
-    <p class='error' style='display:inline-block'><?php echo $error['password']?></p>
-    <h3>Verify New Password</h3>
-    <input class='password-change' id='verifypassword' type='password' name='verifypass' placeholder='Verify Your New Password'>
-    </br>
-    <button type='submit' name='change-password'>Update</button>
-    </form>
-    <?php if(isset($success)){
-        echo "<p>".$success."</p>";
-    }
-    ?>
+    <div class='account-settings-body'>
+        <div class='account-settings-box'>
+            <h1>Update Your Password</h1>
+        </div>
+        <div class='account-settings-box'>
+            <form method='post' action=''>
+            <h3>Old Password</h3>
+            <input class='password-change' id='oldpassword' type='password' name='oldpass' placeholder='Enter Your Old Password'>
+            <p class='error' style='display:inline-block'><?php echo $error['old']?></p>
+            <h3>New Password</h3>
+            <input class='password-change' id='newpassword' type='password' name='newpass' placeholder='Enter Your New Password'>
+            <p class='error' style='display:inline-block'><?php echo $error['password']?></p>
+            <h3>Verify New Password</h3>
+            <input class='password-change' id='verifypassword' type='password' name='verifypass' placeholder='Verify Your New Password'>
+            </br>
+            <button type='submit' name='change-password'>Update</button>
+            </form>
+            <?php if(isset($success)){
+                echo "<p>".$success."</p>";
+            }
+            ?>
+        </div>
     </div>
 
 <section>

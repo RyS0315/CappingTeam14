@@ -79,8 +79,9 @@
 <section class='index-body' id='body'>
 
     <?php $usersettings->displaySettings();?>
-
+    <div>
     <div class='settings-religions-body'>
+
         <h1>My religions</h1>
         <div class='my-religions'>
         <?php foreach($myreligions as $i){
@@ -110,6 +111,8 @@
             </div>"; 
         }?>
         </div>
+    </div>
+    <div class='settings-religions-body'>
         <h1> All Religions </h1>
         <div class='all-religions'>
         <?php foreach($religions as $i){
@@ -129,7 +132,7 @@
         }?>
         </div>
     </div>
-
+    </div>
 <section>
 
 <?php

@@ -1077,7 +1077,7 @@
     }
 
     .prayer-date {
-        margin-left: 40%;
+        margin-left: calc(100% - 300px);
     }
 
     .like-button {
@@ -1294,13 +1294,37 @@
         background-color: <?php echo $feedcolor ?>;
         margin-left: 25px;
         padding: 25px;
-        padding-top: 0px;
+        padding-top: 10px;
         border-radius: 5px;
         border: 1px solid rgba(0,0,0,.3);
+        margin-bottom:10px;
+    }
+
+    .account-settings-body{
+        width:100%;
+    }
+
+    .account-settings-box h1{
+        margin:0px;
+        margin-top:20px;
+    }
+
+    .settings-pictures-box{
+        display:inline-flex;
+    }
+
+    .settings-profile-pic-box{
+        margin-right:20px;
+        height:200px;
     }
 
     #profile-prev {
         margin-bottom: 10px;
+    }
+
+    .settings-picture-button{
+        width:100%;
+        margin:auto;
     }
 
     #profile-preview {
@@ -1311,11 +1335,14 @@
 
      #banner-prev {
         margin-bottom: 10px;
+        height:200px;
+        overflow:hidden;
     }
 
     #banner-prev img {
         height: auto;
         width: 100%;
+        min-height:200px;
     }
 
     #banner-preview {
@@ -1329,6 +1356,8 @@
 
     .update-button {
         padding-top: 25px;
+        width:100%;
+        align-contents:center;
     }
 
     .settings-header {
@@ -1350,6 +1379,7 @@
         margin-left: 25px;
         border-radius: 5px;
         border: 1px solid rgba(0,0,0,.3);
+        margin-bottom:10px;
     }
 
     .my-religions {
