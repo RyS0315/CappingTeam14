@@ -1590,6 +1590,7 @@
     }
 
     .msg-content {
+        color:rgba(0, 0, 0, .85);
         max-width: 200px;
         overflow-wrap: break-word;
         white-space: pre-line;
