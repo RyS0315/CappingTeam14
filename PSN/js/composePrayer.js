@@ -95,3 +95,28 @@ function DropTag(val){
     pnode.removeChild(div);
 
 }
+
+function checkPrayerLength(inp){
+    var len = inp.value.length;
+    var p = document.getElementById('characters-left');
+    if(len >= 139){
+        var value = inp.value;
+        value = value.substring(0, 139);
+        inp.value = value;
+        return true;
+    }
+    var left = 139 - len;
+    p.innerHTML = left + ' Characters Left';
+    return false;
+}
+
+function checkTagLength(inp){
+    var len = inp.value.length;
+    if(len >= 13){
+        var value = inp.value;
+        value = value.substring(0, 14);
+        inp.value = value;
+        return true;
+    }
+    return false;
+}

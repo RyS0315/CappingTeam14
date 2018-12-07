@@ -215,10 +215,15 @@
                 </ul>
                     <form method='post' class='compose-content' action='php/submitprayer.php' enctype='multipart/form-data'>
                         <textarea id='compose-area' name='newprayer' placeholder='Compose Your Prayer'
-                                  onkeyup='auto_grow(this)'></textarea>
+                                  onkeyup='auto_grow(this)'  
+                                  onkeydown= 'if(checkPrayerLength(this) && (event.keyCode != 8)) {return false;}'
+                                  onpaste='checkPrayerLength(this)'
+                                  ></textarea>
                         <input type='text' id='tags-area' name='prayertags' placeholder='Add a Tag'
                             onkeypress='if (event.keyCode == 13) {event.preventDefault(); addTag(this) }
-                            if (event.keyCode === 32) {return false;}'>
+                            if (event.keyCode === 32) {return false;}
+                            if(checkTagLength(this)) {return false;}'>
+                        <p id='characters-left'>140 Characters Left</p>
                         <div id='cur-tags'>
                         </div>
                         <div id='preview'>
