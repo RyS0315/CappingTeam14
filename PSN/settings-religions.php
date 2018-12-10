@@ -82,7 +82,7 @@
     <div>
     <div class='settings-religions-body'>
 
-        <h1>My religions</h1>
+        <h1>My Religions</h1>
         <div class='my-religions'>
         <?php foreach($myreligions as $i){
             echo"<div class='religion-box'>
