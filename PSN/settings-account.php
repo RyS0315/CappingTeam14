@@ -1,4 +1,4 @@
-<?php 
+<?php
     require 'config/ApplicationTop.php';
     include 'Classes/createUserSettings.php';
 
@@ -25,7 +25,7 @@
         ]
     ];
 
-    
+
     $header = new Header($db, $menus, $title, $css);
     $header->ShowUserMenu($id);
     $header->displayHeader();
@@ -53,7 +53,7 @@
     $userinfo = $db->fetchQuery($userinfoquery);
     ?>
 
-<section class='index-body' id='body'>
+<section class='index-body settings-index-body' id='body'>
 
     <?php $usersettings->displaySettings();?>
 
@@ -105,7 +105,7 @@
 
 <section>
 
-<?php 
+<?php
     $footer = new Footer($db,$src);
     $footer->buildFooter();
 ?>

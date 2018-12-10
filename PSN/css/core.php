@@ -1427,7 +1427,7 @@
 
     .drop-religion {
         width: 100%;
-        border-radius:0 px;
+        border-radius: 0px;
     }
 
     .add-religion {
@@ -1854,6 +1854,11 @@
         .index-body {
             width: 96%;
             padding-top: 135px;
+            display:
+        }
+
+        .settings-index-body {
+            display: block;
         }
 
         .index-left-box {
@@ -2083,23 +2088,34 @@
         #user-searchautocomplete-list {
             width: 24.3%;
         }
-    }
 
-  /****** LOGIN ******/
-  .pray-desc {
-      width: 70%;
-      margin-left: 15%;
-  }
+      /****** SETTINGS ******/
 
-  .login-body {
-      width: 70%;
-      margin-right: 15%;
-      padding-top: 32px;
-  }
+        .usersettings-box {
+            display: flex;
+        }
 
-  /*** CREATE ACCOUNT ***/
-    .newaccount-body {
-        width: 98%;
+        .account-settings-box {
+            width: 86%;
+            margin: auto;
+        }
+
+        /****** LOGIN ******/
+        .pray-desc {
+            width: 70%;
+            margin-left: 15%;
+        }
+
+        .login-body {
+            width: 70%;
+            margin-right: 15%;
+            padding-top: 32px;
+        }
+
+        /*** CREATE ACCOUNT ***/
+        .newaccount-body {
+            width: 98%;
+        }
     }
 /*********** 600px ************/
     @media screen and (max-width: 600px) {
