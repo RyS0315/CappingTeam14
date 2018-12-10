@@ -479,7 +479,6 @@
         width: 40%;
         float: right;
         margin-right: 6%;
-        padding-top: 60px;
         margin-bottom: 24px;
         margin-top: 96px;
     }
@@ -1808,6 +1807,10 @@
         .newaccount-body {
             width: 86%;
         }
+
+        .account-settings-box {
+            width: 86%;
+        }
     }
 /*********** 920px ************/
     @media screen and (max-width: 920px) {
@@ -2099,30 +2102,49 @@
             display: flex;
         }
 
+        .settings-header {
+            margin-top: 16px;
+        }
+
+        .account-bio {
+            margin-top: 0px;
+        }
+
         .account-settings-box {
-            width: 86%;
             margin: auto;
             margin-top: 24px;
         }
 
         .settings-profile-pic-box {
-            height: 280px;
+            height: 300px;
+        }
+
+        .settings-religions-body {
+            width: 86%;
+            margin: auto;
+            margin-top: 24px;
         }
 
         .settings-pictures-box {
             display: block;
         }
 
+        .religions-box {
+            width: 48%;
+        }
+
         /****** LOGIN ******/
         .pray-desc {
             width: 70%;
             margin-left: 15%;
+            margin-top: 0px;
         }
 
         .login-body {
             width: 70%;
             margin-right: 15%;
             padding-top: 32px;
+            margin-top: 72px;
         }
 
         /*** CREATE ACCOUNT ***/
