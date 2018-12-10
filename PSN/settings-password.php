@@ -1,4 +1,4 @@
-<?php 
+<?php
     require 'config/ApplicationTop.php';
     include 'Classes/createUserSettings.php';
 
@@ -25,7 +25,7 @@
         ]
     ];
 
-    
+
     $header = new Header($db, $menus, $title, $css);
     $header->ShowUserMenu($id);
     $header->displayHeader();
@@ -66,11 +66,11 @@
     }
 
     /**
-     * 
+     *
      * Check the old password to make sure it matches
      * what is in the database. If password does not match
      * give an error.
-     * 
+     *
      */
     function checkOld($old, $db, $id){
         $query = "SELECT user_password
@@ -98,7 +98,7 @@
             } else{
                 return $check;
             }
-            
+
         }else{
             return 'Passwords Do Not Match';
         }
@@ -118,8 +118,8 @@
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     function validate($error){
         foreach($error as $i){
@@ -131,9 +131,9 @@
     }
 
     /**
-     * 
+     *
      * Once all the checks have been cleared, update the password in the database
-     * 
+     *
      */
     function addNew($new, $db, $id){
         $query = "UPDATE Users SET user_password = '$new' WHERE userid = $id";
@@ -143,7 +143,7 @@
 
     ?>
 
-<section class='index-body' id='body'>
+<section class='index-body settings-index-body' id='body'>
     <?php $usersettings->displaySettings();?>
     <div class='account-settings-body'>
         <div class='account-settings-box'>
@@ -171,7 +171,7 @@
 
 <section>
 
-<?php 
+<?php
     $footer = new Footer($db,$src);
     $footer->buildFooter();
 ?>

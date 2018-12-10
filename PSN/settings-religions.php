@@ -25,7 +25,7 @@
         ]
     ];
 
-    
+
     $header = new Header($db, $menus, $title, $css);
     $header->ShowUserMenu($id);
     $header->displayHeader();
@@ -62,7 +62,7 @@
     $primaryreligion = $db->fetchQuery($primaryreligionquery);
 
     $prel = $primaryreligion[0]['primary_Religion'];
-    
+
 
     $allreligionsquery = "SELECT DISTINCT r.religion_name, r.relid
                           FROM RELIGIONS r LEFT JOIN User_religions ur ON ur.relid = r.relid
@@ -76,7 +76,7 @@
 
     ?>
 
-<section class='index-body' id='body'>
+<section class='index-body settings-index-body' id='body'>
 
     <?php $usersettings->displaySettings();?>
     <div>
@@ -93,7 +93,7 @@
                 <h2 class='religion-header-text'>".countFollowers($i['relid'], $db)." Followers</h2>
                 </div>
                 <div class='religion-follow-action'>
-                "; 
+                ";
                 if($i['relid'] == $prel){
                     echo "<div>
                     <h3 class='religion-header-text'>Primary Religion</h3>
@@ -108,7 +108,7 @@
                 </form>";
                 }
                 echo"</div>
-            </div>"; 
+            </div>";
         }?>
         </div>
     </div>
@@ -128,7 +128,7 @@
             <button class='add-religion' value='".$i['relid']."' name='religion'>Follow</button>
             </form>
             </div>
-        </div>";     
+        </div>";
         }?>
         </div>
     </div>

@@ -2109,7 +2109,7 @@
             height: 280px;
         }
 
-        .setting-pictures-box {
+        .settings-pictures-box {
             display: block;
         }
 
