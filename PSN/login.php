@@ -6,8 +6,8 @@
     include 'Classes/createFooter.php';
 
     $root = '';
-    $inputUsername = isset($_POST['username']) ? $_POST['username'] : '';
-    $inputPassword = isset($_POST['password']) ? $_POST['password'] : '';
+    $inputUsername = isset($_POST['username']) ? cleanVar($_POST['username']) : '';
+    $inputPassword = isset($_POST['password']) ? cleanVar($_POST['password']) : '';
     $error = '';
     $attempts = isset($_POST['attempts']) ? $_POST['attempts'] : 0;
     if($inputUsername!='' || $inputPassword !=''){

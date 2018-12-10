@@ -161,11 +161,11 @@
      * 
      */
     function doCreate($db){
-        $firstname = $_POST['firstname'];
-        $lastname = isset($_POST['lastname']) ? $_POST['lastname'] : '';
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $security = $_POST['securityAnswer'];
+        $firstname = cleanVar($_POST['firstname']);
+        $lastname = isset($_POST['lastname']) ? cleanVar($_POST['lastname']) : '';
+        $username = cleanVar($_POST['username']);
+        $password = cleanVar($_POST['password']);
+        $security = cleanVar($_POST['securityAnswer']);
         $insertquery = "INSERT into USERS (fname,lname,username,user_password,pPicture,bPicture)
                         VALUES('$firstname', '$lastname','$username','$password' , 'default.png', 'default.png')";
         $insertresult = $db->InsertQuery($insertquery);

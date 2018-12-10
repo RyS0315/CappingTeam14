@@ -18,14 +18,25 @@
     if($prayeruser != 1){
         removePrayer($prayerinfo, $db, $prayeruser);
         messageUser($prayeruser, $db);
-        subRep($prayeruser, $prayrel);
+        subRep($prayeruser, $prayrel, $db);
     }
 
+    /**
+     * 
+     * Remove the prayer from the database
+     * 
+     */
     function removePrayer($prayer, $db, $id){
         $deleter = new prayerRemover($db, $id);
         $deleter->removePrayer($prayer[0]);
     }
 
+
+    /**
+     * 
+     * Send a message to notify the user that his prayer has been removed
+     * 
+     */
     function messageUser($prayeruser, $db){
         $msg = 'One of your prayers has been flagged as not suitable for its religion and has been removed. Please only post postive content.';
         $msgquery = "INSERT INTO Messages(userid, msg)VALUES(1,'$msg')";
@@ -37,7 +48,17 @@
         return true;
     }
 
-    function subRep($user, $rel){
-        return true;
+
+    /**
+     * 
+     * When A prayer gets deleted the user will lose 50 reputation
+     * 
+     */
+    function subRep($user, $rel, $db){
+        $repquery = "UPDATE User_Religions
+                     SET reputation = reputation - 50
+                     WHERE userid = '$prayeruser'
+                     AND relid = '$prayrel'";
+        $represult = $db->UpdateQuery($repquery);
     }
 ?>

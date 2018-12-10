@@ -859,6 +859,10 @@
         padding-top: 50px;
     }
 
+    .profile-page-body{
+        height:100%;
+    }
+
     .profile-banner-box {
         width: 100%;
     }
@@ -898,6 +902,7 @@
         width: 50%;
         margin: auto;
         transform: translateY(-205px);
+        margin-bottom:25px;
     }
 
     #bio {

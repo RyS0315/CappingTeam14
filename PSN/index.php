@@ -26,11 +26,8 @@
             'active'=>''
         ]
     ];
-
-    $header = new Header($db, $menus, $title, $css);
-    $header->ShowUserMenu($id);
-    $header->displayHeader();
     
+    //Initialize the classes the builds prayers. Pass in current user to set permissions
     $comments = new PrayerCommentDisplayer($db, $id);
     $feed = new PrayerCreator($db,$id,$comments);
 
@@ -56,7 +53,6 @@
                        OR ($id = 1 AND r.relid <> $chosenreligion)
                        ORDER BY r.religion_name";
     $searchrels = $db->fetchQuery($searchrelquery);
-
 
     $prayerquery = "SELECT p.userid, u.fname, u.lname, u.username, p.content, pr.relid, p.prayid, p.img,
                         r.religion_name, u.pPicture, p.dateLastMaint
@@ -90,7 +86,11 @@
                           LIMIT 5";
     $featuredtags = $db->fetchQuery($featuredTagsQuery);
 
-    $tagsdisp = new TagDisplayer($db, $id);
+
+    $header = new Header($db, $menus, $title, $css);//Initialize the header class
+    $header->ShowUserMenu($id);//Means a user is logged in
+    $header->displayHeader();//Display the header
+    $tagsdisp = new TagDisplayer($db, $id);//Initialize the tag displayer class for featured tags
 ?>
 <section class='index-body' id='body'>
     <div class='index-left-box'>
@@ -104,16 +104,20 @@
             <li class='religion-menu-header'>
                 <?php echo $curreligion[0]['religion_name']?>
                 <?php if($searchrels){?>
-                <ul class='religion-menu-items'>
-                <form method='post' action='php/filterReligion.php'>
-                    <?php foreach($searchrels as $i){
-                        echo" <li class='religion-menu-item' onclick='filterRel(".$i['relid'].")'>
-                        ".$i['religion_name']."
-                        <button id='filter-rel--".$i['relid']."' class='hidden' type='submit' name='religion' value=".$i['relid'].">
-                        </li>";
-                    }?>
-                </form>
-                </ul><?php
+                    <ul class='religion-menu-items'>
+                    <form method='post' action='php/filterReligion.php'>
+                        <?php foreach($searchrels as $i){
+                            echo" <li class='religion-menu-item' onclick='filterRel(".$i['relid'].")'>
+                            ".$i['religion_name']."
+                            <button id='filter-rel--".$i['relid']."' 
+                                    class='hidden' 
+                                    type='submit' 
+                                    name='religion' 
+                                    value=".$i['relid'].">
+                            </li>";
+                        }?>
+                    </form>
+                    </ul><?php
                 }?>
             </li>
         </ul>
@@ -129,8 +133,11 @@
             $tagsdisp->showtag($i);
         }?>
     </div>
+
 </section>
+
+
  <?php
-    $footer = new Footer($db,$src);
-    $footer->buildFooter();
+    $footer = new Footer($db,$src);//Initialize the footer class
+    $footer->buildFooter();//End file
 ?>
