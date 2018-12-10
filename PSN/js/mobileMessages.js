@@ -1,5 +1,5 @@
-var flag = true;
 function mobileMessage() {
+    var flag = true;
     if(flag) {
         //If the search user bar is hidden
         $('.message-feed').hide();

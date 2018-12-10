@@ -2129,16 +2129,22 @@
             display: block;
         }
 
+        .religions-box {
+            width: 48%;
+        }
+
         /****** LOGIN ******/
         .pray-desc {
             width: 70%;
             margin-left: 15%;
+            margin-top: 0px;
         }
 
         .login-body {
             width: 70%;
             margin-right: 15%;
             padding-top: 32px;
+            margin-top: 72px;
         }
 
         /*** CREATE ACCOUNT ***/
