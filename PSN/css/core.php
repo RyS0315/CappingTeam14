@@ -479,7 +479,6 @@
         width: 40%;
         float: right;
         margin-right: 6%;
-        padding-top: 60px;
         margin-bottom: 24px;
         margin-top: 96px;
     }
@@ -1808,6 +1807,10 @@
         .newaccount-body {
             width: 86%;
         }
+
+        .account-settings-box {
+            width: 86%;
+        }
     }
 /*********** 920px ************/
     @media screen and (max-width: 920px) {
@@ -2099,14 +2102,27 @@
             display: flex;
         }
 
+        .settings-header {
+            margin-top: 16px;
+        }
+
+        .account-bio {
+            margin-top: 0px;
+        }
+
         .account-settings-box {
-            width: 86%;
             margin: auto;
             margin-top: 24px;
         }
 
         .settings-profile-pic-box {
-            height: 280px;
+            height: 300px;
+        }
+
+        .settings-religions-body {
+            width: 86%;
+            margin: auto;
+            margin-top: 24px;
         }
 
         .settings-pictures-box {
