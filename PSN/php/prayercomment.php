@@ -7,7 +7,6 @@ print_ary($_POST);
 $prayid = isset($_POST['prayid']) ? $_POST['prayid'] : '';
 $comment = isset($_POST['comment']) ? cleanVar($_POST['comment']) : '';
 
-
 if($prayid){
     $checkprayer = CheckExists($prayid, $db);
     if($checkprayer){
@@ -16,7 +15,6 @@ if($prayid){
         echo $result;
     }
 }
-
 
 /**
  * 

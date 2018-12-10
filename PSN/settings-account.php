@@ -57,7 +57,7 @@
 
     <?php $usersettings->displaySettings();?>
 
-    <div class='settings-section'>
+    <div class='account-settings-body'>
     <div class='account-settings-box'>
         <h1>Account Settings</h1>
     </div>
