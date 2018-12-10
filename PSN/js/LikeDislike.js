@@ -72,7 +72,7 @@ function addDislike(url, data, prayid){
 }
 
 function checkscore(newscore, data){
-    if(newscore < -5){
+    if(newscore <= -5){
         $.ajax({
             type: "POST",
             url: 'php/banPrayer.php',

@@ -105,7 +105,7 @@ function checkPrayerLength(inp){
         inp.value = value;
         return true;
     }
-    var left = 139 - len;
+    var left = 140 - len;
     p.innerHTML = left + ' Characters Left';
     return false;
 }

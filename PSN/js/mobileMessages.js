@@ -1,13 +1,13 @@
-var flag = true;
 function mobileMessage() {
-    if(flag) {
+    console.log("Mobile Message");
+    var feed = document.getElementById('msg-feed');
+    var users = document.getElementById('msg-users');
+    if(!feed.classList.contains('hidden')) {
         //If the search user bar is hidden
-        $('.message-feed').hide();
-        $('.messages-user-setting-box').show();
-        flag = false;
+        feed.classList.add('hidden');
+        users.setAttribute('style', 'display:block')
     } else {
-        $('.message-feed').show();
-        $('.messages-user-setting-box').hide();
-        flag = true;
+        users.removeAttribute('style', 'display:block')
+        feed.classList.remove('hidden');
     }
 }

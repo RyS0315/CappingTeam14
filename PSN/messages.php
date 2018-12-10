@@ -51,7 +51,7 @@
 
     <section class='index-body' id='body'>
         <img src='images/icons/messageArrow.png' class='mobile-message-button' onclick='mobileMessage()'>
-        <div class='messages-users-settings-box'>
+        <div class='messages-users-settings-box' id='msg-users'>
             <div class='messages-users-heading-box'>
                 <p class='messages-users-heading'>Conversations</p>
             </div>
@@ -72,7 +72,7 @@
                 </div>
             </form>
         </div>
-        <div class='messages-feed'>
+        <div class='messages-feed' id='msg-feed'>
             <?php
             if($curconvo != ''){
                 $messages[$curconvo] = $messager->getMessages($curconvo);
