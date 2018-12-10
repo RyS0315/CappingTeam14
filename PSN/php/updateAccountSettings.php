@@ -8,12 +8,10 @@ print_ary($_FILES);
 $curUserInfoquery = "SELECT * FROM USERS WHERE userid = $id";
 $curUserInfo = $db->fetchQuery($curUserInfoquery);
 
-$username = isset($_POST['username']) ? $_POST['username'] : $curUserInfo[0]['username'];
+$username = isset($_POST['username']) ? cleanVar($_POST['username']) : $curUserInfo[0]['username'];
 echo $username; 
 
-$bio = isset($_POST['bio']) ? $_POST['bio'] : $curUserInfo[0]['bio'];
-$bio = str_replace("'", "\\'", $bio);
-$bio = str_replace('"', '\\"', $bio);
+$bio = isset($_POST['bio']) ? cleanVar($_POST['bio']) : $curUserInfo[0]['bio'];
 echo $bio;
 
 //upload profile image
