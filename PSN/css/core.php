@@ -478,11 +478,10 @@
     .login-body {
         width: 40%;
         float: right;
-        margin-top: 30px;
         margin-right: 6%;
         padding-top: 60px;
         margin-bottom: 24px;
-        margin-top: 60px;
+        margin-top: 96px;
     }
 
     .login-form-box {
@@ -534,7 +533,7 @@
         border-radius: 5px;
         background-color: <?php echo $boxcolor ?>;
         margin-left: 6%;
-        padding-bottom:32px;
+        margin-top: 96px;
     }
 
     .pray-desc-header {
@@ -2103,6 +2102,15 @@
         .account-settings-box {
             width: 86%;
             margin: auto;
+            margin-top: 24px;
+        }
+
+        .settings-profile-pic-box {
+            height: 280px;
+        }
+
+        .setting-pictures-box {
+            display: block;
         }
 
         /****** LOGIN ******/
