@@ -62,8 +62,8 @@
                     AND pr.relid = r.relid
                     AND (pr.relid = $chosenreligion
                     OR pr.relid = 1)
-                    LIMIT 25
-                    ORDER BY p.prayid desc";
+                    ORDER BY p.prayid desc
+                    LIMIT 25";
     $prayers = $db->FetchQuery($prayerquery);
 
     $featuredTagsQuery = "SELECT t.tag_name, COUNT(pt.tagid) as nums
