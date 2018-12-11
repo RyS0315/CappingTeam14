@@ -57,8 +57,8 @@
     function subRep($user, $rel, $db){
         $repquery = "UPDATE User_Religions
                      SET reputation = reputation - 50
-                     WHERE userid = '$prayeruser'
-                     AND relid = '$prayrel'";
+                     WHERE userid = '$user'
+                     AND relid = '$rel'";
         $represult = $db->UpdateQuery($repquery);
     }
 ?>
