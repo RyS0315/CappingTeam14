@@ -1399,7 +1399,7 @@
         margin-bottom: 10px;
         background-color: <?php echo $boxcolor?>;
         border-radius: 5px;
-        border: 1px solid rgba(0,0,0,.3);
+        border: 1px solid <?php echo $menuborder ?>;
     }
 
     .all-religions {
@@ -1422,6 +1422,10 @@
         text-align: center;
     }
 
+    .religion-follow-action h3 {
+        padding-top: 24px;
+    }
+
     .header-white {
         color: <?php echo $buttontext ?>;
     }
@@ -1430,6 +1434,8 @@
         padding-top: 10px;
         padding-bottom: 10px;
         color: <?php echo $textcolor ?>;
+        border-top: 1px solid <?php echo $menuborder ?>;
+        border-bottom: 1px solid <?php echo $menuborder ?>;
     }
 
     .drop-religion {
@@ -1451,6 +1457,10 @@
         border-top-left-radius: 0px;
         border-bottom-right-radius: 5px;
         border-bottom-left-radius: 5px;
+    }
+
+    .religion-follow-action form {
+        border: 0px;
     }
 /*************** MESSAGES ****************/
     .messages-users-settings-box {
@@ -1904,6 +1914,10 @@
         .religion-menu-item {
             font-size: 20px;
         }
+
+        .imglarge-box {
+            width: 92%;
+            margin-left: 5%;
 
     /****** HEADER ******/
 
