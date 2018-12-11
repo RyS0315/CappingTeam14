@@ -485,7 +485,7 @@
 
     .login-form-box {
         width: auto;
-        height: 330px;
+        height: 280px;
         width: 100%;
         background-color: <?php echo $boxcolor?>;
         border: 1px solid <?php echo $menuborder ?>;
@@ -1158,6 +1158,7 @@
 
     .prayer-tag {
         margin-right: 6px;
+        color: <?php echo $textcolor ?>;
     }
 /*************** COMMENTS ****************/
     .feed-comment-box {
@@ -1301,6 +1302,7 @@
         border-radius: 5px;
         border: 1px solid rgba(0,0,0,.3);
         margin-bottom:10px;
+        color: <?php echo $textcolor ?>;
     }
 
     .account-settings-body{
@@ -1366,7 +1368,7 @@
     .settings-header {
         margin-top: 20px;
         margin-bottom: 10px;
-        color: rgba(0,0,0, .85);
+        color: <?php echo $textcolor ?>;
     }
 
     .password-change{
@@ -1382,7 +1384,8 @@
         margin-left: 25px;
         border-radius: 5px;
         border: 1px solid rgba(0,0,0,.3);
-        margin-bottom:10px;
+        margin-bottom: 10px;
+        color: <?php echo $textcolor ?>;
     }
 
     .my-religions {
@@ -1426,6 +1429,7 @@
     .addreligion-stats {
         padding-top: 10px;
         padding-bottom: 10px;
+        color: <?php echo $textcolor ?>;
     }
 
     .drop-religion {
@@ -1465,7 +1469,7 @@
     }
 
     .messages-users-heading {
-        color: #000000;
+        color: <?php echo $textcolor ?>;
         font-weight: bold;
         font-size: 30px;
         margin: auto;
@@ -1601,14 +1605,15 @@
     }
 
     .messages-default {
-        padding-top:25px;
-        width:90%;
-        margin:auto;
+        padding-top: 25px;
+        width: 90%;
+        margin: auto;
     }
 
-    .messages-default-title{
-        width:100%;
-        text-align:center;
+    .messages-default-title {
+        width: 100%;
+        text-align: center;
+        color: <?php echo $textcolor ?>;
     }
 
     #user-searchautocomplete-list {
@@ -1619,23 +1624,27 @@
         border: 1px solid <?php echo $menuborder ?>;
         border-radius: 5px 5px 0px 0px;
         border-bottom: none;
-        max-height:200px;
-        overflow:auto;
+        max-height: 200px;
+        overflow: auto;
     }
 
     .autocomplete-uni-item:hover{
-        cursor:pointer;
-        background-color:<?php echo $backgroundcolor?>;
+        cursor: pointer;
+        background-color: <?php echo $backgroundcolor?>;
     }
 
     .autocomplete-uni-item {
-        padding:6px;
+        padding: 6px;
         font-size: 20px;
         border-bottom: 1px solid <?php echo $menuborder ?>;
     }
 
     .mobile-message-button {
         display: none;
+    }
+
+    .message-preview-name {
+        color: <?php echo $textcolor ?>;
     }
 /*************** DATABASE ****************/
     .database-body {
