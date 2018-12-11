@@ -27,11 +27,13 @@
             $filename = $file['name'];
             $filetmp = $file['tmp_name'];
             $ext = $this->checkExtension($file);
-            $this->checkFile($file);//Make sure the file is safe
-            $name = $this->setName($filename, $ext);//Set a random name to the file
-            $path = $this->setPath($name);//Create the path for the file to be place -- The folder
-            $this->doUpload($filetmp, $path, $name);
-            $result["str"] = $name;
+            if($ext){
+                $this->checkFile($file);//Make sure the file is safe
+                $name = $this->setName($filename, $ext);//Set a random name to the file
+                $path = $this->setPath($name);//Create the path for the file to be place -- The folder
+                $this->doUpload($filetmp, $path, $name);
+                $result["str"] = $name;
+            }
             return $result;
         }
 
@@ -48,7 +50,16 @@
          * 
          */
         function checkExtension($file){
-            return '.jpg';
+            $name = $file['name'];
+            $ext = end((explode(".", $name))); # extra () to prevent notice
+            echo "Extension -- " . $ext;
+            $validexts = ['gif', 'jpg', 'png'];
+            foreach($validexts as $i){
+                if($ext == $i){
+                    return $ext;
+                }
+            }
+            return false;
         }
 
         /**

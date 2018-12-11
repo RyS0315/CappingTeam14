@@ -2462,7 +2462,17 @@
     /****** MESSAGES ******/
 
         .messages-users-settings-box {
+            width: 92%;
             display: none;
+            margin-left:20px;
+        }
+
+        .message-preview-img{
+            display:block;
+        }
+
+        .messages-users{
+            height:450px;
         }
 
         .mobile-message-button {
