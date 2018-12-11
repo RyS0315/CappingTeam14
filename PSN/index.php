@@ -35,7 +35,7 @@
                    FROM users u
                    WHERE u.userid = $id";
     $userinfo = $db->fetchquery($primaryrelquery);
-    $prel = $userinfo[0]['primary_religion'];
+    $prel = $primaryrelres[0]['primary_religion'];
     $chosenreligion = isset($_SESSION['currel']) ? $_SESSION['currel'] : $prel;
 
     $curreligionquery = "SELECT r.religion_name, r.relid
