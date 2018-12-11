@@ -34,7 +34,7 @@ $menus = [
     <section class='login-body'>
         <div class='login-form-box'>
             <div class='login-form-box-body'>
-                <h1 style='width:90%; margin:auto; padding-top:20px; font-size:28px'>Log in to P.R.A.Y.</h1>
+                <h1 style='width:90%; margin:auto; padding-top:35px; font-size:28px'>Log in to P.R.A.Y.</h1>
                 <p class='error' style='width:90%; margin:auto; margin-top:5px'><?php echo $error ?></p>
                 <form method='post' action='login.php' id='login-form-inputs'>
                     <input type='text' name='username' value='<?php echo $inputUsername ?>' placeholder='Username or Email'></br>
