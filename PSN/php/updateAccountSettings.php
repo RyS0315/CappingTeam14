@@ -10,7 +10,7 @@ $curUserInfo = $db->fetchQuery($curUserInfoquery);
 
 $username = isset($_POST['username']) ? cleanVar($_POST['username']) : $curUserInfo[0]['username'];
 
-if($userid == 1){
+if($id == 1){
     $username = "Admin";
 }
 
