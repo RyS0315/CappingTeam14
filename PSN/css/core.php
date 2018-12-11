@@ -877,6 +877,7 @@
     .profile-header-name {
         font-size: 2.6em;
         width: auto;
+        color: <?php echo $textcolor ?>;
     }
 
     .profile-profile-pic {
@@ -908,6 +909,7 @@
         margin: auto;
         text-align: center;
         transform: translateY(-215px);
+        color: <?php echo $textcolor ?>;
     }
 
     #profile-stats {
@@ -1459,7 +1461,7 @@
         border-bottom-left-radius: 5px;
     }
 
-    .religion-follow-action form {
+    .religion-follow-action button {
         border: 0px;
     }
 /*************** MESSAGES ****************/
@@ -1526,7 +1528,7 @@
     }
 
     .msg-name {
-        color: #000000;
+        color: <?php echo $textcolor ?>;
         font-weight: bold;
         font-size: 30px;
         margin: auto;
@@ -1636,6 +1638,7 @@
         border-bottom: none;
         max-height: 200px;
         overflow: auto;
+        color: <?php echp $textcolo ?>;
     }
 
     .autocomplete-uni-item:hover{
@@ -1918,19 +1921,20 @@
         .imglarge-box {
             width: 92%;
             margin-left: 5%;
-
+        }
     /****** HEADER ******/
 
         /* Hide old menu */
-        .header{
+        .header {
             display: none;
         }
-        .login{
+
+        .login {
             display:block;
         }
 
-        .header-link-box{
-            margin-left:10%;
+        .header-link-box {
+            margin-left: 10%;
         }
 
         .mobile-header {
