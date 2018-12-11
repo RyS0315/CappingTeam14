@@ -6,7 +6,7 @@
     if($id != 1){
         header('location:../index.php');
     }
-    $file = "../sqlchanges.sql";
+
     $dropquery = "DELETE FROM USERS WHERE userid > 50";
     $dropReligion = "DELETE FROM USER_RELIGIONS WHERE userid > 50";
 
@@ -15,7 +15,6 @@
 
     resetDirectories($db);
     // echo "Update Successful";
-
 
     /**
      * 
@@ -83,5 +82,5 @@
         }
     }
 
-    header('location:databasePage.php');
+    // header('location:../messages.php');
 ?>
