@@ -1639,11 +1639,7 @@
         border-bottom: none;
         max-height: 200px;
         overflow: auto;
-<<<<<<< HEAD
-        color: <?php echp $textcolo ?>
-=======
         color: <?php echo $textcolor ?>;
->>>>>>> 4b18dba8e3478e5adddb058bb791d285fb7d3371
     }
 
     .autocomplete-uni-item:hover{
