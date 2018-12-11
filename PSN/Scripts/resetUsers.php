@@ -10,8 +10,8 @@
     $dropquery = "DELETE FROM USERS WHERE userid > 50";
     $dropReligion = "DELETE FROM USER_RELIGIONS WHERE userid > 50";
 
-    $resultdrop = $db->DeleteQuery($dropquery);
     $dropReligionresult = $db->DeleteQuery($dropReligion); 
+    $resultdrop = $db->DeleteQuery($dropquery);
 
     resetDirectories($db);
     // echo "Update Successful";
