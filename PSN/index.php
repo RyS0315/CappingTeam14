@@ -30,12 +30,12 @@
     //Initialize the classes the builds prayers. Pass in current user to set permissions
     $comments = new PrayerCommentDisplayer($db, $id);
     $feed = new PrayerCreator($db,$id,$comments);
-
-    $userinfoquery = "SELECT u.primary_religion, u.dateAdded
+    
+    $userinfoquery = "SELECT u.primary_religion
                    FROM users u
                    WHERE u.userid = $id";
-    $userinfo = $db->fetchquery($primaryrelquery);
-    $prel = $primaryrelres[0]['primary_religion'];
+    $userinfo = $db->fetchQuery($userinfoquery);
+    $prel = $userinfo[0]['primary_religion'];
     $chosenreligion = isset($_SESSION['currel']) ? $_SESSION['currel'] : $prel;
 
     $curreligionquery = "SELECT r.religion_name, r.relid
@@ -64,11 +64,6 @@
                     OR pr.relid = 1)
                     ORDER BY p.prayid desc";
     $prayers = $db->FetchQuery($prayerquery);
-
-    $prayersSentquery = "SELECT COUNT(p.userid)
-                         FROM Prayers p
-                         WHERE p.userid = $id";
-    $prayersSent = $db->FetchQuery($prayersSentquery);
 
     $featuredTagsQuery = "SELECT t.tag_name, COUNT(pt.tagid) as nums
                           FROM Tags t, Prayer_tags pt , prayer_religions pr
