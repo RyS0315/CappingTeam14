@@ -62,7 +62,7 @@
                     AND pr.relid = r.relid
                     AND (pr.relid = $chosenreligion
                     OR pr.relid = 1)
-                    LIMIT(25)
+                    LIMIT 25
                     ORDER BY p.prayid desc";
     $prayers = $db->FetchQuery($prayerquery);
 
