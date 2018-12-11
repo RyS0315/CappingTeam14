@@ -31,11 +31,11 @@
     $comments = new PrayerCommentDisplayer($db, $id);
     $feed = new PrayerCreator($db,$id,$comments);
 
-    $primaryrelquery = "SELECT u.primary_religion
+    $userinfoquery = "SELECT u.primary_religion, u.dateAdded
                    FROM users u
                    WHERE u.userid = $id";
-    $primaryrelres = $db->fetchquery($primaryrelquery);
-    $prel = $primaryrelres[0]['primary_religion'];
+    $userinfo = $db->fetchquery($primaryrelquery);
+    $prel = $userinfo[0]['primary_religion'];
     $chosenreligion = isset($_SESSION['currel']) ? $_SESSION['currel'] : $prel;
 
     $curreligionquery = "SELECT r.religion_name, r.relid
@@ -69,11 +69,6 @@
                          FROM Prayers p
                          WHERE p.userid = $id";
     $prayersSent = $db->FetchQuery($prayersSentquery);
-
-    $dateJoinedquery = "SELECT u.dateAdded
-                        FROM Users u
-                        WHERE u.userid = $id";
-    $dateJoined = $db->FetchQuery($dateJoinedquery);
 
     $featuredTagsQuery = "SELECT t.tag_name, COUNT(pt.tagid) as nums
                           FROM Tags t, Prayer_tags pt , prayer_religions pr
