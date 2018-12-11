@@ -3,9 +3,9 @@
     $_SESSION['userId'] = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
     $id =  isset($id) ? $id : $_SESSION['userId'];
     $usersettings = isLoggedIn($id, $db);
-    $username = $usersettings['username'];
-    $firstname = $usersettings['firstname'];
-    $lastname = $usersettings['lastname'];
+    // $username = $usersettings['username'];
+    // $firstname = $usersettings['firstname'];
+    // $lastname = $usersettings['lastname'];
     // $browser = ExactBrowserName();
     // checkBrowser($browser);
     //print_ary($usersettings);
@@ -44,14 +44,6 @@
         $SETTINGS['lastname'] = ''; 
         $SETTINGS['password'] = '';    
         if($_SESSION['userId'] != ''){
-            $userquery = "SELECT * 
-                          FROM USERS 
-                          WHERE userid = $id";
-            $userresult = $db->FetchQuery($userquery);
-            $SETTINGS['username'] = $userresult[0]['username'];
-            $SETTINGS['firstname'] = $userresult[0]['fname'];
-            $SETTINGS['lastname'] = $userresult[0]['lname'];
-            $SETTINGS['password'] = $userresult[0]['user_password'];
             checkPReligion($id, $db);
             return $SETTINGS;
         }
