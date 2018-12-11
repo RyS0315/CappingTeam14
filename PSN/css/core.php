@@ -42,7 +42,7 @@
                   'buttoncolor'=>'#a415df',
                   'buttonhover'=>'#8405af',
                   'buttontext'=>'#f3e1ff',
-                  'commentbox'=>'#ffff88']
+                  'commentbox'=>'#ffff88'],
     ];
     $chosen = 'LIGHT';
     if($id != ''){
@@ -877,7 +877,6 @@
     .profile-header-name {
         font-size: 2.6em;
         width: auto;
-        color: <?php echo $textcolor ?>;
     }
 
     .profile-profile-pic {
@@ -901,7 +900,7 @@
         width: 50%;
         margin: auto;
         transform: translateY(-205px);
-        margin-bottom: 25px;
+        margin-bottom:25px;
     }
 
     #bio {
@@ -909,7 +908,6 @@
         margin: auto;
         text-align: center;
         transform: translateY(-215px);
-        color: <?php echo $textcolor ?>;
     }
 
     #profile-stats {
@@ -1461,7 +1459,7 @@
         border-bottom-left-radius: 5px;
     }
 
-    .religion-follow-action button {
+    .religion-follow-action form {
         border: 0px;
     }
 /*************** MESSAGES ****************/
@@ -1638,10 +1636,10 @@
         border-bottom: none;
         max-height: 200px;
         overflow: auto;
-        color: <?php echp $textcolo ?>;
+        color: <?php echp $textcolo ?>
     }
 
-    .autocomplete-uni-item:hover {
+    .autocomplete-uni-item:hover{
         cursor: pointer;
         background-color: <?php echo $backgroundcolor?>;
     }
@@ -1883,6 +1881,7 @@
         .index-body {
             width: 96%;
             padding-top: 135px;
+            display:
         }
 
         .settings-index-body {
@@ -1921,7 +1920,6 @@
             width: 92%;
             margin-left: 5%;
         }
-
     /****** HEADER ******/
 
         /* Hide old menu */
@@ -2494,8 +2492,8 @@
             margin-left:20px;
         }
 
-        .message-preview-img {
-            display: block;
+        .message-preview-img{
+            display:block;
         }
 
         .messages-users{
@@ -2521,7 +2519,7 @@
         }
 
         #user-searchautocomplete-list {
-            width: 22.2%;
+            width: calc(90% - 7px);
         }
 
         .messages-default {
