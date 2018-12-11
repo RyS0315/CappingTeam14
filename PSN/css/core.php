@@ -1918,7 +1918,8 @@
         .imglarge-box {
             width: 92%;
             margin-left: 5%;
-
+        }
+        
     /****** HEADER ******/
 
         /* Hide old menu */
