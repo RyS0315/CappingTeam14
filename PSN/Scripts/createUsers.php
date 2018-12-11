@@ -1,5 +1,4 @@
 <?php
-    header('Location:../index.php');
     require '../config/ApplicationTop.php';
 
     $username = generateRandomString();

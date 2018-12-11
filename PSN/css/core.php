@@ -20,8 +20,9 @@
                   'buttoncolor'=>'#a415df',
                   'buttonhover'=>'#8405af',
                   'buttontext'=>'#f3e1ff',
-                  'commentbox'=>'#fbfbfb'],
-        'DARK' =>['background'=>'#140026',
+                  'commentbox'=>'#fbfbfb'
+                ],
+        'DARK'=>['background'=>'#140026',
                   'text'=>'rgba(255,255,255,.65)',
                   'boxcolor'=>'#1b0036',
                   'link'=>'rgba(200,0,200,.65)',
@@ -31,7 +32,8 @@
                   'buttoncolor'=>'#a415df',
                   'buttonhover'=>'#8405af',
                   'buttontext'=>'#ffffff',
-                  'commentbox'=>'#320942'],
+                  'commentbox'=>'#320942'
+                ],
         'GOLD'=>['background'=>'#ffff66',
                   'text'=>'rgba(0,0,0,.65)',
                   'boxcolor'=>'#ffff12',
@@ -42,7 +44,8 @@
                   'buttoncolor'=>'#a415df',
                   'buttonhover'=>'#8405af',
                   'buttontext'=>'#f3e1ff',
-                  'commentbox'=>'#ffff88'],
+                  'commentbox'=>'#ffff88'
+            ]
     ];
     $chosen = 'LIGHT';
     if($id != ''){
@@ -1636,7 +1639,11 @@
         border-bottom: none;
         max-height: 200px;
         overflow: auto;
+<<<<<<< HEAD
         color: <?php echp $textcolo ?>
+=======
+        color: <?php echo $textcolor ?>;
+>>>>>>> 4b18dba8e3478e5adddb058bb791d285fb7d3371
     }
 
     .autocomplete-uni-item:hover{
