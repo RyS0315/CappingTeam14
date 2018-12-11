@@ -2521,6 +2521,10 @@
             width: 22.2%;
         }
 
+        .messages-default {
+            height: 516px;
+        }
+
       /****** LOGIN ******/
         .pray-desc {
             width: 92%;
