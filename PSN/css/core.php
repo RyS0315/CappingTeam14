@@ -42,7 +42,7 @@
                   'buttoncolor'=>'#a415df',
                   'buttonhover'=>'#8405af',
                   'buttontext'=>'#f3e1ff',
-                  'commentbox'=>'#ffff88'],
+                  'commentbox'=>'#ffff88']
     ];
     $chosen = 'LIGHT';
     if($id != ''){
