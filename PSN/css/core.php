@@ -904,7 +904,7 @@
         width: 50%;
         margin: auto;
         transform: translateY(-205px);
-        margin-bottom:25px;
+        margin-bottom: 25px;
     }
 
     #bio {
@@ -1644,7 +1644,7 @@
         color: <?php echo $textcolor ?>;
     }
 
-    .autocomplete-uni-item:hover{
+    .autocomplete-uni-item:hover {
         cursor: pointer;
         background-color: <?php echo $backgroundcolor?>;
     }
@@ -1886,7 +1886,6 @@
         .index-body {
             width: 96%;
             padding-top: 135px;
-            display:
         }
 
         .settings-index-body {
@@ -2498,8 +2497,8 @@
             margin-left:20px;
         }
 
-        .message-preview-img{
-            display:block;
+        .message-preview-img {
+            display: block;
         }
 
         .messages-users{
