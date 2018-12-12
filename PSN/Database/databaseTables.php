@@ -1,5 +1,5 @@
 <?php
-// header('location:../index.php');
+header('location:../index.php');
     class Table{
 
         protected $db;//Sets the Database -- Allows for queries in this class

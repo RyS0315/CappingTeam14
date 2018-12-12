@@ -1,5 +1,5 @@
 <?php
-// header('location:../index.php');
+header('location:../index.php');
     include '../config/dbconfig.php';
     include '../config/permissions.php';
     include '../config/functions.php';
