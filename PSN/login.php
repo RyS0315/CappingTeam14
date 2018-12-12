@@ -65,5 +65,8 @@ $menus = [
                of Prayers, comments, and messages</p>
         </div>
     </section>
-</body>
-</html>
+
+ <?php
+    $footer = new Footer($db,$src);//Initialize the footer class
+    $footer->buildFooter();//End file
+?>

@@ -1,7 +1,5 @@
 <?php
-    include 'config/dbconfig.php';
-    include 'config/permissions.php';
-    include 'config/functions.php';
+    require 'config/ApplicationTop.php';
     $securityquests = ['What was the name of your childhood pet?',
                        'What was the model of your first car?',
                        'What is your mothers maiden name?',
@@ -196,25 +194,12 @@
     $message['username'] = isset($message['username']) ? $message['username'] : '';
     $message['password'] = isset($message['password']) ? $message['password'] : '';
     $message['security'] = isset($message['security']) ? $message['security'] : '';
+
+
+    $title = "P.R.A.Y.";
+    $header = new Header($db, $menus, $title, $css);
+    $header->displayHeader();
 ?>
-
-<html>
-    <head>
-        <title>PSN-Login</title>
-        <link rel='shortcut icon' href='images/icons/favicon.png'>
-</head>
-<link rel='stylesheet' type='text/css' href='css/core.php'>
-<link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
-<body>
-<section class='header login'>
-        <div class='header-box'>
-            <ul>
-                <li class='header-link'>
-                <a href='login.php'>Home</a></li>
-            </ul>
-        </div>
-    </section>
-
     <section class='newaccount-body'>
         <div class='newaccount-form-box'>
             <h2>Step One - Login Information</h2>
@@ -222,12 +207,18 @@
                 <div class='verifyerror' >
                     <?php echo $message['first'] ?>
                 </div>
-                <input type='text' name='firstname' placeholder='First Name' value=<?php echo $first_ph?> >
-                <input type='text' name='lastname' placeholder='Last Name' value=<?php echo $last_ph?> >
+                <input type='text' name='firstname' placeholder='First Name' value='<?php echo $first_ph?>'
+                       onKeyDown = 'if(!checkNameLength(this) && (event.keyCode != 8)){return false} 
+                                    if (event.keyCode === 32) {return false;}' >
+                <input type='text' name='lastname' placeholder='Last Name' value='<?php echo $last_ph?>'
+                       onKeyDown = 'if(!checkNameLength(this) && (event.keyCode != 8)){return false} 
+                                    if (event.keyCode === 32) {return false;}' >
                 <div class='verifyerror' >
                     <?php echo $message['username'] ?>
                 </div>
-                <input type='text' name='username' placeholder='Username' value=<?php echo $username_ph?>>
+                <input type='text' name='username' placeholder='Username' value='<?php echo $username_ph?>'
+                       onKeyDown = 'if(!checkUsernameLength(this) && (event.keyCode != 8)){return false} 
+                                    if (event.keyCode === 32) {return false;}'>
                 <div class='verifyerror' >
                     <?php echo $message['password'] ?>
                 </div>
@@ -251,10 +242,12 @@
                 <button name='submit' type='submit' class='submit-button'>Create Account</button>
             </form>
         </div>
-    </section>
-</body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <?php
+    $footer = new Footer($db,$src);//Initialize the footer class
+    $footer->buildFooter();//End file
+?>
+
 <script>
     function checkPassword(){
         var password = document.getElementById('password');
@@ -300,5 +293,4 @@
             $(failed).fadeOut();
         }
     }
-
 </script>

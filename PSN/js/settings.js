@@ -35,3 +35,25 @@ function updateBanner(input){
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+function checkUsernameLength(inp){
+        var len = inp.value.length;
+        if(len >= 12){
+            var value = inp.value;
+            value = value.substring(0, 12);
+            inp.value = value;
+            return false;
+        }
+        return true;
+}
+
+function checkNameLength(inp){
+    var len = inp.value.length;
+    if(len >= 20){
+        var value = inp.value;
+        value = value.substring(0, 20);
+        inp.value = value;
+        return false;
+    }
+    return true;
+}

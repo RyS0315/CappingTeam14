@@ -14,6 +14,8 @@ if($id == 1){
     $username = "Admin";
 }
 
+$username = substr($username , 0, 12);
+
 $bio = isset($_POST['bio']) ? cleanVar($_POST['bio']) : $curUserInfo[0]['bio'];
 
 //upload profile image

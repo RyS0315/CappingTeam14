@@ -64,7 +64,12 @@
     <div class='account-settings-box'>
         <form method='post' action='php/updateAccountSettings.php' enctype='multipart/form-data'>
             <h3 class='settings-header'>Username</h3>
-            <input type='text' name='username' value=<?php echo $userinfo[0]['username'] ?>>
+            <input type='text' 
+                   name='username' 
+                   value=<?php echo $userinfo[0]['username'] ?>
+                   onKeyDown = 'if(!checkUsernameLength(this) && (event.keyCode != 8)){return false} 
+                                if (event.keyCode === 32) {return false;}'
+            >
     </div>
     <div class='account-settings-box settings-pictures-box'>
         <div class='settings-profile-pic-box'>
