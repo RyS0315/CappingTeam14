@@ -53,7 +53,7 @@
             $name = $file['name'];
             $ext = end((explode(".", $name))); # extra () to prevent notice
             echo "Extension -- " . $ext;
-            $validexts = ['gif', 'jpg', 'png'];
+            $validexts = ['gif', 'jpg', 'png', 'GIF'];
             foreach($validexts as $i){
                 if($ext == $i){
                     return $ext;
