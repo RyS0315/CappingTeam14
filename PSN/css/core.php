@@ -880,6 +880,7 @@
     .profile-header-name {
         font-size: 2.6em;
         width: auto;
+        color: <?php echo $textcolor ?>;
     }
 
     .profile-profile-pic {
@@ -911,6 +912,7 @@
         margin: auto;
         text-align: center;
         transform: translateY(-215px);
+        color: <?php echo $textcolor ?>;
     }
 
     #profile-stats {
