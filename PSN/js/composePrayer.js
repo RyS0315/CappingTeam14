@@ -57,6 +57,7 @@ function readURL(input) {
 function addTag(inp){
     var tagval = inp.value;
     var check = document.getElementById('tag--'+tagval);
+    tagval = tagval.replace('#', '');
     if(check == null){
         var dest = document.getElementById('cur-tags');
         var newdiv = document.createElement("DIV");
