@@ -2374,7 +2374,7 @@
 
     /****** CREATE ACCOUNT ******/
         .religion-box {
-            width: 44%;
+            width: 42%;
             margin-right: 20px;
             margin-bottom: 20px;
         }
@@ -2540,5 +2540,11 @@
         .login-body {
             width: 92%;
             margin-right: 4%;
+        }
+
+        .religion-box {
+            width: 68%;
+            margin-left: 16%;
+            margin-right: 16%;
         }
     }
